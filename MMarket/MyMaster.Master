@@ -1,0 +1,52 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.master.cs" Inherits="MMarket.MyMaster" %>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.slim.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <link href="css/MasterStyle.css" rel="stylesheet" />
+    <link href="css/nav_sec.css" rel="stylesheet" />
+    <script src="Scripts/scrip-1.0.js"></script>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <title>MaritaMarket</title>
+
+</head>
+<body>
+    <nav id="top_nav" class="MasCon navbar-fixed-top" style=" width: 100%;">
+        <a href="Home.aspx"><i><img src="Images/Logo.png" width="100" /></i></a>
+                    <a href="Kontakt.aspx">Contact</a>
+                    <a href="#about">About us</a>
+                    <a id="modal_trigger" href="#modal" style="float: right">Login or Register</a>
+                    <a href="#gallery" style="float: right">Shop</a>
+        
+                   </nav>
+    
+    <form id="form1" runat="server">
+    <div id="content_div" style="background-image: url('Images/Oriental Background.jpg')">
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+        <nav id="nav_sec" class="MasConSec col-lg-12">
+            <a href="#contact">Smrznuta Hrana</a>
+            <a href="#about">Sirevi</a>
+            <a href="#contact">Konzervirana Hrana</a>
+            <a href="#about">Žitarice</a>
+            <a href="zacini.aspx">Začini</a>
+            <a href="#about">Slatkiši i Grickalice</a>
+            <a href="#contact">Datulje</a>
+            <a href="#about">Čajevi i Kave</a>
+        </nav>
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
