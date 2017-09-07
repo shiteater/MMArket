@@ -41,7 +41,7 @@
             <a href="zacini.aspx">Začini</a>
             <a href="#about">Slatkiši i Grickalice</a>
             <a href="#contact">Datulje</a>
-            <a href="#about">Čajevi i Kave</a>
+            <a href="KavaCaj.aspx">Čajevi i Kave</a>
         </nav>
 
         <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
