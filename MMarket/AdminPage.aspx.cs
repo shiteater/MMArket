@@ -13,58 +13,99 @@ namespace MMarket
 {
     public partial class AdminPage : System.Web.UI.Page
     {
+        string finalFilename = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Admin"] == null)
+            {
+                Response.Redirect("Home.aspx");
+            }
 
+            if (IsPostBack && ((FileUpload)DetailsView1.Rows[5].Cells[1].FindControl("FileUpload1")) != null)
+            {
+                if (((FileUpload)DetailsView1.Rows[5].Cells[1].FindControl("FileUpload1")).FileName != string.Empty)
+                {
+                    finalFilename = String.Format("{0}.jpeg", Guid.NewGuid().ToString());
+                    ((TextBox)DetailsView1.Rows[5].Cells[1].FindControl("TextBox4")).Text = finalFilename;
+                }
+            }
         }
 
-        protected string ProcessImage(byte[] avatarBytes)
+        protected bool ProcessImage(byte[] imageBytes, string filename)
         {
-            ISupportedImageFormat format = new JpegFormat() { Quality = 100 };
-            //Size size = new Size(150, 150);
-            using (MemoryStream inStream = new MemoryStream(avatarBytes))
+            try
             {
-                using (MemoryStream outStream = new MemoryStream())
+                ISupportedImageFormat format = new JpegFormat() { Quality = 100 };
+                //Size size = new Size(150, 150);
+                using (MemoryStream inStream = new MemoryStream(imageBytes))
                 {
-                    using (ImageFactory ifac = new ImageFactory(true))
+                    using (MemoryStream outStream = new MemoryStream())
                     {
-                        //ifac.Load(inStream).Resize(size).Format(format).Save(outStream);
-                        ifac.Load(inStream)
-                            .Format(format)
-                            .Save(outStream);
+                        using (ImageFactory ifac = new ImageFactory(true))
+                        {
+                            //ifac.Load(inStream).Resize(size).Format(format).Save(outStream);
+                            ifac.Load(inStream)
+                                .Format(format)
+                                .Save(outStream);
 
-                        var filename = Guid.NewGuid().ToString();
-                        var ext = "jpeg";
+                            var img = System.Drawing.Image.FromStream(outStream);
 
-                        var fullFilename = String.Format("{0}.{1}", filename, ext);
+                            var savePath =
+                                Path.Combine(Server.MapPath("~/Images/"), filename);
 
-                        var img = System.Drawing.Image.FromStream(outStream);
+                            img.Save(savePath);
 
-                        var savePath =
-                            Path.Combine(Server.MapPath("~/Images/"), fullFilename);
-
-                        img.Save(savePath);
-
-                        return fullFilename;
+                            return true;
+                        }
                     }
                 }
             }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
+        protected void DetailsView1_ItemInserting(object sender, DetailsViewInsertEventArgs e)
+        {
+            var ImageFilename = ((FileUpload)DetailsView1.Rows[5].Cells[1].FindControl("FileUpload1")).FileName;
+            var ImageBytes = ((FileUpload)DetailsView1.Rows[5].Cells[1].FindControl("FileUpload1")).FileBytes;
 
+            float cijenaTest;
+            if (ImageFilename == string.Empty || string.IsNullOrWhiteSpace(((TextBox)DetailsView1.Rows[1].Cells[1].FindControl("TextBox1")).Text)
+                || string.IsNullOrWhiteSpace(((TextBox)DetailsView1.Rows[2].Cells[1].FindControl("TextBox2")).Text)
+                || !float.TryParse(((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox3")).Text, out cijenaTest))
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                if (ProcessImage(ImageBytes, finalFilename))
+                {
 
-            throw new NotImplementedException();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
+                
+            }
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            var filePath = Server.MapPath("~/Images/" + ((Label)GridView1.Rows[e.RowIndex].Cells[6].FindControl("Label3")).Text);
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            var ImageFilename = ImageUpload.FileName;
-            var ImageBytes = ImageUpload.FileBytes;
-
-            if (ImageFilename != string.Empty)
-            {
-                ImageFilename = ProcessImage(ImageBytes);
-                Image1.ImageUrl = "~/Images/" + ImageFilename;
-            }
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Home.aspx");
         }
     }
 }
