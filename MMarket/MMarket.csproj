@@ -70,13 +70,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
+    <Content Include="CajeviKave.aspx" />
     <Content Include="css\MasterStyle.css" />
+    <Content Include="css\LoginStyle.css" />
+    <Content Include="Datulje.aspx" />
+    <Content Include="Images\datulje.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Oriental Background.jpg" />
-    <Content Include="Images\zacini.JPG" />
+    <Content Include="Images\zacini.jpg" />
+    <Content Include="js\modal.js" />
+    <Content Include="KonzerviranaHrana.aspx" />
     <Content Include="Scripts\scrip-1.0.js" />
     <Content Include="MyMaster.Master" />
+    <Content Include="Sirevi.aspx" />
+    <Content Include="SlatkisiGrickalice.aspx" />
+    <Content Include="SmrznutaHrana.aspx" />
     <Content Include="zacini.aspx" />
+    <Content Include="Zitarice.aspx" />
     <None Include="packages.config" />
     <Content Include="css\nav_sec.css" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
@@ -133,6 +143,20 @@
     <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CajeviKave.aspx.cs">
+      <DependentUpon>CajeviKave.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CajeviKave.aspx.designer.cs">
+      <DependentUpon>CajeviKave.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Datulje.aspx.cs">
+      <DependentUpon>Datulje.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Datulje.aspx.designer.cs">
+      <DependentUpon>Datulje.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +171,13 @@
     <Compile Include="Kontakt.aspx.designer.cs">
       <DependentUpon>Kontakt.aspx</DependentUpon>
     </Compile>
+    <Compile Include="KonzerviranaHrana.aspx.cs">
+      <DependentUpon>KonzerviranaHrana.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="KonzerviranaHrana.aspx.designer.cs">
+      <DependentUpon>KonzerviranaHrana.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyMaster.Master.cs">
       <DependentUpon>MyMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +186,27 @@
       <DependentUpon>MyMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sirevi.aspx.cs">
+      <DependentUpon>Sirevi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Sirevi.aspx.designer.cs">
+      <DependentUpon>Sirevi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SlatkisiGrickalice.aspx.cs">
+      <DependentUpon>SlatkisiGrickalice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SlatkisiGrickalice.aspx.designer.cs">
+      <DependentUpon>SlatkisiGrickalice.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SmrznutaHrana.aspx.cs">
+      <DependentUpon>SmrznutaHrana.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SmrznutaHrana.aspx.designer.cs">
+      <DependentUpon>SmrznutaHrana.aspx</DependentUpon>
+    </Compile>
     <Compile Include="zacini.aspx.cs">
       <DependentUpon>zacini.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -162,11 +214,15 @@
     <Compile Include="zacini.aspx.designer.cs">
       <DependentUpon>zacini.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Zitarice.aspx.cs">
+      <DependentUpon>Zitarice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Zitarice.aspx.designer.cs">
+      <DependentUpon>Zitarice.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\Kategorija1\" />
-    <Folder Include="js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

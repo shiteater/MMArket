@@ -10,7 +10,7 @@
 namespace MMarket {
     
     
-    public partial class zacini {
+    public partial class Datulje {
         
         /// <summary>
         /// Image2 control.
