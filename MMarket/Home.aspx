@@ -194,10 +194,16 @@
         
         <div class="col-lg-6 col-md-8 col-sm-12">
             <div class="row">
-        <div class="col-lg-12">
+                <div class="col-md-4">
+                    <br />
+                    Marita Market<br />
+                    01 999 9999<br />
+                    mm@email.com<br />
+                    </div>
+        <div class="col-md-8">
 
-    <div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.15947314275!2d15.93905251556764!3d45.76799417910569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d43ba34f8727%3A0xe97ed758c57f65b!2sMarita+Market!5e0!3m2!1shr!2shr!4v1504394070429" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.15947314275!2d15.93905251556764!3d45.76799417910569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d43ba34f8727%3A0xe97ed758c57f65b!2sMarita+Market!5e0!3m2!1shr!2shr!4v1504394070429"></iframe>
      </div>
 
     </div>

@@ -74,6 +74,7 @@
     <Content Include="css\MasterStyle.css" />
     <Content Include="css\LoginStyle.css" />
     <Content Include="Datulje.aspx" />
+    <Content Include="home2.aspx" />
     <Content Include="Images\datulje.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Oriental Background.jpg" />
@@ -162,6 +163,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home2.aspx.cs">
+      <DependentUpon>home2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home2.aspx.designer.cs">
+      <DependentUpon>home2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Kontakt.aspx.cs">
       <DependentUpon>Kontakt.aspx</DependentUpon>
