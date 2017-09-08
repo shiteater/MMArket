@@ -10,7 +10,7 @@
             <h2>Proizvodi na AKCIJI</h2>
         </div>
     <div id="superDIV" runat="server">
-        <div id="ContentPlaceHolder2_newSuperDIV2" class="col-lg-3 col-md-4 col-sm-6">
+        <div id="ContentPlaceHolder2_newSuperDIV2" class="col-lg-4 col-md-6 ">
             <a href="Images/1.jpg" class="thumbnail">
                 <p>Chrysanthemum</p>
                 <img src="Images/1.jpg" />
