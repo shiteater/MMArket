@@ -88,7 +88,6 @@
     <Content Include="zacini.aspx" />
     <Content Include="Zitarice.aspx" />
     <None Include="packages.config" />
-    <Content Include="css\nav_sec.css" />
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <None Include="Web.Debug.config">

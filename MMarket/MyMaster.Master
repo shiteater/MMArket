@@ -10,7 +10,6 @@
     <script src="Scripts/jquery-3.1.1.slim.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="css/MasterStyle.css" rel="stylesheet" />
-    <link href="css/nav_sec.css" rel="stylesheet" />
     <link href="css/LoginStyle.css" rel="stylesheet" />
     <script src="Scripts/scrip-1.0.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -23,14 +22,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <nav id="top_nav" class="MasCon navbar-fixed-top" style="width: 100%;">
-        <a href="Home.aspx"><i><img src="Images/Logo.png" width="100" /></i></a>
+    <nav id="top_nav" class="MasCon navbar-fixed-top">
+        <a href="Home.aspx"><img src="Images/Logo.png" width="100" /></a>
         <a href="Kontakt.aspx">Contact</a>
         <a href="#about">About us</a>
-        <a href="#" id="btnLogout" style="float: right" runat="server" onserverclick="BtnLogout_Click">Logout</a>
+        <a href="#" id="btnLogout" style="float: right" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
             <a id="modal_trigger" href="#modal" style="float: right" runat="server">Login or Register</a>
         <a href="#gallery" style="float: right">Shop</a>
         <a id="adminLink" href="AdminPage.aspx" style="float: right" runat="server">Admin Page</a>
+        </nav>
 
             <div id="modal" class="popupContainer" style="display:none">
 				<header class="popupHeader">
@@ -147,11 +147,9 @@
 				</section>
 		</div>
         <script src="js/modal.js"></script>
-        
-                   </nav>
     
     
-    <div id="content_div" style="background-image: url('Images/Oriental Background.jpg')">
+    <div id="content_div" style="background-image: url('Images/Oriental Background.jpg'); margin-top: 50px;">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
