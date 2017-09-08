@@ -4,7 +4,21 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="None" ShowHeader="False" DataSourceID="SqlDataSource1" EmptyDataText="Nema niti jednog proizvoda u ovoj kategoriji" GridLines="None" HorizontalAlign="Center">
+ 
+    <div class="row" style="width:100%">
+        <div class="col-lg-12">
+            <h2>Proizvodi na AKCIJI</h2>
+        </div>
+    <div id="superDIV" runat="server">
+        <div id="ContentPlaceHolder2_newSuperDIV2" class="col-lg-3 col-md-4 col-sm-6">
+            <a href="Images/1.jpg" class="thumbnail">
+                <p>Chrysanthemum</p>
+                <img src="Images/1.jpg" />
+            </a></div>
+        </div>
+        </div>
+  
+    <%--   <<%--asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="None" ShowHeader="False" DataSourceID="SqlDataSource1" EmptyDataText="Nema niti jednog proizvoda u ovoj kategoriji" GridLines="None" HorizontalAlign="Center">
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
@@ -34,6 +48,6 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
-    </asp:GridView>
+    </asp:GridView>--%>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" SelectCommand="SELECT [Naziv], [Opis], [Cijena], [Lokacija] FROM [Proizvodi] WHERE [Kategorija] LIKE 'cajevi i kave'"></asp:SqlDataSource>
 </asp:Content>

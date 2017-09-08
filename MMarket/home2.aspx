@@ -17,14 +17,14 @@
 
                     <div class="carousel-inner">
                         <div class="item active">
-                                    <a href="Images/1.jpg"><img src="Images/1.jpg" class="img-responsive">
+                                    <a href="Images/1.jpg"><img src="Images/test.jpg" class="img-responsive">
                                     <div class="carousel-caption">
                                         <h3>Desert</h3>
                                         <p>Desert Image Description</p>
                                     </div></a>
                                 </div>
                         <div class="item">
-                                    <a href="Images/2.jpg"><img src="Images/2.jpg" class="img-responsive">
+                                    <a href="Images/2.jpg"><img src="Images/test.jpg" class="img-responsive">
                                     <div class="carousel-caption">
                                         <h3>Jellyfish</h3>
                                         <p>Jellyfish Image Description</p>
@@ -32,7 +32,7 @@
 
                                 </div>
                         <div class="item">
-                                    <a href="Images/3.jpg"><img src="Images/3.jpg" class="img-responsive">
+                                    <a href="Images/3.jpg"><img src="Images/test.jpg" class="img-responsive">
                                     <div class="carousel-caption">
                                         <h3>Penguins</h3>
                                         <p>Penguins Image Description</p>

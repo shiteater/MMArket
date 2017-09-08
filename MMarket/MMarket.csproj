@@ -78,6 +78,8 @@
     <Content Include="Images\datulje.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Oriental Background.jpg" />
+    <Content Include="Images\rsz_1coffe.jpg" />
+    <Content Include="Images\test.jpg" />
     <Content Include="Images\zacini.jpg" />
     <Content Include="js\modal.js" />
     <Content Include="KonzerviranaHrana.aspx" />
