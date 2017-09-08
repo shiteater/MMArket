@@ -16,14 +16,12 @@ namespace MMarket
             {
                 modal_trigger.Visible = false;
                 adminLink.Visible = true;
-                //btnLogout.ServerClick += btnLogout_Click;
                 btnLogout.Visible = true;
             }
             else
             {
                 adminLink.Visible = false;
                 modal_trigger.Visible = true;
-                //btnLogout.ServerClick -= btnLogout_Click;
                 btnLogout.Visible = false;
             }
         }
