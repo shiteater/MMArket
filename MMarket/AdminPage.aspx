@@ -41,7 +41,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Kategorija" SortExpression="Kategorija">
                         <InsertItemTemplate>
-                            <asp:DropDownList ID="DropDownList3" runat="server" Text='<%# Bind("Kategorija") %>'>
+                            <asp:DropDownList ID="DropDownList4" runat="server" Text='<%# Bind("Kategorija") %>'>
                                 <asp:ListItem>smrznuto</asp:ListItem>
                                 <asp:ListItem>sirevi</asp:ListItem>
                                 <asp:ListItem>konzerve</asp:ListItem>
@@ -50,30 +50,43 @@
                                 <asp:ListItem>slatkisi i grickalice</asp:ListItem>
                                 <asp:ListItem>datulje</asp:ListItem>
                                 <asp:ListItem>cajevi i kave</asp:ListItem>
+                                <asp:ListItem>pica</asp:ListItem>
+                                <asp:ListItem>kozmetika</asp:ListItem>
                             </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label7" runat="server" Text='<%# Bind("Kategorija") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Lokacija" SortExpression="Lokacija">
+                    <asp:TemplateField HeaderText="NazFile" SortExpression="NazFile">
                         <InsertItemTemplate>
                             <asp:FileUpload ID="FileUpload1" runat="server" />
-                            <asp:TextBox ID="TextBox4" runat="server" ReadOnly="True" Text='<%# Bind("Lokacija") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox4" runat="server" ReadOnly="True" Text='<%# Bind("NazFile") %>'></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Lokacija") %>'></asp:Label>
+                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Akcija" SortExpression="Akcija">
                         <InsertItemTemplate>
-                            <asp:DropDownList ID="DropDownList4" runat="server" Text='<%# Bind("Akcija") %>'>
+                            <asp:DropDownList ID="DropDownList5" runat="server" Text='<%# Bind("Akcija") %>'>
                                 <asp:ListItem>nije</asp:ListItem>
                                 <asp:ListItem>je</asp:ListItem>
                             </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label8" runat="server" Text='<%# Bind("Akcija") %>'></asp:Label>
+                            <asp:Label ID="Label9" runat="server" Text='<%# Bind("Akcija") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Najprodavaniji" SortExpression="Najprodavaniji">
+                        <InsertItemTemplate>
+                            <asp:DropDownList ID="DropDownList6" runat="server" Text='<%# Bind("Najprodavaniji") %>'>
+                                <asp:ListItem>nije</asp:ListItem>
+                                <asp:ListItem>je</asp:ListItem>
+                            </asp:DropDownList>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label10" runat="server" Text='<%# Bind("Najprodavaniji") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:CommandField ShowInsertButton="True" />
@@ -98,18 +111,20 @@
                                 <asp:ListItem>slatkisi i grickalice</asp:ListItem>
                                 <asp:ListItem>datulje</asp:ListItem>
                                 <asp:ListItem>cajevi i kave</asp:ListItem>
+                                <asp:ListItem>pica</asp:ListItem>
+                                <asp:ListItem>kozmetika</asp:ListItem>
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label1" runat="server" Text='<%# Bind("Kategorija") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
-                    <asp:TemplateField HeaderText="Lokacija" SortExpression="Lokacija">
+                    <asp:TemplateField HeaderText="NazFile" SortExpression="NazFile">
                         <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("Lokacija") %>'></asp:Label>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("Lokacija") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Akcija" SortExpression="Akcija">
@@ -123,9 +138,20 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("Akcija") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Najprodavaniji" SortExpression="Najprodavaniji">
+                        <EditItemTemplate>
+                            <asp:DropDownList ID="DropDownList3" runat="server" Text='<%# Bind("Najprodavaniji") %>'>
+                                <asp:ListItem>nije</asp:ListItem>
+                                <asp:ListItem>je</asp:ListItem>
+                            </asp:DropDownList>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Najprodavaniji") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvodi] WHERE [idProizvod] = @idProizvod" InsertCommand="INSERT INTO [Proizvodi] ([Naziv], [Opis], [Cijena], [Kategorija], [Lokacija], [Akcija]) VALUES (@Naziv, @Opis, @Cijena, @Kategorija, @Lokacija, @Akcija)" SelectCommand="SELECT * FROM [Proizvodi]" UpdateCommand="UPDATE [Proizvodi] SET [Naziv] = @Naziv, [Opis] = @Opis, [Cijena] = @Cijena, [Kategorija] = @Kategorija, [Lokacija] = @Lokacija, [Akcija] = @Akcija WHERE [idProizvod] = @idProizvod">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvodi] WHERE [idProizvod] = @idProizvod" InsertCommand="INSERT INTO [Proizvodi] ([Naziv], [Opis], [Cijena], [Kategorija], [NazFile], [Akcija], [Najprodavaniji]) VALUES (@Naziv, @Opis, @Cijena, @Kategorija, @NazFile, @Akcija, @Najprodavaniji)" SelectCommand="SELECT * FROM [Proizvodi]" UpdateCommand="UPDATE [Proizvodi] SET [Naziv] = @Naziv, [Opis] = @Opis, [Cijena] = @Cijena, [Kategorija] = @Kategorija, [NazFile] = @NazFile, [Akcija] = @Akcija, [Najprodavaniji] = @Najprodavaniji WHERE [idProizvod] = @idProizvod">
                 <DeleteParameters>
                     <asp:Parameter Name="idProizvod" Type="Int32" />
                 </DeleteParameters>
@@ -134,16 +160,18 @@
                     <asp:Parameter Name="Opis" Type="String" />
                     <asp:Parameter Name="Cijena" Type="Double" />
                     <asp:Parameter Name="Kategorija" Type="String" />
-                    <asp:Parameter Name="Lokacija" Type="String" />
+                    <asp:Parameter Name="NazFile" Type="String" />
                     <asp:Parameter Name="Akcija" Type="String" />
+                    <asp:Parameter Name="Najprodavaniji" Type="String" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="Naziv" Type="String" />
                     <asp:Parameter Name="Opis" Type="String" />
                     <asp:Parameter Name="Cijena" Type="Double" />
                     <asp:Parameter Name="Kategorija" Type="String" />
-                    <asp:Parameter Name="Lokacija" Type="String" />
+                    <asp:Parameter Name="NazFile" Type="String" />
                     <asp:Parameter Name="Akcija" Type="String" />
+                    <asp:Parameter Name="Najprodavaniji" Type="String" />
                     <asp:Parameter Name="idProizvod" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>

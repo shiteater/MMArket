@@ -80,6 +80,8 @@
     <Content Include="Images\zacini.jpg" />
     <Content Include="js\modal.js" />
     <Content Include="KonzerviranaHrana.aspx" />
+    <Content Include="Kozmetika.aspx" />
+    <Content Include="Pica.aspx" />
     <Content Include="Scripts\scrip-1.0.js" />
     <Content Include="MyMaster.Master" />
     <Content Include="Sirevi.aspx" />
@@ -177,12 +179,26 @@
     <Compile Include="KonzerviranaHrana.aspx.designer.cs">
       <DependentUpon>KonzerviranaHrana.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Kozmetika.aspx.cs">
+      <DependentUpon>Kozmetika.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Kozmetika.aspx.designer.cs">
+      <DependentUpon>Kozmetika.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MyMaster.Master.cs">
       <DependentUpon>MyMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="MyMaster.Master.designer.cs">
       <DependentUpon>MyMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pica.aspx.cs">
+      <DependentUpon>Pica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pica.aspx.designer.cs">
+      <DependentUpon>Pica.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sirevi.aspx.cs">

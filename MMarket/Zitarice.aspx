@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster.Master" AutoEventWireup="true" CodeBehind="Zitarice.aspx.cs" Inherits="MMarket.Zitarice" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -8,7 +7,7 @@
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:Image ID="Image1" CssClass="img-responsive" runat="server" ImageUrl='<%# Eval("Lokacija", "~/Images/{0}") %>' />
+                    <asp:Image ID="Image1" CssClass="img-responsive" runat="server" ImageUrl='<%# Eval("NazFile", "~/Images/{0}") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>
@@ -35,5 +34,5 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" SelectCommand="SELECT [Naziv], [Opis], [Cijena], [Lokacija] FROM [Proizvodi] WHERE [Kategorija] LIKE 'zitarice'"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" SelectCommand="SELECT [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE 'zitarice'"></asp:SqlDataSource>
 </asp:Content>
