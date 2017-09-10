@@ -58,7 +58,7 @@ namespace MMarket
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 HtmlGenericControl itemDiv = new HtmlGenericControl();
-                itemDiv.Attributes["class"] = "col-lg-3 col-md-4 col-sm-6";
+                itemDiv.Attributes["class"] = "col-lg-4 col-md-4 col-sm-6";
                 itemDiv.TagName = "div";
 
                 HtmlAnchor itemAnchor = new HtmlAnchor();
