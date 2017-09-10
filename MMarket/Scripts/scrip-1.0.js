@@ -7,4 +7,4 @@
     if ($(window).scrollTop() < Height1 + 1) {
         $('#nav_sec').removeClass('navbarsec-fixed');
     }
-  });
+});
