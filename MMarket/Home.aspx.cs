@@ -23,7 +23,7 @@ namespace MMarket
                 DoMagicNaAkciji();
             }
         }
-
+        
         private void DoMagicNaAkciji()
         {
             SqlConnection con = new SqlConnection(conString);
