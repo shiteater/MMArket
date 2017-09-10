@@ -33,13 +33,13 @@
     <div class="collapse navbar-collapse" id="nav_sec3" >
       <ul class="nav navbar-nav">
        <%--   <li class="active"><a href="#">Home</a></li>--%>
-        <li><a href="Home.aspx"><img src="Images/Logo.png" width="100" /></a></li>
-        <li><a href="Kontakt.aspx">Contact</a></li>
-        <li><a href="#about">About us</a></li>
-        <li><a href="#" id="btnLogout" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
-        <li><a id="modal_trigger" href="#modal" runat="server">Login or Register</a></li>
-        <li><a href="#gallery">Shop</a></li>
-        <li><a id="adminLink" href="AdminPage.aspx" style="float: right" runat="server">Admin Page</a></li>
+          <li><a href="Home.aspx"><img src="Images/Logo.png" width="100" /></a></li>
+          <li><a href="Kontakt.aspx">Contact</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#gallery">Shop</a></li>
+          <li><a id="adminLink" href="AdminPage.aspx" style="float: right" runat="server">Admin Page</a></li>
+          <li><a id="modal_trigger" href="#modal" runat="server">Login or Register</a></li>
+          <li><a href="#" id="btnLogout" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
       </ul>
 
     </div>

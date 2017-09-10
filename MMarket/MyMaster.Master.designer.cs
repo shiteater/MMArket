@@ -22,13 +22,13 @@ namespace MMarket {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnLogout control.
+        /// adminLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnLogout;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminLink;
         
         /// <summary>
         /// modal_trigger control.
@@ -40,13 +40,13 @@ namespace MMarket {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor modal_trigger;
         
         /// <summary>
-        /// adminLink control.
+        /// btnLogout control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor adminLink;
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor btnLogout;
         
         /// <summary>
         /// Username control.

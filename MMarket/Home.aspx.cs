@@ -40,8 +40,6 @@ namespace MMarket
 
             con.Close();
 
-            ViewState["TableAkcija"] = dt;
-
             HtmlGenericControl mainDiv = new HtmlGenericControl();
             mainDiv.Attributes["class"] = "row";
             mainDiv.TagName = "div";
@@ -116,8 +114,6 @@ namespace MMarket
 
             con.Close();
 
-            ViewState["TableNajprodavaniji"] = dt;
-
             int counter = dt.Rows.Count;
             while (counter % 3 != 0)
             {
@@ -187,64 +183,86 @@ namespace MMarket
                 DivContainer.Controls.Add(DivItem);
             }
 
-            HtmlGenericControl DivItem1 = new HtmlGenericControl();
-            DivItem1.Attributes["class"] = "item";
-            DivItem1.TagName = "div";
-
-            HtmlGenericControl subItem1 = new HtmlGenericControl();
-            subItem1.Attributes["class"] = "row";
-            subItem1.TagName = "div";
-            for (int i = 0; i < ostalo; i++)
+            if (ostalo != 0)
             {
-                HtmlGenericControl SubItem_1 = new HtmlGenericControl();
-                SubItem_1.Attributes["class"] = "col-xs-4";
-                SubItem_1.TagName = "div";
+                HtmlGenericControl DivItem1 = new HtmlGenericControl();
+                DivItem1.Attributes["class"] = "item";
+                DivItem1.TagName = "div";
 
-                HtmlAnchor anchor = new HtmlAnchor();
-                HtmlImage img = new HtmlImage();
-                img.Src = "Images/" + dt.Rows[counter].ItemArray[3];
-                img.Attributes["class"] = "img-responsive";
-                anchor.Controls.Add(img);
+                HtmlGenericControl subItem1 = new HtmlGenericControl();
+                subItem1.Attributes["class"] = "row";
+                subItem1.TagName = "div";
+                for (int i = 0; i < ostalo; i++)
+                {
+                    HtmlGenericControl SubItem_1 = new HtmlGenericControl();
+                    SubItem_1.Attributes["class"] = "col-xs-4";
+                    SubItem_1.TagName = "div";
 
-                HtmlGenericControl Div = new HtmlGenericControl();
-                Div.Attributes["class"] = "carousel-caption";
-                Div.TagName = "div";
+                    HtmlAnchor anchor = new HtmlAnchor();
+                    HtmlImage img = new HtmlImage();
+                    img.Src = "Images/" + dt.Rows[counter].ItemArray[3];
+                    img.Attributes["class"] = "img-responsive";
+                    anchor.Controls.Add(img);
 
-                HtmlGenericControl h3 = new HtmlGenericControl();
-                h3.InnerText = dt.Rows[counter].ItemArray[0].ToString();
-                h3.TagName = "h3";
+                    HtmlGenericControl Div = new HtmlGenericControl();
+                    Div.Attributes["class"] = "carousel-caption";
+                    Div.TagName = "div";
 
-                HtmlContainerControl para = new HtmlGenericControl("p");
-                para.InnerText = dt.Rows[counter].ItemArray[1].ToString();
+                    HtmlGenericControl h3 = new HtmlGenericControl();
+                    h3.InnerText = dt.Rows[counter].ItemArray[0].ToString();
+                    h3.TagName = "h3";
 
-                Div.Controls.Add(h3);
-                Div.Controls.Add(para);
+                    HtmlContainerControl para = new HtmlGenericControl("p");
+                    para.InnerText = dt.Rows[counter].ItemArray[1].ToString();
 
-                anchor.Controls.Add(Div);
+                    Div.Controls.Add(h3);
+                    Div.Controls.Add(para);
 
-                SubItem_1.Controls.Add(anchor);
-                subItem1.Controls.Add(SubItem_1);
+                    anchor.Controls.Add(Div);
 
-                ++counter;
+                    SubItem_1.Controls.Add(anchor);
+                    subItem1.Controls.Add(SubItem_1);
+
+                    ++counter;
+                }
+                DivItem1.Controls.Add(subItem1);
+                DivContainer.Controls.Add(DivItem1);
             }
-            DivItem1.Controls.Add(subItem1);
-            DivContainer.Controls.Add(DivItem1);
 
             HtmlContainerControl ol = new HtmlGenericControl("ol");
             ol.Attributes["class"] = "carousel-indicators";
 
-            for (int i = 0; i < trazeni; i++)
+            if (ostalo == 0)
             {
-                HtmlGenericControl li = new HtmlGenericControl();
-                li.Attributes["data-target"] = "#imageCarousel";
-                li.Attributes["data-slide-to"] = i.ToString();
-                if (i == 0)
+                for (int i = 0; i < trazeni; i++)
                 {
-                    li.Attributes["class"] = "active";
+                    HtmlGenericControl li = new HtmlGenericControl();
+                    li.Attributes["data-target"] = "#imageCarousel";
+                    li.Attributes["data-slide-to"] = i.ToString();
+                    if (i == 0)
+                    {
+                        li.Attributes["class"] = "active";
+                    }
+                    li.TagName = "li";
+                    ol.Controls.Add(li);
                 }
-                li.TagName = "li";
-                ol.Controls.Add(li);
             }
+            else
+            {
+                for (int i = 0; i <= trazeni; i++)
+                {
+                    HtmlGenericControl li = new HtmlGenericControl();
+                    li.Attributes["data-target"] = "#imageCarousel";
+                    li.Attributes["data-slide-to"] = i.ToString();
+                    if (i == 0)
+                    {
+                        li.Attributes["class"] = "active";
+                    }
+                    li.TagName = "li";
+                    ol.Controls.Add(li);
+                }
+            }
+            
 
             Panel2.Controls.Add(ol);
             Panel2.Controls.Add(DivContainer);
