@@ -2,6 +2,7 @@
 
 <%--Content2 je za SAMO ZA Slide Show --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    
     <div class="row">
             <div class="col-xs-12">
 

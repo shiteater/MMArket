@@ -9,7 +9,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.1.1.slim.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
-    <link href="css/MasterStyle.css" rel="stylesheet" />
+    <link href="css/MasterStyle.css" rel="stylesheet" /> 
     <link href="css/LoginStyle.css" rel="stylesheet" />
     <script src="Scripts/scrip-1.0.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" />
@@ -21,7 +21,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <nav id="top_nav" class="MasCon navbar-fixed-top">
+        
+        <nav id="top_nav" class="navbar-fixed-top">
         <a href="Home.aspx"><img src="Images/Logo.png" width="100" /></a>
         <a href="Kontakt.aspx">Contact</a>
         <a href="#about">About us</a>
@@ -153,7 +154,36 @@
         
         </asp:ContentPlaceHolder>
     </div>
-        <nav id="nav_sec" class="MasConSec">
+
+        <nav  id="nav_sec" class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
+        <span class="icon-bar "></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+
+    </div>
+    <div class="collapse navbar-collapse" id="nav_sec2" >
+      <ul class="nav navbar-nav">
+       <%--   <li class="active"><a href="#">Home</a></li>--%>
+        <li><a href="SmrznutaHrana.aspx">Smrznuta Hrana</a></li>
+        <li><a href="Sirevi.aspx">Sirevi</a></li>
+        <li> <a href="KonzerviranaHrana.aspx">Konzervirana Hrana</a></li>
+        <li><a href="Zitarice.aspx">Žitarice</a></li>
+        <li><a href="zacini.aspx">Začini</a></li>
+        <li><a href="SlatkisiGrickalice.aspx">Slatkiši i Grickalice</a></li>
+        <li><a href="Datulje.aspx">Datulje</a></li>
+        <li> <a href="CajeviKave.aspx">Čajevi i Kave</a></li>
+        <li> <a href="Pica.aspx">Pića</a></li>
+        <li><a href="Kozmetika.aspx">Kozmetika</a></li>
+      </ul>
+
+    </div>
+  </div>
+</nav>
+        <%--<nav id="nav_sec2" class="MasConSec">
             <a href="SmrznutaHrana.aspx">Smrznuta Hrana</a>
             <a href="Sirevi.aspx">Sirevi</a>
             <a href="KonzerviranaHrana.aspx">Konzervirana Hrana</a>
@@ -164,7 +194,7 @@
             <a href="CajeviKave.aspx">Čajevi i Kave</a>
             <a href="Pica.aspx">Pića</a>
             <a href="Kozmetika.aspx">Kozmetika</a>
-        </nav>
+        </nav>--%>
 
         <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
         
