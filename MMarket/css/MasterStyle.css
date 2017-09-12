@@ -3,21 +3,22 @@
     top: 50px;
     z-index: 100;
     position: fixed;
-    width: 100%;
+    width: 100%; 
 }
 .navbar-fixed-top {
-    background-color: whitesmoke;
-    border-bottom-color: whitesmoke;
+    background-color: #e3e6ec;
+    border-bottom-color: #e3e6ec;
 }
 
 .lista1 {
-    background-color: whitesmoke;
-    float:left;
+    background-color: #e3e6ec;
+    float: left;
 }
 
 .lista2 {
-    background-color: whitesmoke;
+    background-color: #e3e6ec;
     float: right;
+    margin-top: 6px;
     color: midnightblue;
 }
     .lista2 li a{
@@ -33,7 +34,11 @@
         color: lighten(#03c, 15%);
     }
 
-.navbar-Drugi {
+.navbar-toggle:hover{
+   background-color:lightblue;
+}
+
+/*.navbar-Drugi {
             width: 100%;
             height: 50px;
             background-color: midnightblue;
@@ -62,4 +67,4 @@
     .navDrugi li:hover a:hover {
         color: midnightblue;
         background-color: mediumslateblue;
-    }
+    }*/

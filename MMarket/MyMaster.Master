@@ -9,6 +9,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.1.1.slim.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="css/MasterStyle.css" rel="stylesheet" /> 
     <link href="css/LoginStyle.css" rel="stylesheet" />
     <script src="Scripts/scrip-1.0.js"></script>
@@ -25,14 +26,14 @@
           <nav  id="top_nav" class="navbar navbar-fixed-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button style="border-color:red" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec3">
-        <span style="color:red">Menu</span>                      
+      <button style="border-color:darkslateblue;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec3">
+        <span style="color:darkslateblue">Menu</span>                      
       </button>
 
     </div>
     <div class="collapse navbar-collapse" id="nav_sec3" >
       <ul class="nav lista1 navbar-nav">
-          <li><a href="Home.aspx"><img src="Images/Logo.png" width="180" /></a></li>
+          <li><a href="Home.aspx"><img src="Images/Logo.png" width="190" /></a></li>
          </ul>   
          
       <ul class="nav lista2 navbar-nav">
@@ -170,7 +171,7 @@
         <script src="js/modal.js"></script>
     
     
-    <div id="content_div" style="background-color:white; margin-top: 50px;">
+    <div id="content_div" style="background-color:#e3e6ec; margin-top: 50px;">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -179,8 +180,8 @@
         <nav  id="nav_sec" class="navbar navbar-Drugi navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button style="border-color:red" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
-        <span style="color:red">Kategorije</span>                      
+      <button style="border-color:white;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
+        <span style="color:darkslateblue">Kategorije</span>                      
       </button>
 
     </div>
