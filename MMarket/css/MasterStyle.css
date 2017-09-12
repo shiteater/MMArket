@@ -1,19 +1,65 @@
-﻿.MasCon {
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 50px;
-    width: 100%;
-}
-
-.MasConSec {
-    height: 50px;
-    width: 100%;
-}
-
+﻿
 .navbarsec-fixed {
     top: 50px;
     z-index: 100;
     position: fixed;
     width: 100%;
 }
+.navbar-fixed-top {
+    background-color: whitesmoke;
+    border-bottom-color: whitesmoke;
+}
+
+.lista1 {
+    background-color: whitesmoke;
+    float:left;
+}
+
+.lista2 {
+    background-color: whitesmoke;
+    float: right;
+    color: midnightblue;
+}
+    .lista2 li a{
+        font-size: 16px;
+        color: midnightblue;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .lista2 li:hover {
+        transform: translateY(-3px);
+        color: lighten(#03c, 15%);
+    }
+
+.navbar-Drugi {
+            width: 100%;
+            height: 50px;
+            background-color: midnightblue;
+            border-color: midnightblue;
+            border-radius: 0px;
+        }
+
+.navDrugi {
+    width: 100%;
+    height: 50px;
+    background-color: midnightblue;
+    border-color: midnightblue;
+    border-radius: 0px;
+   list-style-type: none;
+}
+
+ .navDrugi li {
+        float: none;
+        display: inline-block;
+        font-size: 16px;
+        text-align: center;
+        padding: initial;
+        text-decoration: none;
+    }
+        
+    .navDrugi li:hover a:hover {
+        color: midnightblue;
+        background-color: mediumslateblue;
+    }

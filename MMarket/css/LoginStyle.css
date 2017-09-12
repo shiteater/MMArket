@@ -1,7 +1,7 @@
 ﻿body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px;
-    color: #333;
+   
 }
 
 h1 {
@@ -36,27 +36,30 @@ h1 {
 }
 
 .btn {
-    background-color: #999;
-    color: #333;
+    background-color: slategray;
+    color: white;
     border-radius: 4px;
-    font-size: 15px;
+    font-size: 16px;
+    padding-top:2px;
 }
 
 .btn_red {
-    background: #FF7911;
+    background-color: slategray;
     color: white;
 }
 
 .btn:hover {
-    background-color: silver;
-
+    background-color: powderblue;
+    border-color: powderblue;
+    color:lightblue
 }
 
 .btn_red:hover {
-    background: #C24B0D;
+    background-color: powderblue;
 }
 
 a.btn {
+    background-color: slategray;
     color: #333;
     text-align: center;
     text-decoration: none;
@@ -66,6 +69,8 @@ a.btn_red {
     color: white;
     text-align: center;
     text-decoration: none;
+    padding-top: 2px;
+    padding-bottom:0px;
 }
 
 .one_half {
@@ -73,11 +78,13 @@ a.btn_red {
     display: block;
     float: left;
     margin-left: 5%;
+    padding-top: 2px;
 }
 
     .one_half.last {
         width: 45%;
         margin-left: 3.5%;
+        padding-top:2px;
     }
 /* Popup Styles*/
 
@@ -88,10 +95,10 @@ a.btn_red {
 }
 
 .popupHeader {
-    background: #333;
+    background-color: midnightblue;
     position: relative;
     padding: 10px 20px;
-    border-bottom: 1px solid #DDD;
+    border-bottom: 1px solid ;
     font-weight: bold;
 }
 
@@ -100,14 +107,14 @@ a.btn_red {
         right: 0;
         top: 0;
         padding: 10px 15px;
-        background: #C24B0D;
+        background-color:mediumslateblue;
         cursor: pointer;
         color: white;
         font-size: 16px;
     }
 
 .popupBody {
-    padding: 20px;
+    padding: 30px;
 }
 /* Social Login Form */
 
@@ -136,13 +143,6 @@ a.btn_red {
         text-align: center;
     }
 
-    .social_login .fb .icon {
-        background: #3B5998;
-    }
-
-    .social_login .google .icon {
-        background: #DD4B39;
-    }
 
     .social_login .icon_title {
         display: block;
@@ -211,6 +211,7 @@ a.btn_red {
     .user_login input[type="checkbox"] {
         float: left;
         margin-right: 5px;
+        width:55px;
     }
 
         .user_login input[type="checkbox"] + label {
@@ -229,7 +230,7 @@ a.btn_red {
     clear: both;
     overflow: hidden;
     text-decoration: none;
-    color: #ED6347;
+    color: mediumblue;
 }
 /* User Register Form */
 
