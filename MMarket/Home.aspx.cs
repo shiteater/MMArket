@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -17,28 +18,35 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                DoMagicNajprodavaniji();
-                DoMagicNaAkciji();
-            }
+            DoMagicNajprodavaniji();
+            DoMagicNaAkciji();
         }
         
         private void DoMagicNaAkciji()
         {
-            SqlConnection con = new SqlConnection(conString);
-
-            string jeilinije = "je";
-            SqlCommand com = new SqlCommand("SELECT [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Akcija] LIKE @je", con);
-            com.Parameters.AddWithValue("@je", jeilinije);
-
-            con.Open();
-
-            SqlDataAdapter adptr = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
-            adptr.Fill(dt);
+            if (ViewState["AkcijaTable"] == null)
+            {
+                SqlConnection con = new SqlConnection(conString);
 
-            con.Close();
+                string jeilinije = "je";
+                SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Akcija] LIKE @je", con);
+                com.Parameters.AddWithValue("@je", jeilinije);
+
+                con.Open();
+
+                SqlDataAdapter adptr = new SqlDataAdapter(com);
+
+                adptr.Fill(dt);
+
+                con.Close();
+
+                ViewState["AkcijaTable"] = dt;
+            }
+            else
+            {
+                dt = (DataTable)ViewState["AkcijaTable"];
+            }
 
             HtmlGenericControl mainDiv = new HtmlGenericControl();
             mainDiv.Attributes["class"] = "row";
@@ -63,13 +71,31 @@ namespace MMarket
                 itemAnchor.Attributes["class"] = "thumbnail";
 
                 HtmlImage itemImage = new HtmlImage();
-                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[3];
+                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[4];
 
                 HtmlContainerControl para = new HtmlGenericControl("p");
-                para.InnerText = dt.Rows[i].ItemArray[0].ToString();
+                para.InnerText = dt.Rows[i].ItemArray[1].ToString();
+                
+                HtmlGenericControl Div = new HtmlGenericControl();
+                Div.TagName = "div";
+
+                ImageButton imgBtn = new ImageButton();
+                imgBtn.ID = "akcija_" + i;
+                imgBtn.ImageUrl = "~/Images/add_to_cart_green.png";
+                imgBtn.Width = 20;
+                imgBtn.Click += AddToCart_ServerClick;
+                imgBtn.CausesValidation = false;
+
+                HtmlContainerControl para1 = new HtmlGenericControl("p");
+                para1.Style.Add("float", "right");
+                para1.InnerText = dt.Rows[i].ItemArray[3] + " kn";
+
+                Div.Controls.Add(imgBtn);
+                Div.Controls.Add(para1);
 
                 itemAnchor.Controls.Add(para);
                 itemAnchor.Controls.Add(itemImage);
+                itemAnchor.Controls.Add(Div);
                 itemDiv.Controls.Add(itemAnchor);
                 subAkcija.Controls.Add(itemDiv);
             }
@@ -100,19 +126,28 @@ namespace MMarket
 
         private void DoMagicNajprodavaniji()
         {
-            SqlConnection con = new SqlConnection(conString);
-
-            string jeilinije = "je";
-            SqlCommand com = new SqlCommand("SELECT [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Najprodavaniji] LIKE @je", con);
-            com.Parameters.AddWithValue("@je", jeilinije);
-
-            con.Open();
-
-            SqlDataAdapter adptr = new SqlDataAdapter(com);
             DataTable dt = new DataTable();
-            adptr.Fill(dt);
+            if (ViewState["NajprodavanijiTable"] == null)
+            {
+                SqlConnection con = new SqlConnection(conString);
 
-            con.Close();
+                string jeilinije = "je";
+                SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Najprodavaniji] LIKE @je", con);
+                com.Parameters.AddWithValue("@je", jeilinije);
+
+                con.Open();
+
+                SqlDataAdapter adptr = new SqlDataAdapter(com);
+                adptr.Fill(dt);
+
+                con.Close();
+
+                ViewState["NajprodavanijiTable"] = dt;
+            }
+            else
+            {
+                dt = (DataTable)ViewState["NajprodavanijiTable"];
+            }   
 
             int counter = dt.Rows.Count;
             while (counter % 3 != 0)
@@ -153,7 +188,7 @@ namespace MMarket
 
                     HtmlAnchor anchor = new HtmlAnchor();
                     HtmlImage img = new HtmlImage();
-                    img.Src = "Images/" + dt.Rows[counter].ItemArray[3];
+                    img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
                     img.Attributes["class"] = "img-responsive";
                     anchor.Controls.Add(img);
 
@@ -162,14 +197,32 @@ namespace MMarket
                     Div.TagName = "div";
 
                     HtmlGenericControl h3 = new HtmlGenericControl();
-                    h3.InnerText = dt.Rows[counter].ItemArray[0].ToString();
+                    h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
                     h3.TagName = "h3";
 
                     HtmlContainerControl para = new HtmlGenericControl("p");
-                    para.InnerText = dt.Rows[counter].ItemArray[1].ToString();
+                    para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
+
+                    ImageButton imgBtn = new ImageButton();
+                    imgBtn.ID = "naj_" + counter;
+                    imgBtn.ImageUrl = "~/Images/add_to_cart_white.png";
+                    imgBtn.Width = 30;
+                    imgBtn.Click += AddToCart_ServerClick;
+                    imgBtn.CausesValidation = false;
+
+                    //HtmlAnchor anchor1 = new HtmlAnchor();
+                    //anchor1.ID = dt.Rows[counter].ItemArray[0].ToString();
+                    //anchor1.Attributes.Add("runat", "server");
+                    //anchor1.CausesValidation = false;
+                    //HtmlImage img1 = new HtmlImage();
+                    //img1.Height = 30;
+                    //img1.Src = "Images/add_to_cart_white.png";
+                    //anchor1.Controls.Add(img1);
+                    //anchor1.ServerClick += AddToCart_ServerClick;
 
                     Div.Controls.Add(h3);
                     Div.Controls.Add(para);
+                    Div.Controls.Add(imgBtn);
 
                     anchor.Controls.Add(Div);
 
@@ -200,7 +253,7 @@ namespace MMarket
 
                     HtmlAnchor anchor = new HtmlAnchor();
                     HtmlImage img = new HtmlImage();
-                    img.Src = "Images/" + dt.Rows[counter].ItemArray[3];
+                    img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
                     img.Attributes["class"] = "img-responsive";
                     anchor.Controls.Add(img);
 
@@ -209,14 +262,32 @@ namespace MMarket
                     Div.TagName = "div";
 
                     HtmlGenericControl h3 = new HtmlGenericControl();
-                    h3.InnerText = dt.Rows[counter].ItemArray[0].ToString();
+                    h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
                     h3.TagName = "h3";
 
                     HtmlContainerControl para = new HtmlGenericControl("p");
-                    para.InnerText = dt.Rows[counter].ItemArray[1].ToString();
+                    para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
+
+                    ImageButton imgBtn = new ImageButton();
+                    imgBtn.ID = "naj_" + counter;
+                    imgBtn.ImageUrl = "~/Images/add_to_cart_white.png";
+                    imgBtn.Width = 30;
+                    imgBtn.Click += AddToCart_ServerClick;
+                    imgBtn.CausesValidation = false;
+
+                    //HtmlAnchor anchor1 = new HtmlAnchor();
+                    //anchor1.ID = dt.Rows[counter].ItemArray[0].ToString();
+                    //anchor1.Attributes.Add("runat", "server");
+                    //anchor1.CausesValidation = false;
+                    //HtmlImage img1 = new HtmlImage();
+                    //img1.Height = 30;
+                    //img1.Src = "Images/add_to_cart_white.png";
+                    //anchor1.Controls.Add(img1);
+                    //anchor1.ServerClick += AddToCart_ServerClick;
 
                     Div.Controls.Add(h3);
                     Div.Controls.Add(para);
+                    Div.Controls.Add(imgBtn);
 
                     anchor.Controls.Add(Div);
 
@@ -266,6 +337,74 @@ namespace MMarket
 
             Panel2.Controls.Add(ol);
             Panel2.Controls.Add(DivContainer);
+        }
+
+        private void AddToCart_ServerClick(object sender, EventArgs e)
+        {
+            if (Session["CartTable"] == null)
+            {
+                DataTable dt = new DataTable();
+
+                if (((ImageButton)sender).ID.First() == 'n')
+                {
+                    dt = ((DataTable)ViewState["NajprodavanijiTable"]).Clone();
+
+                    string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+                    int row = int.Parse(resultString);
+                    dt.ImportRow(((DataTable)ViewState["NajprodavanijiTable"]).Rows[row]);
+                }
+                else if (((ImageButton)sender).ID.First() == 'a')
+                {
+                    dt = ((DataTable)ViewState["AkcijaTable"]).Clone();
+
+                    string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+                    int row = int.Parse(resultString);
+                    dt.ImportRow(((DataTable)ViewState["AkcijaTable"]).Rows[row]);
+                }
+
+                Session["CartTable"] = dt;
+            }
+            else
+            {
+                bool dodaj = true;
+
+                if (((ImageButton)sender).ID.First() == 'n')
+                {
+                    string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+                    int row = int.Parse(resultString);
+
+                    foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
+                    {
+                        if ((int)item.ItemArray[0] == (int)((DataTable)ViewState["NajprodavanijiTable"]).Rows[row].ItemArray[0])
+                        {
+                            dodaj = false;
+                        }
+                    }
+
+                    if (dodaj)
+                    {
+                        ((DataTable)Session["CartTable"]).ImportRow(((DataTable)ViewState["NajprodavanijiTable"]).Rows[row]);
+                    }
+                }
+                else if (((ImageButton)sender).ID.First() == 'a')
+                {
+                    string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+                    int row = int.Parse(resultString);
+
+                    foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
+                    {
+                        if ((int)item.ItemArray[0] == (int)((DataTable)ViewState["AkcijaTable"]).Rows[row].ItemArray[0])
+                        {
+                            dodaj = false;
+                        }
+                    }
+
+                    if (dodaj)
+                    {
+                        ((DataTable)Session["CartTable"]).ImportRow(((DataTable)ViewState["AkcijaTable"]).Rows[row]);
+                    }
+                }
+            }
         }
     }
 }

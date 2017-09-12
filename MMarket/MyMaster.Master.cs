@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -24,6 +25,8 @@ namespace MMarket
                 modal_trigger.Visible = true;
                 btnLogout.Visible = false;
             }
+
+            Page.LoadComplete += new EventHandler(Page_LoadComplete);
         }
 
         protected void btnRegister_Click(object sender, EventArgs e)
@@ -49,6 +52,14 @@ namespace MMarket
             Session.Clear();
             Session.Abandon();
             Response.Redirect("Home.aspx");
+        }
+
+        void Page_LoadComplete(object sender, EventArgs e)
+        {
+            if (Session["CartTable"] != null)
+            {
+                cartBadge.Attributes["data-badge"] = ((DataTable)Session["CartTable"]).Rows.Count.ToString();
+            }
         }
     }
 }
