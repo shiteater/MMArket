@@ -71,10 +71,16 @@
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
     <Content Include="CajeviKave.aspx" />
+    <Content Include="Cart.aspx" />
+    <Content Include="css\BadgeStyle.css" />
+    <Content Include="css\CartStyle.css" />
     <Content Include="css\MasterStyle.css" />
     <Content Include="css\LoginStyle.css" />
     <Content Include="Datulje.aspx" />
     <Content Include="home2.aspx" />
+    <Content Include="Images\add_to_cart_green.png" />
+    <Content Include="Images\add_to_cart_white.png" />
+    <Content Include="Images\cart.png" />
     <Content Include="Images\datulje.jpg" />
     <Content Include="Images\kava.jpg" />
     <Content Include="Images\konz.png" />
@@ -89,7 +95,9 @@
     <Content Include="js\modal.js" />
     <Content Include="KonzerviranaHrana.aspx" />
     <Content Include="Kozmetika.aspx" />
+    <Content Include="Ostalo.aspx" />
     <Content Include="Pica.aspx" />
+    <Content Include="ProductDetails.aspx" />
     <Content Include="Scripts\scrip-1.0.js" />
     <Content Include="MyMaster.Master" />
     <Content Include="Sirevi.aspx" />
@@ -159,6 +167,13 @@
     <Compile Include="CajeviKave.aspx.designer.cs">
       <DependentUpon>CajeviKave.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Datulje.aspx.cs">
       <DependentUpon>Datulje.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -208,12 +223,26 @@
     <Compile Include="MyMaster.Master.designer.cs">
       <DependentUpon>MyMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="Ostalo.aspx.cs">
+      <DependentUpon>Ostalo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ostalo.aspx.designer.cs">
+      <DependentUpon>Ostalo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pica.aspx.cs">
       <DependentUpon>Pica.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pica.aspx.designer.cs">
       <DependentUpon>Pica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductDetails.aspx.designer.cs">
+      <DependentUpon>ProductDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sirevi.aspx.cs">

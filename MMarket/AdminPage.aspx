@@ -52,6 +52,7 @@
                                 <asp:ListItem>cajevi i kave</asp:ListItem>
                                 <asp:ListItem>pica</asp:ListItem>
                                 <asp:ListItem>kozmetika</asp:ListItem>
+                                <asp:ListItem>ostalo</asp:ListItem>
                             </asp:DropDownList>
                         </InsertItemTemplate>
                         <ItemTemplate>
@@ -113,6 +114,7 @@
                                 <asp:ListItem>cajevi i kave</asp:ListItem>
                                 <asp:ListItem>pica</asp:ListItem>
                                 <asp:ListItem>kozmetika</asp:ListItem>
+                                <asp:ListItem>ostalo</asp:ListItem>
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
