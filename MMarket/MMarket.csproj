@@ -78,10 +78,13 @@
     <Content Include="css\LoginStyle.css" />
     <Content Include="Datulje.aspx" />
     <Content Include="home2.aspx" />
-    <Content Include="Images\add_to_cart_green.png" />
-    <Content Include="Images\add_to_cart_white.png" />
-    <Content Include="Images\cart.png" />
     <Content Include="Images\datulje.jpg" />
+    <Content Include="Images\icones\add_to_cart_blue.png" />
+    <Content Include="Images\icones\add_to_cart_green.png" />
+    <Content Include="Images\icones\add_to_cart_purple.png" />
+    <Content Include="Images\icones\add_to_cart_white.png" />
+    <Content Include="Images\icones\cart_blue.png" />
+    <Content Include="Images\icones\cart_purple.png" />
     <Content Include="Images\kava.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Oriental Background.jpg" />

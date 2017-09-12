@@ -9,6 +9,7 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.1.1.slim.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
+    <link href="Content/bootstrap-theme.css" rel="stylesheet" />
     <link href="css/MasterStyle.css" rel="stylesheet" /> 
     <link href="css/LoginStyle.css" rel="stylesheet" />
     <link href="css/BadgeStyle.css" rel="stylesheet" />
@@ -26,19 +27,19 @@
           <nav  id="top_nav" class="navbar navbar-fixed-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button style="border-color:red" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec3">
-        <span style="color:red">Menu</span>                      
+      <button style="border-color:darkslateblue;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec3">
+        <span style="color:darkslateblue">Menu</span>                      
       </button>
 
     </div>
     <div class="collapse navbar-collapse" id="nav_sec3" >
       <ul class="nav lista1 navbar-nav">
-          <li><a href="Home.aspx"><img src="Images/Logo.png" width="180" /></a></li>
+          <li><a href="Home.aspx" style="height: 60px"><img src="Images/Logo.png" width="190" /></a></li>
          </ul>   
          
       <ul class="nav lista2 navbar-nav">
           <li><a href="Kontakt.aspx" style="color: midnightblue;">Contact</a></li>
-          <li><a href="Cart.aspx" style="color: midnightblue;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/cart.png" height="17" /></div></a></li>
+          <li><a href="Cart.aspx" style="color: midnightblue;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/icones/cart_purple.png" height="17" /></div></a></li>
           <li><a id="adminLink" href="AdminPage.aspx" style="color: midnightblue;" runat="server">Admin Page</a></li>
           <li><a id="modal_trigger" href="#modal" style="color: midnightblue;" runat="server">Login or Register</a></li>
           <li><a href="#" id="btnLogout" style="color: midnightblue;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
@@ -47,16 +48,6 @@
     </div>
   </div>
 </nav>
-        
-        <%--<nav id="top_nav2" class="navbar-fixed-top">
-        <a href="Home.aspx"><img src="Images/Logo.png" width="100" /></a>
-        <a href="Kontakt.aspx">Contact</a>
-        <a href="#about">About us</a>
-        <a href="#" id="btnLogout" style="float: right" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
-            <a id="modal_trigger" href="#modal" style="float: right" runat="server">Login or Register</a>
-        <a href="#gallery" style="float: right">Shop</a>
-        <a id="adminLink" href="AdminPage.aspx" style="float: right" runat="server">Admin Page</a>
-        </nav>--%>
 
             <div id="modal" class="popupContainer" style="display:none">
 				<header class="popupHeader">
@@ -171,7 +162,7 @@
         <script src="js/modal.js"></script>
     
     
-    <div id="content_div" style="background-color:white; margin-top: 50px;">
+    <div id="content_div" style="background-color:#e3e6ec; margin-top: 60px;">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>
@@ -180,14 +171,13 @@
         <nav  id="nav_sec" class="navbar navbar-Drugi navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button style="border-color:red" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
-        <span style="color:red">Kategorije</span>                      
+      <button style="border-color:white; background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
+        <span style="color:darkslateblue">Kategorije</span>                      
       </button>
 
     </div>
     <div class="collapse navbar-collapse" id="nav_sec2" >
       <ul class="nav navDrugi navbar-nav">
-       <%--   <li class="active"><a href="#">Home</a></li>--%>
         <li><a href="SmrznutaHrana.aspx" style="color:white;">Smrznuta Hrana</a></li>
         <li><a href="Sirevi.aspx" style="color:white">Sirevi</a></li>
         <li> <a href="KonzerviranaHrana.aspx" style="color:white">Konzervirana Hrana</a></li>
@@ -204,25 +194,12 @@
     </div>
   </div>
 </nav>
-        <%--<nav id="nav_sec2" class="MasConSec">
-            <a href="SmrznutaHrana.aspx">Smrznuta Hrana</a>
-            <a href="Sirevi.aspx">Sirevi</a>
-            <a href="KonzerviranaHrana.aspx">Konzervirana Hrana</a>
-            <a href="Zitarice.aspx">Žitarice</a>
-            <a href="zacini.aspx">Začini</a>
-            <a href="SlatkisiGrickalice.aspx">Slatkiši i Grickalice</a>
-            <a href="Datulje.aspx">Datulje</a>
-            <a href="CajeviKave.aspx">Čajevi i Kave</a>
-            <a href="Pica.aspx">Pića</a>
-            <a href="Kozmetika.aspx">Kozmetika</a>
-        </nav>--%>
 
-        <br />
-        <br />
+        <div id="conDiv2" style="margin-top: 30px">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
 
-        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
-        
-        </asp:ContentPlaceHolder>
+            </asp:ContentPlaceHolder>
+        </div>
     </form>
 </body>
 </html>

@@ -81,7 +81,7 @@ namespace MMarket
 
                 ImageButton imgBtn = new ImageButton();
                 imgBtn.ID = "akcija_" + i;
-                imgBtn.ImageUrl = "~/Images/add_to_cart_green.png";
+                imgBtn.ImageUrl = "~/Images/icones/add_to_cart_purple.png";
                 imgBtn.Width = 20;
                 imgBtn.Click += AddToCart_ServerClick;
                 imgBtn.CausesValidation = false;
@@ -205,7 +205,7 @@ namespace MMarket
 
                     ImageButton imgBtn = new ImageButton();
                     imgBtn.ID = "naj_" + counter;
-                    imgBtn.ImageUrl = "~/Images/add_to_cart_white.png";
+                    imgBtn.ImageUrl = "~/Images/icones/add_to_cart_white.png";
                     imgBtn.Width = 30;
                     imgBtn.Click += AddToCart_ServerClick;
                     imgBtn.CausesValidation = false;
@@ -270,7 +270,7 @@ namespace MMarket
 
                     ImageButton imgBtn = new ImageButton();
                     imgBtn.ID = "naj_" + counter;
-                    imgBtn.ImageUrl = "~/Images/add_to_cart_white.png";
+                    imgBtn.ImageUrl = "~/Images/icones/add_to_cart_white.png";
                     imgBtn.Width = 30;
                     imgBtn.Click += AddToCart_ServerClick;
                     imgBtn.CausesValidation = false;

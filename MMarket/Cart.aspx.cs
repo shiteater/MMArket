@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -292,7 +293,18 @@ namespace MMarket
 
         private void BtnTbody_ServerClick(object sender, EventArgs e)
         {
+            if (((DataTable)Session["CartTable"]).Rows.Count == 1)
+            {
+                Session["CartTable"] = null;
+            }
+            else
+            {
+                string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
+                int row = int.Parse(resultString);
+                ((DataTable)Session["CartTable"]).Rows.RemoveAt(row);
+            }
 
+            Response.Redirect("Cart.aspx");
         }
     }
 }
