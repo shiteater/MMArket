@@ -7,7 +7,7 @@
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:Image ID="Image1" CssClass="img-responsive" runat="server" ImageUrl='<%# Eval("NazFile", "~/Images/{0}") %>' />
+                    <asp:Image ID="Image1" CssClass="img-responsive" runat="server" ImageUrl="~/Images/kava.jpg" />
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField>

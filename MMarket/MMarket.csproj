@@ -76,6 +76,7 @@
     <Content Include="Datulje.aspx" />
     <Content Include="home2.aspx" />
     <Content Include="Images\datulje.jpg" />
+    <Content Include="Images\kava.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Oriental Background.jpg" />
     <Content Include="Images\zacini.jpg" />
