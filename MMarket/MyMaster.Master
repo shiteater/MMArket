@@ -37,7 +37,7 @@
          
       <ul class="nav lista2 navbar-nav">
           <li><a href="Kontakt.aspx" style="color: midnightblue;">Contact</a></li>
-          <li><a href="#Cart" style="color: midnightblue;">Shop</a></li>
+          <li><a href="Cart.aspx" style="color: midnightblue;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/cart.png" height="17" /></div></a></li>
           <li><a id="adminLink" href="AdminPage.aspx" style="color: midnightblue;" runat="server">Admin Page</a></li>
           <li><a id="modal_trigger" href="#modal" style="color: midnightblue;" runat="server">Login or Register</a></li>
           <li><a href="#" id="btnLogout" style="color: midnightblue;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
@@ -197,6 +197,7 @@
         <li> <a href="CajeviKave.aspx" style="color:white">Čajevi i Kave</a></li>
         <li> <a href="Pica.aspx" style="color:white">Pića</a></li>
         <li><a href="Kozmetika.aspx" style="color:white">Kozmetika</a></li>
+          <li><a href="Ostalo.aspx" style="color:white">Ostalo</a></li>
       </ul>
 
     </div>
