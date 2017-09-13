@@ -70,7 +70,7 @@ namespace MMarket
                     divTd.Attributes["class"] = "row";
 
                     HtmlGenericControl divTd1 = new HtmlGenericControl("div");
-                    divTd1.Attributes["class"] = "col-sm-2";
+                    divTd1.Attributes["class"] = "col-lg-4 col-sm-2";
 
                     HtmlImage img = new HtmlImage();
                     img.Attributes["class"] = "img-responsive";
@@ -79,7 +79,7 @@ namespace MMarket
                     divTd1.Controls.Add(img);
 
                     HtmlGenericControl divTd2 = new HtmlGenericControl("div");
-                    divTd2.Attributes["class"] = "col-sm-10";
+                    divTd2.Attributes["class"] = "col-sm-8";
 
                     HtmlGenericControl h4 = new HtmlGenericControl("h4");
                     h4.Attributes["class"] = "nomargin";
@@ -95,10 +95,12 @@ namespace MMarket
                     divTd.Controls.Add(divTd2);
 
                     tdTbody1.Controls.Add(divTd);
+                    tdTbody1.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody2 = new HtmlTableCell("td");
                     tdTbody2.Attributes["data-th"] = "Cijena";
                     tdTbody2.InnerText = item.ItemArray[3] + " kn";
+                    tdTbody2.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody3 = new HtmlTableCell("td");
                     tdTbody3.Attributes["data-th"] = "Količina";
@@ -108,30 +110,52 @@ namespace MMarket
                     inputNumber.Value = "1";
 
                     tdTbody3.Controls.Add(inputNumber);
+                    tdTbody3.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody4 = new HtmlTableCell("td");
                     tdTbody4.Attributes["data-th"] = "Subtotal";
                     tdTbody4.Attributes["class"] = "text-center";
                     tdTbody4.InnerText = (float.Parse(item.ItemArray[3].ToString()) * int.Parse(inputNumber.Value)) + " kn";
+                    tdTbody4.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody5 = new HtmlTableCell("td");
                     tdTbody5.Attributes["data-th"] = "";
                     tdTbody5.Attributes["class"] = "actions";
 
+                    //HtmlButton btnTbody = new HtmlButton();
+                    //btnTbody.ID = "btnRmv_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
+                    //btnTbody.Attributes["class"] = "btn btn-danger btn-sm";
+                    //btnTbody.Attributes.Add("runat", "server");
+                    //btnTbody.Style.Add("float", "right");
+                    //btnTbody.CausesValidation = false;
+                    //btnTbody.ServerClick += BtnTbody_ServerClick;
+
+                    //HtmlGenericControl htmlI = new HtmlGenericControl("i");
+                    //htmlI.Attributes["class"] = "fa fa-trash-o";
+
+                    //btnTbody.Controls.Add(htmlI);
+
+                    HtmlGenericControl commerce11 = new HtmlGenericControl("div");
+                    commerce11.Attributes["class"] = "commerce";
+
+                    HtmlGenericControl para111 = new HtmlGenericControl("p");
+                    para111.Attributes["class"] = "return-to-shop";
+
                     HtmlButton btnTbody = new HtmlButton();
                     btnTbody.ID = "btnRmv_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
-                    btnTbody.Attributes["class"] = "btn btn-danger btn-sm";
+                    btnTbody.Attributes["class"] = "button glyphicon glyphicon-trash";
                     btnTbody.Attributes.Add("runat", "server");
-                    btnTbody.Style.Add("float", "right");
+                    btnTbody.Style.Add("color", "#ea3a1a");
+                    btnTbody.Style.Add("border-color", "#ea3a1a");
                     btnTbody.CausesValidation = false;
                     btnTbody.ServerClick += BtnTbody_ServerClick;
 
-                    HtmlGenericControl htmlI = new HtmlGenericControl("i");
-                    htmlI.Attributes["class"] = "fa fa-trash-o";
+                    para111.Controls.Add(btnTbody);
+                    commerce11.Controls.Add(para111);
+                    commerce11.Style.Add("float", "right");
 
-                    btnTbody.Controls.Add(htmlI);
-
-                    tdTbody5.Controls.Add(btnTbody);
+                    tdTbody5.Controls.Add(commerce11);
+                    tdTbody5.Style.Add("vertical-align", "middle");
 
                     trTbody.Cells.Add(tdTbody1);
                     trTbody.Cells.Add(tdTbody2);
@@ -185,17 +209,32 @@ namespace MMarket
 
                 HtmlTableCell secTd1 = new HtmlTableCell("td");
 
+                //HtmlAnchor anchor = new HtmlAnchor();
+                //anchor.HRef = "Home.aspx";
+                //anchor.Attributes["class"] = "btn btn-warning";
+                ////anchor.InnerText = " Nastavite Shopping";
+
+                //HtmlGenericControl htmlI1 = new HtmlGenericControl("i");
+                //htmlI1.Attributes["class"] = "fa fa-angle-left";
+                //htmlI1.InnerText = " Nastavite Shopping";
+
+                //anchor.Controls.Add(htmlI1);
+                HtmlGenericControl commerce = new HtmlGenericControl("div");
+                commerce.Attributes["class"] = "commerce";
+
+                HtmlGenericControl para1 = new HtmlGenericControl("p");
+                para1.Attributes["class"] = "return-to-shop";
+
                 HtmlAnchor anchor = new HtmlAnchor();
+                anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
-                anchor.Attributes["class"] = "btn btn-warning";
-                //anchor.InnerText = " Nastavite Shopping";
+                anchor.InnerText = " Natrag u shoping";
 
-                HtmlGenericControl htmlI1 = new HtmlGenericControl("i");
-                htmlI1.Attributes["class"] = "fa fa-angle-left";
-                htmlI1.InnerText = " Nastavite Shopping";
+                para1.Controls.Add(anchor);
+                commerce.Controls.Add(para1);
+                commerce.Style.Add("float", "left");
 
-                anchor.Controls.Add(htmlI1);
-                secTd1.Controls.Add(anchor);
+                secTd1.Controls.Add(commerce);
 
                 HtmlTableCell secTd2 = new HtmlTableCell("td");
                 secTd2.Attributes["colspan"] = "2";
@@ -233,16 +272,36 @@ namespace MMarket
 
                 HtmlTableCell secTd4 = new HtmlTableCell("td");
 
+                //HtmlAnchor anchor1 = new HtmlAnchor();
+                //anchor1.HRef = "#Payment";
+                //anchor1.Attributes["class"] = "btn btn-success btn-block";
+                //anchor1.InnerText = "Plačanje ";
+
+                //HtmlGenericControl htmlI2 = new HtmlGenericControl("i");
+                //htmlI2.Attributes["class"] = "fa fa-angle-right";
+
+                //anchor1.Controls.Add(htmlI2);
+                HtmlGenericControl commerce1 = new HtmlGenericControl("div");
+                commerce1.Attributes["class"] = "commerce";
+
+                HtmlGenericControl para11 = new HtmlGenericControl("p");
+                para11.Attributes["class"] = "return-to-shop";
+
                 HtmlAnchor anchor1 = new HtmlAnchor();
+                anchor1.Attributes["class"] = "button";
                 anchor1.HRef = "#Payment";
-                anchor1.Attributes["class"] = "btn btn-success btn-block";
                 anchor1.InnerText = "Plačanje ";
 
-                HtmlGenericControl htmlI2 = new HtmlGenericControl("i");
-                htmlI2.Attributes["class"] = "fa fa-angle-right";
+                HtmlGenericControl span = new HtmlGenericControl("span");
+                span.Attributes["class"] = "glyphicon glyphicon-arrow-right";
 
-                anchor1.Controls.Add(htmlI2);
-                secTd4.Controls.Add(anchor1);
+                anchor1.Controls.Add(span);
+
+                para11.Controls.Add(anchor1);
+                commerce1.Controls.Add(para11);
+                commerce1.Style.Add("float", "right");
+
+                secTd4.Controls.Add(commerce1);
 
                 trTfoot2.Cells.Add(secTd1);
                 trTfoot2.Cells.Add(secTd2);
@@ -270,18 +329,34 @@ namespace MMarket
                 row.Attributes["class"] = "row";
 
                 HtmlGenericControl col = new HtmlGenericControl("div");
-                col.Attributes["class"] = "col-md-12";
+                col.Attributes["class"] = "col-md-12 main-wrap";
+
+                HtmlGenericControl con = new HtmlGenericControl("div");
+                con.Attributes["class"] = "main-content";
+
+                HtmlGenericControl commerce = new HtmlGenericControl("div");
+                commerce.Attributes["class"] = "commerce";
 
                 HtmlGenericControl para = new HtmlGenericControl("p");
+                para.Attributes["class"] = "cart-empty";
                 para.InnerText = "Nema trenutno niti jednog proizvoda u vašoj košarici.";
 
-                HtmlAnchor anchor = new HtmlAnchor();
-                anchor.Attributes["class"] = "btn btn-warning";
-                anchor.HRef = "Home.aspx";
-                anchor.InnerText = "Natrag u shoping";
+                HtmlGenericControl para1 = new HtmlGenericControl("p");
+                para1.Attributes["class"] = "return-to-shop";
 
-                col.Controls.Add(para);
-                col.Controls.Add(anchor);
+                HtmlAnchor anchor = new HtmlAnchor();
+                anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
+                anchor.HRef = "Home.aspx";
+                anchor.InnerText = " Natrag u shoping";
+
+                para1.Controls.Add(anchor);
+
+                commerce.Controls.Add(para);
+                commerce.Controls.Add(para1);
+
+                con.Controls.Add(commerce);
+
+                col.Controls.Add(con);
 
                 row.Controls.Add(col);
 
