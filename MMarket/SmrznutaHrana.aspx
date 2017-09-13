@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MyMaster.Master" AutoEventWireup="true" CodeBehind="SmrznutaHrana.aspx.cs" Inherits="MMarket.SmrznutaHrana" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-         <asp:Image ID="Image3" runat="server" CssClass="img-responsive" ImageUrl="~/Images/zamrznuto.jpg" />
+         <asp:Image ID="Image3" runat="server" CssClass="img-responsive" ImageUrl="~/Images/categories/zamrznuto.jpg" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" BorderStyle="None" ShowHeader="False" DataSourceID="SqlDataSource1" EmptyDataText="Nema niti jednog proizvoda u ovoj kategoriji" GridLines="None" HorizontalAlign="Center">
