@@ -86,9 +86,15 @@
     <Content Include="Images\icones\cart_blue.png" />
     <Content Include="Images\icones\cart_purple.png" />
     <Content Include="Images\kava.jpg" />
+    <Content Include="Images\konz.png" />
+    <Content Include="Images\kozm.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Oriental Background.jpg" />
+    <Content Include="Images\sir.jpg" />
+    <Content Include="Images\slatko.jpg" />
     <Content Include="Images\zacini.jpg" />
+    <Content Include="Images\zamrznuto.jpg" />
+    <Content Include="Images\zitarice.jpg" />
     <Content Include="js\modal.js" />
     <Content Include="KonzerviranaHrana.aspx" />
     <Content Include="Kozmetika.aspx" />

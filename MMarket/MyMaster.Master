@@ -171,7 +171,7 @@
         <nav  id="nav_sec" class="navbar navbar-Drugi navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button style="border-color:white; background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
+      <button style="border-color:white;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
         <span style="color:darkslateblue">Kategorije</span>                      
       </button>
 
