@@ -70,8 +70,12 @@ namespace MMarket
                 HtmlAnchor itemAnchor = new HtmlAnchor();
                 itemAnchor.Attributes["class"] = "thumbnail";
 
-                HtmlImage itemImage = new HtmlImage();
-                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[4];
+                ImageButton itemImage = new ImageButton();
+                itemImage.ID = "itemimagew" + dt.Rows[i].ItemArray[0];
+                itemImage.ImageUrl = "~/Images/" + dt.Rows[i].ItemArray[4];
+                itemImage.Attributes.Add("class", "img-responsive");
+                itemImage.Click += ItemImage_Click;
+                itemImage.CausesValidation = false;
 
                 HtmlContainerControl para = new HtmlGenericControl("p");
                 para.InnerText = dt.Rows[i].ItemArray[1].ToString();
@@ -122,6 +126,13 @@ namespace MMarket
             mainDiv.Controls.Add(subMainMap);
 
             Panel1.Controls.Add(mainDiv);
+        }
+
+        private void ItemImage_Click(object sender, ImageClickEventArgs e)
+        {
+            string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+            Session["ProductId"] = resultString;
+            Response.Redirect("ProductDetails.aspx");
         }
 
         private void DoMagicNajprodavaniji()
@@ -187,10 +198,19 @@ namespace MMarket
                     SubItem1.TagName = "div";
 
                     HtmlAnchor anchor = new HtmlAnchor();
-                    HtmlImage img = new HtmlImage();
-                    img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
-                    img.Attributes["class"] = "img-responsive";
-                    anchor.Controls.Add(img);
+
+                    ImageButton itemImage = new ImageButton();
+                    itemImage.ID = "itemimage" + dt.Rows[counter].ItemArray[0]; ;
+                    itemImage.ImageUrl = "~/Images/" + dt.Rows[counter].ItemArray[4];
+                    itemImage.Attributes.Add("class", "img-responsive");
+                    itemImage.Click += ItemImage_Click;
+                    itemImage.CausesValidation = false;
+                    anchor.Controls.Add(itemImage);
+
+                    //HtmlImage img = new HtmlImage();
+                    //img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
+                    //img.Attributes["class"] = "img-responsive";
+                    //anchor.Controls.Add(img);
 
                     HtmlGenericControl Div = new HtmlGenericControl();
                     Div.Attributes["class"] = "carousel-caption";
@@ -252,10 +272,19 @@ namespace MMarket
                     SubItem_1.TagName = "div";
 
                     HtmlAnchor anchor = new HtmlAnchor();
-                    HtmlImage img = new HtmlImage();
-                    img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
-                    img.Attributes["class"] = "img-responsive";
+
+                    ImageButton img = new ImageButton();
+                    img.ID = "img" + dt.Rows[counter].ItemArray[0]; ;
+                    img.ImageUrl = "~/Images/" + dt.Rows[counter].ItemArray[4];
+                    img.Attributes.Add("class", "img-responsive");
+                    img.Click += ItemImage_Click;
+                    img.CausesValidation = false;
                     anchor.Controls.Add(img);
+
+                    //HtmlImage img = new HtmlImage();
+                    //img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
+                    //img.Attributes["class"] = "img-responsive";
+                    //anchor.Controls.Add(img);
 
                     HtmlGenericControl Div = new HtmlGenericControl();
                     Div.Attributes["class"] = "carousel-caption";
