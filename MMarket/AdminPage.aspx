@@ -20,7 +20,7 @@
             <asp:DetailsView ID="DetailsView1" class="dodajNovi" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="398px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" Font-Names="Times New Roman" ForeColor="Black" GridLines="None" OnPageIndexChanging="DetailsView1_PageIndexChanging">
                 <AlternatingRowStyle BackColor="#EAEAFF" Font-Size="Medium" Width="300px" />
                 <CommandRowStyle BackColor="#001A33" Font-Bold="True" ForeColor="#99CCFF" />
-                <EditRowStyle BackColor="#E6E6E6" Width="400px" />
+                <EditRowStyle BackColor="#F7F6F3" Width="400px" />
                 <FieldHeaderStyle BackColor="#003366" Font-Bold="True" ForeColor="White" Width="100px" />
                 <Fields>
                     <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" InsertVisible="False" ReadOnly="True" SortExpression="idProizvod" />
