@@ -72,6 +72,7 @@
     <Content Include="AdminPage.aspx" />
     <Content Include="CajeviKave.aspx" />
     <Content Include="Cart.aspx" />
+    <Content Include="css\AdminStyle.css" />
     <Content Include="css\BadgeStyle.css" />
     <Content Include="css\CartStyle.css" />
     <Content Include="css\MasterStyle.css" />

@@ -5,14 +5,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="css/AdminStyle.css" rel="stylesheet" />
+
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <a href="Home.aspx">Home</a>
-            <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />
+            <a href="Home.aspx" class="home" >Home</a>
+            <asp:Button ID="Button1" class="logout" runat="server" Text="Logout" OnClick="Button1_Click" />
+            <br />
+             <br />
             <hr />
-            <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="125px" OnItemInserting="DetailsView1_ItemInserting">
+
+            <asp:DetailsView ID="DetailsView1" class="dodajNovi" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="398px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" Font-Names="Times New Roman" ForeColor="Black" GridLines="None" OnPageIndexChanging="DetailsView1_PageIndexChanging">
+                <AlternatingRowStyle BackColor="#EAEAFF" Font-Size="Medium" Width="300px" />
+                <CommandRowStyle BackColor="#001A33" Font-Bold="True" ForeColor="#99CCFF" />
+                <EditRowStyle BackColor="#E6E6E6" Width="400px" />
+                <FieldHeaderStyle BackColor="#003366" Font-Bold="True" ForeColor="White" Width="100px" />
                 <Fields>
                     <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" InsertVisible="False" ReadOnly="True" SortExpression="idProizvod" />
                     <asp:TemplateField HeaderText="Naziv" SortExpression="Naziv">
@@ -92,9 +101,16 @@
                     </asp:TemplateField>
                     <asp:CommandField ShowInsertButton="True" />
                 </Fields>
+
+                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
+                <HeaderStyle BackColor="#404040" BorderColor="#00EFFF" BorderStyle="Outset" Font-Names="Franklin Gothic Book" ForeColor="White" />
+                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Width="300px" />
+
             </asp:DetailsView>
             <hr />
-            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" OnRowDeleting="GridView1_RowDeleting">
+            <asp:GridView ID="GridView1" runat="server" class="grid" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" OnRowDeleting="GridView1_RowDeleting" CellPadding="4" CellSpacing="3" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="#ECECFF" ForeColor="#000048" />
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" InsertVisible="False" ReadOnly="True" SortExpression="idProizvod" />
@@ -152,6 +168,19 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
+
+                <EditRowStyle BackColor="#999999" />
+
+                <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                <HeaderStyle BackColor="#002346" BorderStyle="Outset" Font-Bold="True" Font-Names="Franklin Gothic Demi Cond" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F4F4F4" ForeColor="Black" Font-Bold="False" />
+                <SelectedRowStyle BackColor="#E2DED6" BorderColor="#00EFFF" BorderStyle="Solid" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvodi] WHERE [idProizvod] = @idProizvod" InsertCommand="INSERT INTO [Proizvodi] ([Naziv], [Opis], [Cijena], [Kategorija], [NazFile], [Akcija], [Najprodavaniji]) VALUES (@Naziv, @Opis, @Cijena, @Kategorija, @NazFile, @Akcija, @Najprodavaniji)" SelectCommand="SELECT * FROM [Proizvodi]" UpdateCommand="UPDATE [Proizvodi] SET [Naziv] = @Naziv, [Opis] = @Opis, [Cijena] = @Cijena, [Kategorija] = @Kategorija, [NazFile] = @NazFile, [Akcija] = @Akcija, [Najprodavaniji] = @Najprodavaniji WHERE [idProizvod] = @idProizvod">
                 <DeleteParameters>

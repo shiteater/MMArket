@@ -1,0 +1,42 @@
+﻿body {
+    background-color: lightgray;
+}
+
+.home {
+    float: left;
+    display: inline-block;
+    color:black;
+    border-color:white;
+    border-style:outset;
+    padding:2px;
+    margin-top:3px;
+    background-color:white;
+    font-size:15px;
+    text-decoration:none;
+
+}
+
+.logout {
+    float: right;
+    display: inline-block;
+    color: black;
+    border-color: white;
+    border-style: outset;
+    padding: 2px;
+    margin-top: 3px;
+    background-color: white;
+    font-size: 15px;
+    width: 68px;
+}
+
+.grid{
+    width:99%;
+      position:absolute;
+}
+
+.dodajNovi {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    text-align:center;
+}

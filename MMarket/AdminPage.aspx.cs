@@ -107,5 +107,10 @@ namespace MMarket
             Session.Abandon();
             Response.Redirect("Home.aspx");
         }
+
+        protected void DetailsView1_PageIndexChanging(object sender, DetailsViewPageEventArgs e)
+        {
+
+        }
     }
 }
