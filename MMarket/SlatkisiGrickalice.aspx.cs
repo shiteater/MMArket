@@ -23,15 +23,15 @@ namespace MMarket
 
             SqlConnection con = new SqlConnection(conString);
 
-            string slatkisiigrickalice = "slatkisi i grickalice";
-            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @slatkisi i grickalice", con);
-            com.Parameters.AddWithValue("@slatkisi i grickalice", slatkisiigrickalice);
+            string slatkisiigrickalice = "slatkisiigrickalice";
+            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @slatkisiigrickalice", con);
+            com.Parameters.AddWithValue("@slatkisiigrickalice", slatkisiigrickalice);
 
             con.Open();
 
             SqlDataAdapter adptr = new SqlDataAdapter(com);
 
-            ViewState["slatkisi i grickalice"] = dt;
+            ViewState["slatkisiigrickalice"] = dt;
 
             adptr.Fill(dt);
 
@@ -105,11 +105,11 @@ namespace MMarket
 
 
 
-                dt = ((DataTable)ViewState["slatkisi i grickalice"]).Clone();
+                dt = ((DataTable)ViewState["slatkisiigrickalice"]).Clone();
 
                 string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
                 int row = int.Parse(resultString);
-                dt.ImportRow(((DataTable)ViewState["slatkisi i grickalice"]).Rows[row]);
+                dt.ImportRow(((DataTable)ViewState["slatkisiigrickalice"]).Rows[row]);
 
                 Session["CartTable"] = dt;
             }
@@ -123,7 +123,7 @@ namespace MMarket
 
                 foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
                 {
-                    if ((int)item.ItemArray[0] == (int)((DataTable)ViewState["slatkisi i grickalice"]).Rows[row].ItemArray[0])
+                    if ((int)item.ItemArray[0] == (int)((DataTable)ViewState["slatkisiigrickalice"]).Rows[row].ItemArray[0])
                     {
                         dodaj = false;
                     }
@@ -131,7 +131,7 @@ namespace MMarket
 
                 if (dodaj)
                 {
-                    ((DataTable)Session["CartTable"]).ImportRow(((DataTable)ViewState["slatkisi i grickalice"]).Rows[row]);
+                    ((DataTable)Session["CartTable"]).ImportRow(((DataTable)ViewState["slatkisiigrickalice"]).Rows[row]);
                 }
             }
         }
