@@ -98,14 +98,16 @@ namespace MMarket
                     tdTbody1.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody2 = new HtmlTableCell("td");
+                    tdTbody2.ID = "price_" + item.ItemArray[0];
                     tdTbody2.Attributes["data-th"] = "Cijena";
-                    tdTbody2.InnerText = item.ItemArray[3] + " kn";
+                    tdTbody2.InnerText = item.ItemArray[3].ToString();
                     tdTbody2.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody3 = new HtmlTableCell("td");
                     tdTbody3.Attributes["data-th"] = "Količina";
 
                     HtmlInputText inputNumber = new HtmlInputText("number");
+                    inputNumber.ID = "myInput_" + item.ItemArray[0];
                     inputNumber.Attributes["class"] = "form-control text-center";
                     inputNumber.Value = "1";
 
@@ -113,9 +115,10 @@ namespace MMarket
                     tdTbody3.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody4 = new HtmlTableCell("td");
+                    tdTbody4.ID = "subTotalNum_" + item.ItemArray[0];
                     tdTbody4.Attributes["data-th"] = "Subtotal";
                     tdTbody4.Attributes["class"] = "text-center";
-                    tdTbody4.InnerText = (float.Parse(item.ItemArray[3].ToString()) * int.Parse(inputNumber.Value)) + " kn";
+                    tdTbody4.InnerText = item.ItemArray[3].ToString();
                     tdTbody4.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody5 = new HtmlTableCell("td");
@@ -289,8 +292,9 @@ namespace MMarket
 
                 HtmlAnchor anchor1 = new HtmlAnchor();
                 anchor1.Attributes["class"] = "button";
-                anchor1.HRef = "#Payment";
                 anchor1.InnerText = "Plačanje ";
+                anchor1.CausesValidation = false;
+                anchor1.ServerClick += Payment_ServerClick;
 
                 HtmlGenericControl span = new HtmlGenericControl("span");
                 span.Attributes["class"] = "glyphicon glyphicon-arrow-right";
@@ -318,6 +322,26 @@ namespace MMarket
                 DivContainer.Controls.Add(table);
 
                 Panel1.Controls.Add(DivContainer);
+
+                string myScript = "\n<script type=\"text/javascript\" language=\"Javascript\" id=\"EventScriptBlock\">\n";
+                myScript += "$('#ContentPlaceHolder2_myInput').on('change', function (e) {" +
+                "if ($(this).data(\"lastval\") != $(this).val()) {" +
+                    "if ($(this).val() < 1 || !$.isNumeric($(this).val())) {" +
+                        "$(this).val(1);" +
+                    "}" +
+                    "$(this).data(\"lastval\", $(this).val());" +
+
+                    "$('#ContentPlaceHolder2_subTotalNum').val($(this).val() * $('#ContentPlaceHolder2_price').text());" +
+                    "$('#ContentPlaceHolder2_subTotalNum').text($('#ContentPlaceHolder2_subTotalNum').val() + ' kn');" +
+
+                //"$('#total').text(+$('#subTotalNum').val()); "+
+                //"$('#total1').text(+$('#subTotalNum').val()); "+
+                //"$('#total').val(+$('#subTotalNum').val()); "+
+                //"$('#total1').val(+$('#subTotalNum').val()); "+
+                "};" +
+            "});";
+                myScript += "\n\n </script>";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "myKey", myScript, false);
             }
             else
             {
@@ -364,6 +388,11 @@ namespace MMarket
 
                 Panel1.Controls.Add(DivContainer);
             }
+        }
+
+        private void Payment_ServerClick(object sender, EventArgs e)
+        {
+            Response.Write("<script>alert('Opcija plačanje trenutno nije dostupna!');</script>");
         }
 
         private void BtnTbody_ServerClick(object sender, EventArgs e)

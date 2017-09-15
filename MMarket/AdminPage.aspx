@@ -11,6 +11,8 @@
         <div>
             <a href="Home.aspx">Home</a>
             <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />
+            <br />
+            <asp:Label ID="lblError" runat="server" Visible="False"></asp:Label>
             <hr />
             <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="125px" OnItemInserting="DetailsView1_ItemInserting">
                 <Fields>
@@ -123,7 +125,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="NazFile" SortExpression="NazFile">
                         <EditItemTemplate>
-                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
                         </EditItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label3" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
@@ -137,7 +139,7 @@
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Akcija") %>'></asp:Label>
+                            <asp:Label ID="Label11" runat="server" Text='<%# Bind("Akcija") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Najprodavaniji" SortExpression="Najprodavaniji">
@@ -148,7 +150,7 @@
                             </asp:DropDownList>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label2" runat="server" Text='<%# Bind("Najprodavaniji") %>'></asp:Label>
+                            <asp:Label ID="Label12" runat="server" Text='<%# Bind("Najprodavaniji") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>

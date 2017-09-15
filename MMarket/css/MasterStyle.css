@@ -71,3 +71,103 @@
         color: midnightblue;
         background-color: mediumslateblue;
     }*/
+
+.footer {
+    background: #3b3e43;
+    color: #878787;
+}
+
+    .footer .footer-contact,
+    .footer .footer-info {
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+@media (min-width: 992px) {
+    .footer .footer-contact .row {
+        display: table;
+        width: 100%;
+    }
+
+    .footer .footer-contact .col-sm-4 {
+        display: table-cell;
+        float: none;
+    }
+}
+
+.footer .footer-contact-item {
+    padding: 36px;
+    text-align: center;
+}
+
+    .footer .footer-contact-item .footer-contact-icon {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 2px solid #bca480;
+        color: #fff;
+        font-size: 20px;
+        display: inline-block;
+        margin-bottom: 15px;
+    }
+
+.footer a {
+    color: #878787;
+}
+
+    .footer a:hover {
+        color: #bca480;
+    }
+
+.footer .footer-info {
+    color: #878787;
+    padding: 40px 0;
+    position: relative;
+}
+
+    .footer .footer-info a {
+        color: #878787;
+    }
+
+        .footer .footer-info a:hover {
+            color: #bca480;
+        }
+
+.copyright,
+.footer-info-logo {
+    margin-bottom: 0.7692307692307693em;
+}
+
+.footer-social a {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 1.5em;
+    margin: 0 5px;
+}
+
+    .footer-social a i:hover {
+        background: none !important;
+        color: #bca480 !important;
+    }
+
+a.go-to-top,
+a.go-to-top:hover a.go-to-top:focus {
+    background-color: #34363b;
+    width: 30px;
+    height: 30px;
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-top: -15px;
+    -webkit-transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    -o-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    margin-left: -15px;
+}
+

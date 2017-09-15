@@ -31,7 +31,7 @@ namespace MMarket
 
         protected void btnRegister_Click(object sender, EventArgs e)
         {
-
+            Response.Write("<script>alert('Opcija register trenutno nije dostupna!');</script>");
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)

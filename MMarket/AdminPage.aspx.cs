@@ -16,6 +16,8 @@ namespace MMarket
         string finalFilename = string.Empty;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblError.Visible = false;
+
             if (Session["Admin"] == null)
             {
                 Response.Redirect("Home.aspx");
@@ -76,16 +78,24 @@ namespace MMarket
                 || string.IsNullOrWhiteSpace(((TextBox)DetailsView1.Rows[2].Cells[1].FindControl("TextBox2")).Text)
                 || !float.TryParse(((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox3")).Text, out cijenaTest))
             {
+                lblError.ForeColor = Color.Red;
+                lblError.Text = "Proizvod nije dodan! Provjerite da li ste popunili sva potrebna polja";
+                lblError.Visible = true;
                 e.Cancel = true;
             }
             else
             {
                 if (ProcessImage(ImageBytes, finalFilename))
                 {
-
+                    lblError.ForeColor = Color.Green;
+                    lblError.Text = "Proizvod je uspješno dodan";
+                    lblError.Visible = true;
                 }
                 else
                 {
+                    lblError.ForeColor = Color.Red;
+                    lblError.Text = "Proizvod nije dodan! Provjerite da li ste popunili sva potrebna polja";
+                    lblError.Visible = true;
                     e.Cancel = true;
                 }
                 

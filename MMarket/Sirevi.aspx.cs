@@ -39,6 +39,8 @@ namespace MMarket
 
             HtmlGenericControl mainDiv = new HtmlGenericControl();
             mainDiv.Attributes["class"] = "row";
+            mainDiv.Style.Add("margin-left", "1%");
+            mainDiv.Style.Add("margin-right", "1%");
             mainDiv.TagName = "div";
 
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -48,51 +50,60 @@ namespace MMarket
                 itemDiv.TagName = "div";
 
                 HtmlAnchor itemAnchor = new HtmlAnchor();
+                itemAnchor.ID = "anchorAkcija_" + dt.Rows[i].ItemArray[0];
                 itemAnchor.Attributes["class"] = "thumbnail";
-
-                ImageButton itemImage = new ImageButton();
-                itemImage.ID = "itemimage" + dt.Rows[i].ItemArray[0];
-                itemImage.ImageUrl = "~/Images/" + dt.Rows[i].ItemArray[4];
-                itemImage.Attributes.Add("class", "img-responsive");
-                itemImage.Click += ItemImage_Click;
-                itemImage.CausesValidation = false;
+                itemAnchor.CausesValidation = false;
+                itemAnchor.ServerClick += ItemAnchor_ServerClick;
 
 
-                HtmlContainerControl para = new HtmlGenericControl("p");
-                para.InnerText = dt.Rows[i].ItemArray[1].ToString();
+                HtmlImage itemImage = new HtmlImage();
+                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[4];
 
+
+                HtmlContainerControl para = new HtmlGenericControl("h4");
+                para.InnerText = dt.Rows[i].ItemArray[1].ToString().ToUpper();
 
                 HtmlGenericControl Div = new HtmlGenericControl();
                 Div.TagName = "div";
 
-                ImageButton imgBtn = new ImageButton();
-                imgBtn.ID = "akcija_" + i;
-                imgBtn.ImageUrl = "~/Images/icones/add_to_cart_purple.png";
-                imgBtn.Width = 20;
-                imgBtn.Click += AddToCart_ServerClick;
-                imgBtn.CausesValidation = false;
+                HtmlGenericControl commerce11 = new HtmlGenericControl("div");
+                commerce11.Attributes["class"] = "commerce";
 
-                HtmlContainerControl para1 = new HtmlGenericControl("p");
+                HtmlGenericControl paraNew = new HtmlGenericControl("p");
+                paraNew.Attributes["class"] = "return-to-shop";
+
+                HtmlButton btnTbody = new HtmlButton();
+                btnTbody.ID = "akcija_" + i;
+                btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
+                btnTbody.Attributes.Add("runat", "server");
+                btnTbody.Style.Add("color", "#6B32C7");
+                btnTbody.Style.Add("border-color", "#6B32C7");
+                btnTbody.CausesValidation = false;
+                btnTbody.ServerClick += AddToCart_ServerClick;
+
+                paraNew.Controls.Add(btnTbody);
+                commerce11.Controls.Add(paraNew);
+                commerce11.Style.Add("float", "left");
+
+                HtmlContainerControl para1 = new HtmlGenericControl("h4");
                 para1.Style.Add("float", "right");
                 para1.InnerText = dt.Rows[i].ItemArray[3] + " kn";
 
-                Div.Controls.Add(imgBtn);
+                Div.Controls.Add(commerce11);
                 Div.Controls.Add(para1);
 
-                itemAnchor.Controls.Add(para);
-                itemAnchor.Controls.Add(itemImage);
                 itemAnchor.Controls.Add(Div);
+                itemAnchor.Controls.Add(itemImage);
+                itemAnchor.Controls.Add(para);
                 itemDiv.Controls.Add(itemAnchor);
                 mainDiv.Controls.Add(itemDiv);
             }
             Panel1.Controls.Add(mainDiv);
-
-
         }
 
-        private void ItemImage_Click(object sender, ImageClickEventArgs e)
+        private void ItemAnchor_ServerClick(object sender, EventArgs e)
         {
-            string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+            string resultString = Regex.Match(((HtmlAnchor)sender).ID, @"\d+").Value;
             Session["ProductId"] = resultString;
             Response.Redirect("ProductDetails.aspx");
         }
@@ -107,7 +118,7 @@ namespace MMarket
 
                 dt = ((DataTable)ViewState["sirevi"]).Clone();
 
-                string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+                string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
                 int row = int.Parse(resultString);
                 dt.ImportRow(((DataTable)ViewState["sirevi"]).Rows[row]);
 
@@ -118,7 +129,7 @@ namespace MMarket
             {
                 bool dodaj = true;
 
-                string resultString = Regex.Match(((ImageButton)sender).ID, @"\d+").Value;
+                string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
                 int row = int.Parse(resultString);
 
                 foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
@@ -135,5 +146,6 @@ namespace MMarket
                 }
             }
         }
+
     }
 }

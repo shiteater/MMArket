@@ -2,7 +2,6 @@
 
 <%--Content2 je za SAMO ZA Slide Show --%>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    
     <div class="row">
             <div class="col-xs-12">
 
@@ -26,7 +25,6 @@
 <%--Content3 je za sve ostalo--%>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <asp:Panel ID="Panel1" runat="server"></asp:Panel>
-    
     <h1>Test</h1>
     <h1>Test</h1>
     <h1>Test</h1>
