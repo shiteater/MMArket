@@ -15,6 +15,9 @@
             <asp:Button ID="Button1" class="logout" runat="server" Text="Logout" OnClick="Button1_Click" />
             <br />
              <br />
+            <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Center">
+                <asp:Label ID="lblError" runat="server" Visible="False"></asp:Label>
+            </asp:Panel>
             <hr />
 
             <asp:DetailsView ID="DetailsView1" class="dodajNovi" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="398px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" Font-Names="Times New Roman" ForeColor="Black" GridLines="None" OnPageIndexChanging="DetailsView1_PageIndexChanging">
