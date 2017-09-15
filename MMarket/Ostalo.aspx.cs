@@ -38,6 +38,8 @@ namespace MMarket
 
             HtmlGenericControl mainDiv = new HtmlGenericControl();
             mainDiv.Attributes["class"] = "row";
+            mainDiv.Style.Add("width", "95%");
+            mainDiv.Style.Add("margin", "0 2%");
             mainDiv.TagName = "div";
 
             for (int i = 0; i < dt.Rows.Count; i++)
@@ -57,8 +59,8 @@ namespace MMarket
                 itemImage.CausesValidation = false;
 
 
-                HtmlContainerControl para = new HtmlGenericControl("p");
-                para.InnerText = dt.Rows[i].ItemArray[1].ToString();
+                HtmlContainerControl para = new HtmlGenericControl("h4");
+                para.InnerText = dt.Rows[i].ItemArray[1].ToString().ToUpper();
 
 
                 HtmlGenericControl Div = new HtmlGenericControl();
@@ -67,11 +69,11 @@ namespace MMarket
                 ImageButton imgBtn = new ImageButton();
                 imgBtn.ID = "akcija_" + i;
                 imgBtn.ImageUrl = "~/Images/icones/add_to_cart_purple.png";
-                imgBtn.Width = 20;
+                imgBtn.Width = 40;
                 imgBtn.Click += AddToCart_ServerClick;
                 imgBtn.CausesValidation = false;
 
-                HtmlContainerControl para1 = new HtmlGenericControl("p");
+                HtmlContainerControl para1 = new HtmlGenericControl("h3");
                 para1.Style.Add("float", "right");
                 para1.InnerText = dt.Rows[i].ItemArray[3] + " kn";
 
