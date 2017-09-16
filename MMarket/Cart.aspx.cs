@@ -231,7 +231,7 @@ namespace MMarket
                 HtmlAnchor anchor = new HtmlAnchor();
                 anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
-                anchor.InnerText = " Natrag u shoping";
+                anchor.InnerText = " Povratak na proizvode";
 
                 para1.Controls.Add(anchor);
                 commerce.Controls.Add(para1);
@@ -292,7 +292,7 @@ namespace MMarket
 
                 HtmlAnchor anchor1 = new HtmlAnchor();
                 anchor1.Attributes["class"] = "button";
-                anchor1.InnerText = "Plačanje ";
+                anchor1.InnerText = "Plaćanje ";
                 anchor1.CausesValidation = false;
                 anchor1.ServerClick += Payment_ServerClick;
 
@@ -363,7 +363,7 @@ namespace MMarket
 
                 HtmlGenericControl para = new HtmlGenericControl("p");
                 para.Attributes["class"] = "cart-empty";
-                para.InnerText = "Nema trenutno niti jednog proizvoda u vašoj košarici.";
+                para.InnerText = "Vaša košarica je prazna.";
 
                 HtmlGenericControl para1 = new HtmlGenericControl("p");
                 para1.Attributes["class"] = "return-to-shop";
@@ -371,7 +371,7 @@ namespace MMarket
                 HtmlAnchor anchor = new HtmlAnchor();
                 anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
-                anchor.InnerText = " Natrag u shoping";
+                anchor.InnerText = " Povratak na proizvode";
 
                 para1.Controls.Add(anchor);
 
