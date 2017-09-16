@@ -75,8 +75,8 @@ namespace MMarket
                 btnTbody.ID = "akcija_" + i;
                 btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
                 btnTbody.Attributes.Add("runat", "server");
-                btnTbody.Style.Add("color", "#6B32C7");
-                btnTbody.Style.Add("border-color", "#6B32C7");
+                btnTbody.Style.Add("color", "#AD1616");
+                btnTbody.Style.Add("border-color", "#AD1616");
                 btnTbody.CausesValidation = false;
                 btnTbody.ServerClick += AddToCart_ServerClick;
 
