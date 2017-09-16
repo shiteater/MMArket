@@ -180,7 +180,8 @@
 
     </div>
     <div class="collapse navbar-collapse" id="nav_sec2" >
-      <ul class="nav navDrugi navbar-nav">
+        <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Center">
+            <ul class="nav navDrugi navbar-nav">
         <li><a href="SmrznutaHrana.aspx" style="color:white;">Smrznuta Hrana</a></li>
         <li><a href="Sirevi.aspx" style="color:white">Sirevi</a></li>
         <li> <a href="KonzerviranaHrana.aspx" style="color:white">Konzervirana Hrana</a></li>
@@ -193,6 +194,8 @@
         <li><a href="Kozmetika.aspx" style="color:white">Kozmetika</a></li>
           <li><a href="Ostalo.aspx" style="color:white">Ostalo</a></li>
       </ul>
+        </asp:Panel>
+      
 
     </div>
   </div>
