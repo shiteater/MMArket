@@ -35,15 +35,15 @@
     </div>
     <div class="collapse navbar-collapse" id="nav_sec3" >
       <ul class="nav lista1 navbar-nav">
-          <li><a href="Home.aspx" style="height: 60px"><img src="Images/Logo.png" width="190" /></a></li>
+          <li><a href="Home.aspx" style="height: 50px; margin-top:0px;"><img src="Images/logo-nav1.jpg" width="142" /></a></li>
          </ul>   
          
       <ul class="nav lista2 navbar-nav">
-          <li><a href="Kontakt.aspx" style="color: midnightblue;">Contact</a></li>
-          <li><a href="Cart.aspx" style="color: midnightblue;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/icones/cart_purple.png" height="17" /></div></a></li>
-          <li><a id="adminLink" href="AdminPage.aspx" style="color: midnightblue;" runat="server">Admin Page</a></li>
-          <li><a id="modal_trigger" href="#modal" style="color: midnightblue;" runat="server">Login or Register</a></li>
-          <li><a href="#" id="btnLogout" style="color: midnightblue;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
+          <li><a href="Kontakt.aspx" style="color: #A60600;">Contact</a></li>
+          <li><a href="Cart.aspx" style="color:  #A60600;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/icones/cart_red.png" height="17" /></div></a></li>
+          <li><a id="adminLink" href="AdminPage.aspx" style="color:  #A60600;" runat="server">Admin Page</a></li>
+          <li><a id="modal_trigger" href="#modal" style="color: #A60600;" runat="server">Login or Register</a></li>
+          <li><a href="#" id="btnLogout" style="color:  #A60600;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
     </ul>  
 
     </div>
@@ -163,7 +163,7 @@
         <script src="js/modal.js"></script>
     
     
-    <div id="content_div" style="background-color:#e3e6ec; margin-top: 60px;">
+    <div id="content_div" style="background-color:white; border-color:#FFF7F7; margin-top: 60px;">
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
         </asp:ContentPlaceHolder>

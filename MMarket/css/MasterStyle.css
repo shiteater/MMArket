@@ -10,25 +10,27 @@
 }
 
 .navbar-fixed-top {
-    background-color: #e3e6ec;
-    border-bottom-color: #e3e6ec;
+    background-color: white;
+    border-bottom-color: white;
 }
 
 .lista1 {
-    background-color: #e3e6ec;
+    background-color: white;
     float: left;
+    margin-top: 0px;
+    padding-top: 0px;
 }
 
 .lista2 {
-    background-color: #e3e6ec;
+    background-color: white;
     float: right;
     margin-top: 6px;
-    color: midnightblue;
+    color: #A60600;
 }
 
     .lista2 li a {
         font-size: 16px;
-        color: midnightblue;
+        color: #A60600;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -40,7 +42,7 @@
     }
 
 .navbar-toggle:hover {
-    background-color: lightblue;
+    background-color: floralwhite;
 }
 
 /*.navbar-Drugi {

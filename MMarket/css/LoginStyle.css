@@ -36,30 +36,30 @@ h1 {
 }
 
 .btn {
-    background-color: slategray;
+    background-color: #a55353;
     color: white;
     border-radius: 4px;
     font-size: 16px;
-    padding-top:2px;
+    padding-top: 2px;
 }
 
 .btn_red {
-    background-color: slategray;
+    background-color: #a55353;
     color: white;
 }
 
 .btn:hover {
-    background-color: powderblue;
-    border-color: powderblue;
-    color:lightblue
+    background-color: #a55353;
+    border-color: #a55353;
+    color: floralwhite;
 }
 
 .btn_red:hover {
-    background-color: powderblue;
+    background-color: #a55353;
 }
 
 a.btn {
-    background-color: slategray;
+    background-color: #944d4d;
     color: #333;
     text-align: center;
     text-decoration: none;
@@ -95,10 +95,10 @@ a.btn_red {
 }
 
 .popupHeader {
-    background-color: midnightblue;
+    background-color: #A20500;
     position: relative;
     padding: 10px 20px;
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid;
     font-weight: bold;
 }
 
@@ -107,7 +107,7 @@ a.btn_red {
         right: 0;
         top: 0;
         padding: 10px 15px;
-        background-color:mediumslateblue;
+        background-color: #530300;
         cursor: pointer;
         color: white;
         font-size: 16px;
@@ -182,9 +182,9 @@ a.btn_red {
     .action_btns a {
         display: block;
         height: 29px;
-        background: #333;
+        background: #785959;
         border: solid;
-        border-color: #333;
+        border-color: #785959;
         color: white;
     }
 /* User Login Form */
@@ -230,7 +230,7 @@ a.btn_red {
     clear: both;
     overflow: hidden;
     text-decoration: none;
-    color: mediumblue;
+    color: darkred;
 }
 /* User Register Form */
 
