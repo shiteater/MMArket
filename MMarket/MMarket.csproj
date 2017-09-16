@@ -75,6 +75,7 @@
     <Content Include="css\LoginStyle.css" />
     <Content Include="Datulje.aspx" />
     <Content Include="home2.aspx" />
+    <Content Include="Images\arap-logo.png" />
     <Content Include="Images\categories\datulje.jpg" />
     <Content Include="Images\categories\kava.jpg" />
     <Content Include="Images\categories\konz.png" />
