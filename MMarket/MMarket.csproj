@@ -79,6 +79,7 @@
     <Content Include="Images\categories\kava.jpg" />
     <Content Include="Images\categories\konz.png" />
     <Content Include="Images\categories\kozm.jpg" />
+    <Content Include="Images\categories\pice.jpg" />
     <Content Include="Images\categories\sir.jpg" />
     <Content Include="Images\categories\slatko.jpg" />
     <Content Include="Images\categories\zacini.JPG" />
@@ -90,6 +91,8 @@
     <Content Include="Images\icones\add_to_cart_white.png" />
     <Content Include="Images\icones\cart_blue.png" />
     <Content Include="Images\icones\cart_purple.png" />
+    <Content Include="Images\icones\cart_red.png" />
+    <Content Include="Images\logo-nav1.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\Oriental Background.jpg" />
     <Content Include="js\modal.js" />
