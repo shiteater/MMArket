@@ -72,6 +72,7 @@ namespace MMarket
                 naziv.Controls.Add(lbl);
                 naziv.Attributes.Add("class", "pull-left");
                 naziv.Style.Add("margin-top", "30px");
+                naziv.Style.Add("font-family", "Lobster");
 
                 HtmlGenericControl DivCijena = new HtmlGenericControl("div");
 
@@ -88,6 +89,7 @@ namespace MMarket
                 Label opis = new Label();
                 opis.Text = dt.Rows[i].ItemArray[2].ToString();
                 podaci.Attributes.Add("class", "Ivana Sredi Ovo");
+                podaci.Style.Add("font-family", "Lobster Two");
                 podaci.Controls.Add(opis);
 
                 HtmlButton btnTbody = new HtmlButton();
