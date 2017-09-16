@@ -17,22 +17,23 @@ namespace MMarket
         protected void Page_Load(object sender, EventArgs e)
         {
             string conString = ConfigurationManager.ConnectionStrings["MaritaMarketConnectionString"].ConnectionString;
+            DataTable dt = new DataTable();
             string id = (string)(Session["ProductId"]);
 
             SqlConnection con = new SqlConnection(conString);
 
-            SqlCommand com = new SqlCommand("SELECT [Naziv], [Opis], [Cijena], [NazFile], [IdProizvod] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
+            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
             com.Parameters.AddWithValue("@id", id);
 
             con.Open();
 
             SqlDataAdapter adptr = new SqlDataAdapter(com);
-            DataTable dt = new DataTable();
+
+            ViewState["CurrentTable"] = dt;
+
             adptr.Fill(dt);
 
             con.Close();
-
-            ViewState["CurrentTable"] = dt;
 
             HtmlGenericControl mainDiv2 = new HtmlGenericControl("div");
             mainDiv2.Attributes["class"] = "container";
@@ -46,59 +47,75 @@ namespace MMarket
                 // slika na productDetails
 
                 HtmlGenericControl itemDiv = new HtmlGenericControl("div");
-                itemDiv.Attributes["class"] = "col-lg-6 col-md-6 col-sm-6";
-                itemDiv.Style.Add("background-color", "greenyellow");
+                itemDiv.Attributes["class"] = "col-xs-12 col-sm-4";
                 itemDiv.Style.Add("border-color", "blue");
 
                 HtmlImage itemImage = new HtmlImage();
                 itemImage.Attributes.Add("class", "img-responsive");
-                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[3];
+                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[4];
 
                 // desna polovica
 
 
                 HtmlGenericControl itemDiv2 = new HtmlGenericControl("div");
-                itemDiv2.Attributes["class"] = "col-lg-6 col-md-6 col-sm-6";
+                itemDiv2.Attributes["class"] = "col-xs-12 col-sm-8";
+
+                HtmlGenericControl Divh1 = new HtmlGenericControl("div");
+
+                HtmlGenericControl clearfix = new HtmlGenericControl("div");
+                clearfix.Attributes.Add("class","clearfix");
 
 
-                HtmlGenericControl container = new HtmlGenericControl("div");
-                container.Attributes["class"] = "container";
-
-                HtmlContainerControl naziv = new HtmlGenericControl("h2");
+                HtmlContainerControl naziv = new HtmlGenericControl("h1");
                 Label lbl = new Label();
-                lbl.Text = dt.Rows[i].ItemArray[0].ToString();
+                lbl.Text = dt.Rows[i].ItemArray[1].ToString();
                 naziv.Controls.Add(lbl);
+                naziv.Attributes.Add("class", "pull-left");
+                naziv.Style.Add("margin-top", "30px");
+
+                HtmlGenericControl DivCijena = new HtmlGenericControl("div");
+
+                HtmlContainerControl Cijena = new HtmlGenericControl("h2");
+                Label cijena = new Label();
+                cijena.Text = dt.Rows[i].ItemArray[3].ToString() + "Kn";
+                Cijena.Controls.Add(cijena);
+                Cijena.Style.Add("color", "blue");
+                DivCijena.Controls.Add(Cijena);
+
+                HtmlGenericControl DivOpis = new HtmlGenericControl("div");
 
                 HtmlContainerControl podaci = new HtmlGenericControl("h3");
                 Label opis = new Label();
-                opis.Text = "Opis: " + dt.Rows[i].ItemArray[1].ToString();
+                opis.Text = dt.Rows[i].ItemArray[2].ToString();
+                podaci.Attributes.Add("class", "Ivana Sredi Ovo");
                 podaci.Controls.Add(opis);
 
-                Label lbl3 = new Label();
-                lbl3.Text = "<br />";
-                podaci.Controls.Add(lbl3);
+                HtmlButton btnTbody = new HtmlButton();
+                btnTbody.ID = "akcija_" + i;
+                btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
+                btnTbody.Attributes.Add("runat", "server");
+                btnTbody.Style.Add("color", "#6B32C7");
+                btnTbody.Style.Add("border-color", "#6B32C7");
+                btnTbody.Style.Add("height", "70px");
+                btnTbody.Style.Add("width", "70px");
+                btnTbody.CausesValidation = false;
+                btnTbody.ServerClick += AddToCart_ServerClick;
 
-                Label proizvodID = new Label();
-                proizvodID.Text = "Šifra proizvoda: " + dt.Rows[i].ItemArray[4].ToString();
-                podaci.Controls.Add(proizvodID);
-
-                Label lbl2 = new Label();
-                lbl2.Text = "<br />";
-                podaci.Controls.Add(lbl2);
-
-                Label cijena = new Label();
-                cijena.Text = "Cijena: " + dt.Rows[i].ItemArray[2].ToString() + "kn";
-                podaci.Controls.Add(cijena);
-
-
-
+                // dodavanje slike lijevo
 
                 itemDiv.Controls.Add(itemImage);
 
-                itemDiv2.Controls.Add(container);
-                itemDiv2.Controls.Add(naziv);
-                itemDiv2.Controls.Add(podaci);
+                // desne kontrole
 
+                Divh1.Controls.Add(naziv);
+
+                DivOpis.Controls.Add(podaci);
+
+                itemDiv2.Controls.Add(Divh1);
+                itemDiv2.Controls.Add(clearfix);
+                itemDiv2.Controls.Add(DivCijena);
+                itemDiv2.Controls.Add(DivOpis);
+                itemDiv2.Controls.Add(btnTbody);
 
                 mainDiv.Controls.Add(itemDiv);
                 mainDiv.Controls.Add(itemDiv2);
@@ -108,5 +125,44 @@ namespace MMarket
             Panel1.Controls.Add(mainDiv2);
         }
 
+        private void AddToCart_ServerClick(object sender, EventArgs e)
+        {
+
+            if (Session["CartTable"] == null)
+            {
+                DataTable dt = new DataTable();
+
+
+
+                dt = ((DataTable)ViewState["CurrentTable"]).Clone();
+
+                string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
+                int row = int.Parse(resultString);
+                dt.ImportRow(((DataTable)ViewState["CurrentTable"]).Rows[row]);
+
+                Session["CartTable"] = dt;
+            }
+
+            else
+            {
+                bool dodaj = true;
+
+                string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
+                int row = int.Parse(resultString);
+
+                foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
+                {
+                    if ((int)item.ItemArray[0] == (int)((DataTable)ViewState["CurrentTable"]).Rows[row].ItemArray[0])
+                    {
+                        dodaj = false;
+                    }
+                }
+
+                if (dodaj)
+                {
+                    ((DataTable)Session["CartTable"]).ImportRow(((DataTable)ViewState["CurrentTable"]).Rows[row]);
+                }
+            }
+        }
     }
 }
