@@ -207,174 +207,302 @@ namespace MMarket
             DivContainer.Attributes["class"] = "carousel-inner";
             DivContainer.TagName = "div";
 
-            counter = 0;
-            for (int i = 0; i < trazeni; i++)
+            if (ostalo != 0)
             {
-                HtmlGenericControl DivItem = new HtmlGenericControl();
-                DivItem.TagName = "div";
-
-                HtmlGenericControl subItem = new HtmlGenericControl();
-                subItem.Attributes["class"] = "row";
-                subItem.TagName = "div";
-
-                if (i == 0)
+                if (Session["change"] == null)
                 {
-                    DivItem.Attributes["class"] = "item active";
+                    counter = 0;
+                    for (int i = 0; i < trazeni; i++)
+                    {
+                        HtmlGenericControl DivItem = new HtmlGenericControl();
+                        DivItem.TagName = "div";
+
+                        HtmlGenericControl subItem = new HtmlGenericControl();
+                        subItem.Attributes["class"] = "row";
+                        subItem.TagName = "div";
+
+                        if (i == 0)
+                        {
+                            DivItem.Attributes["class"] = "item active";
+                        }
+                        else
+                        {
+                            DivItem.Attributes["class"] = "item";
+                        }
+
+                        for (int j = 0; j < 3; j++)
+                        {
+                            HtmlGenericControl SubItem1 = new HtmlGenericControl();
+                            SubItem1.Attributes["class"] = "col-xs-4";
+                            SubItem1.TagName = "div";
+
+                            HtmlAnchor anchor = new HtmlAnchor();
+                            anchor.ID = "anchorNaj_" + dt.Rows[counter].ItemArray[0];
+                            anchor.CausesValidation = false;
+                            anchor.ServerClick += ItemAnchor_ServerClick;
+
+                            HtmlImage img = new HtmlImage();
+                            img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
+                            img.Attributes["class"] = "img-responsive";
+                            anchor.Controls.Add(img);
+
+                            HtmlGenericControl Div = new HtmlGenericControl();
+                            Div.Attributes["class"] = "carousel-caption";
+                            Div.TagName = "div";
+
+                            HtmlGenericControl h3 = new HtmlGenericControl();
+                            h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
+                            h3.TagName = "h3";
+
+                            HtmlContainerControl para = new HtmlGenericControl("p");
+                            para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
+
+                            HtmlGenericControl commerce11 = new HtmlGenericControl("div");
+                            commerce11.Attributes["class"] = "commerce";
+
+                            HtmlGenericControl paraNew = new HtmlGenericControl("p");
+                            paraNew.Attributes["class"] = "return-to-shop";
+
+                            HtmlButton btnTbody = new HtmlButton();
+                            btnTbody.ID = "naj_" + counter;
+                            btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
+                            btnTbody.Attributes.Add("runat", "server");
+                            btnTbody.Style.Add("color", "#ffffff");
+                            btnTbody.Style.Add("border-color", "#ffffff");
+                            btnTbody.CausesValidation = false;
+                            btnTbody.ServerClick += AddToCart_ServerClick;
+
+                            paraNew.Controls.Add(btnTbody);
+                            commerce11.Controls.Add(paraNew);
+
+                            Div.Controls.Add(h3);
+                            Div.Controls.Add(para);
+                            Div.Controls.Add(commerce11);
+
+                            anchor.Controls.Add(Div);
+
+                            SubItem1.Controls.Add(anchor);
+                            subItem.Controls.Add(SubItem1);
+
+                            ++counter;
+                        }
+
+                        DivItem.Controls.Add(subItem);
+                        DivContainer.Controls.Add(DivItem);
+                    }
+
+                    HtmlContainerControl ol = new HtmlGenericControl("ol");
+                    ol.Attributes["class"] = "carousel-indicators";
+
+                    for (int i = 0; i < trazeni; i++)
+                    {
+                        HtmlGenericControl li = new HtmlGenericControl();
+                        li.Attributes["data-target"] = "#imageCarousel";
+                        li.Attributes["data-slide-to"] = i.ToString();
+                        if (i == 0)
+                        {
+                            li.Attributes["class"] = "active";
+                        }
+                        li.TagName = "li";
+                        ol.Controls.Add(li);
+                    }
+
+
+                    Panel2.Controls.Add(ol);
+                    Panel2.Controls.Add(DivContainer);
+
+                    Session["change"] = 0;
                 }
                 else
                 {
-                    DivItem.Attributes["class"] = "item";
+                    counter = dt.Rows.Count - 1;
+                    for (int i = trazeni; i > 0; i--)
+                    {
+                        HtmlGenericControl DivItem = new HtmlGenericControl();
+                        DivItem.TagName = "div";
+
+                        HtmlGenericControl subItem = new HtmlGenericControl();
+                        subItem.Attributes["class"] = "row";
+                        subItem.TagName = "div";
+
+                        if (i == trazeni)
+                        {
+                            DivItem.Attributes["class"] = "item active";
+                        }
+                        else
+                        {
+                            DivItem.Attributes["class"] = "item";
+                        }
+
+                        for (int j = 0; j < 3; j++)
+                        {
+                            HtmlGenericControl SubItem1 = new HtmlGenericControl();
+                            SubItem1.Attributes["class"] = "col-xs-4";
+                            SubItem1.TagName = "div";
+
+                            HtmlAnchor anchor = new HtmlAnchor();
+                            anchor.ID = "anchorNaj_" + dt.Rows[counter].ItemArray[0];
+                            anchor.CausesValidation = false;
+                            anchor.ServerClick += ItemAnchor_ServerClick;
+
+                            HtmlImage img = new HtmlImage();
+                            img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
+                            img.Attributes["class"] = "img-responsive";
+                            anchor.Controls.Add(img);
+
+                            HtmlGenericControl Div = new HtmlGenericControl();
+                            Div.Attributes["class"] = "carousel-caption";
+                            Div.TagName = "div";
+
+                            HtmlGenericControl h3 = new HtmlGenericControl();
+                            h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
+                            h3.TagName = "h3";
+
+                            HtmlContainerControl para = new HtmlGenericControl("p");
+                            para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
+
+                            HtmlGenericControl commerce11 = new HtmlGenericControl("div");
+                            commerce11.Attributes["class"] = "commerce";
+
+                            HtmlGenericControl paraNew = new HtmlGenericControl("p");
+                            paraNew.Attributes["class"] = "return-to-shop";
+
+                            HtmlButton btnTbody = new HtmlButton();
+                            btnTbody.ID = "naj_" + counter;
+                            btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
+                            btnTbody.Attributes.Add("runat", "server");
+                            btnTbody.Style.Add("color", "#ffffff");
+                            btnTbody.Style.Add("border-color", "#ffffff");
+                            btnTbody.CausesValidation = false;
+                            btnTbody.ServerClick += AddToCart_ServerClick;
+
+                            paraNew.Controls.Add(btnTbody);
+                            commerce11.Controls.Add(paraNew);
+
+                            Div.Controls.Add(h3);
+                            Div.Controls.Add(para);
+                            Div.Controls.Add(commerce11);
+
+                            anchor.Controls.Add(Div);
+
+                            SubItem1.Controls.Add(anchor);
+                            subItem.Controls.Add(SubItem1);
+
+                            --counter;
+                        }
+
+                        DivItem.Controls.Add(subItem);
+                        DivContainer.Controls.Add(DivItem);
+                    }
+
+                    HtmlContainerControl ol = new HtmlGenericControl("ol");
+                    ol.Attributes["class"] = "carousel-indicators";
+
+                    for (int i = 0; i < trazeni; i++)
+                    {
+                        HtmlGenericControl li = new HtmlGenericControl();
+                        li.Attributes["data-target"] = "#imageCarousel";
+                        li.Attributes["data-slide-to"] = i.ToString();
+                        if (i == 0)
+                        {
+                            li.Attributes["class"] = "active";
+                        }
+                        li.TagName = "li";
+                        ol.Controls.Add(li);
+                    }
+
+
+                    Panel2.Controls.Add(ol);
+                    Panel2.Controls.Add(DivContainer);
+
+                    Session["change"] = null;
                 }
-
-                for (int j = 0; j < 3; j++)
-                {
-                    HtmlGenericControl SubItem1 = new HtmlGenericControl();
-                    SubItem1.Attributes["class"] = "col-xs-4";
-                    SubItem1.TagName = "div";
-
-                    HtmlAnchor anchor = new HtmlAnchor();
-                    anchor.ID = "anchorNaj_" + dt.Rows[counter].ItemArray[0];
-                    anchor.CausesValidation = false;
-                    anchor.ServerClick += ItemAnchor_ServerClick;
-
-                    HtmlImage img = new HtmlImage();
-                    img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
-                    img.Attributes["class"] = "img-responsive";
-                    anchor.Controls.Add(img);
-
-                    HtmlGenericControl Div = new HtmlGenericControl();
-                    Div.Attributes["class"] = "carousel-caption";
-                    Div.TagName = "div";
-
-                    HtmlGenericControl h3 = new HtmlGenericControl();
-                    h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
-                    h3.TagName = "h3";
-
-                    HtmlContainerControl para = new HtmlGenericControl("p");
-                    para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
-
-                    //ImageButton imgBtn = new ImageButton();
-                    //imgBtn.ID = "naj_" + counter;
-                    //imgBtn.ImageUrl = "~/Images/icones/add_to_cart_white.png";
-                    //imgBtn.Width = 30;
-                    //imgBtn.Click += AddToCart_ServerClick;
-                    //imgBtn.CausesValidation = false;
-
-                    HtmlGenericControl commerce11 = new HtmlGenericControl("div");
-                    commerce11.Attributes["class"] = "commerce";
-
-                    HtmlGenericControl paraNew = new HtmlGenericControl("p");
-                    paraNew.Attributes["class"] = "return-to-shop";
-
-                    HtmlButton btnTbody = new HtmlButton();
-                    btnTbody.ID = "naj_" + counter;
-                    btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
-                    btnTbody.Attributes.Add("runat", "server");
-                    btnTbody.Style.Add("color", "#ffffff");
-                    btnTbody.Style.Add("border-color", "#ffffff");
-                    btnTbody.CausesValidation = false;
-                    btnTbody.ServerClick += AddToCart_ServerClick;
-
-                    paraNew.Controls.Add(btnTbody);
-                    commerce11.Controls.Add(paraNew);
-
-                    Div.Controls.Add(h3);
-                    Div.Controls.Add(para);
-                    Div.Controls.Add(commerce11);
-
-                    anchor.Controls.Add(Div);
-
-                    SubItem1.Controls.Add(anchor);
-                    subItem.Controls.Add(SubItem1);
-
-                    ++counter;
-                }
-
-                DivItem.Controls.Add(subItem);
-                DivContainer.Controls.Add(DivItem);
             }
-
-            if (ostalo != 0)
+            else
             {
-                HtmlGenericControl DivItem1 = new HtmlGenericControl();
-                DivItem1.Attributes["class"] = "item";
-                DivItem1.TagName = "div";
-
-                HtmlGenericControl subItem1 = new HtmlGenericControl();
-                subItem1.Attributes["class"] = "row";
-                subItem1.TagName = "div";
-                for (int i = 0; i < ostalo; i++)
+                counter = 0;
+                for (int i = 0; i < trazeni; i++)
                 {
-                    HtmlGenericControl SubItem_1 = new HtmlGenericControl();
-                    SubItem_1.Attributes["class"] = "col-xs-4";
-                    SubItem_1.TagName = "div";
+                    HtmlGenericControl DivItem = new HtmlGenericControl();
+                    DivItem.TagName = "div";
 
-                    HtmlAnchor anchor = new HtmlAnchor();
-                    anchor.ID = "anchorNaj_" + dt.Rows[counter].ItemArray[0];
-                    anchor.CausesValidation = false;
-                    anchor.ServerClick += ItemAnchor_ServerClick;
+                    HtmlGenericControl subItem = new HtmlGenericControl();
+                    subItem.Attributes["class"] = "row";
+                    subItem.TagName = "div";
 
-                    HtmlImage img = new HtmlImage();
-                    img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
-                    img.Attributes["class"] = "img-responsive";
-                    anchor.Controls.Add(img);
+                    if (i == 0)
+                    {
+                        DivItem.Attributes["class"] = "item active";
+                    }
+                    else
+                    {
+                        DivItem.Attributes["class"] = "item";
+                    }
 
-                    HtmlGenericControl Div = new HtmlGenericControl();
-                    Div.Attributes["class"] = "carousel-caption";
-                    Div.TagName = "div";
+                    for (int j = 0; j < 3; j++)
+                    {
+                        HtmlGenericControl SubItem1 = new HtmlGenericControl();
+                        SubItem1.Attributes["class"] = "col-xs-4";
+                        SubItem1.TagName = "div";
 
-                    HtmlGenericControl h3 = new HtmlGenericControl();
-                    h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
-                    h3.TagName = "h3";
+                        HtmlAnchor anchor = new HtmlAnchor();
+                        anchor.ID = "anchorNaj_" + dt.Rows[counter].ItemArray[0];
+                        anchor.CausesValidation = false;
+                        anchor.ServerClick += ItemAnchor_ServerClick;
 
-                    HtmlContainerControl para = new HtmlGenericControl("p");
-                    para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
+                        HtmlImage img = new HtmlImage();
+                        img.Src = "Images/" + dt.Rows[counter].ItemArray[4];
+                        img.Attributes["class"] = "img-responsive";
+                        anchor.Controls.Add(img);
 
-                    //ImageButton imgBtn = new ImageButton();
-                    //imgBtn.ID = "naj_" + counter;
-                    //imgBtn.ImageUrl = "~/Images/icones/add_to_cart_white.png";
-                    //imgBtn.Width = 30;
-                    //imgBtn.Click += AddToCart_ServerClick;
-                    //imgBtn.CausesValidation = false;
+                        HtmlGenericControl Div = new HtmlGenericControl();
+                        Div.Attributes["class"] = "carousel-caption";
+                        Div.TagName = "div";
 
-                    HtmlGenericControl commerce11 = new HtmlGenericControl("div");
-                    commerce11.Attributes["class"] = "commerce";
+                        HtmlGenericControl h3 = new HtmlGenericControl();
+                        h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
+                        h3.TagName = "h3";
 
-                    HtmlGenericControl paraNew = new HtmlGenericControl("p");
-                    paraNew.Attributes["class"] = "return-to-shop";
+                        HtmlContainerControl para = new HtmlGenericControl("p");
+                        para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
 
-                    HtmlButton btnTbody = new HtmlButton();
-                    btnTbody.ID = "naj_" + counter;
-                    btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
-                    btnTbody.Attributes.Add("runat", "server");
-                    btnTbody.Style.Add("color", "#ffffff");
-                    btnTbody.Style.Add("border-color", "#ffffff");
-                    btnTbody.CausesValidation = false;
-                    btnTbody.ServerClick += AddToCart_ServerClick;
+                        HtmlGenericControl commerce11 = new HtmlGenericControl("div");
+                        commerce11.Attributes["class"] = "commerce";
 
-                    paraNew.Controls.Add(btnTbody);
-                    commerce11.Controls.Add(paraNew);
+                        HtmlGenericControl paraNew = new HtmlGenericControl("p");
+                        paraNew.Attributes["class"] = "return-to-shop";
 
-                    Div.Controls.Add(h3);
-                    Div.Controls.Add(para);
-                    Div.Controls.Add(commerce11);
+                        HtmlButton btnTbody = new HtmlButton();
+                        btnTbody.ID = "naj_" + counter;
+                        btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
+                        btnTbody.Attributes.Add("runat", "server");
+                        btnTbody.Style.Add("color", "#ffffff");
+                        btnTbody.Style.Add("border-color", "#ffffff");
+                        btnTbody.CausesValidation = false;
+                        btnTbody.ServerClick += AddToCart_ServerClick;
 
-                    anchor.Controls.Add(Div);
+                        paraNew.Controls.Add(btnTbody);
+                        commerce11.Controls.Add(paraNew);
 
-                    SubItem_1.Controls.Add(anchor);
-                    subItem1.Controls.Add(SubItem_1);
+                        Div.Controls.Add(h3);
+                        Div.Controls.Add(para);
+                        Div.Controls.Add(commerce11);
 
-                    ++counter;
+                        anchor.Controls.Add(Div);
+
+                        SubItem1.Controls.Add(anchor);
+                        subItem.Controls.Add(SubItem1);
+
+                        ++counter;
+                    }
+
+                    DivItem.Controls.Add(subItem);
+                    DivContainer.Controls.Add(DivItem);
                 }
-                DivItem1.Controls.Add(subItem1);
-                DivContainer.Controls.Add(DivItem1);
-            }
 
-            HtmlContainerControl ol = new HtmlGenericControl("ol");
-            ol.Attributes["class"] = "carousel-indicators";
+                HtmlContainerControl ol = new HtmlGenericControl("ol");
+                ol.Attributes["class"] = "carousel-indicators";
 
-            if (ostalo == 0)
-            {
                 for (int i = 0; i < trazeni; i++)
                 {
                     HtmlGenericControl li = new HtmlGenericControl();
@@ -387,26 +515,11 @@ namespace MMarket
                     li.TagName = "li";
                     ol.Controls.Add(li);
                 }
-            }
-            else
-            {
-                for (int i = 0; i <= trazeni; i++)
-                {
-                    HtmlGenericControl li = new HtmlGenericControl();
-                    li.Attributes["data-target"] = "#imageCarousel";
-                    li.Attributes["data-slide-to"] = i.ToString();
-                    if (i == 0)
-                    {
-                        li.Attributes["class"] = "active";
-                    }
-                    li.TagName = "li";
-                    ol.Controls.Add(li);
-                }
-            }
-            
 
-            Panel2.Controls.Add(ol);
-            Panel2.Controls.Add(DivContainer);
+
+                Panel2.Controls.Add(ol);
+                Panel2.Controls.Add(DivContainer);
+            }
         }
 
         private void AddToCart_ServerClick(object sender, EventArgs e)

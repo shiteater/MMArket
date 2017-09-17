@@ -37,7 +37,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Opis" SortExpression="Opis">
                         <InsertItemTemplate>
-                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Opis") %>'></asp:TextBox>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Opis") %>' TextMode="MultiLine"></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
                             <asp:Label ID="Label5" runat="server" Text='<%# Bind("Opis") %>'></asp:Label>
@@ -118,7 +118,14 @@
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" InsertVisible="False" ReadOnly="True" SortExpression="idProizvod" />
                     <asp:BoundField DataField="Naziv" HeaderText="Naziv" SortExpression="Naziv" />
-                    <asp:BoundField DataField="Opis" HeaderText="Opis" SortExpression="Opis" />
+                    <asp:TemplateField HeaderText="Opis" SortExpression="Opis">
+                        <EditItemTemplate>
+                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Opis") %>' TextMode="MultiLine"></asp:TextBox>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Opis") %>' ReadOnly="True" TextMode="MultiLine"></asp:TextBox>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="Cijena" HeaderText="Cijena" SortExpression="Cijena" />
                     <asp:TemplateField HeaderText="Kategorija" SortExpression="Kategorija">
                         <EditItemTemplate>
