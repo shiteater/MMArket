@@ -92,16 +92,24 @@ namespace MMarket
                 podaci.Style.Add("font-family", "Lobster Two");
                 podaci.Controls.Add(opis);
 
+                HtmlGenericControl commerce11 = new HtmlGenericControl("div");
+                commerce11.Attributes["class"] = "commerce";
+
+                HtmlGenericControl paraNew = new HtmlGenericControl("p");
+                paraNew.Attributes["class"] = "return-to-shop";
+
                 HtmlButton btnTbody = new HtmlButton();
                 btnTbody.ID = "akcija_" + i;
                 btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
                 btnTbody.Attributes.Add("runat", "server");
-                btnTbody.Style.Add("color", "#6B32C7");
-                btnTbody.Style.Add("border-color", "#6B32C7");
-                btnTbody.Style.Add("width", "40px");
-                btnTbody.Style.Add("height", "40px");
+                btnTbody.Style.Add("color", "#AD1616");
+                btnTbody.Style.Add("border-color", "#AD1616");
                 btnTbody.CausesValidation = false;
                 btnTbody.ServerClick += AddToCart_ServerClick;
+
+                paraNew.Controls.Add(btnTbody);
+                commerce11.Controls.Add(paraNew);
+                commerce11.Style.Add("float", "left");
 
                 // dodavanje slike lijevo
 
@@ -117,7 +125,7 @@ namespace MMarket
                 itemDiv2.Controls.Add(clearfix);
                 itemDiv2.Controls.Add(DivCijena);
                 itemDiv2.Controls.Add(DivOpis);
-                itemDiv2.Controls.Add(btnTbody);
+                itemDiv2.Controls.Add(commerce11);
 
                 mainDiv.Controls.Add(itemDiv);
                 mainDiv.Controls.Add(itemDiv2);
