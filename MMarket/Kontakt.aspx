@@ -75,7 +75,7 @@
                <div class="col-sm-5">
                    <div class="row col1">
                        <div class="col-xs-3">
-                           <i class="fa fa-map-marker" style="font-size:16px;"></i>   Address
+                           <i class="fa fa-map-marker" style="font-size:16px;"></i>   Address
                        </div>
                        <div class="col-xs-9">
                             One Gateway Center, Suite 25500+,<br> Newark 23, NJ 10235
@@ -84,7 +84,7 @@
                    
                     <div class="row col1">
                         <div class="col-sm-3">
-                            <i class="fa fa-phone"></i>   Phone
+                            <i class="fa fa-phone"></i>   Phone
                         </div>
                         <div class="col-sm-9">
                              +(91) 123 277 4239
@@ -92,7 +92,7 @@
                     </div>
                     <div class="row col1">
                         <div class="col-sm-3">
-                             <i class="fa fa-fax"></i>    Fax  
+                             <i class="fa fa-fax"></i>    Fax  
                         </div>
                         <div class="col-sm-9">
                               123 123 4567
@@ -100,7 +100,7 @@
                     </div>
                     <div class="row col1">
                         <div class="col-sm-3">
-                            <i class="fa fa-envelope"></i>   Email
+                            <i class="fa fa-envelope"></i>   Email
                         </div>
                         <div class="col-sm-9">
                              <a href="mailto:info@yourdomain.com">info@yourdomain.com</a> <br> <a href="mailto:support@yourdomain.com">support@yourdomain.com</a>

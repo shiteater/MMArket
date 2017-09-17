@@ -250,9 +250,6 @@ namespace MMarket
                     h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
                     h3.TagName = "h3";
 
-                    HtmlContainerControl para = new HtmlGenericControl("p");
-                    para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
-
                     //ImageButton imgBtn = new ImageButton();
                     //imgBtn.ID = "naj_" + counter;
                     //imgBtn.ImageUrl = "~/Images/icones/add_to_cart_white.png";
@@ -279,7 +276,6 @@ namespace MMarket
                     commerce11.Controls.Add(paraNew);
 
                     Div.Controls.Add(h3);
-                    Div.Controls.Add(para);
                     Div.Controls.Add(commerce11);
 
                     anchor.Controls.Add(Div);
@@ -327,9 +323,6 @@ namespace MMarket
                     h3.InnerText = dt.Rows[counter].ItemArray[1].ToString();
                     h3.TagName = "h3";
 
-                    HtmlContainerControl para = new HtmlGenericControl("p");
-                    para.InnerText = dt.Rows[counter].ItemArray[2].ToString();
-
                     //ImageButton imgBtn = new ImageButton();
                     //imgBtn.ID = "naj_" + counter;
                     //imgBtn.ImageUrl = "~/Images/icones/add_to_cart_white.png";
@@ -356,7 +349,6 @@ namespace MMarket
                     commerce11.Controls.Add(paraNew);
 
                     Div.Controls.Add(h3);
-                    Div.Controls.Add(para);
                     Div.Controls.Add(commerce11);
 
                     anchor.Controls.Add(Div);

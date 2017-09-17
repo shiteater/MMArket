@@ -35,114 +35,93 @@ namespace MMarket
 
             con.Close();
 
-            HtmlGenericControl mainDiv2 = new HtmlGenericControl("div");
-            mainDiv2.Attributes["class"] = "container";
+            HtmlGenericControl mainDiv = new HtmlGenericControl("div");
+            mainDiv.Attributes["class"] = "container";
+            mainDiv.Style.Add("width", "100%");
+            mainDiv.Style.Add("height", "100%");
 
+            HtmlGenericControl jumboDiv = new HtmlGenericControl("div");
+            jumboDiv.Attributes["class"] = "jumbotron";
 
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                HtmlGenericControl mainDiv = new HtmlGenericControl("div");
-                mainDiv.Attributes["class"] = "row";
+            HtmlGenericControl rowDiv = new HtmlGenericControl("div");
+            rowDiv.Attributes["class"] = "row";
 
-                // slika na productDetails
+            HtmlGenericControl imageDiv = new HtmlGenericControl("div");
+            imageDiv.Attributes["class"] = "col-md-6 col-xs-12 col-sm-4 col-lg-6";
 
-                HtmlGenericControl itemDiv = new HtmlGenericControl("div");
-                itemDiv.Attributes["class"] = "col-xs-12 col-sm-4";
-                itemDiv.Style.Add("border-color", "blue");
+            HtmlImage itemImage = new HtmlImage();
+            itemImage.Attributes.Add("class", "img-responsive thumbnail");
+            itemImage.Src = "Images/" + dt.Rows[0].ItemArray[4];
+            itemImage.Attributes.Add("alt", "stack photo");
 
-                HtmlImage itemImage = new HtmlImage();
-                itemImage.Attributes.Add("class", "img-responsive");
-                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[4];
+            imageDiv.Controls.Add(itemImage);
 
-                // desna polovica
+            HtmlGenericControl infoDiv = new HtmlGenericControl("div");
+            infoDiv.Attributes["class"] = "col-md-6 col-xs-12 col-sm-8 col-lg-6";
 
+            HtmlGenericControl nazivDiv = new HtmlGenericControl("div");
+            nazivDiv.Attributes["class"] = "container";
+            nazivDiv.Style.Add("border-bottom", "1px solid black");
 
-                HtmlGenericControl itemDiv2 = new HtmlGenericControl("div");
-                itemDiv2.Attributes["class"] = "col-xs-12 col-sm-8";
+            HtmlGenericControl naziv = new HtmlGenericControl("h2");
+            naziv.InnerText = dt.Rows[0].ItemArray[1].ToString();
+            naziv.Style.Add("font-family", "Lobster");
+            nazivDiv.Controls.Add(naziv);
 
-                HtmlGenericControl Divh1 = new HtmlGenericControl("div");
+            LiteralControl hr = new LiteralControl("<hr/>");
 
-                HtmlGenericControl clearfix = new HtmlGenericControl("div");
-                clearfix.Attributes.Add("class","clearfix");
+            HtmlGenericControl subInfoDiv = new HtmlGenericControl("div");
+            subInfoDiv.Attributes["class"] = "container details";
+            
+            HtmlGenericControl para1 = new HtmlGenericControl("p");
+            para1.InnerText = dt.Rows[0].ItemArray[3].ToString() + " Kn";
+            para1.Style.Add("color", "blue");
+            
+            HtmlGenericControl para2 = new HtmlGenericControl("p");
+            para2.InnerText = dt.Rows[0].ItemArray[2].ToString();
+            para2.Style.Add("font-family", "Lobster Two");
+            
+            HtmlGenericControl commerce11 = new HtmlGenericControl("div");
+            commerce11.Attributes["class"] = "commerce";
 
+            HtmlGenericControl paraNew = new HtmlGenericControl("p");
+            paraNew.Attributes["class"] = "return-to-shop";
 
-                HtmlContainerControl naziv = new HtmlGenericControl("h1");
-                Label lbl = new Label();
-                lbl.Text = dt.Rows[i].ItemArray[1].ToString();
-                naziv.Controls.Add(lbl);
-                naziv.Attributes.Add("class", "pull-left");
-                naziv.Style.Add("margin-top", "30px");
-                naziv.Style.Add("font-family", "Lobster");
+            HtmlButton btnTbody = new HtmlButton();
+            btnTbody.ID = "akcija_0";
+            btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
+            btnTbody.Attributes.Add("runat", "server");
+            btnTbody.Style.Add("color", "#AD1616");
+            btnTbody.Style.Add("border-color", "#AD1616");
+            btnTbody.CausesValidation = false;
+            btnTbody.ServerClick += AddToCart_ServerClick;
 
-                HtmlGenericControl DivCijena = new HtmlGenericControl("div");
+            paraNew.Controls.Add(btnTbody);
+            commerce11.Controls.Add(paraNew);
 
-                HtmlContainerControl Cijena = new HtmlGenericControl("h2");
-                Label cijena = new Label();
-                cijena.Text = dt.Rows[i].ItemArray[3].ToString() + "Kn";
-                Cijena.Controls.Add(cijena);
-                Cijena.Style.Add("color", "blue");
-                DivCijena.Controls.Add(Cijena);
+            subInfoDiv.Controls.Add(para1);
+            subInfoDiv.Controls.Add(para2);
+            subInfoDiv.Controls.Add(commerce11);
 
-                HtmlGenericControl DivOpis = new HtmlGenericControl("div");
+            infoDiv.Controls.Add(nazivDiv);
+            infoDiv.Controls.Add(hr);
+            infoDiv.Controls.Add(subInfoDiv);
 
-                HtmlContainerControl podaci = new HtmlGenericControl("h3");
-                Label opis = new Label();
-                opis.Text = dt.Rows[i].ItemArray[2].ToString();
-                podaci.Attributes.Add("class", "Ivana Sredi Ovo");
-                podaci.Style.Add("font-family", "Lobster Two");
-                podaci.Controls.Add(opis);
+            rowDiv.Controls.Add(imageDiv);
+            rowDiv.Controls.Add(infoDiv);
 
-                HtmlGenericControl commerce11 = new HtmlGenericControl("div");
-                commerce11.Attributes["class"] = "commerce";
+            jumboDiv.Controls.Add(rowDiv);
 
-                HtmlGenericControl paraNew = new HtmlGenericControl("p");
-                paraNew.Attributes["class"] = "return-to-shop";
+            mainDiv.Controls.Add(jumboDiv);
 
-                HtmlButton btnTbody = new HtmlButton();
-                btnTbody.ID = "akcija_" + i;
-                btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
-                btnTbody.Attributes.Add("runat", "server");
-                btnTbody.Style.Add("color", "#AD1616");
-                btnTbody.Style.Add("border-color", "#AD1616");
-                btnTbody.CausesValidation = false;
-                btnTbody.ServerClick += AddToCart_ServerClick;
-
-                paraNew.Controls.Add(btnTbody);
-                commerce11.Controls.Add(paraNew);
-                commerce11.Style.Add("float", "left");
-
-                // dodavanje slike lijevo
-
-                itemDiv.Controls.Add(itemImage);
-
-                // desne kontrole
-
-                Divh1.Controls.Add(naziv);
-
-                DivOpis.Controls.Add(podaci);
-
-                itemDiv2.Controls.Add(Divh1);
-                itemDiv2.Controls.Add(clearfix);
-                itemDiv2.Controls.Add(DivCijena);
-                itemDiv2.Controls.Add(DivOpis);
-                itemDiv2.Controls.Add(commerce11);
-
-                mainDiv.Controls.Add(itemDiv);
-                mainDiv.Controls.Add(itemDiv2);
-
-                mainDiv2.Controls.Add(mainDiv);
-            }
-            Panel1.Controls.Add(mainDiv2);
+            Panel1.Controls.Add(mainDiv);
         }
 
         private void AddToCart_ServerClick(object sender, EventArgs e)
         {
-
             if (Session["CartTable"] == null)
             {
                 DataTable dt = new DataTable();
-
-
 
                 dt = ((DataTable)ViewState["CurrentTable"]).Clone();
 

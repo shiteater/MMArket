@@ -264,3 +264,7 @@ a.go-to-top:hover a.go-to-top:focus {
 /*footer {
     text-align: center;
 }*/
+
+p {
+    word-break: break-all
+}
