@@ -6,7 +6,6 @@
 <head runat="server">
     <title></title>
     <link href="css/AdminStyle.css" rel="stylesheet" />
-
 </head>
 <body>
     <form id="form1" runat="server">
@@ -20,7 +19,10 @@
             </asp:Panel>
             <hr />
 
-            <asp:DetailsView ID="DetailsView1" class="dodajNovi" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="398px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" Font-Names="Times New Roman" ForeColor="Black" GridLines="None" OnPageIndexChanging="DetailsView1_PageIndexChanging">
+            <table style="width: 100%; text-align: center">
+                <tr>
+                    <td style="width: 50%">
+                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="398px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" Font-Names="Times New Roman" ForeColor="Black" GridLines="None" CssClass="dodajNovi" OnItemInserted="DetailsView1_ItemInserted">
                 <AlternatingRowStyle BackColor="#EAEAFF" Font-Size="Medium" Width="300px" />
                 <CommandRowStyle BackColor="#001A33" Font-Bold="True" ForeColor="#99CCFF" />
                 <EditRowStyle BackColor="#F7F6F3" Width="400px" />
@@ -40,7 +42,7 @@
                             <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Opis") %>' TextMode="MultiLine"></asp:TextBox>
                         </InsertItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label5" runat="server" Text='<%# Bind("Opis") %>'></asp:Label>
+                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("Opis") %>' TextMode="MultiLine" ReadOnly="True"></asp:TextBox>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Cijena" SortExpression="Cijena">
@@ -111,11 +113,51 @@
                 <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Width="300px" />
 
             </asp:DetailsView>
+                    </td>
+                    <td style="width: 50%">
+                        <asp:DetailsView ID="DetailsView2" runat="server" Height="50px" Width="125px" CssClass="dodajNovi" AutoGenerateRows="False" DataKeyNames="MyID" DataSourceID="SqlDataSource2" OnItemInserting="DetailsView2_ItemInserting">
+                            <Fields>
+                                <asp:BoundField DataField="MyID" HeaderText="MyID" InsertVisible="False" ReadOnly="True" SortExpression="MyID" />
+                                <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" ReadOnly="True" SortExpression="idProizvod" InsertVisible="False" />
+                                <asp:TemplateField HeaderText="NazFile" SortExpression="NazFile">
+                                    <InsertItemTemplate>
+                                        <asp:FileUpload ID="FileUpload2" runat="server" />
+                                        <asp:TextBox ID="tbxNaz" runat="server" ReadOnly="True" Text='<%# Bind("NazFile") %>'></asp:TextBox>
+                                    </InsertItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblNaz" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
+                                    </ItemTemplate>
+
+                                </asp:TemplateField>
+                                <asp:CommandField ShowInsertButton="True" />
+                            </Fields>
+                        </asp:DetailsView>
+                        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvod] WHERE [MyID] = @MyID" InsertCommand="INSERT INTO [Proizvod] ([idProizvod], [NazFile]) VALUES (@idProizvod, @NazFile)" SelectCommand="SELECT * FROM [Proizvod] WHERE ([idProizvod] = @idProizvod)" UpdateCommand="UPDATE [Proizvod] SET [idProizvod] = @idProizvod, [NazFile] = @NazFile WHERE [MyID] = @MyID">
+                            <DeleteParameters>
+                                <asp:Parameter Name="MyID" Type="Int32" />
+                            </DeleteParameters>
+                            <InsertParameters>
+                                <asp:Parameter Name="idProizvod" Type="Int32" />
+                                <asp:Parameter Name="NazFile" Type="String" />
+                            </InsertParameters>
+                            <SelectParameters>
+                                <asp:ControlParameter ControlID="GridView1" Name="idProizvod" PropertyName="SelectedValue" Type="Int32" DefaultValue="1" />
+                            </SelectParameters>
+                            <UpdateParameters>
+                                <asp:Parameter Name="idProizvod" Type="Int32" />
+                                <asp:Parameter Name="NazFile" Type="String" />
+                                <asp:Parameter Name="MyID" Type="Int32" />
+                            </UpdateParameters>
+                        </asp:SqlDataSource>
+                    </td>
+                </tr>
+            </table>
             <hr />
-            <asp:GridView ID="GridView1" runat="server" class="grid" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" OnRowDeleting="GridView1_RowDeleting" CellPadding="4" CellSpacing="3" ForeColor="#333333" GridLines="None">
+            <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Center">
+                <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" OnRowDeleting="GridView1_RowDeleting" CellPadding="4" CellSpacing="3" ForeColor="#333333" GridLines="None" Width="100%" OnDataBound="GridView1_DataBound">
                 <AlternatingRowStyle BackColor="#ECECFF" ForeColor="#000048" />
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" InsertVisible="False" ReadOnly="True" SortExpression="idProizvod" />
                     <asp:BoundField DataField="Naziv" HeaderText="Naziv" SortExpression="Naziv" />
                     <asp:TemplateField HeaderText="Opis" SortExpression="Opis">
@@ -216,7 +258,30 @@
                     <asp:Parameter Name="idProizvod" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
-            <br />
+            </asp:Panel>
+            <hr />
+            <asp:Panel ID="Panel3" runat="server" HorizontalAlign="Center">
+                <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="MyID" DataSourceID="SqlDataSource3" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnRowDeleting="GridView2_RowDeleting">
+                <Columns>
+                    <asp:CommandField ShowSelectButton="True" ShowDeleteButton="True" />
+                    <asp:BoundField DataField="MyID" HeaderText="MyID" InsertVisible="False" ReadOnly="True" SortExpression="MyID" />
+                    <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" SortExpression="idProizvod" />
+                    <asp:BoundField DataField="NazFile" HeaderText="NazFile" SortExpression="NazFile" />
+                </Columns>
+            </asp:GridView>
+                <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvod] WHERE [MyID] = @MyID" SelectCommand="SELECT * FROM [Proizvod] WHERE ([idProizvod] = @idProizvod) EXCEPT SELECT TOP 1 * FROM [Proizvod] WHERE ([idProizvod] = @idProizvod)">
+                    <DeleteParameters>
+                        <asp:Parameter Name="MyID" Type="Int32" />
+                    </DeleteParameters>
+                    <SelectParameters>
+                        <asp:ControlParameter ControlID="GridView1" Name="idProizvod" PropertyName="SelectedValue" Type="Int32" DefaultValue="1" />
+                    </SelectParameters>
+                </asp:SqlDataSource>
+            </asp:Panel>
+            <hr />
+            <asp:Panel ID="Panel4" runat="server" HorizontalAlign="Center">
+                <asp:Image ID="Image1" runat="server" CssClass="img-responsive" Width="50%" Height="50%" />
+            </asp:Panel>
         </div>
     </form>
 </body>

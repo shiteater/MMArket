@@ -70,9 +70,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-    
                </div>
                <div class="col-sm-5">
 <%--                   <iframe width="100%" height="230" frameborder="0" style="border-radius:0px;" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2783.15947314275!2d15.93905251556764!3d45.76799417910569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4765d43ba34f8727%3A0xe97ed758c57f65b!2sMarita+Market!5e0!3m2!1shr!2shr!4v1504394070429"></iframe>--%>
@@ -81,24 +79,15 @@
                            <i class="fa fa-map-marker" style="font-size:16px;"></i>   Address
                        </div>
                        <div class="col-xs-8">
-                            JARUŠČICA 9/A,<br> Zagreb, Hrvatska
+                            <a href="https://goo.gl/maps/PSfpxqr94422">Jaruščica 9a, Zagreb, Croatia</a>
                        </div>
                    </div>
-                   
                     <div class="row col1">
                         <div class="col-sm-4">
                             <i class="fa fa-phone"></i>   Phone
                         </div>
                         <div class="col-sm-8">
-                             091 220 2044
-                        </div>
-                    </div>
-                    <div class="row col1">
-                        <div class="col-sm-4">
-                             <i class="fa fa-fax"></i>    Fax  
-                        </div>
-                        <div class="col-sm-8">
-                              ????????
+                             <a href="tel:+385912202044">+(385) 91 2202044</a>
                         </div>
                     </div>
                     <div class="row col1">
@@ -106,13 +95,11 @@
                             <i class="fa fa-envelope"></i>   Email
                         </div>
                         <div class="col-sm-8">
-                             <a href="info@al-pasha.eu">info@al-pasha.eu</a> <br> 
+                             <a href="mailto:info@al-pasha.eu">info@al-pasha.eu</a> <br> 
                         </div>
-                    </div><br>
-                    
+                    </div>
                </div>
            </div>
-           
           </div>
        </div>
    </div>

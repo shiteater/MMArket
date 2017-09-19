@@ -29,14 +29,14 @@
     width: 68px;
 }
 
-.grid{
+/*.grid{
     width:99%;
       position:absolute;
-}
+}*/
 
 .dodajNovi {
     margin: auto;
-    width: 50%;
+    width: 100%;
     padding: 10px;
     text-align:center;
 }

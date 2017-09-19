@@ -5,6 +5,7 @@
         $('#nav_sec').addClass('navbarsec-fixed');
         //$('#conDiv2').addClass('transCon2');
         $('#conDiv2').css("transform", "translateY(" + Height2 + "px)");
+        $('#conDiv3').css("transform", "translateY(" + Height2 + "px)");
         //$('#myFooter').addClass('transCon');
         $('#myFooter').css("transform", "translateY(" + Height2 + "px)");
     }
@@ -12,6 +13,7 @@
         $('#nav_sec').removeClass('navbarsec-fixed');
         //$('#conDiv2').removeClass('transCon');
         $('#conDiv2').css("transform", "translateY(0px)");
+        $('#conDiv3').css("transform", "translateY(0px)");
         //$('#myFooter').removeClass('transCon');
         $('#myFooter').css("transform", "translateY(0px)");
     }
