@@ -51,7 +51,7 @@ namespace MMarket
         {
             try
             {
-                ISupportedImageFormat format = new JpegFormat() { Quality = 70 };
+                ISupportedImageFormat format = new JpegFormat() { Quality = 40 };
                 //Size size = new Size(150, 150);
                 using (MemoryStream inStream = new MemoryStream(imageBytes))
                 {
