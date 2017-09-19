@@ -213,7 +213,14 @@ namespace MMarket
 
         protected void GridView1_DataBound(object sender, EventArgs e)
         {
-            GridView1.Rows[0].Visible = false;
+            if (GridView1.Rows[0].Cells[1].Text == "1")
+            {
+                GridView1.Rows[0].Visible = false;
+            }
+            else
+            {
+                GridView1.Rows[0].Visible = true;
+            }
         }
     }
 }
