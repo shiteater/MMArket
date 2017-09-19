@@ -209,8 +209,6 @@ namespace MMarket
 
             SqlDataAdapter adptr = new SqlDataAdapter(com);
 
-            ViewState["currentCategory"] = dt;
-
             adptr.Fill(dt);
 
             con.Close();
@@ -220,15 +218,6 @@ namespace MMarket
             mainDiv.Style.Add("margin-left", "1%");
             mainDiv.Style.Add("margin-right", "1%");
             mainDiv.TagName = "div";
-
-            HtmlGenericControl commerce = new HtmlGenericControl("div");
-            commerce.Attributes["class"] = "commerce";
-
-            HtmlGenericControl naAkciji = new HtmlGenericControl("div");
-            naAkciji.Attributes["class"] = "col-lg-12";
-            
-            commerce.Controls.Add(naAkciji);
-            mainDiv.Controls.Add(commerce);
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
