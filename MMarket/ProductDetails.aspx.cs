@@ -18,14 +18,30 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DoMagicProdPic();
+            //DoMagicProdPic();
 
             DataTable dt = new DataTable();
             string id = (string)(Session["ProductId"]);
 
             SqlConnection con = new SqlConnection(conString);
 
-            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [Kategorija], [NazFile] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
+            SqlCommand categoryCom = new SqlCommand("SELECT [Kategorija] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
+            categoryCom.Parameters.AddWithValue("@id", id);
+
+            con.Open();
+
+            SqlDataReader reader = categoryCom.ExecuteReader();
+
+            if (reader.Read())
+            {
+                ViewState["kategorija"] = (string)reader["Kategorija"];
+            }
+
+            con.Close();
+
+            
+
+            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
             com.Parameters.AddWithValue("@id", id);
 
             con.Open();
@@ -38,52 +54,127 @@ namespace MMarket
 
             con.Close();
 
+            DataTable dt1 = new DataTable();
+
+            SqlCommand com1 = new SqlCommand("SELECT [NazFile] FROM [Proizvod] WHERE [idProizvod] = @id", con);
+            com1.Parameters.AddWithValue("@id", int.Parse((string)(Session["ProductId"])));
+
+            con.Open();
+
+            SqlDataAdapter adptr1 = new SqlDataAdapter(com1);
+
+            adptr1.Fill(dt1);
+
+            con.Close();
+
             HtmlGenericControl mainDiv = new HtmlGenericControl("div");
             mainDiv.Attributes["class"] = "container";
-            mainDiv.Style.Add("width", "100%");
-            mainDiv.Style.Add("height", "100%");
+            mainDiv.Style.Add("margin-left", "1%");
+            mainDiv.Style.Add("margin-right", "1%");
 
-            HtmlGenericControl jumboDiv = new HtmlGenericControl("div");
-            jumboDiv.Attributes["class"] = "jumbotron";
+            HtmlGenericControl mainArea = new HtmlGenericControl("div");
+            mainArea.Attributes["id"] = "main_area";
 
-            HtmlGenericControl rowDiv = new HtmlGenericControl("div");
-            rowDiv.Attributes["class"] = "row";
+            HtmlGenericControl row = new HtmlGenericControl("div");
+            mainDiv.Attributes["class"] = "row";
 
-            HtmlGenericControl imageDiv = new HtmlGenericControl("div");
-            imageDiv.Attributes["class"] = "col-md-6 col-xs-12 col-sm-4 col-lg-6";
+            HtmlGenericControl slider = new HtmlGenericControl("div");
+            slider.Attributes["id"] = "slider";
 
-            HtmlImage itemImage = new HtmlImage();
-            itemImage.Attributes.Add("class", "img-responsive thumbnail");
-            itemImage.Src = "Images/" + dt.Rows[0].ItemArray[5];
-            itemImage.Attributes.Add("alt", "stack photo");
+            HtmlGenericControl row1 = new HtmlGenericControl("div");
+            row1.Attributes["class"] = "row";
 
-            imageDiv.Controls.Add(itemImage);
+            HtmlGenericControl carousel = new HtmlGenericControl("div");
+            carousel.Attributes["id"] = "carousel-bounding-box";
+            carousel.Attributes["class"] = "col-md-4 col-xs-12 col-sm-6 col-lg-6";
+
+            HtmlGenericControl myCarousel = new HtmlGenericControl("div");
+            myCarousel.Attributes["id"] = "myCarousel";
+            myCarousel.Attributes["class"] = "carousel slide";
+
+            HtmlGenericControl carousel1 = new HtmlGenericControl("div");
+            carousel1.Attributes["class"] = "carousel-inner";
+
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                HtmlGenericControl carouselItem = new HtmlGenericControl("div");
+
+                if (i == 0)
+                {
+                    carouselItem.Attributes["class"] = "active item";
+                }
+                else
+                {
+                    carouselItem.Attributes["class"] = "item";
+                }
+
+                carouselItem.Attributes.Add("data-slide-number", i.ToString());
+
+                HtmlImage img = new HtmlImage();
+                img.Src = "Images/" + dt1.Rows[i].ItemArray[0];
+
+                carouselItem.Controls.Add(img);
+                carousel1.Controls.Add(carouselItem);
+            }
+
+            HtmlAnchor anchor1 = new HtmlAnchor();
+            anchor1.Attributes["class"] = "left carousel-control";
+            anchor1.HRef = "#myCarousel";
+            anchor1.Attributes["role"] = "button";
+            anchor1.Attributes["data-slide"] = "prev";
+
+            HtmlGenericControl span1 = new HtmlGenericControl("span");
+            span1.Attributes["class"] = "glyphicon glyphicon-chevron-left";
+
+            anchor1.Controls.Add(span1);
+
+            HtmlAnchor anchor2 = new HtmlAnchor();
+            anchor2.Attributes["class"] = "right carousel-control";
+            anchor2.HRef = "#myCarousel";
+            anchor2.Attributes["role"] = "button";
+            anchor2.Attributes["data-slide"] = "next";
+
+            HtmlGenericControl span2 = new HtmlGenericControl("span");
+            span2.Attributes["class"] = "glyphicon glyphicon-chevron-right";
+
+            anchor2.Controls.Add(span2);
+
+            myCarousel.Controls.Add(carousel1);
+            myCarousel.Controls.Add(anchor1);
+            myCarousel.Controls.Add(anchor2);
+
+            carousel.Controls.Add(myCarousel);
 
             HtmlGenericControl infoDiv = new HtmlGenericControl("div");
-            infoDiv.Attributes["class"] = "col-md-6 col-xs-12 col-sm-8 col-lg-6";
+            infoDiv.Attributes["id"] = "carousel-text";
+            infoDiv.Attributes["class"] = "col-md-8 col-xs-12 col-sm-6 col-lg-6";
 
             HtmlGenericControl nazivDiv = new HtmlGenericControl("div");
-            nazivDiv.Attributes["class"] = "container";
             nazivDiv.Style.Add("border-bottom", "1px solid black");
+            nazivDiv.Style.Add("text-align", "center");
 
             HtmlGenericControl naziv = new HtmlGenericControl("h2");
             naziv.InnerText = dt.Rows[0].ItemArray[1].ToString();
             naziv.Style.Add("font-family", "Lobster");
             nazivDiv.Controls.Add(naziv);
 
-            LiteralControl hr = new LiteralControl("<hr/>");
-
             HtmlGenericControl subInfoDiv = new HtmlGenericControl("div");
-            subInfoDiv.Attributes["class"] = "container details";
-            
-            HtmlGenericControl para1 = new HtmlGenericControl("p");
-            para1.InnerText = dt.Rows[0].ItemArray[3].ToString() + " Kn";
-            para1.Style.Add("color", "blue");
-            
-            HtmlGenericControl para2 = new HtmlGenericControl("p");
-            para2.InnerText = dt.Rows[0].ItemArray[2].ToString();
-            para2.Style.Add("font-family", "Lobster Two");
-            
+            subInfoDiv.Attributes["class"] = "details";
+
+            HtmlGenericControl divPrice = new HtmlGenericControl("div");
+            HtmlGenericControl price = new HtmlGenericControl("h2");
+            price.InnerText = dt.Rows[0].ItemArray[3].ToString() + " Kn";
+            price.Style.Add("color", "blue");
+            divPrice.Controls.Add(price);
+
+            HtmlGenericControl divDetails = new HtmlGenericControl("div");
+            HtmlGenericControl details = new HtmlGenericControl("para");
+            details.Style.Add("font-size", "x-large");
+            details.Style.Add("word-break", "break-all");
+            details.InnerText = dt.Rows[0].ItemArray[2].ToString();
+            details.Style.Add("font-family", "Lobster Two");
+            divDetails.Controls.Add(details);
+
             HtmlGenericControl commerce11 = new HtmlGenericControl("div");
             commerce11.Attributes["class"] = "commerce";
 
@@ -102,23 +193,55 @@ namespace MMarket
             paraNew.Controls.Add(btnTbody);
             commerce11.Controls.Add(paraNew);
 
-            subInfoDiv.Controls.Add(para1);
-            subInfoDiv.Controls.Add(para2);
+            subInfoDiv.Controls.Add(divPrice);
+            subInfoDiv.Controls.Add(divDetails);
             subInfoDiv.Controls.Add(commerce11);
 
             infoDiv.Controls.Add(nazivDiv);
-            infoDiv.Controls.Add(hr);
             infoDiv.Controls.Add(subInfoDiv);
 
-            rowDiv.Controls.Add(imageDiv);
-            rowDiv.Controls.Add(infoDiv);
+            row1.Controls.Add(carousel);
+            row1.Controls.Add(infoDiv);
 
-            jumboDiv.Controls.Add(rowDiv);
+            slider.Controls.Add(row1);
 
-            mainDiv.Controls.Add(jumboDiv);
+            row.Controls.Add(slider);
+
+            HtmlGenericControl rowHidden = new HtmlGenericControl("div");
+            rowHidden.Attributes["id"] = "slider-thumbs";
+            rowHidden.Attributes["class"] = "row hidden-xs";
+
+            HtmlGenericControl ul = new HtmlGenericControl("ul");
+            ul.Attributes["class"] = "hide-bullets";
+
+            for (int i = 0; i < dt1.Rows.Count; i++)
+            {
+                HtmlGenericControl li = new HtmlGenericControl("li");
+                li.Attributes["class"] = "col-sm-2";
+
+                HtmlAnchor anchor = new HtmlAnchor();
+                anchor.Attributes["class"] = "thumbnail";
+                anchor.Attributes["id"] = "carousel-selector-" + i.ToString();
+
+                HtmlImage img = new HtmlImage();
+                img.Src = "Images/" + dt1.Rows[i].ItemArray[0];
+
+                anchor.Controls.Add(img);
+
+                li.Controls.Add(anchor);
+
+                ul.Controls.Add(li);
+            }
+
+            rowHidden.Controls.Add(ul);
+
+            mainArea.Controls.Add(row);
+            mainArea.Controls.Add(rowHidden);
+
+            mainDiv.Controls.Add(mainArea);
 
             Panel1.Controls.Add(mainDiv);
-
+            
             DoMagicKategorija();
         }
 
@@ -196,58 +319,14 @@ namespace MMarket
             }
         }
 
-        private void DoMagicProdPic()
-        {
-            DataTable dt = new DataTable();
-
-            SqlConnection con = new SqlConnection(conString);
-            
-            SqlCommand com = new SqlCommand("SELECT [NazFile] FROM [Proizvod] WHERE [idProizvod] = @id", con);
-            com.Parameters.AddWithValue("@id", int.Parse((string)(Session["ProductId"])));
-            
-            con.Open();
-
-            SqlDataAdapter adptr = new SqlDataAdapter(com);
-
-            adptr.Fill(dt);
-
-            con.Close();
-
-            HtmlGenericControl mainDiv = new HtmlGenericControl();
-            mainDiv.Attributes["class"] = "row";
-            mainDiv.Style.Add("margin-left", "1%");
-            mainDiv.Style.Add("margin-right", "1%");
-            mainDiv.TagName = "div";
-
-            for (int i = 0; i < dt.Rows.Count; i++)
-            {
-                HtmlGenericControl itemDiv = new HtmlGenericControl();
-                itemDiv.Attributes["class"] = "col-lg-4 col-md-4 col-sm-6";
-                itemDiv.TagName = "div";
-
-                HtmlAnchor itemAnchor = new HtmlAnchor();
-                itemAnchor.Attributes["class"] = "thumbnail";
-
-                HtmlImage itemImage = new HtmlImage();
-                itemImage.Src = "Images/" + dt.Rows[i].ItemArray[0];
-                
-                itemAnchor.Controls.Add(itemImage);
-                itemDiv.Controls.Add(itemAnchor);
-                mainDiv.Controls.Add(itemDiv);
-            }
-
-            Panel3.Controls.Add(mainDiv);
-        }
-
         private void DoMagicKategorija()
         {
             DataTable dt = new DataTable();
 
             SqlConnection con = new SqlConnection(conString);
-
-            string kategorija = ((DataTable)ViewState["CurrentTable"]).Rows[0].ItemArray[4].ToString();
+            
             SqlCommand com = new SqlCommand("SELECT TOP 8 [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @kategorija AND [idProizvod] NOT LIKE @id", con);
-            com.Parameters.AddWithValue("@kategorija", kategorija);
+            com.Parameters.AddWithValue("@kategorija", (string)ViewState["kategorija"]);
             com.Parameters.AddWithValue("@id", int.Parse((string)(Session["ProductId"])));
 
             con.Open();
