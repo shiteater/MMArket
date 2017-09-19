@@ -74,7 +74,7 @@ namespace MMarket
 
                     HtmlImage img = new HtmlImage();
                     img.Attributes["class"] = "img-responsive";
-                    img.Src = "Images/" + item.ItemArray[4];
+                    img.Src = "Images/" + item.ItemArray[5];
 
                     divTd1.Controls.Add(img);
 

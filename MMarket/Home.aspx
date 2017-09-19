@@ -5,7 +5,7 @@
     <div class="row">
             <div class="col-xs-12">
 
-                <div id="imageCarousel" class="carousel slide" data-interval="3000"
+                <div id="imageCarousel" class="carousel slide" data-interval="5000"
                      data-ride="carousel" data-pause="hover" data-wrap="true">
 
                     <asp:Panel ID="Panel2" runat="server"></asp:Panel>

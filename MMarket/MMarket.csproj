@@ -71,6 +71,7 @@
     <Content Include="css\AdminStyle.css" />
     <Content Include="css\BadgeStyle.css" />
     <Content Include="css\CartStyle.css" />
+    <Content Include="css\DetailsStyle.css" />
     <Content Include="css\MasterStyle.css" />
     <Content Include="css\LoginStyle.css" />
     <Content Include="Datulje.aspx" />
@@ -97,6 +98,8 @@
     <Content Include="Images\Logo.png" />
     <Content Include="Images\logo2%28png%29.png" />
     <Content Include="Images\Oriental Background.jpg" />
+    <Content Include="js\DetailsScript.js" />
+    <Content Include="js\mod.3.2.0.bootstrap.min.js" />
     <Content Include="js\modal.js" />
     <Content Include="KonzerviranaHrana.aspx" />
     <Content Include="Kozmetika.aspx" />
