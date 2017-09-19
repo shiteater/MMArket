@@ -246,7 +246,7 @@ namespace MMarket
             SqlConnection con = new SqlConnection(conString);
 
             string kategorija = ((DataTable)ViewState["CurrentTable"]).Rows[0].ItemArray[4].ToString();
-            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @kategorija AND [idProizvod] NOT LIKE @id", con);
+            SqlCommand com = new SqlCommand("SELECT TOP 8 [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @kategorija AND [idProizvod] NOT LIKE @id", con);
             com.Parameters.AddWithValue("@kategorija", kategorija);
             com.Parameters.AddWithValue("@id", int.Parse((string)(Session["ProductId"])));
 
