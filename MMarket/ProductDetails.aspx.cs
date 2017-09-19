@@ -25,7 +25,23 @@ namespace MMarket
 
             SqlConnection con = new SqlConnection(conString);
 
-            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [Kategorija], [NazFile] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
+            SqlCommand categoryCom = new SqlCommand("SELECT [Kategorija] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
+            categoryCom.Parameters.AddWithValue("@id", id);
+
+            con.Open();
+
+            SqlDataReader reader = categoryCom.ExecuteReader();
+
+            if (reader.Read())
+            {
+                ViewState["kategorija"] = (string)reader["Kategorija"];
+            }
+
+            con.Close();
+
+            
+
+            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
             com.Parameters.AddWithValue("@id", id);
 
             con.Open();
@@ -308,10 +324,9 @@ namespace MMarket
             DataTable dt = new DataTable();
 
             SqlConnection con = new SqlConnection(conString);
-
-            string kategorija = ((DataTable)ViewState["CurrentTable"]).Rows[0].ItemArray[4].ToString();
+            
             SqlCommand com = new SqlCommand("SELECT TOP 8 [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @kategorija AND [idProizvod] NOT LIKE @id", con);
-            com.Parameters.AddWithValue("@kategorija", kategorija);
+            com.Parameters.AddWithValue("@kategorija", (string)ViewState["kategorija"]);
             com.Parameters.AddWithValue("@id", int.Parse((string)(Session["ProductId"])));
 
             con.Open();
