@@ -51,7 +51,7 @@ namespace MMarket
         {
             try
             {
-                ISupportedImageFormat format = new JpegFormat() { Quality = 100 };
+                ISupportedImageFormat format = new JpegFormat() { Quality = 70 };
                 //Size size = new Size(150, 150);
                 using (MemoryStream inStream = new MemoryStream(imageBytes))
                 {
@@ -66,8 +66,7 @@ namespace MMarket
 
                             var img = System.Drawing.Image.FromStream(outStream);
 
-                            var savePath =
-                                Path.Combine(Server.MapPath("~/Images/"), filename);
+                            var savePath = Path.Combine(Server.MapPath("~/Images/"), filename);
 
                             img.Save(savePath);
 

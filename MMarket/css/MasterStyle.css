@@ -268,3 +268,8 @@ a.go-to-top:hover a.go-to-top:focus {
 p {
     word-break: break-all
 }
+
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
