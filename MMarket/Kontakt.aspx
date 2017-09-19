@@ -17,16 +17,16 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_name">Firstname *</label>
-                                        <asp:TextBox ID="TbxName" runat="server" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required."></asp:TextBox>
+                                       <label for="form_name">Ime *</label>
+                                        <asp:TextBox ID="TbxName" runat="server" class="form-control" placeholder="Molimo unesite svoje ime *" required="required" data-error="Firstname is required."></asp:TextBox>
                                         <%--<input id="form_name" type="text" name="name" class="form-control" placeholder="Please enter your firstname *" required="required" data-error="Firstname is required.">--%>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_lastname">Lastname *</label>
-                                        <asp:TextBox ID="TbxLastName" runat="server" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required."></asp:TextBox>
+                                        <label for="form_lastname">Prezime *</label>
+                                        <asp:TextBox ID="TbxLastName" runat="server" class="form-control" placeholder="Molimo unesite svoje prezime *" required="required" data-error="Lastname is required."></asp:TextBox>
 <%--                                        <input id="form_lastname" type="text" name="surname" class="form-control" placeholder="Please enter your lastname *" required="required" data-error="Lastname is required.">--%>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -35,14 +35,14 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_email">Email *</label><asp:TextBox ID="TbxMail" runat="server" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required."></asp:TextBox>
+                                        <label for="form_email">Email *</label><asp:TextBox ID="TbxMail" runat="server" class="form-control" placeholder="Molimo unesite svoj email *" required="required" data-error="Valid email is required."></asp:TextBox>
                                         <%--<input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">--%>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_phone">Phone*</label><asp:TextBox ID="TbxPhone" runat="server" class="form-control" placeholder="Please enter your phone*" required oninvalid="setCustomValidity('Plz enter your correct phone number ')" onchange="try{setCustomValidity('')}catch(e){}"></asp:TextBox>
+                                        <label for="form_phone">Telefon*</label><asp:TextBox ID="TbxPhone" runat="server" class="form-control" placeholder="Molimo unesite svoj broj telefona*" required oninvalid="setCustomValidity('Plz enter your correct phone number ')" onchange="try{setCustomValidity('')}catch(e){}"></asp:TextBox>
   <%--                                      <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required oninvalid="setCustomValidity('Plz enter your correct phone number ')"
     onchange="try{setCustomValidity('')}catch(e){}">--%>
                                         
@@ -52,14 +52,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="form_message">Message *</label>
-                                        <asp:TextBox ID="textarea1" runat="server"  class="form-control" placeholder="Message from me*" rows="4" required="required" data-error="Please,leave us a message."/>
+                                        <label for="form_message">Poruka *</label>
+                                        <asp:TextBox ID="textarea1" runat="server"  class="form-control" placeholder="Poruka: *" rows="4" required="required" data-error="Please,leave us a message."/>
 <%--                                        <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>--%>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <asp:Button ID="Button1" runat="server" class="btn btn-black" Text="Send message" OnClick="Button1_Click1" CausesValidation="False" />
+                                    <asp:Button ID="Button1" runat="server" class="btn btn-black" Text="Pošalji" OnClick="Button1_Click1" CausesValidation="False" />
                                     <%--<input type="submit" class="btn btn-black" value="Send message">--%>
                                 </div>
                             </div>

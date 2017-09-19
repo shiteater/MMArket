@@ -1,7 +1,6 @@
 ﻿body {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 14px;
-   
 }
 
 h1 {
@@ -27,12 +26,11 @@ h1 {
     height: auto;
     left: 45%;
     top: 60px;
-    background-color:white;
+    background-color: white;
     color: #333;
 }
 
 #modal_trigger {
-
 }
 
 .btn {
@@ -56,10 +54,11 @@ h1 {
 
 .btn_red:hover {
     background-color: #a55353;
+    border-color: #a55353;
 }
 
 a.btn {
-    background-color: #944d4d;
+    background-color: #a55353;
     color: #333;
     text-align: center;
     text-decoration: none;
@@ -70,7 +69,8 @@ a.btn_red {
     text-align: center;
     text-decoration: none;
     padding-top: 2px;
-    padding-bottom:0px;
+    padding-bottom: 0px;
+    background-color: #a55353;
 }
 
 .one_half {
@@ -84,7 +84,7 @@ a.btn_red {
     .one_half.last {
         width: 45%;
         margin-left: 3.5%;
-        padding-top:2px;
+        padding-top: 2px;
     }
 /* Popup Styles*/
 
@@ -155,11 +155,11 @@ a.btn_red {
 
     .social_login .social_box:hover {
         background: #666;
-        border:solid;
-        border-color:#333;
+        border: solid;
+        border-color: #333;
     }
 
-    /*.social_login .icon_title:hover {
+/*.social_login .icon_title:hover {
         display: block;
         padding: 5px 0;
         font-weight: bold;
@@ -211,7 +211,7 @@ a.btn_red {
     .user_login input[type="checkbox"] {
         float: left;
         margin-right: 5px;
-        width:55px;
+        width: 55px;
     }
 
         .user_login input[type="checkbox"] + label {
