@@ -1,4 +1,5 @@
 ﻿
+
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -230,6 +231,9 @@ namespace MMarket
                 HtmlAnchor itemAnchor = new HtmlAnchor();
                 itemAnchor.ID = "anchorAkcija_" + dt.Rows[i].ItemArray[0];
                 itemAnchor.Attributes["class"] = "thumbnail";
+                itemAnchor.Style.Add("background", "#F2F2F2");
+                itemAnchor.Style.Add("border-color", "#F2F2F2");
+                itemAnchor.Style.Add("color", "#5E3354");
                 itemAnchor.CausesValidation = false;
                 itemAnchor.ServerClick += ItemAnchor_ServerClick;
 
@@ -253,8 +257,8 @@ namespace MMarket
                 btnTbody.ID = "category_" + i;
                 btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
                 btnTbody.Attributes.Add("runat", "server");
-                btnTbody.Style.Add("color", "#AD1616");
-                btnTbody.Style.Add("border-color", "#AD1616");
+                btnTbody.Style.Add("color", "#F1C13C");
+                btnTbody.Style.Add("border-color", "#F1C13C");
                 btnTbody.CausesValidation = false;
                 btnTbody.ServerClick += AddToCart_ServerClick;
 

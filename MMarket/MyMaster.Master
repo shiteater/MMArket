@@ -1,4 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.master.cs" Inherits="MMarket.MyMaster" %>
+﻿
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.master.cs" Inherits="MMarket.MyMaster" %>
 
 <!DOCTYPE html>
 
