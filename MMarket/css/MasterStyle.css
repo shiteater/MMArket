@@ -25,12 +25,12 @@
     background-color: white;
     float: right;
     margin-top: 6px;
-    color: #A60600;
+    color: #764069;
 }
 
     .lista2 li a {
         font-size: 16px;
-        color: #A60600;
+        color: #764069;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -267,9 +267,4 @@ a.go-to-top:hover a.go-to-top:focus {
 
 p {
     word-break: break-all
-}
-
-.col-centered {
-    float: none;
-    margin: 0 auto;
 }

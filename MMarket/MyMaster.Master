@@ -10,7 +10,6 @@
     <script src="Scripts/jquery-3.2.1.slim.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
     <link href="Content/bootstrap-theme.css" rel="stylesheet" />
-    <%--<link href="Content/bootstrap.css" rel="stylesheet" />--%>
     <link href="css/MasterStyle.css" rel="stylesheet" /> 
     <link href="css/LoginStyle.css" rel="stylesheet" />
     <link href="css/BadgeStyle.css" rel="stylesheet" />
@@ -28,11 +27,11 @@
 <body>
     <form id="form1" runat="server">
 
-          <nav  id="top_nav" class="navbar navbar-fixed-top navbar-inverse">
+           <nav  id="top_nav" class="navbar navbar-fixed-top navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button style="border-color:darkslateblue;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec3">
-        <span style="color:darkslateblue">Menu</span>                      
+      <button style="border-color:#764069;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec3">
+        <span style="color:#FFCF40">Menu</span>                      
       </button>
 
     </div>
@@ -42,11 +41,11 @@
          </ul>   
          
       <ul class="nav lista2 navbar-nav">
-          <li><a href="Kontakt.aspx" style="color: #A60600;">Contact</a></li>
-          <li><a href="Cart.aspx" style="color:  #A60600;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/icones/cart_red.png" height="17" /></div></a></li>
-          <li><a id="adminLink" href="AdminPage.aspx" style="color:  #A60600;" runat="server">Admin Page</a></li>
-          <li><a id="modal_trigger" href="#modal" style="color: #A60600;" runat="server">Admin Login</a></li>
-          <li><a href="#" id="btnLogout" style="color:  #A60600;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
+          <li><a href="Kontakt.aspx" style="color: #ffbf00;">Contact</a></li>
+          <li><a href="Cart.aspx" style="color:  #ffbf00;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/icones/cart-gold.png" height="20" /></div></a></li>
+          <li><a id="adminLink" href="AdminPage.aspx" style="color:  #ffbf00;" runat="server">Admin Page</a></li>
+          <li><a id="modal_trigger" href="#modal" style="color: #ffbf00;" runat="server">Login or Register</a></li>
+          <li><a href="#" id="btnLogout" style="color:  #ffbf00;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
     </ul>  
 
     </div>
@@ -64,7 +63,7 @@
 						<div class="social_login">
 
 								<div class="action_btns">
-										<div><a href="#" id="login_form" class="btn" style="background-color: #944d4d; border-color:#944d4d;">Login</a></div>
+										<div><a href="#" id="login_form" class="btn" style="background-color: #B883BD; border-color:#B883BD;">Login</a></div>
 								</div>
 						</div>
 
@@ -87,8 +86,8 @@
 										</div>
 
 										<div class="action_btns">
-                                            <div class="one_half"><a href="#" class="btn back_btn" style="background-color: #944d4d; border-color:#944d4d;"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                            <div class="one_half last"><a class="btn btn_red" style="background-color: #944d4d; border-color:#944d4d;"><asp:Button ID="btnLogin" runat="server" style="cursor:pointer; margin-top: 0px; text-align:center;" Text="Login" BorderStyle="None" BackColor="Transparent"  Height="100%" Width="100%" CausesValidation="False" OnClick="btnLogin_Click" /></a></div>
+                                            <div class="one_half"><a href="#" class="btn back_btn" style="background-color: #B883BD; border-color:#B883BD;"><i class="fa fa-angle-double-left"></i> Back</a></div>
+                                            <div class="one_half last"><a class="btn btn_red" style="background-color: #B883BD; border-color:#B883BD;"><asp:Button ID="btnLogin" runat="server" style="cursor:pointer; margin-top: 0px; text-align:center;" Text="Login" BorderStyle="None" BackColor="Transparent"  Height="100%" Width="100%" CausesValidation="False" OnClick="btnLogin_Click" /></a></div>
 										</div>
 
 								<a href="#" class="forgot_password">Forgot password?</a>
@@ -104,28 +103,28 @@
         </asp:ContentPlaceHolder>
     </div>
 
-        <nav  id="nav_sec" class="navbar-Drugi navbar-inverse">
+       <nav  id="nav_sec" class="navbar-Drugi navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button style="border-color:white;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
-        <span style="color:darkslateblue">Kategorije</span>                      
+      <button style="border-color:#ffdc73;background-color:white;" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav_sec2">
+        <span style="color:#764069">Kategorije</span>                      
       </button>
 
     </div>
     <div class="collapse navbar-collapse" id="nav_sec2" >
         <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Center">
             <ul class="nav navDrugi navbar-nav">
-        <li><a href="SmrznutaHrana.aspx" style="color:white;">Smrznuta Hrana</a></li>
-        <li><a href="Sirevi.aspx" style="color:white">Sirevi</a></li>
-        <li> <a href="KonzerviranaHrana.aspx" style="color:white">Konzervirana Hrana</a></li>
-        <li><a href="Zitarice.aspx" style="color:white">Žitarice</a></li>
-        <li><a href="zacini.aspx" style="color:white">Začini</a></li>
-        <li><a href="SlatkisiGrickalice.aspx" style="color:white">Slatkiši i Grickalice</a></li>
-        <li><a href="Datulje.aspx" style="color:white">Datulje</a></li>
-        <li> <a href="CajeviKave.aspx" style="color:white">Čajevi i Kave</a></li>
-        <li> <a href="Pica.aspx" style="color:white">Pića</a></li>
-        <li><a href="Kozmetika.aspx" style="color:white">Kozmetika</a></li>
-          <li><a href="Ostalo.aspx" style="color:white">Ostalo</a></li>
+        <li><a href="SmrznutaHrana.aspx" style="color:#FFDC97;">Smrznuta Hrana</a></li>
+        <li><a href="Sirevi.aspx" style="color:#FFDC97">Sirevi</a></li>
+        <li> <a href="KonzerviranaHrana.aspx" style="color:#FFDC97">Konzervirana Hrana</a></li>
+        <li><a href="Zitarice.aspx" style="color:#FFDC97">Žitarice</a></li>
+        <li><a href="zacini.aspx" style="color:#FFDC97">Začini</a></li>
+        <li><a href="SlatkisiGrickalice.aspx" style="color:#FFDC97">Slatkiši i Grickalice</a></li>
+        <li><a href="Datulje.aspx" style="color:#FFDC97">Datulje</a></li>
+        <li> <a href="CajeviKave.aspx" style="color:#FFDC97">Čajevi i Kave</a></li>
+        <li> <a href="Pica.aspx" style="color:#FFDC97">Pića</a></li>
+        <li><a href="Kozmetika.aspx" style="color:#FFDC97">Kozmetika</a></li>
+          <li><a href="Ostalo.aspx" style="color:#FFDC97">Ostalo</a></li>
       </ul>
         </asp:Panel>
       

@@ -93,6 +93,7 @@
     <Content Include="Images\icones\add_to_cart_green.png" />
     <Content Include="Images\icones\add_to_cart_purple.png" />
     <Content Include="Images\icones\add_to_cart_white.png" />
+    <Content Include="Images\icones\cart-gold.png" />
     <Content Include="Images\icones\cart_blue.png" />
     <Content Include="Images\icones\cart_purple.png" />
     <Content Include="Images\icones\cart_red.png" />
