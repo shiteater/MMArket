@@ -118,6 +118,24 @@ namespace MMarket
         {
             SqlConnection con = new SqlConnection(conString);
 
+            SqlCommand picCom = new SqlCommand("SELECT [NazFile] FROM [Proizvod] WHERE [IdProizvod] = @id", con);
+            picCom.Parameters.AddWithValue("@id", GridView1.Rows[e.RowIndex].Cells[1].Text);
+
+            con.Open();
+
+            SqlDataReader reader = picCom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                var myPath = Server.MapPath("~/Images/" + (string)reader["NazFile"]);
+                if (File.Exists(myPath))
+                {
+                    File.Delete(myPath);
+                }
+            }
+
+            con.Close();
+
             SqlCommand deleteCmd = new SqlCommand("DELETE FROM Proizvod WHERE idProizvod = @ID", con);
             deleteCmd.Parameters.AddWithValue("@ID", e.Keys[0]);
 

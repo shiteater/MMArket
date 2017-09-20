@@ -76,6 +76,7 @@
     <Content Include="css\LoginStyle.css" />
     <Content Include="Datulje.aspx" />
     <Content Include="home2.aspx" />
+    <Content Include="Images\3d234fba-9a5e-42ce-8e84-5e5341f2c39c.jpeg" />
     <Content Include="Images\arap-logo.png" />
     <Content Include="Images\categories\datulje.jpg" />
     <Content Include="Images\categories\hookah.jpg" />
@@ -98,7 +99,6 @@
     <Content Include="Images\logo-nav1.jpg" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\logo2%28png%29.png" />
-    <Content Include="Images\Oriental Background.jpg" />
     <Content Include="js\DetailsScript.js" />
     <Content Include="js\mod.3.2.0.bootstrap.min.js" />
     <Content Include="js\modal.js" />
@@ -144,18 +144,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Home.aspx" />
-    <Content Include="Images\1.jpg" />
-    <Content Include="Images\10.jpg" />
-    <Content Include="Images\11.jpg" />
-    <Content Include="Images\12.jpg" />
-    <Content Include="Images\2.jpg" />
-    <Content Include="Images\3.jpg" />
-    <Content Include="Images\4.jpg" />
-    <Content Include="Images\5.jpg" />
-    <Content Include="Images\6.jpg" />
-    <Content Include="Images\7.jpg" />
-    <Content Include="Images\8.jpg" />
-    <Content Include="Images\9.jpg" />
     <Content Include="Kontakt.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
