@@ -44,7 +44,7 @@
           <li><a href="Kontakt.aspx" style="color: #ffbf00;">Contact</a></li>
           <li><a href="Cart.aspx" style="color:  #ffbf00;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/icones/cart-gold.png" height="20" /></div></a></li>
           <li><a id="adminLink" href="AdminPage.aspx" style="color:  #ffbf00;" runat="server">Admin Page</a></li>
-          <li><a id="modal_trigger" href="#modal" style="color: #ffbf00;" runat="server">Login or Register</a></li>
+          <li><a id="modal_trigger" href="#modal" style="color: #ffbf00;" runat="server">Admin Login</a></li>
           <li><a href="#" id="btnLogout" style="color:  #ffbf00;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
     </ul>  
 
