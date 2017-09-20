@@ -106,6 +106,7 @@
     <Content Include="KonzerviranaHrana.aspx" />
     <Content Include="Kozmetika.aspx" />
     <Content Include="Ostalo.aspx" />
+    <Content Include="Payment.aspx" />
     <Content Include="Pica.aspx" />
     <Content Include="ProductDetails.aspx" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Ostalo.aspx.designer.cs">
       <DependentUpon>Ostalo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pica.aspx.cs">
       <DependentUpon>Pica.aspx</DependentUpon>

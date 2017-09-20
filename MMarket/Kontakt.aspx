@@ -64,9 +64,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <asp:Button ID="Button1" runat="server" class="btn btn-black" Text="Pošalji" OnClick="Button1_Click1" ValidationGroup="1" />
-                                    <%--<input type="submit" class="btn btn-black" value="Send message">--%>
-                                </div>
+                                    o<%--<input type="submit" class="btn btn-black" value="Send message">--%></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
