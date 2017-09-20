@@ -45,7 +45,7 @@
           <li><a href="Kontakt.aspx" style="color: #A60600;">Contact</a></li>
           <li><a href="Cart.aspx" style="color:  #A60600;"><div id="cartBadge" runat="server" class="badge1" style="height: 90%"><img src="Images/icones/cart_red.png" height="17" /></div></a></li>
           <li><a id="adminLink" href="AdminPage.aspx" style="color:  #A60600;" runat="server">Admin Page</a></li>
-          <li><a id="modal_trigger" href="#modal" style="color: #A60600;" runat="server">Login or Register</a></li>
+          <li><a id="modal_trigger" href="#modal" style="color: #A60600;" runat="server">Admin Login</a></li>
           <li><a href="#" id="btnLogout" style="color:  #A60600;" CausesValidation="False" runat="server" onserverclick="BtnLogout_Click">Logout</a>
     </ul>  
 
@@ -64,8 +64,7 @@
 						<div class="social_login">
 
 								<div class="action_btns">
-										<div class="one_half"><a href="#" id="login_form" class="btn" style="background-color: #944d4d; border-color:#944d4d;">Login</a></div>
-										<div class="one_half last"><a href="#" id="register_form" class="btn" style="background-color: #944d4d; border-color:#944d4d";>Sign up</a></div>
+										<div><a href="#" id="login_form" class="btn" style="background-color: #944d4d; border-color:#944d4d;">Login</a></div>
 								</div>
 						</div>
 
@@ -94,73 +93,6 @@
 
 								<a href="#" class="forgot_password">Forgot password?</a>
 						</div>
-						
-                        <!-- Register Form -->
-						<div class="user_register">
-										<input type="text" id="Username2" runat="server" placeholder="Username" />
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorUN" runat="server" ErrorMessage="Invalid Username" ForeColor="#FF3300" ControlToValidate="Username2" ValidationExpression="[a-zA-Z0-9_\-]{6,30}"></asp:RegularExpressionValidator>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorUN" runat="server" ErrorMessage="Username field is required" ForeColor="#FF3300" ControlToValidate="Username2"></asp:RequiredFieldValidator>
-                                    </td>
-                                </tr>
-                            </table>
-
-										<input type="text" id="Email" runat="server" placeholder="Email Address" />
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorE" runat="server" ErrorMessage="Invalid Email" ForeColor="#FF3300" ControlToValidate="Email" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorE" runat="server" ErrorMessage="Email field is required" ForeColor="#FF3300" ControlToValidate="Email"></asp:RequiredFieldValidator>
-                                    </td>
-                                </tr>
-                            </table>
-                            
-										<input type="password" id="Password1" runat="server" placeholder="Password" />
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:RegularExpressionValidator ID="RegularExpressionValidatorP" runat="server" ErrorMessage="Invalid password" ForeColor="#FF3300" ControlToValidate="Password1" ValidationExpression="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,16}$"></asp:RegularExpressionValidator>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorP" runat="server" ErrorMessage="Password field is required" ForeColor="#FF3300" ControlToValidate="Password1"></asp:RequiredFieldValidator>
-                                    </td>
-                                </tr>
-                            </table>
-
-										<input type="password" id="Password2" runat="server" placeholder="Confirm Password" />
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:CompareValidator ID="CompareValidatorP" runat="server" ErrorMessage="Entered passwords don't match" ForeColor="#FF3300" ControlToCompare="Password1" ControlToValidate="Password2"></asp:CompareValidator>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorP2" runat="server" ErrorMessage="Password confirmation field is required" ForeColor="#FF3300" ControlToValidate="Password2"></asp:RequiredFieldValidator>
-                                    </td>
-                                </tr>
-                            </table>
-                            <asp:Label ID="lblRegisterError" runat="server" Visible="False" ForeColor="#FF3300"></asp:Label>
-
-										
-										<div class="action_btns">
-                                            <div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-                                            <div class="one_half last"><a class="btn btn_red"><asp:Button ID="btnRegister" runat="server" style="cursor:pointer" Text="Register" BorderStyle="None" BackColor="Transparent" Height="100%" Width="100%" OnClick="btnRegister_Click" CausesValidation="False" /></a></div>
-										</div>
-						</div>
-						
 				</section>
 		</div>
         <script src="js/modal.js"></script>
