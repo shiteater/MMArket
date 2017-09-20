@@ -31,19 +31,18 @@
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
-        outline: none;
         background-color: #ebebec;
         border-color: #ebebec;
         background: transparent;
-        border: 2px solid #1e1e1e;
+        border: 2px solid #ffbf00;
         text-transform: uppercase;
-        color: #1e1e1e;
+        color: #ffbf00;
         position: relative;
     }
 
         .commerce .return-to-shop .button:hover,
         .commerce .return-to-shop .button:focus {
-            color: #1e1e1e;
+            color: #ffbf00;
             text-decoration: none;
         }
 
@@ -57,7 +56,7 @@
         .commerce .return-to-shop .button:focus,
         .commerce .return-to-shop .button:active,
         .commerce .return-to-shop .button.active {
-            color: #1e1e1e;
+            color: #ffbf00;
             border-color: #d1d1d3;
             -webkit-box-shadow: 0 0 0 2px #d1d1d3 inset;
             box-shadow: 0 0 0 2px #d1d1d3 inset;

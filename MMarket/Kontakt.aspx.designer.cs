@@ -22,6 +22,15 @@ namespace MMarket {
         protected global::System.Web.UI.WebControls.TextBox TbxName;
         
         /// <summary>
+        /// RfvName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvName;
+        
+        /// <summary>
         /// TbxLastName control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace MMarket {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TbxLastName;
+        
+        /// <summary>
+        /// RfvLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvLastName;
         
         /// <summary>
         /// TbxMail control.
@@ -40,6 +58,15 @@ namespace MMarket {
         protected global::System.Web.UI.WebControls.TextBox TbxMail;
         
         /// <summary>
+        /// RfvMail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvMail;
+        
+        /// <summary>
         /// TbxPhone control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace MMarket {
         protected global::System.Web.UI.WebControls.TextBox TbxPhone;
         
         /// <summary>
+        /// RfvPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvPhone;
+        
+        /// <summary>
         /// textarea1 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +92,15 @@ namespace MMarket {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox textarea1;
+        
+        /// <summary>
+        /// RfvPoruka control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvPoruka;
         
         /// <summary>
         /// Button1 control.
