@@ -70,6 +70,7 @@
     <Content Include="Cart.aspx" />
     <Content Include="css\AdminStyle.css" />
     <Content Include="css\BadgeStyle.css" />
+    <Content Include="css\cart.css" />
     <Content Include="css\CartStyle.css" />
     <Content Include="css\DetailsStyle.css" />
     <Content Include="css\MasterStyle.css" />
