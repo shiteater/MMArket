@@ -74,6 +74,7 @@
     <Content Include="css\DetailsStyle.css" />
     <Content Include="css\MasterStyle.css" />
     <Content Include="css\LoginStyle.css" />
+    <Content Include="css\Payment.css" />
     <Content Include="Datulje.aspx" />
     <Content Include="home2.aspx" />
     <Content Include="Images\3d234fba-9a5e-42ce-8e84-5e5341f2c39c.jpeg" />
@@ -105,6 +106,7 @@
     <Content Include="js\modal.js" />
     <Content Include="KonzerviranaHrana.aspx" />
     <Content Include="Kozmetika.aspx" />
+    <Content Include="Order-Received.aspx" />
     <Content Include="Ostalo.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="Pica.aspx" />
@@ -221,6 +223,13 @@
     </Compile>
     <Compile Include="MyMaster.Master.designer.cs">
       <DependentUpon>MyMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Order-Received.aspx.cs">
+      <DependentUpon>Order-Received.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Order-Received.aspx.designer.cs">
+      <DependentUpon>Order-Received.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ostalo.aspx.cs">
       <DependentUpon>Ostalo.aspx</DependentUpon>

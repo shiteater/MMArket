@@ -392,7 +392,7 @@ namespace MMarket
 
         private void Payment_ServerClick(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Opcija plačanje trenutno nije dostupna!');</script>");
+            Response.Redirect("Payment.aspx");
         }
 
         private void BtnTbody_ServerClick(object sender, EventArgs e)
