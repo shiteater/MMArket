@@ -164,7 +164,7 @@ namespace MMarket
             HtmlGenericControl divPrice = new HtmlGenericControl("div");
             HtmlGenericControl price = new HtmlGenericControl("h2");
             price.InnerText = dt.Rows[0].ItemArray[3].ToString() + " Kn";
-            price.Style.Add("color", "blue");
+            price.Style.Add("color", "#764069");
             divPrice.Controls.Add(price);
 
             HtmlGenericControl divDetails = new HtmlGenericControl("div");
@@ -173,6 +173,7 @@ namespace MMarket
             details.Style.Add("word-break", "break-all");
             details.InnerText = dt.Rows[0].ItemArray[2].ToString();
             details.Style.Add("font-family", "Lobster Two");
+            details.Style.Add("color", "black");
             divDetails.Controls.Add(details);
 
             HtmlGenericControl commerce11 = new HtmlGenericControl("div");
@@ -185,8 +186,8 @@ namespace MMarket
             btnTbody.ID = "details_0";
             btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
             btnTbody.Attributes.Add("runat", "server");
-            btnTbody.Style.Add("color", "#AD1616");
-            btnTbody.Style.Add("border-color", "#AD1616");
+            btnTbody.Style.Add("color", " #764069");
+            btnTbody.Style.Add("border-color", " #764069");
             btnTbody.CausesValidation = false;
             btnTbody.ServerClick += AddToCart_ServerClick;
 
