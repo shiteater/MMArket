@@ -580,14 +580,6 @@ namespace MMarket
             if (Session["CartTable"] != null)
             {
                 float totalNum = 0;
-                //for (int i = 1; i < table.Rows.Count - 1; i++)
-                //{
-                //    totalNum += float.Parse(((Label)table.Rows[i].Cells[3].Controls[0]).Text);
-                //}
-                //Session["total"] = totalNum;
-
-                //total.Text = "Ukupno: " + String.Format("{0:0.00}", totalNum) + " kn";
-                //total1.Text = "Ukupno: " + String.Format("{0:0.00}", totalNum) + " kn";
                 foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
                 {
                     totalNum += (float.Parse(item.ItemArray[3].ToString()) * float.Parse(item.ItemArray[6].ToString()));
