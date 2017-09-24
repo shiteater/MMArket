@@ -240,5 +240,17 @@ namespace MMarket
                 }
             }
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            pnlNarudzbe.Visible = false;
+            pnlProizvodi.Visible = true;
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            pnlProizvodi.Visible = false;
+            pnlNarudzbe.Visible = true;
+        }
     }
 }

@@ -14,11 +14,12 @@ namespace MMarket
 {
     public partial class Payment : System.Web.UI.Page
     {
+        string conString = ConfigurationManager.ConnectionStrings["MaritaMarketConnectionString"].ConnectionString;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["CartTable"] != null)
             {
-
                 foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
                 {
 
@@ -181,19 +182,37 @@ namespace MMarket
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
             string value = RadioButtonList1.SelectedItem.Value.ToString();
 
             if (value == "Plaćanje prilikom preuzimanja")
             {
                 Session["Pouzece"] = 1;
-                Response.Redirect("Order-Received.aspx");
             }
             else
             {
                 Session["Banka"] = 1;
-                Response.Redirect("Order-Received.aspx");
             }
+            
+            //SqlConnection con = new SqlConnection(conString);
+
+            //SqlCommand insertCmd = new SqlCommand("insert into Narudzbe values(@Ime, @Prezime, @Adresa, @Grad, @PosBroj, @Telefon, @Email, @Nacin, @Datum)", con);
+            //insertCmd.Parameters.AddWithValue("@Ime", "");
+            //insertCmd.Parameters.AddWithValue("@Prezime", "");
+            //insertCmd.Parameters.AddWithValue("@Adresa", "");
+            //insertCmd.Parameters.AddWithValue("@Grad", "");
+            //insertCmd.Parameters.AddWithValue("@PosBroj", "");
+            //insertCmd.Parameters.AddWithValue("@Telefon", "");
+            //insertCmd.Parameters.AddWithValue("@Email", "");
+            //insertCmd.Parameters.AddWithValue("@Nacin", "");
+            //insertCmd.Parameters.AddWithValue("@Datum", DateTime.Today);
+
+            //con.Open();
+
+            //int rowsAffected = insertCmd.ExecuteNonQuery();
+
+            //con.Close();
+
+            Response.Redirect("Order-Received.aspx");
         }
     }
 }

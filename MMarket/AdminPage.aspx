@@ -9,11 +9,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <a href="Home.aspx" class="home" >Home</a>
-            <asp:Button ID="Button1" class="logout" runat="server" Text="Logout" OnClick="Button1_Click" />
+        <table style="width: 100%">
+                <tr>
+                    <td style="width: 25%">
+                        <a href="Home.aspx" class="home" >Home</a>
+                    </td>
+                    <td>
+                        <asp:Button ID="Button2" runat="server" Text="Proizvodi" style="float:left" OnClick="Button2_Click" />
+                        <asp:Button ID="Button3" runat="server" Text="Narudžbe" style="float:right" OnClick="Button3_Click" />
+                    </td>
+                    <td style="width: 25%">
+                        <asp:Button ID="Button1" class="logout" runat="server" Text="Logout" OnClick="Button1_Click" />
+                    </td>
+                </tr>
+            </table>
+        <asp:Panel ID="pnlProizvodi" runat="server" HorizontalAlign="Center">
             <br />
-             <br />
             <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Center">
                 <asp:Label ID="lblError" runat="server" Visible="False"></asp:Label>
             </asp:Panel>
@@ -311,7 +322,63 @@
             <asp:Panel ID="Panel4" runat="server" HorizontalAlign="Center">
                 <asp:Image ID="Image1" runat="server" CssClass="img-responsive" Width="50%" Height="50%" />
             </asp:Panel>
-        </div>
+        </asp:Panel>
+        <asp:Panel ID="pnlNarudzbe" runat="server" HorizontalAlign="Center" Visible="False">
+            <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idNarudzba" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+                    <asp:BoundField DataField="idNarudzba" HeaderText="idNarudzba" InsertVisible="False" ReadOnly="True" SortExpression="idNarudzba" />
+                    <asp:BoundField DataField="Ime" HeaderText="Ime" SortExpression="Ime" />
+                    <asp:BoundField DataField="Prezime" HeaderText="Prezime" SortExpression="Prezime" />
+                    <asp:BoundField DataField="Adresa" HeaderText="Adresa" SortExpression="Adresa" />
+                    <asp:BoundField DataField="Grad" HeaderText="Grad" SortExpression="Grad" />
+                    <asp:BoundField DataField="PoBroj" HeaderText="PoBroj" SortExpression="PoBroj" />
+                    <asp:BoundField DataField="Telefon" HeaderText="Telefon" SortExpression="Telefon" />
+                    <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                    <asp:BoundField DataField="NacinPlacanja" HeaderText="NacinPlacanja" SortExpression="NacinPlacanja" />
+                    <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
+                </Columns>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
+            <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Narudzbe] WHERE [idNarudzba] = @idNarudzba" InsertCommand="INSERT INTO [Narudzbe] ([Ime], [Prezime], [Adresa], [Grad], [PoBroj], [Telefon], [Email], [NacinPlacanja], [Datum]) VALUES (@Ime, @Prezime, @Adresa, @Grad, @PoBroj, @Telefon, @Email, @NacinPlacanja, @Datum)" SelectCommand="SELECT * FROM [Narudzbe]" UpdateCommand="UPDATE [Narudzbe] SET [Ime] = @Ime, [Prezime] = @Prezime, [Adresa] = @Adresa, [Grad] = @Grad, [PoBroj] = @PoBroj, [Telefon] = @Telefon, [Email] = @Email, [NacinPlacanja] = @NacinPlacanja, [Datum] = @Datum WHERE [idNarudzba] = @idNarudzba">
+                <DeleteParameters>
+                    <asp:Parameter Name="idNarudzba" Type="Int32" />
+                </DeleteParameters>
+                <InsertParameters>
+                    <asp:Parameter Name="Ime" Type="String" />
+                    <asp:Parameter Name="Prezime" Type="String" />
+                    <asp:Parameter Name="Adresa" Type="String" />
+                    <asp:Parameter Name="Grad" Type="String" />
+                    <asp:Parameter Name="PoBroj" Type="String" />
+                    <asp:Parameter Name="Telefon" Type="String" />
+                    <asp:Parameter Name="Email" Type="String" />
+                    <asp:Parameter Name="NacinPlacanja" Type="String" />
+                    <asp:Parameter DbType="Date" Name="Datum" />
+                </InsertParameters>
+                <UpdateParameters>
+                    <asp:Parameter Name="Ime" Type="String" />
+                    <asp:Parameter Name="Prezime" Type="String" />
+                    <asp:Parameter Name="Adresa" Type="String" />
+                    <asp:Parameter Name="Grad" Type="String" />
+                    <asp:Parameter Name="PoBroj" Type="String" />
+                    <asp:Parameter Name="Telefon" Type="String" />
+                    <asp:Parameter Name="Email" Type="String" />
+                    <asp:Parameter Name="NacinPlacanja" Type="String" />
+                    <asp:Parameter DbType="Date" Name="Datum" />
+                    <asp:Parameter Name="idNarudzba" Type="Int32" />
+                </UpdateParameters>
+            </asp:SqlDataSource>
+        </asp:Panel>
     </form>
 </body>
 </html>
