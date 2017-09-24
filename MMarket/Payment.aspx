@@ -34,23 +34,11 @@
                     <!--REVIEW ORDER-->
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            Odabir plaćanja
+                            Vaša narudžba
                         </div>
                         <div class="panel-body">
                         <asp:Panel Id="Panel1" runat="server" >
-                            <div class="form-group"></div>
-                                <div class="col-md-12">
-                               <asp:RadioButtonList id="RadioButtonList1" runat="server">
-                                   <asp:ListItem>Plaćanje prilikom preuzimanja</asp:ListItem>
-                                 <asp:ListItem Selected="True">Direktna bankovna transakcija </asp:ListItem>
-                                 
-                               </asp:RadioButtonList>
-                                    Molimo uplatite direktno na naš račun u banci. Koristite identifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu.
-                                 
-                                    </div>
-                          
-                            <asp:Button ID="Button1" runat="server" Text="Naručite" OnClientClick="Button1_Click" CausesValidation="False" OnClick="Button1_Click" />
-                       
+                            
                             </asp:Panel>
                             
                             </div>
@@ -79,25 +67,26 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Ime:</strong>
-                                    <input type="text" name="first_name" class="form-control" value="" />
+                                    <input id="form_ime" type="text" name="name" class="form-control" placeholder="Molimo unesite svoje ime *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoje ime ')"
+ oninput="setCustomValidity('')""/>
                                 </div>
                                 <div class="span1"></div>
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Prezime:</strong>
-                                    <input type="text" name="last_name" class="form-control" value="" />
-                                </div>
+                               <input id="form_prezime" type="text" name="name" class="form-control" placeholder="Molimo unesite svoje prezime *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoje prezime ')"
+ oninput="setCustomValidity('')""/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Adresa:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="address" class="form-control" value="" />
-                                </div>
+                                <div class="col-md-12"> 
+                              <input id="form_adresa" type="text" name="name" class="form-control" placeholder="Molimo unesite svoju adresu *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoju adresu ')"
+ oninput="setCustomValidity('')""/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Grad:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="city" class="form-control" value="" />
-                                </div>
+                                    <input id="form_grad" type="text" name="name" class="form-control" placeholder="Molimo unesite grad *" required="required" oninvalid="this.setCustomValidity('Molimo unesite grad ')"
+ oninput="setCustomValidity('')""/> </div>
                             </div>
                            <%-- <div class="form-group">
                                 <div class="col-md-12"><strong>State:</strong></div>
@@ -108,24 +97,43 @@
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Poštanski broj:</strong></div>
                                 <div class="col-md-12">
-                                    <input type="text" name="zip_code" class="form-control" value="" />
-                                </div>
+                                    <input id="form_postanskibroj" type="text" name="name" class="form-control" placeholder="Molimo unesite poštanski broj *" required="required" oninvalid="this.setCustomValidity('Molimo unesite poštanski broj ')"
+ oninput="setCustomValidity('')""/> </div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Telefon:</strong></div>
-                                <div class="col-md-12"><input type="text" name="phone_number" class="form-control" value="" /></div>
-                            </div>
+                                <div class="col-md-12">
+                                    <input id="form_telefon" type="text" name="name" class="form-control" placeholder="Molimo unesite broj telefona *" required="required" oninvalid="this.setCustomValidity('Molimo unesite broj telefona ')"
+ oninput="setCustomValidity('')""/></div>
+                                </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Email Adresa:</strong></div>
-                                <div class="col-md-12"><input type="text" name="email_address" class="form-control" value="" /></div>
-                            </div>
+                                <div class="col-md-12">
+                                    <input id="form_email" type="text" name="name" class="form-control" placeholder="Molimo unesite svoj Email *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoj Email ')"
+ oninput="setCustomValidity('')""/></div>
+                                </div>
+                               
+
                         </div>
                     </div>
                     <!--SHIPPING METHOD END-->
                     <!--CREDIT CART PAYMENT-->
-                  <%--  <div class="panel panel-info">
-                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span> Secure Payment</div>
+                 <div class="panel panel-info">
+                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span>Odabir plaćanja</div>
                         <div class="panel-body">
+                      <div class="form-group"></div>
+                                <div class="col-md-12">
+                               <asp:RadioButtonList id="RadioButtonList1" runat="server">
+                                   <asp:ListItem>Plaćanje prilikom preuzimanja</asp:ListItem>
+                                 <asp:ListItem Selected="True">Direktna bankovna transakcija </asp:ListItem>
+                                 
+                               </asp:RadioButtonList>
+                                    Molimo uplatite direktno na naš račun u banci. Koristite identifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu.
+                                 
+                                    </div>
+                          
+                            <asp:Button ID="Button1" runat="server" Text="Naručite" OnClientClick="Button1_Click" CausesValidation="False" OnClick="Button1_Click" />
+                        <%--  
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Card Type:</strong></div>
                                 <div class="col-md-12">

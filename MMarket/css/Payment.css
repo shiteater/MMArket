@@ -276,7 +276,8 @@ ol, ul {
 }
 
 hr {
-    border-color: #999 -moz-use-text-color -moz-use-text-color;
+    MEDIA QUERIES **/
+@media only screen and (max-width: 989px)
 }
 
 .panel-footer {
