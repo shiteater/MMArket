@@ -72,6 +72,10 @@
             -webkit-box-shadow: 0 0 0 1px inset;
             box-shadow: 0 0 0 1px inset;
         }
+        
+.panel2Margin{
+    margin-bottom:30px;
+}
 
 /*.wc-backward:before,
 .wc-backward a:before {

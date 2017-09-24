@@ -25,7 +25,7 @@ namespace MMarket
             SqlConnection con = new SqlConnection(conString);
 
             string slatkisiigrickalice = "slatkisi i grickalice";
-            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @slatkisi", con);
+            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile], [Tezina], [Countity] FROM [Proizvodi] WHERE [Kategorija] LIKE @slatkisi", con);
             com.Parameters.AddWithValue("@slatkisi", slatkisiigrickalice);
 
             con.Open();
@@ -188,7 +188,7 @@ namespace MMarket
             SqlConnection con = new SqlConnection(conString);
 
             string jeilinije = "je";
-            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Najprodavaniji] LIKE @je", con);
+            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile], [Tezina], [Countity] FROM [Proizvodi] WHERE [Najprodavaniji] LIKE @je", con);
             com.Parameters.AddWithValue("@je", jeilinije);
 
             con.Open();
@@ -216,6 +216,7 @@ namespace MMarket
             HtmlGenericControl paraNaAkc = new HtmlGenericControl("p");
             paraNaAkc.Attributes["class"] = "cart-empty";
             paraNaAkc.InnerText = "IZ PONUDE";
+            paraNaAkc.Style.Add("color", "#764069");
 
             naAkciji.Controls.Add(paraNaAkc);
             commerce.Controls.Add(naAkciji);

@@ -86,10 +86,11 @@ namespace MMarket
             var ImageFilename = ((FileUpload)DetailsView1.Rows[5].Cells[1].FindControl("FileUpload1")).FileName;
             var ImageBytes = ((FileUpload)DetailsView1.Rows[5].Cells[1].FindControl("FileUpload1")).FileBytes;
 
-            float cijenaTest;
+            float cijenaTest, tezinaTest;
             if (ImageFilename == string.Empty || string.IsNullOrWhiteSpace(((TextBox)DetailsView1.Rows[1].Cells[1].FindControl("TextBox1")).Text)
                 || string.IsNullOrWhiteSpace(((TextBox)DetailsView1.Rows[2].Cells[1].FindControl("TextBox2")).Text)
-                || !float.TryParse(((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox3")).Text, out cijenaTest))
+                || !float.TryParse(((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox3")).Text, out cijenaTest)
+                || !float.TryParse(((TextBox)DetailsView1.Rows[3].Cells[1].FindControl("TextBox5")).Text, out tezinaTest))
             {
                 lblError.ForeColor = Color.Red;
                 lblError.Text = "Proizvod nije dodan! Provjerite da li ste popunili sva potrebna polja";
@@ -231,13 +232,12 @@ namespace MMarket
 
         protected void GridView1_DataBound(object sender, EventArgs e)
         {
-            if (GridView1.Rows[0].Cells[1].Text == "1")
+            for (int i = 0; i < GridView1.Rows.Count; i++)
             {
-                GridView1.Rows[0].Visible = false;
-            }
-            else
-            {
-                GridView1.Rows[0].Visible = true;
+                if (GridView1.Rows[i].Cells[1].Text == "1")
+                {
+                    GridView1.Rows[i].Visible = false;
+                }
             }
         }
     }

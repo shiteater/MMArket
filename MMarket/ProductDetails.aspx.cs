@@ -41,7 +41,7 @@ namespace MMarket
 
             
 
-            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
+            SqlCommand com = new SqlCommand("SELECT [idProizvod], [Naziv], [Opis], [Cijena], [NazFile], [Tezina], [Countity] FROM [Proizvodi] WHERE [IdProizvod] LIKE @id", con);
             com.Parameters.AddWithValue("@id", id);
 
             con.Open();
@@ -156,6 +156,7 @@ namespace MMarket
             HtmlGenericControl naziv = new HtmlGenericControl("h2");
             naziv.InnerText = dt.Rows[0].ItemArray[1].ToString();
             naziv.Style.Add("font-family", "Lobster");
+            naziv.Style.Add("color", "#764069");
             nazivDiv.Controls.Add(naziv);
 
             HtmlGenericControl subInfoDiv = new HtmlGenericControl("div");
@@ -164,7 +165,7 @@ namespace MMarket
             HtmlGenericControl divPrice = new HtmlGenericControl("div");
             HtmlGenericControl price = new HtmlGenericControl("h2");
             price.InnerText = dt.Rows[0].ItemArray[3].ToString() + " Kn";
-            price.Style.Add("color", "blue");
+            price.Style.Add("color", "#764069");
             divPrice.Controls.Add(price);
 
             HtmlGenericControl divDetails = new HtmlGenericControl("div");
@@ -173,6 +174,7 @@ namespace MMarket
             details.Style.Add("word-break", "break-all");
             details.InnerText = dt.Rows[0].ItemArray[2].ToString();
             details.Style.Add("font-family", "Lobster Two");
+            details.Style.Add("color", "#764069");
             divDetails.Controls.Add(details);
 
             HtmlGenericControl commerce11 = new HtmlGenericControl("div");
@@ -185,8 +187,8 @@ namespace MMarket
             btnTbody.ID = "details_0";
             btnTbody.Attributes["class"] = "button glyphicon glyphicon-shopping-cart";
             btnTbody.Attributes.Add("runat", "server");
-            btnTbody.Style.Add("color", "#AD1616");
-            btnTbody.Style.Add("border-color", "#AD1616");
+            btnTbody.Style.Add("color", "#F1C13C");
+            btnTbody.Style.Add("border-color", "#F1C13C");
             btnTbody.CausesValidation = false;
             btnTbody.ServerClick += AddToCart_ServerClick;
 
@@ -325,7 +327,7 @@ namespace MMarket
 
             SqlConnection con = new SqlConnection(conString);
             
-            SqlCommand com = new SqlCommand("SELECT TOP 8 [idProizvod], [Naziv], [Opis], [Cijena], [NazFile] FROM [Proizvodi] WHERE [Kategorija] LIKE @kategorija AND [idProizvod] NOT LIKE @id", con);
+            SqlCommand com = new SqlCommand("SELECT TOP 8 [idProizvod], [Naziv], [Opis], [Cijena], [NazFile], [Tezina], [Countity] FROM [Proizvodi] WHERE [Kategorija] LIKE @kategorija AND [idProizvod] NOT LIKE @id", con);
             com.Parameters.AddWithValue("@kategorija", (string)ViewState["kategorija"]);
             com.Parameters.AddWithValue("@id", int.Parse((string)(Session["ProductId"])));
 
@@ -356,6 +358,7 @@ namespace MMarket
                 HtmlGenericControl paraNaAkc = new HtmlGenericControl("p");
                 paraNaAkc.Attributes["class"] = "cart-empty";
                 paraNaAkc.InnerText = "SLIČNI PROIZVODI";
+                paraNaAkc.Style.Add("color", "#764069");
 
                 naAkciji.Controls.Add(paraNaAkc);
                 commerce.Controls.Add(naAkciji);

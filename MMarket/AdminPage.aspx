@@ -104,6 +104,22 @@
                             <asp:Label ID="Label10" runat="server" Text='<%# Bind("Najprodavaniji") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Tezina" SortExpression="Tezina">
+                        <InsertItemTemplate>
+                            <asp:TextBox ID="TextBox5" runat="server" Text='<%# Bind("Tezina") %>'></asp:TextBox>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label11" runat="server" Text='<%# Bind("Tezina") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Countity" SortExpression="Countity">
+                        <InsertItemTemplate>
+                            <asp:Label ID="Label12" runat="server" Text='<%# Bind("Countity") %>'></asp:Label>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label13" runat="server" Text='<%# Bind("Countity") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:CommandField ShowInsertButton="True" />
                 </Fields>
 
@@ -219,6 +235,15 @@
                             <asp:Label ID="Label12" runat="server" Text='<%# Bind("Najprodavaniji") %>'></asp:Label>
                         </ItemTemplate>
                     </asp:TemplateField>
+                    <asp:BoundField DataField="Tezina" HeaderText="Tezina(g)" SortExpression="Tezina" />
+                    <asp:TemplateField HeaderText="Countity" SortExpression="Countity">
+                        <InsertItemTemplate>
+                            <asp:Label ID="Label12" runat="server" Text='<%# Bind("Countity") %>'></asp:Label>
+                        </InsertItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="Label13" runat="server" Text='<%# Bind("Countity") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
 
                 <EditRowStyle BackColor="#999999" />
@@ -234,7 +259,7 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
 
             </asp:GridView>
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvodi] WHERE [idProizvod] = @idProizvod" InsertCommand="INSERT INTO [Proizvodi] ([Naziv], [Opis], [Cijena], [Kategorija], [NazFile], [Akcija], [Najprodavaniji]) VALUES (@Naziv, @Opis, @Cijena, @Kategorija, @NazFile, @Akcija, @Najprodavaniji)" SelectCommand="SELECT * FROM [Proizvodi]" UpdateCommand="UPDATE [Proizvodi] SET [Naziv] = @Naziv, [Opis] = @Opis, [Cijena] = @Cijena, [Kategorija] = @Kategorija, [NazFile] = @NazFile, [Akcija] = @Akcija, [Najprodavaniji] = @Najprodavaniji WHERE [idProizvod] = @idProizvod">
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvodi] WHERE [idProizvod] = @idProizvod" InsertCommand="INSERT INTO [Proizvodi] ([Naziv], [Opis], [Cijena], [Kategorija], [NazFile], [Akcija], [Najprodavaniji], [Tezina], [Countity]) VALUES (@Naziv, @Opis, @Cijena, @Kategorija, @NazFile, @Akcija, @Najprodavaniji, @Tezina, @Countity)" SelectCommand="SELECT * FROM [Proizvodi]" UpdateCommand="UPDATE [Proizvodi] SET [Naziv] = @Naziv, [Opis] = @Opis, [Cijena] = @Cijena, [Kategorija] = @Kategorija, [NazFile] = @NazFile, [Akcija] = @Akcija, [Najprodavaniji] = @Najprodavaniji, [Tezina] = @Tezina, [Countity] = @Countity WHERE [idProizvod] = @idProizvod">
                 <DeleteParameters>
                     <asp:Parameter Name="idProizvod" Type="Int32" />
                 </DeleteParameters>
@@ -246,6 +271,8 @@
                     <asp:Parameter Name="NazFile" Type="String" />
                     <asp:Parameter Name="Akcija" Type="String" />
                     <asp:Parameter Name="Najprodavaniji" Type="String" />
+                    <asp:Parameter Name="Tezina" Type="Double" />
+                    <asp:Parameter Name="Countity" Type="Int32" DefaultValue="1" />
                 </InsertParameters>
                 <UpdateParameters>
                     <asp:Parameter Name="Naziv" Type="String" />
@@ -255,6 +282,8 @@
                     <asp:Parameter Name="NazFile" Type="String" />
                     <asp:Parameter Name="Akcija" Type="String" />
                     <asp:Parameter Name="Najprodavaniji" Type="String" />
+                    <asp:Parameter Name="Tezina" Type="Double" />
+                    <asp:Parameter Name="Countity" Type="Int32" DefaultValue="1" />
                     <asp:Parameter Name="idProizvod" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>

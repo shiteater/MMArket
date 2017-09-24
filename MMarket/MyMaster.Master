@@ -38,7 +38,7 @@
     </div>
     <div class="collapse navbar-collapse" id="nav_sec3" >
       <ul class="nav lista1 navbar-nav">
-          <li><a href="Home.aspx" style="height: 40px; margin-top:-10px;"><img src="Images/logo2(png).png" width="140" /></a></li>
+          <li><a href="Home.aspx" style="height: 50px; margin-top:-10px;"><img src="Images/icones/habibi_logo.png" width="120" /></a></li>
          </ul>   
          
       <ul class="nav lista2 navbar-nav">

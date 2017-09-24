@@ -12,6 +12,12 @@ namespace MMarket
 {
     public partial class Cart : System.Web.UI.Page
     {
+        HtmlTable table = new HtmlTable();
+        Label total1 = new Label();
+        Label lblDelivery1 = new Label();
+        Label total = new Label();
+        Label lblDelivery = new Label();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             DoMagicCart();
@@ -21,11 +27,12 @@ namespace MMarket
         {
             if (Session["CartTable"] != null)
             {
+                Panel2.Visible = true;
+
                 HtmlGenericControl DivContainer = new HtmlGenericControl();
                 DivContainer.Attributes["class"] = "container";
                 DivContainer.TagName = "div";
-
-                HtmlTable table = new HtmlTable();
+                
                 table.ID = "cart";
                 table.Attributes["class"] = "table table-hover table-condensed";
 
@@ -84,9 +91,11 @@ namespace MMarket
                     HtmlGenericControl h4 = new HtmlGenericControl("h4");
                     h4.Attributes["class"] = "nomargin";
                     h4.InnerText = item.ItemArray[1].ToString();
+                    h4.Style.Add("color", "#764069");
 
                     HtmlGenericControl para = new HtmlGenericControl("p");
                     para.InnerText = item.ItemArray[2].ToString();
+                    para.Style.Add("color", "#764069");
 
                     divTd2.Controls.Add(h4);
                     divTd2.Controls.Add(para);
@@ -98,45 +107,115 @@ namespace MMarket
                     tdTbody1.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody2 = new HtmlTableCell("td");
-                    tdTbody2.ID = "price_" + item.ItemArray[0];
+                    //tdTbody2.ID = "price_" + item.ItemArray[0];
                     tdTbody2.Attributes["data-th"] = "Cijena";
-                    tdTbody2.InnerText = item.ItemArray[3].ToString();
+                    //tdTbody2.InnerText = item.ItemArray[3].ToString();
                     tdTbody2.Style.Add("vertical-align", "middle");
+                    Label lblPrice = new Label();
+                    lblPrice.ID = "price_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
+                    lblPrice.Text = item.ItemArray[3].ToString();
+                    lblPrice.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
+                    tdTbody2.Controls.Add(lblPrice);
 
                     HtmlTableCell tdTbody3 = new HtmlTableCell("td");
                     tdTbody3.Attributes["data-th"] = "Količina";
 
-                    HtmlInputText inputNumber = new HtmlInputText("number");
-                    inputNumber.ID = "myInput_" + item.ItemArray[0];
-                    inputNumber.Attributes["class"] = "form-control text-center";
-                    inputNumber.Value = "1";
+                    //HtmlInputText inputNumber = new HtmlInputText("number");
+                    //inputNumber.ID = "myInput_" + item.ItemArray[0];
+                    //inputNumber.Attributes["class"] = "form-control text-center";
+                    //inputNumber.Value = "1";
 
-                    tdTbody3.Controls.Add(inputNumber);
+                    HtmlTable myTable1 = new HtmlTable();
+                    HtmlTableRow myRow1 = new HtmlTableRow();
+                    HtmlTableCell myCell1 = new HtmlTableCell();
+                    HtmlTableCell myCell2 = new HtmlTableCell();
+                    HtmlTable myTable2 = new HtmlTable();
+                    HtmlTableRow myRow2 = new HtmlTableRow();
+                    HtmlTableRow myRow3 = new HtmlTableRow();
+                    HtmlTableCell myCell3 = new HtmlTableCell();
+                    HtmlTableCell myCell4 = new HtmlTableCell();
+                    myTable1.Rows.Add(myRow1);
+                    myRow1.Cells.Add(myCell1);
+                    myRow1.Cells.Add(myCell2);
+                    myTable2.Rows.Add(myRow2);
+                    myTable2.Rows.Add(myRow3);
+                    myRow2.Cells.Add(myCell3);
+                    myRow3.Cells.Add(myCell4);
+                    myCell2.Controls.Add(myTable2);
+
+                    TextBox tbxCountity = new TextBox();
+                    tbxCountity.ID = "countity_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
+                    tbxCountity.Text = item.ItemArray[6].ToString();
+                    tbxCountity.BorderStyle = BorderStyle.Groove;
+                    tbxCountity.BorderColor = System.Drawing.ColorTranslator.FromHtml("#F1C13C");
+                    tbxCountity.Width = 50;
+                    tbxCountity.Style.Add("text-align", "center");
+                    tbxCountity.Style.Add("margin-right", "5px");
+                    tbxCountity.AutoPostBack = true;
+                    tbxCountity.TextChanged += TbxCountity_TextChanged;
+
+                    myCell1.Controls.Add(tbxCountity);
+
+                    HtmlGenericControl myCom1 = new HtmlGenericControl("div");
+                    myCom1.Attributes["class"] = "commerce";
+
+                    HtmlGenericControl myPara1 = new HtmlGenericControl("p");
+                    myPara1.Attributes["class"] = "return-to-shop";
+
+                    HtmlButton btnInc = new HtmlButton();
+                    btnInc.ID = "btnInc_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
+                    btnInc.Attributes["class"] = "button glyphicon glyphicon-arrow-up";
+                    btnInc.Attributes.Add("runat", "server");
+                    btnInc.Style.Add("color", "#F1C13C");
+                    btnInc.Style.Add("border-color", "#F1C13C");
+                    btnInc.CausesValidation = false;
+                    btnInc.ServerClick += CountityInc_Click;
+
+                    myPara1.Controls.Add(btnInc);
+                    myCom1.Controls.Add(myPara1);
+
+                    myCell3.Controls.Add(myCom1);
+
+                    HtmlGenericControl myCom2 = new HtmlGenericControl("div");
+                    myCom2.Attributes["class"] = "commerce";
+
+                    HtmlGenericControl myPara2 = new HtmlGenericControl("p");
+                    myPara2.Attributes["class"] = "return-to-shop";
+
+                    HtmlButton btnDec = new HtmlButton();
+                    btnDec.ID = "btnDec_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
+                    btnDec.Attributes["class"] = "button glyphicon glyphicon-arrow-down";
+                    btnDec.Attributes.Add("runat", "server");
+                    btnDec.Style.Add("color", "#F1C13C");
+                    btnDec.Style.Add("border-color", "#F1C13C");
+                    btnDec.CausesValidation = false;
+                    btnDec.ServerClick += CountityDec_Click;
+
+                    myPara2.Controls.Add(btnDec);
+                    myCom2.Controls.Add(myPara2);
+
+                    myCell4.Controls.Add(myCom2);
+
+                    tdTbody3.Controls.Add(myTable1);
                     tdTbody3.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody4 = new HtmlTableCell("td");
-                    tdTbody4.ID = "subTotalNum_" + item.ItemArray[0];
+                    //tdTbody4.ID = "subTotalNum_" + item.ItemArray[0];
                     tdTbody4.Attributes["data-th"] = "Subtotal";
                     tdTbody4.Attributes["class"] = "text-center";
-                    tdTbody4.InnerText = item.ItemArray[3].ToString();
+
+                    Label lblPriceSub = new Label();
+                    lblPriceSub.ID = "subTotalNum_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
+                    lblPriceSub.Text = (float.Parse(item.ItemArray[3].ToString()) * float.Parse(item.ItemArray[6].ToString())).ToString();
+                    lblPriceSub.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
+                    tdTbody4.Controls.Add(lblPriceSub);
+
+                    //tdTbody4.InnerText = item.ItemArray[3].ToString();
                     tdTbody4.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody5 = new HtmlTableCell("td");
                     tdTbody5.Attributes["data-th"] = "";
                     tdTbody5.Attributes["class"] = "actions";
-
-                    //HtmlButton btnTbody = new HtmlButton();
-                    //btnTbody.ID = "btnRmv_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
-                    //btnTbody.Attributes["class"] = "btn btn-danger btn-sm";
-                    //btnTbody.Attributes.Add("runat", "server");
-                    //btnTbody.Style.Add("float", "right");
-                    //btnTbody.CausesValidation = false;
-                    //btnTbody.ServerClick += BtnTbody_ServerClick;
-
-                    //HtmlGenericControl htmlI = new HtmlGenericControl("i");
-                    //htmlI.Attributes["class"] = "fa fa-trash-o";
-
-                    //btnTbody.Controls.Add(htmlI);
 
                     HtmlGenericControl commerce11 = new HtmlGenericControl("div");
                     commerce11.Attributes["class"] = "commerce";
@@ -182,20 +261,21 @@ namespace MMarket
                 HtmlTable subTableFoot = new HtmlTable();
 
                 HtmlTableRow tr1 = new HtmlTableRow();
-
+                
                 HtmlTableCell tdFoot1 = new HtmlTableCell("td");
-                tdFoot1.InnerText = "Dostava => 50 kn";
-
+                lblDelivery.ID = "delivery";
+                lblDelivery.Font.Bold = true;
+                lblDelivery.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
+                tdFoot1.Controls.Add(lblDelivery);
                 tr1.Cells.Add(tdFoot1);
 
                 HtmlTableRow tr2 = new HtmlTableRow();
 
                 HtmlTableCell tdFoot2 = new HtmlTableCell("td");
-
-                Label total = new Label();
+                
                 total.ID = "totalPrice";
                 total.Font.Bold = true;
-                total.Text = "in progress";
+                total.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
 
                 tdFoot2.Controls.Add(total);
 
@@ -232,6 +312,9 @@ namespace MMarket
                 anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
                 anchor.InnerText = " Povratak na proizvode";
+                anchor.Style.Add("color", "#F1C13C");
+                anchor.Style.Add("border-color", "#F1C13C");
+
 
                 para1.Controls.Add(anchor);
                 commerce.Controls.Add(para1);
@@ -251,18 +334,19 @@ namespace MMarket
                 HtmlTableRow tr11 = new HtmlTableRow();
 
                 HtmlTableCell tdFoot11 = new HtmlTableCell("td");
-                tdFoot11.InnerText = "Dostava -> 50 kn";
-
+                lblDelivery1.ID = "delivery1";
+                lblDelivery1.Font.Bold = true;
+                lblDelivery1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
+                tdFoot11.Controls.Add(lblDelivery1);
                 tr11.Cells.Add(tdFoot11);
 
                 HtmlTableRow tr21 = new HtmlTableRow();
 
                 HtmlTableCell tdFoot21 = new HtmlTableCell("td");
-
-                Label total1 = new Label();
+                
                 total1.ID = "totalPrice1";
                 total1.Font.Bold = true;
-                total1.Text = "in progress";
+                total1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
 
                 tdFoot21.Controls.Add(total1);
 
@@ -293,6 +377,8 @@ namespace MMarket
                 HtmlAnchor anchor1 = new HtmlAnchor();
                 anchor1.Attributes["class"] = "button";
                 anchor1.InnerText = "Plaćanje ";
+                anchor1.Style.Add("color", "#F1C13C");
+                anchor1.Style.Add("border-color", "#F1C13C");
                 anchor1.CausesValidation = false;
                 anchor1.ServerClick += Payment_ServerClick;
 
@@ -321,30 +407,38 @@ namespace MMarket
 
                 DivContainer.Controls.Add(table);
 
-                Panel1.Controls.Add(DivContainer);
+                Panel2.Controls.Add(DivContainer);
 
-                string myScript = "\n<script type=\"text/javascript\" language=\"Javascript\" id=\"EventScriptBlock\">\n";
-                myScript += "$('#ContentPlaceHolder2_myInput').on('change', function (e) {" +
-                "if ($(this).data(\"lastval\") != $(this).val()) {" +
-                    "if ($(this).val() < 1 || !$.isNumeric($(this).val())) {" +
-                        "$(this).val(1);" +
-                    "}" +
-                    "$(this).data(\"lastval\", $(this).val());" +
+                if (!IsPostBack)
+                {
+                    TotalCalculator();
+                    DeliveryCalculator();
+                }
 
-                    "$('#ContentPlaceHolder2_subTotalNum').val($(this).val() * $('#ContentPlaceHolder2_price').text());" +
-                    "$('#ContentPlaceHolder2_subTotalNum').text($('#ContentPlaceHolder2_subTotalNum').val() + ' kn');" +
+            //    string myScript = "\n<script type=\"text/javascript\" language=\"Javascript\" id=\"EventScriptBlock\">\n";
+            //    myScript += "$('#ContentPlaceHolder2_myInput').on('change', function (e) {" +
+            //    "if ($(this).data(\"lastval\") != $(this).val()) {" +
+            //        "if ($(this).val() < 1 || !$.isNumeric($(this).val())) {" +
+            //            "$(this).val(1);" +
+            //        "}" +
+            //        "$(this).data(\"lastval\", $(this).val());" +
 
-                //"$('#total').text(+$('#subTotalNum').val()); "+
-                //"$('#total1').text(+$('#subTotalNum').val()); "+
-                //"$('#total').val(+$('#subTotalNum').val()); "+
-                //"$('#total1').val(+$('#subTotalNum').val()); "+
-                "};" +
-            "});";
-                myScript += "\n\n </script>";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "myKey", myScript, false);
+            //        "$('#ContentPlaceHolder2_subTotalNum').val($(this).val() * $('#ContentPlaceHolder2_price').text());" +
+            //        "$('#ContentPlaceHolder2_subTotalNum').text($('#ContentPlaceHolder2_subTotalNum').val() + ' kn');" +
+
+            //    //"$('#total').text(+$('#subTotalNum').val()); "+
+            //    //"$('#total1').text(+$('#subTotalNum').val()); "+
+            //    //"$('#total').val(+$('#subTotalNum').val()); "+
+            //    //"$('#total1').val(+$('#subTotalNum').val()); "+
+            //    "};" +
+            //"});";
+            //    myScript += "\n\n </script>";
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "myKey", myScript, false);
             }
             else
             {
+                Panel2.Visible = false;
+
                 HtmlGenericControl DivContainer = new HtmlGenericControl();
                 DivContainer.Attributes["class"] = "container";
                 DivContainer.TagName = "div";
@@ -364,6 +458,7 @@ namespace MMarket
                 HtmlGenericControl para = new HtmlGenericControl("p");
                 para.Attributes["class"] = "cart-empty";
                 para.InnerText = "Vaša košarica je prazna.";
+                para.Style.Add("color", "#764069");
 
                 HtmlGenericControl para1 = new HtmlGenericControl("p");
                 para1.Attributes["class"] = "return-to-shop";
@@ -372,6 +467,8 @@ namespace MMarket
                 anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
                 anchor.InnerText = " Povratak na proizvode";
+                anchor.Style.Add("color", "#F1C13C");
+                anchor.Style.Add("border-color", "#F1C13C");
 
                 para1.Controls.Add(anchor);
 
@@ -387,12 +484,69 @@ namespace MMarket
                 DivContainer.Controls.Add(row);
 
                 Panel1.Controls.Add(DivContainer);
+
+                Session["total"] = null;
             }
+        }
+
+        private void TbxCountity_TextChanged(object sender, EventArgs e)
+        {
+            string resultString = Regex.Match(((TextBox)sender).ID, @"\d+").Value;
+            int row = int.Parse(resultString);
+
+            int testBroj;
+            if (!int.TryParse(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text, out testBroj)
+                || string.IsNullOrWhiteSpace(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text)
+                || testBroj < 1)
+            {
+                ((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = ((DataTable)Session["CartTable"]).Rows[row].ItemArray[6].ToString();
+                ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (testBroj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+            }
+            else
+            {
+                ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (testBroj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+                ((DataTable)Session["CartTable"]).Rows[row].SetField(6, ((TextBox)sender).Text);
+            }
+
+            TotalCalculator();
+            DeliveryCalculator();
+        }
+
+        private void CountityInc_Click(object sender, EventArgs e)
+        {
+            string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
+            int row = int.Parse(resultString);
+            int broj = int.Parse(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text);
+            ++broj;
+            ((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = broj.ToString();
+            ((DataTable)Session["CartTable"]).Rows[row].SetField(6, broj.ToString());
+            ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (broj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+
+            TotalCalculator();
+            DeliveryCalculator();
+        }
+
+        private void CountityDec_Click(object sender, EventArgs e)
+        {
+            string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
+            int row = int.Parse(resultString);
+            int broj = int.Parse(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text);
+            --broj;
+            if (broj < 1)
+            {
+                broj = 1;
+            }
+            ((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = broj.ToString();
+            ((DataTable)Session["CartTable"]).Rows[row].SetField(6, broj.ToString());
+            ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (broj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+
+            TotalCalculator();
+            DeliveryCalculator();
         }
 
         private void Payment_ServerClick(object sender, EventArgs e)
         {
-            Response.Write("<script>alert('Opcija plačanje trenutno nije dostupna!');</script>");
+            Response.Redirect("Payment.aspx");
         }
 
         private void BtnTbody_ServerClick(object sender, EventArgs e)
@@ -400,15 +554,127 @@ namespace MMarket
             if (((DataTable)Session["CartTable"]).Rows.Count == 1)
             {
                 Session["CartTable"] = null;
+                Session["total"] = null;
+                Session["shipping"] = null;
+                Panel2.Visible = false;
             }
             else
             {
                 string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
                 int row = int.Parse(resultString);
                 ((DataTable)Session["CartTable"]).Rows.RemoveAt(row);
+
+                TotalCalculator();
+                DeliveryCalculator();
+
+                Panel2.Visible = true;
             }
 
             Response.Redirect("Cart.aspx");
+        }
+
+        private void TotalCalculator()
+        {
+            if (Session["CartTable"] != null)
+            {
+                float totalNum = 0;
+                for (int i = 1; i < table.Rows.Count - 1; i++)
+                {
+                    totalNum += float.Parse(((Label)table.Rows[i].Cells[3].Controls[0]).Text);
+                }
+                Session["total"] = totalNum;
+
+                total.Text = "Ukupno: " + String.Format("{0:0.00}", totalNum) + " kn";
+                total1.Text = "Ukupno: " + String.Format("{0:0.00}", totalNum) + " kn";
+            }
+            else
+            {
+                Session["total"] = null;
+            }
+        }
+
+        private void DeliveryCalculator()
+        {
+            if (Session["CartTable"] != null)
+            {
+                if (Session["total"] != null)
+                {
+                    float tezina = 0;
+                    foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
+                    {
+                        tezina += float.Parse(item.ItemArray[5].ToString()) * float.Parse(item.ItemArray[6].ToString());
+                    }
+
+                    float delivery = 0;
+                    if (tezina <= 2000)
+                    {
+                        delivery = 20;
+                    }
+                    else if (tezina > 2000 && tezina <= 5000)
+                    {
+                        delivery = 25;
+                    }
+                    else if (tezina > 5000 && tezina <= 10000)
+                    {
+                        delivery = 28;
+                    }
+                    else if (tezina > 10000 && tezina <= 15000)
+                    {
+                        delivery = 35;
+                    }
+                    else if (tezina > 15000 && tezina <= 20000)
+                    {
+                        delivery = 38;
+                    }
+
+                    if ((float)Session["total"] <= 100)
+                    {
+                        Session["shipping"] = delivery;
+                    }
+                    else
+                    {
+                        string osnovno = "";
+                        string ostatak = "";
+                        for (int i = 0; i < ((float)Session["total"]).ToString().Count(); i++)
+                        {
+                            if ((float)Session["total"] >= 1000)
+                            {
+                                if (i < 2)
+                                {
+                                    osnovno += ((float)Session["total"]).ToString().ElementAt(i).ToString();
+                                }
+                                else
+                                {
+                                    ostatak += ((float)Session["total"]).ToString().ElementAt(i).ToString();
+                                }
+                            }
+                            else
+                            {
+                                if (i == 0)
+                                {
+                                    osnovno += ((float)Session["total"]).ToString().ElementAt(i).ToString();
+                                }
+                                else
+                                {
+                                    ostatak += ((float)Session["total"]).ToString().ElementAt(i).ToString();
+                                }
+                            }
+                        }
+
+                        delivery += int.Parse(osnovno) * 3;
+                        delivery += float.Parse(ostatak) * (float)0.03;
+
+                        Session["shipping"] = delivery;
+                    }
+
+                    lblDelivery.Text = "Dostava: " + String.Format("{0:0.00}", (float)Session["shipping"]) + " kn";
+                    lblDelivery1.Text = "Dostava: " + String.Format("{0:0.00}", (float)Session["shipping"]) + " kn";
+                }
+                else
+                {
+                    Session["shipping"] = null;
+                }
+            }
         }
     }
 }
