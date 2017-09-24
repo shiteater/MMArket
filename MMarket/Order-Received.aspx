@@ -31,23 +31,23 @@
             </div>
             <div id="div" runat="server" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <h2>Detalji o našoj banci</h2>
-                <h2>MARITA MARKET d.o.o.:</h2>
+                <h2>HABIBI-ORIENT d.o.o.:</h2>
 
                <div> Banka: <br/>
                Zagrebačka banka d.o.o.
                    </div>
                 
                 <div>
-                    Broj računa:<br/>
-                    233001241545476
-                </div>
-
-                <div>
                     IBAN:<br/>
-                   HR5465435434566549945
+                    <span id="cch_f2390152e058f4" class="_mh6 _wsc"><span class="_3oh- _58nk">HR8023600001102448841</span></span>
                 </div>
-
-
+                 <div>
+                     Brothers HD D.O.O 
+10020 Jaruščica 9a 
+croatia zagreb 
+Oib 11070517886
+                 </div>
+               
             </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     </div>
