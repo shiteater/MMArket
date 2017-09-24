@@ -67,12 +67,12 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Ime:</strong>
-                                    <input id="form_ime" runat="server" type="text" name="Ime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje ime *" pattern="[A-Za-zđšžćčĐŠŽĆČ]{3,30}" required="required"/>
+                                    <input id="form_ime" runat="server" type="text" name="Ime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje ime *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/>
                                 </div>
                                 <div class="span1"></div>
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Prezime:</strong>
-                               <input id="form_prezime" runat="server" type="text" name="Prezime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje prezime *" pattern="[A-Za-zđšžćčĐŠŽĆČ]{3,30}" required="required"/></div>
+                               <input id="form_prezime" runat="server" type="text" name="Prezime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje prezime *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Adresa:</strong></div>
@@ -82,7 +82,7 @@
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Grad:</strong></div>
                                 <div class="col-md-12">
-                                    <input id="form_grad" runat="server" type="text" name="Grad" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite grad *" pattern="[A-Za-zđšžćčĐŠŽĆČ]{3,30}" required="required"/></div>
+                                    <input id="form_grad" runat="server" type="text" name="Grad" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite grad *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/></div>
                             </div>
                            <%-- <div class="form-group">
                                 <div class="col-md-12"><strong>State:</strong></div>
