@@ -19,8 +19,8 @@
                 <div class="row">
                     <div style="display: table; margin: auto;">
                         <span class="step step_complete"> <a href="Cart.aspx" class="check-bc">Košarica</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
-                        <span class="step step_complete">Naplata<span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
-                        <span class="step_thankyou check-bc step_complete">Thank you</span>
+                        <span class="step step_complete" style="color: #F1C13C">Naplata<span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
+                        <span class="step_thankyou check-bc step_complete">Hvala</span>
                     </div>
                 </div>
                 <div class="row">

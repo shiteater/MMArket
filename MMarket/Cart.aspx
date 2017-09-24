@@ -6,9 +6,9 @@
     <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Center">
         <div class="row">
                     <div style="display: table; margin: auto auto 10px auto;">
-                        <span class="step step_complete check-bc" style="color: #FFFFFF">Košarica<span class="step_line step_complete"> </span></span>
+                        <span class="step step_complete check-bc" style="color: #F1C13C">Košarica<span class="step_line step_complete"> </span></span>
                         <span class="step step_complete">Naplata<span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
-                        <span class="step_thankyou check-bc step_complete">Thank you</span>
+                        <span class="step_thankyou check-bc step_complete">Hvala</span>
                     </div>
                 </div>
     </asp:Panel>

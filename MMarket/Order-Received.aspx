@@ -13,7 +13,7 @@
                     <div style="display: table; margin: auto;">
                         <span class="step step_complete"> <a href="Cart.aspx" class="check-bc">Košarica</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
                         <span class="step step_complete"> <a href="Payment.aspx" class="check-bc">Naplata</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
-                        <span class="step step_complete">Thank you</span>
+                        <span class="step step_complete" style="color: #F1C13C">Hvala</span>
                     </div>
                 </div>
     <form id="form1" runat="server">

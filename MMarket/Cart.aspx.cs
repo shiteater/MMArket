@@ -468,8 +468,6 @@ namespace MMarket
                 HtmlAnchor anchor = new HtmlAnchor();
                 anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
-                anchor.Style.Add("color", "#F1C13C");
-                anchor.Style.Add("border-color", "#F1C13C");
                 anchor.InnerText = " Povratak na proizvode";
                 anchor.Style.Add("color", "#F1C13C");
                 anchor.Style.Add("border-color", "#F1C13C");
