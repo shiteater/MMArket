@@ -6,7 +6,6 @@
 <head runat="server">
     <link href="css/Payment.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/CartStyle.css" rel="stylesheet" />
     <title></title>
 </head>
 <body>
