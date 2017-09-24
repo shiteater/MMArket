@@ -37,9 +37,6 @@ namespace MMarket
             smtpClient.EnableSsl = true;
             // Finall send the email message using Send() method
             smtpClient.Send(mailMessage);
-
         }
-
-
     }
 }
