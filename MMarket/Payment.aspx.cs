@@ -100,7 +100,7 @@ namespace MMarket
 
                 HtmlGenericControl span2 = new HtmlGenericControl("span");
                 // kod za subtotal
-                span2.InnerText = ((float)Session["total"]).ToString();
+                span2.InnerText = String.Format("{0:0.00}", (float)Session["total"]);
                 pullright.Controls.Add(span2);
 
                 HtmlGenericControl span3 = new HtmlGenericControl("span");
@@ -126,7 +126,7 @@ namespace MMarket
 
                 HtmlGenericControl span4 = new HtmlGenericControl("span");
                 // kod za shipping
-                span4.InnerText = ((float)Session["shipping"]).ToString();
+                span4.InnerText = String.Format("{0:0.00}", (float)Session["shipping"]);
                 pullright2.Controls.Add(span4);
 
                 HtmlGenericControl span5 = new HtmlGenericControl("span");
@@ -158,7 +158,7 @@ namespace MMarket
 
                 HtmlGenericControl span6 = new HtmlGenericControl("span");
                 // kod za total
-                span6.InnerText = ((float)Session["shipping"] + (float)Session["total"]).ToString();
+                span6.InnerText = String.Format("{0:0.00}", (float)Session["shipping"] + (float)Session["total"]);
                 pullright3.Controls.Add(span6);
 
                 HtmlGenericControl span7 = new HtmlGenericControl("span");
