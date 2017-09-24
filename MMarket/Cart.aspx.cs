@@ -227,8 +227,8 @@ namespace MMarket
                     btnTbody.ID = "btnRmv_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
                     btnTbody.Attributes["class"] = "button glyphicon glyphicon-trash";
                     btnTbody.Attributes.Add("runat", "server");
-                    btnTbody.Style.Add("color", "#F1C13C");
-                    btnTbody.Style.Add("border-color", "#F1C13C");
+                    btnTbody.Style.Add("color", "#ea3a1a");
+                    btnTbody.Style.Add("border-color", "#ea3a1a");
                     btnTbody.CausesValidation = false;
                     btnTbody.ServerClick += BtnTbody_ServerClick;
 
