@@ -221,7 +221,7 @@
                             <asp:Label ID="Label2" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
                         </EditItemTemplate>
                         <ItemTemplate>
-                            <asp:Label ID="Label3" runat="server" Text='<%# Bind("NazFile") %>'></asp:Label>
+                            <asp:Button ID="btnOsnSlika" runat="server" Text='<%# Bind("NazFile") %>' OnClick="btnOsnSlika_Click"></asp:Button>
                         </ItemTemplate>
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Akcija" SortExpression="Akcija">

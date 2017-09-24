@@ -252,5 +252,10 @@ namespace MMarket
             pnlProizvodi.Visible = false;
             pnlNarudzbe.Visible = true;
         }
+
+        protected void btnOsnSlika_Click(object sender, EventArgs e)
+        {
+            Image1.ImageUrl = "Images/" + ((Button)sender).Text;
+        }
     }
 }
