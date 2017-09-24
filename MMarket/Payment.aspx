@@ -132,7 +132,9 @@
                                  
                                     </div>
                             <div class="commerce">
-                                <p class="return-to-shop"><a runat="server" class="button glyphicon" onserverclick="Button1_Click"  style="color: #764069; border-color: #764069">Naručite</a></p>
+                                
+                                <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Naručite" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click" OnClientClick="Button1_Click" PostBackUrl="~/Order-Received.aspx" />
+                                    </p>
                             </div>
                         <%--  
                             <div class="form-group">
