@@ -115,7 +115,6 @@
                                
                         </div>
                     </div>
-                    </div>
                     <!--SHIPPING METHOD END-->
                     <!--CREDIT CART PAYMENT-->
                  <div class="panel panel-info">
@@ -218,7 +217,6 @@
                <%-- </div>--%>
                 
                 </div>
-                     </div>
             </form>
             <div class="row cart-footer">
         
