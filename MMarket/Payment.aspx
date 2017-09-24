@@ -29,7 +29,7 @@
                 </div>
             </div>    
             <div class="row cart-body">
-                <form class="form-horizontal" method="post" runat="server">
+                <form id="form1" class="form-horizontal" method="post" runat="server">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                     <!--REVIEW ORDER-->
                     <div class="panel panel-info">
@@ -67,26 +67,22 @@
                             <div class="form-group">
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Ime:</strong>
-                                    <input id="form_ime" type="text" name="name" class="form-control" placeholder="Molimo unesite svoje ime *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoje ime ')"
- oninput="setCustomValidity('')""/>
+                                    <input id="form_ime" runat="server" type="text" name="Ime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje ime *" pattern="[A-Za-zđšžćčĐŠŽĆČ]{3,30}" required="required"/>
                                 </div>
                                 <div class="span1"></div>
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Prezime:</strong>
-                               <input id="form_prezime" type="text" name="name" class="form-control" placeholder="Molimo unesite svoje prezime *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoje prezime ')"
- oninput="setCustomValidity('')""/></div>
+                               <input id="form_prezime" runat="server" type="text" name="Prezime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje prezime *" pattern="[A-Za-zđšžćčĐŠŽĆČ]{3,30}" required="required"/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Adresa:</strong></div>
                                 <div class="col-md-12"> 
-                              <input id="form_adresa" type="text" name="name" class="form-control" placeholder="Molimo unesite svoju adresu *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoju adresu ')"
- oninput="setCustomValidity('')""/></div>
+                              <input id="form_adresa" runat="server" type="text" name="Adresa" title="npr. ulica 20a, ulica20/a" class="form-control" placeholder="Molimo unesite svoju adresu *" pattern="[A-z0-9À-ž\s\/\-]{5,200}" required="required"/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Grad:</strong></div>
                                 <div class="col-md-12">
-                                    <input id="form_grad" type="text" name="name" class="form-control" placeholder="Molimo unesite grad *" required="required" oninvalid="this.setCustomValidity('Molimo unesite grad ')"
- oninput="setCustomValidity('')""/> </div>
+                                    <input id="form_grad" runat="server" type="text" name="Grad" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite grad *" pattern="[A-Za-zđšžćčĐŠŽĆČ]{3,30}" required="required"/></div>
                             </div>
                            <%-- <div class="form-group">
                                 <div class="col-md-12"><strong>State:</strong></div>
@@ -97,20 +93,17 @@
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Poštanski broj:</strong></div>
                                 <div class="col-md-12">
-                                    <input id="form_postanskibroj" type="text" name="name" class="form-control" placeholder="Molimo unesite poštanski broj *" required="required" oninvalid="this.setCustomValidity('Molimo unesite poštanski broj ')"
- oninput="setCustomValidity('')""/> </div>
+                                    <input id="form_postanskibroj" runat="server" type="text" name="Poštanski broj" title="Samo brojevi do 20 karaktera" class="form-control" placeholder="Molimo unesite poštanski broj *" pattern="[0-9]{3,20}" required="required"/></div>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Telefon:</strong></div>
                                 <div class="col-md-12">
-                                    <input id="form_telefon" type="text" name="name" class="form-control" placeholder="Molimo unesite broj telefona *" required="required" oninvalid="this.setCustomValidity('Molimo unesite broj telefona ')"
- oninput="setCustomValidity('')""/></div>
+                                    <input id="form_telefon" runat="server" type="text" name="Telefon" title="npr. +385/991111111, 0991111111" class="form-control" placeholder="Molimo unesite broj telefona *" pattern="[0-9\s\/\+]{8,20}" required="required"/></div>
                                 </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Email Adresa:</strong></div>
                                 <div class="col-md-12">
-                                    <input id="form_email" type="text" name="name" class="form-control" placeholder="Molimo unesite svoj Email *" required="required" oninvalid="this.setCustomValidity('Molimo unesite svoj Email ')"
- oninput="setCustomValidity('')""/></div>
+                                    <input id="form_email" runat="server" type="text" name="Email" title="Uneseni email je u krivom formatu!" class="form-control" placeholder="Molimo unesite svoj Email *" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required="required"/></div>
                                 </div>
                                
                         </div>

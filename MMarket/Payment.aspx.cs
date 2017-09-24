@@ -173,11 +173,13 @@ namespace MMarket
                 Panel1.Controls.Add(total);
 
 
-
+                Session["Pouzece"] = null;
+                Session["Banka"] = null;
             }
-
-            Session["Pouzece"] = null;
-            Session["Banka"] = null;
+            else
+            {
+                Response.Redirect("Home.aspx");
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -192,25 +194,32 @@ namespace MMarket
             {
                 Session["Banka"] = 1;
             }
-            
-            //SqlConnection con = new SqlConnection(conString);
 
-            //SqlCommand insertCmd = new SqlCommand("insert into Narudzbe values(@Ime, @Prezime, @Adresa, @Grad, @PosBroj, @Telefon, @Email, @Nacin, @Datum)", con);
-            //insertCmd.Parameters.AddWithValue("@Ime", "");
-            //insertCmd.Parameters.AddWithValue("@Prezime", "");
-            //insertCmd.Parameters.AddWithValue("@Adresa", "");
-            //insertCmd.Parameters.AddWithValue("@Grad", "");
-            //insertCmd.Parameters.AddWithValue("@PosBroj", "");
-            //insertCmd.Parameters.AddWithValue("@Telefon", "");
-            //insertCmd.Parameters.AddWithValue("@Email", "");
-            //insertCmd.Parameters.AddWithValue("@Nacin", "");
-            //insertCmd.Parameters.AddWithValue("@Datum", DateTime.Today);
+            SqlConnection con = new SqlConnection(conString);
 
-            //con.Open();
+            SqlCommand insertCmd = new SqlCommand("insert into Narudzbe values(@Ime, @Prezime, @Adresa, @Grad, @PosBroj, @Telefon, @Email, @Nacin, @Datum)", con);
+            insertCmd.Parameters.AddWithValue("@Ime", form_ime.Value);
+            insertCmd.Parameters.AddWithValue("@Prezime", form_prezime.Value);
+            insertCmd.Parameters.AddWithValue("@Adresa", form_adresa.Value);
+            insertCmd.Parameters.AddWithValue("@Grad", form_grad.Value);
+            insertCmd.Parameters.AddWithValue("@PosBroj", form_postanskibroj.Value);
+            insertCmd.Parameters.AddWithValue("@Telefon", form_telefon.Value);
+            insertCmd.Parameters.AddWithValue("@Email", form_email.Value);
+            if (Session["Pouzece"] != null)
+            {
+                insertCmd.Parameters.AddWithValue("@Nacin", "Pouzece");
+            }
+            else
+            {
+                insertCmd.Parameters.AddWithValue("@Nacin", "Banka");
+            }
+            insertCmd.Parameters.AddWithValue("@Datum", DateTime.Today);
 
-            //int rowsAffected = insertCmd.ExecuteNonQuery();
+            con.Open();
 
-            //con.Close();
+            int rowsAffected = insertCmd.ExecuteNonQuery();
+
+            con.Close();
 
             Response.Redirect("Order-Received.aspx");
         }
