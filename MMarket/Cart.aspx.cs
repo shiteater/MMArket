@@ -502,7 +502,7 @@ namespace MMarket
                 || testBroj < 1)
             {
                 ((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = ((DataTable)Session["CartTable"]).Rows[row].ItemArray[6].ToString();
-                ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (testBroj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+                ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[6].ToString()) * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
             }
             else
             {
@@ -580,9 +580,17 @@ namespace MMarket
             if (Session["CartTable"] != null)
             {
                 float totalNum = 0;
-                for (int i = 1; i < table.Rows.Count - 1; i++)
+                //for (int i = 1; i < table.Rows.Count - 1; i++)
+                //{
+                //    totalNum += float.Parse(((Label)table.Rows[i].Cells[3].Controls[0]).Text);
+                //}
+                //Session["total"] = totalNum;
+
+                //total.Text = "Ukupno: " + String.Format("{0:0.00}", totalNum) + " kn";
+                //total1.Text = "Ukupno: " + String.Format("{0:0.00}", totalNum) + " kn";
+                foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
                 {
-                    totalNum += float.Parse(((Label)table.Rows[i].Cells[3].Controls[0]).Text);
+                    totalNum += (float.Parse(item.ItemArray[3].ToString()) * float.Parse(item.ItemArray[6].ToString()));
                 }
                 Session["total"] = totalNum;
 
