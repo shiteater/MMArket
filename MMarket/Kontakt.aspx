@@ -58,18 +58,20 @@
                                     <div class="form-group">
                                         <label for="form_message">Poruka *</label>
                                         <asp:TextBox ID="textarea1" runat="server"  class="form-control" placeholder="Poruka: *" rows="4"/>
-                                        <asp:RequiredFieldValidator ID="RfvPoruka" runat="server" ErrorMessage="Please,leave us a message." ValidationGroup="1" ControlToValidate="textarea1"></asp:RequiredFieldValidator>
+                                        <asp:RequiredFieldValidator ID="RfvPoruka" runat="server" ErrorMessage="Molimo Vas da ostavite poruku." ValidationGroup="1" ControlToValidate="textarea1"></asp:RequiredFieldValidator>
                                         <%--                                        <textarea id="form_message" name="message" class="form-control" placeholder="Message for me *" rows="4" required="required" data-error="Please,leave us a message."></textarea>--%>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    o<%--<input type="submit" class="btn btn-black" value="Send message">--%></div>
+                                    <asp:Button ID="Button1" runat="server" class="btn btn-black" Text="Pošalji" OnClick="Button1_Click1" ValidationGroup="1" />
+                                    <%--<input type="submit" class="btn btn-black" value="Send message">--%>
+                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                    <br>
-                                    <small class="text-muted"><strong>*</strong> These fields are required.</small>
+                                    <small class="text-muted"><strong>*</strong> Ova polja su obavezna.</small>
                                 </div>
                             </div>
                         </div>

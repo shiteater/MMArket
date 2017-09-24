@@ -227,8 +227,8 @@ namespace MMarket
                     btnTbody.ID = "btnRmv_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
                     btnTbody.Attributes["class"] = "button glyphicon glyphicon-trash";
                     btnTbody.Attributes.Add("runat", "server");
-                    btnTbody.Style.Add("color", "#ea3a1a");
-                    btnTbody.Style.Add("border-color", "#ea3a1a");
+                    btnTbody.Style.Add("color", "#F1C13C");
+                    btnTbody.Style.Add("border-color", "#F1C13C");
                     btnTbody.CausesValidation = false;
                     btnTbody.ServerClick += BtnTbody_ServerClick;
 
@@ -311,6 +311,8 @@ namespace MMarket
                 HtmlAnchor anchor = new HtmlAnchor();
                 anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
+                anchor.Style.Add("color", "#F1C13C");
+                anchor.Style.Add("border-color", "#F1C13C");
                 anchor.InnerText = " Povratak na proizvode";
                 anchor.Style.Add("color", "#F1C13C");
                 anchor.Style.Add("border-color", "#F1C13C");
@@ -466,6 +468,8 @@ namespace MMarket
                 HtmlAnchor anchor = new HtmlAnchor();
                 anchor.Attributes["class"] = "button glyphicon glyphicon-arrow-left";
                 anchor.HRef = "Home.aspx";
+                anchor.Style.Add("color", "#F1C13C");
+                anchor.Style.Add("border-color", "#F1C13C");
                 anchor.InnerText = " Povratak na proizvode";
                 anchor.Style.Add("color", "#F1C13C");
                 anchor.Style.Add("border-color", "#F1C13C");
