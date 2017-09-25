@@ -7,6 +7,11 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/Payment.css" rel="stylesheet" />
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            height: 37px;
+        }
+    </style>
 </head>
 <body>
     <div class="row">
@@ -20,18 +25,18 @@
             <div class="col-lg-12">
                 <div><br />
            <div>Hvala. Vaša narudžba je zaprimljena.</div> 
-           <div>Broj narudžbe: 1</div>
-           <div>Datum: 1</div>
-           <div>Ukupno: 65 kn</div>
+           <div id="IDNarudzba" runat="server">Broj narudžbe: 1</div>
+           <div id="Datum" runat="server"></div>
            <div>Način plaćanja: <asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
-
+<asp:Label ID="Label2" runat="server" Text="Molimo uplatite direktno na naš račun u banci. Koristite indetifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu."></asp:Label>
 
         </div>
-                <asp:Label ID="Label2" runat="server" Text="Molimo uplatite direktno na naš račun u banci. Koristite indetifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu."></asp:Label>
             </div>
             <div id="div" runat="server" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                
+
                 <h2>Detalji o našoj banci</h2>
-                <h2>HABIBI-ORIENT d.o.o.:</h2>
+                <h2>Brothers HD d.o.o :</h2>
 
                <div> Banka: <br/>
                Zagrebačka banka d.o.o.
@@ -42,51 +47,21 @@
                     <span id="cch_f2390152e058f4" class="_mh6 _wsc"><span class="_3oh- _58nk">HR8023600001102448841</span></span>
                 </div>
                  <div>
-                     Brothers HD D.O.O 
-10020 Jaruščica 9a 
-croatia zagreb 
-Oib 11070517886
+                   10020 Jaruščica 9a,<br /> Zagreb, Hrvatska<br /> OIB 11070517886
                  </div>
                
             </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     </div>
 
-        </asp:Panel>
-
-    </form>
+     
     <div class="col-xs-12">
        <h1 id="DetaljiNarudbe">Detalji Narudžbe</h1>
         </div>
-    <table class="table Narudba" style="width:100%;">
-        <th>Proizvod</th>
-    <th>Ukupno</th>
-        
-        <tr>
-           
-            <td>Brašno</td>
-            <td>36,80</td>
-        </tr>
-        <tr>
-           
-            <td>Ukupno</td>
-            <td>36,80</td>
-        </tr>
-        <tr>
-           
-            <td>dostava</td>
-            <td><span class="woocommerce-Price-amount amount">29.00<span class="woocommerce-Price-currencySymbol">Kn</span></span></td>
-        </tr>
-        <tr>
-           
-            <td>Način plaćanja</td>
-            <td>Pouzećem</td>
-        </tr>
-        <tr>
-           
-            <td>Ukupno</td>
-            <td><span class="woocommerce-Price-amount amount">66kn</span></td>
-        </tr>
-    </table>
+<div id="Table" runat="server"></div> 
+  
+            </asp:Panel>
+
+    </form>
 </body>
 </html>

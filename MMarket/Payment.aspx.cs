@@ -221,6 +221,8 @@ namespace MMarket
 
             con.Close();
 
+            Session["IDNarudzba"] = 0;
+
             Response.Redirect("Order-Received.aspx");
         }
     }
