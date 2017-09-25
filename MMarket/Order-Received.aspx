@@ -25,8 +25,8 @@
             <div class="col-lg-12">
                 <div><br />
            <div>Hvala. Vaša narudžba je zaprimljena.</div> 
-           <div id="IDNarudzba" runat="server">Broj narudžbe: 1</div>
-           <div id="Datum" runat="server"></div>
+           <div id="Narudzba" runat="server"></div>
+           <div id="myDatum" runat="server"></div>
            <div>Način plaćanja: <asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
 <asp:Label ID="Label2" runat="server" Text="Molimo uplatite direktno na naš račun u banci. Koristite indetifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu."></asp:Label>
 
@@ -58,10 +58,11 @@
     <div class="col-xs-12">
        <h1 id="DetaljiNarudbe">Detalji Narudžbe</h1>
         </div>
-<div id="Table" runat="server"></div> 
-  
+<div id="myTable" runat="server"></div> 
             </asp:Panel>
-
+        <div class="commerce">
+            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="skini narudžbu u pdf format" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/></p>
+        </div>
     </form>
 </body>
 </html>

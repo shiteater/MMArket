@@ -20,6 +20,11 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["naruceno"] != null && (bool)Session["naruceno"])
+            {
+                Response.Redirect("Order-Received.aspx");
+            }
+
             DoMagicCart();
         }
 

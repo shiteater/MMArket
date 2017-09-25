@@ -31,22 +31,22 @@ namespace MMarket {
         protected global::System.Web.UI.WebControls.Panel Panel1;
         
         /// <summary>
-        /// IDNarudzba control.
+        /// Narudzba control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl IDNarudzba;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Narudzba;
         
         /// <summary>
-        /// Datum control.
+        /// myDatum control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Datum;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl myDatum;
         
         /// <summary>
         /// Label1 control.
@@ -76,12 +76,21 @@ namespace MMarket {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl div;
         
         /// <summary>
-        /// Table control.
+        /// myTable control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Table;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl myTable;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

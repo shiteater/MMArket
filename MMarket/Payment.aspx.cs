@@ -18,11 +18,15 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["naruceno"] != null && (bool)Session["naruceno"])
+            {
+                Response.Redirect("Order-Received.aspx");
+            }
+
             if (Session["CartTable"] != null)
             {
                 foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
                 {
-
                     HtmlGenericControl div1 = new HtmlGenericControl("div");
                     div1.Attributes["class"] = "form-group";
 
@@ -220,8 +224,6 @@ namespace MMarket
             int rowsAffected = insertCmd.ExecuteNonQuery();
 
             con.Close();
-
-            Session["IDNarudzba"] = 0;
 
             Response.Redirect("Order-Received.aspx");
         }
