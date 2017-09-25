@@ -78,7 +78,6 @@
     <Content Include="Datulje.aspx" />
     <Content Include="home2.aspx" />
     <Content Include="Images\3d234fba-9a5e-42ce-8e84-5e5341f2c39c.jpeg" />
-    <Content Include="Images\arap-logo.png" />
     <Content Include="Images\categories\datulje.jpg" />
     <Content Include="Images\categories\hookah.jpg" />
     <Content Include="Images\categories\kava.jpg" />
@@ -98,10 +97,7 @@
     <Content Include="Images\icones\cart_blue.png" />
     <Content Include="Images\icones\cart_purple.png" />
     <Content Include="Images\icones\cart_red.png" />
-    <Content Include="Images\icones\habibi_logo.png" />
-    <Content Include="Images\logo-nav1.jpg" />
-    <Content Include="Images\Logo.png" />
-    <Content Include="Images\logo2%28png%29.png" />
+    <Content Include="Images\icones\habibi_shop.png" />
     <Content Include="js\DetailsScript.js" />
     <Content Include="js\mod.3.2.0.bootstrap.min.js" />
     <Content Include="js\modal.js" />
