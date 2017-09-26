@@ -5,6 +5,7 @@
     background: -moz-linear-gradient(#7D446F,#472740 ); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#7D446F,#472740 ); /* Standard syntax */
     background-repeat:no-repeat;
+    height:100%;
 }
 
 .home {

@@ -189,7 +189,7 @@
                 </tr>
             </table>
             <hr style="color:white"/>
-            <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Center">
+            <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Center" >
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" OnRowDeleting="GridView1_RowDeleting" CellPadding="4" CellSpacing="3" ForeColor="#333333" GridLines="None" Width="100%" OnDataBound="GridView1_DataBound">
                 <AlternatingRowStyle BackColor="#FDFAEE" ForeColor="#000048" />
                 <Columns>
@@ -332,7 +332,7 @@
                 <asp:Image ID="Image1" runat="server" CssClass="img-responsive" Width="50%" Height="50%" />
             </asp:Panel>
         </asp:Panel>
-        <asp:Panel ID="pnlNarudzbe" runat="server" HorizontalAlign="Center" Visible="False">
+        <asp:Panel ID="pnlNarudzbe" runat="server" HorizontalAlign="Center"  Visible="False">
             <asp:GridView ID="GridView3" runat="server" class="narudzbe-grid"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"  DataKeyNames="idNarudzba" DataSourceID="SqlDataSource4" ForeColor="Black" BorderStyle="None" CellPadding="4" CellSpacing="3" GridLines="None" Width="100%">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
@@ -386,6 +386,7 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
         </asp:Panel>
+      
     </form>
 </body>
 </html>
