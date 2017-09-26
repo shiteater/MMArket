@@ -24,7 +24,7 @@
             <asp:Panel ID="Panel1" runat="server">
             <div class="col-lg-12">
                 <div><br />
-           <div>Hvala. Vaša narudžba je zaprimljena.</div> 
+           <h2>Pritiskom dolje na "Izvrši narudžbu" dobit će te potvrdu na Vaš email o zaprimljenoj narudžbi</h2> 
            <div id="Narudzba" runat="server"></div>
            <div id="myDatum" runat="server"></div>
            <div>Način plaćanja: <asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
@@ -61,7 +61,7 @@
 <div id="myTable" runat="server"></div> 
             </asp:Panel>
         <div class="commerce">
-            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="skini narudžbu u pdf format" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/></p>
+            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Izvrši narudžbu" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/></p>
         </div>
     </form>
 </body>

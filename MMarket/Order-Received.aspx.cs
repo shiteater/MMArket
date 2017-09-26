@@ -7,6 +7,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
+using System.Net.Mail;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.HtmlControls;
@@ -49,7 +50,7 @@ namespace MMarket
 
                 if (Session["Pouzece"] != null)
                 {
-                    Label1.Text = "Plaćanje gotovinom prilikom dostave.\nDostava unutar 3 dana.";
+                    Label1.Text = "Plaćanje gotovinom prilikom dostave.\n Dostava unutar 3 dana.";
                     Label2.Visible = false;
                     Control div = FindControl("div");
                     div.Visible = false;
@@ -194,6 +195,25 @@ namespace MMarket
             Session.Clear();
             Session.Abandon();
 
+
+            String path = Server.MapPath("~/pdf/a.pdf");
+
+            Response.ContentType = "application/pdf";
+            Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            StringWriter sw2 = new StringWriter();
+            HtmlTextWriter hw2 = new HtmlTextWriter(sw2);
+            Panel1.RenderControl(hw2);
+            StringReader sr2 = new StringReader(sw2.ToString());
+            Document pdfDoc2 = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
+            HTMLWorker htmlparser2 = new HTMLWorker(pdfDoc2);
+            PdfWriter.GetInstance(pdfDoc2, new FileStream(path, FileMode.Create));
+            pdfDoc2.Open();
+            htmlparser2.Parse(sr2);
+            pdfDoc2.Close();
+            Response.Write(pdfDoc2);
+
+
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
@@ -208,6 +228,36 @@ namespace MMarket
             htmlparser.Parse(sr);
             pdfDoc.Close();
             Response.Write(pdfDoc);
+            
+
+          
+
+
+            // Specify the from and to email address
+            MailMessage mailMessage = new MailMessage("timraketa666", "adel1othman@gmail.com");
+            // Specify the email body
+            mailMessage.Body = "pdf";
+            // Specify the email Subject
+            mailMessage.Subject = "Narudžba " + idNarudzba;
+            mailMessage.Attachments.Add(new Attachment(path));
+            mailMessage.To.Add("ivaana.perko@gmail.com");
+            //var attachment = new Attachment(path);
+            //mailMessage.Attachments.Add(attachment);
+
+
+
+            // Specify the SMTP server name and post number
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            // Specify your gmail address and password
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "kuhalica@gmail.com",
+                Password = "vabafet666"
+            };
+            // Gmail works on SSL, so set this property to true
+            smtpClient.EnableSsl = true;
+            // Finall send the email message using Send() method
+            smtpClient.Send(mailMessage);
             Response.End();
         }
     }

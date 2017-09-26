@@ -111,6 +111,7 @@
     <Content Include="Payment.aspx" />
     <Content Include="Pica.aspx" />
     <Content Include="ProductDetails.aspx" />
+    <Content Include="pdf\a.pdf" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -151,7 +152,9 @@
     <Content Include="Kontakt.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminPage.aspx.cs">
