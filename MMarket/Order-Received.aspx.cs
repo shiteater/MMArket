@@ -196,7 +196,7 @@ namespace MMarket
             Session.Abandon();
 
 
-            String path = Server.MapPath("~/pdf/a.pdf");
+            String path = Server.MapPath("~/Narudzbe/Narudzba" + idNarudzba + ".pdf");
 
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
@@ -207,12 +207,13 @@ namespace MMarket
             StringReader sr2 = new StringReader(sw2.ToString());
             Document pdfDoc2 = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
             HTMLWorker htmlparser2 = new HTMLWorker(pdfDoc2);
-            PdfWriter.GetInstance(pdfDoc2, new FileStream(path, FileMode.Create));
+            FileStream fs = new FileStream(path, FileMode.Create);
+            PdfWriter.GetInstance(pdfDoc2, fs);
             pdfDoc2.Open();
             htmlparser2.Parse(sr2);
             pdfDoc2.Close();
             Response.Write(pdfDoc2);
-
+            fs.Close();
 
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");

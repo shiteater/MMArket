@@ -144,7 +144,7 @@ namespace MMarket
             int rowsAffected = deleteCmd.ExecuteNonQuery();
             con.Close();
 
-            var filePath = Server.MapPath("~/Images/" + ((Label)GridView1.Rows[e.RowIndex].Cells[6].FindControl("Label3")).Text);
+            var filePath = Server.MapPath("~/Images/" + ((Button)GridView1.Rows[e.RowIndex].Cells[6].FindControl("btnOsnSlika")).Text);
             if (File.Exists(filePath))
             {
                 File.Delete(filePath);
