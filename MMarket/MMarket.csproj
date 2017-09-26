@@ -107,6 +107,7 @@
     <Content Include="KonzerviranaHrana.aspx" />
     <Content Include="Kozmetika.aspx" />
     <Content Include="Order-Received.aspx" />
+    <Content Include="orderreceived.aspx" />
     <Content Include="Ostalo.aspx" />
     <Content Include="Payment.aspx" />
     <Content Include="Pica.aspx" />
@@ -232,6 +233,13 @@
     </Compile>
     <Compile Include="Order-Received.aspx.designer.cs">
       <DependentUpon>Order-Received.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="orderreceived.aspx.cs">
+      <DependentUpon>orderreceived.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="orderreceived.aspx.designer.cs">
+      <DependentUpon>orderreceived.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ostalo.aspx.cs">
       <DependentUpon>Ostalo.aspx</DependentUpon>

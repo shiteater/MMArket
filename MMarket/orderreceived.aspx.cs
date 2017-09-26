@@ -15,21 +15,20 @@ using System.Web.UI.WebControls;
 
 namespace MMarket
 {
-    public partial class Order_Received : System.Web.UI.Page
+    public partial class orderreceived : System.Web.UI.Page
     {
         string conString = ConfigurationManager.ConnectionStrings["MaritaMarketConnectionString"].ConnectionString;
         int idNarudzba = 0;
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-           
 
             if (Session["CartTable"] == null)
             {
                 Response.Redirect("Home.aspx");
             }
-            
+
             SqlConnection con = new SqlConnection(conString);
 
             SqlCommand idCom = new SqlCommand("SELECT IDENT_CURRENT('Narudzbe') AS Current_Identity", con);
@@ -156,7 +155,7 @@ namespace MMarket
             else
             {
                 Panel1.Controls.Clear();
-                
+                Button1.Visible = false;
 
                 HtmlGenericControl DivContainer = new HtmlGenericControl();
                 DivContainer.Attributes["class"] = "container";
@@ -191,57 +190,30 @@ namespace MMarket
 
                 Panel1.Controls.Add(DivContainer);
             }
+          
+        }
 
-            String path = Server.MapPath("~/Narudzbe/Narudzba" + idNarudzba + ".pdf");
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
 
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            StringWriter sw2 = new StringWriter();
-            HtmlTextWriter hw2 = new HtmlTextWriter(sw2);
-            Panel1.RenderControl(hw2);
-            StringReader sr2 = new StringReader(sw2.ToString());
-            Document pdfDoc2 = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
-            HTMLWorker htmlparser2 = new HTMLWorker(pdfDoc2);
-            FileStream fs = new FileStream(path, FileMode.Create);
-            PdfWriter.GetInstance(pdfDoc2, fs);
-            pdfDoc2.Open();
-            htmlparser2.Parse(sr2);
-            pdfDoc2.Close();
-            Response.Write(pdfDoc2);
-            fs.Close();
-
-            // Specify the from and to email address
-            MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "adel1othman@gmail.com");
-            // Specify the email body
-            mailMessage.Body = "pdf";
-            // Specify the email Subject
-            mailMessage.Subject = "Narudžba " + idNarudzba;
-            mailMessage.Attachments.Add(new Attachment(path));
-            mailMessage.To.Add("ivaana.perko@gmail.com");
-            //var attachment = new Attachment(path);
-            //mailMessage.Attachments.Add(attachment);
-
-
-
-            // Specify the SMTP server name and post number
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            // Specify your gmail address and password
-            smtpClient.Credentials = new System.Net.NetworkCredential()
-            {
-                UserName = "timraketa666@gmail.com",
-                Password = "vabafet666"
-            };
-            // Gmail works on SSL, so set this property to true
-            smtpClient.EnableSsl = true;
-            // Finall send the email message using Send() method
-            smtpClient.Send(mailMessage);
-          
-
-            Response.Redirect("orderreceived.aspx", true);
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+            Panel1.RenderControl(hw);
+            StringReader sr = new StringReader(sw.ToString());
+            Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
+            HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
+            PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
+            pdfDoc.Open();
+            htmlparser.Parse(sr);
+            pdfDoc.Close();
+            Response.Write(pdfDoc);
 
         }
-
-        
     }
+    
 }

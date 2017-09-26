@@ -1,13 +1,18 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Order-Received.aspx.cs" Inherits="MMarket.Order_Received" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="orderreceived.aspx.cs" Inherits="MMarket.orderreceived" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+  <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/Payment.css" rel="stylesheet" />
     <title></title>
-    </head>
+    <style type="text/css">
+        .auto-style1 {
+            height: 37px;
+        }
+    </style>
+</head>
 <body>
     <div class="row">
                     <div style="display: table; margin: auto;">
@@ -56,7 +61,7 @@
 <div id="myTable" runat="server"></div> 
             </asp:Panel>
         <div class="commerce">
-            <p class="return-to-shop">&nbsp;</p>
+            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Ispiši u pdf formatu i spremi" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/></p>
         </div>
     </form>
 </body>
