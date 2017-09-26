@@ -189,6 +189,7 @@ namespace MMarket
             btnTbody.Attributes.Add("runat", "server");
             btnTbody.Style.Add("color", "#F1C13C");
             btnTbody.Style.Add("border-color", "#F1C13C");
+            btnTbody.Style.Add("font-size", "20px");      
             btnTbody.CausesValidation = false;
             btnTbody.ServerClick += AddToCart_ServerClick;
 
