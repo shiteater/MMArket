@@ -1,5 +1,5 @@
 ﻿html, body, .wrapper {
-    background: #f7f7f7;
+    background: white;
     border-color: #F1C13C;
 }
 
@@ -44,7 +44,7 @@
     }
 
 .step_complete {
-    background: #764069
+    background: white;
 }
 
     .step_complete a.check-bc, .step_complete a.check-bc:hover, .afix-1, .afix-1:hover {
@@ -58,7 +58,7 @@
 
 .step_thankyou {
     float: left;
-    background: #764069;
+    background: white;
     border-color:#F1C13C;
     padding: 7px 13px;
     border-radius: 1px;
