@@ -125,7 +125,7 @@
                                     </div>
                             <div class="commerce">
                                 
-                                <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Naručite" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/>
+                                <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Sljedeći korak" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/>
                                     </p>
                             </div>
                         <%--  
