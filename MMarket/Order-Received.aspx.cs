@@ -234,7 +234,7 @@ namespace MMarket
 
 
             // Specify the from and to email address
-            MailMessage mailMessage = new MailMessage("timraketa666", "adel1othman@gmail.com");
+            MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "adel1othman@gmail.com");
             // Specify the email body
             mailMessage.Body = "pdf";
             // Specify the email Subject
@@ -251,7 +251,7 @@ namespace MMarket
             // Specify your gmail address and password
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "kuhalica@gmail.com",
+                UserName = "timraketa666@gmail.com",
                 Password = "vabafet666"
             };
             // Gmail works on SSL, so set this property to true

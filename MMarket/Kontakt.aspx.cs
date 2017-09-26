@@ -19,7 +19,7 @@ namespace MMarket
         protected void Button1_Click1(object sender, EventArgs e)
         {
             // Specify the from and to email address
-            MailMessage mailMessage = new MailMessage("timraketa666", "kuhalica@gmail.com");
+            MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "kuhalica@gmail.com");
             // Specify the email body
             mailMessage.Body = "Ime i Prezime: " + TbxName.Text + " " + TbxLastName.Text + "\n" + "email: " + TbxMail.Text + "\n" + "Phone: " + TbxPhone.Text + "\n" + textarea1.Text;
             // Specify the email Subject
@@ -30,7 +30,7 @@ namespace MMarket
             // Specify your gmail address and password
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "kuhalica@gmail.com",
+                UserName = "timraketa666@gmail.com",
                 Password = "vabafet666"
             };
             // Gmail works on SSL, so set this property to true
