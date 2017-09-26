@@ -1,26 +1,30 @@
 ﻿body {
-    background-color: lightgray;
+    background: #4C2944;
+    background: -webkit-linear-gradient(#7D446F, #472740); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#7D446F,#472740 ); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#7D446F,#472740 ); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#7D446F,#472740 ); /* Standard syntax */
+    background-repeat:no-repeat;
 }
 
 .home {
     float: left;
     display: inline-block;
-    color:black;
-    border-color:white;
-    border-style:outset;
-    padding:2px;
-    margin-top:3px;
-    background-color:white;
-    font-size:15px;
-    text-decoration:none;
-
+    color: #E5BA2A;
+    border-color: #FFCF40;
+    border-style: outset;
+    padding: 2px;
+    margin-top: 3px;
+    background-color: white;
+    font-size: 15px;
+    text-decoration: none;
 }
 
 .logout {
     float: right;
     display: inline-block;
-    color: black;
-    border-color: white;
+    color: #E5BA2A;
+    border-color: #FFCF40;
     border-style: outset;
     padding: 2px;
     margin-top: 3px;
@@ -39,4 +43,34 @@
     width: 100%;
     padding: 10px;
     text-align:center;
+}
+.proizvodi {
+    float: right;
+    display: inline-block;
+    color: #E5BA2A;
+    border-color: #FFCF40;
+    border-style: outset;
+    padding: 2px;
+    margin-top: 3px;
+    background-color: white;
+    font-size: 15px;
+    width: 68px;
+}
+.narudzbe {
+    float: right;
+    display: inline-block;
+    color: #E5BA2A;
+    border-color: #FFCF40;
+    border-style: outset;
+    padding: 2px;
+    margin-top: 3px;
+    background-color: white;
+    font-size: 15px;
+    width: 68px;
+}
+.narudzbe-grid {
+    margin: auto;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
 }

@@ -13,31 +13,32 @@
                 <tr>
                     <td style="width: 25%">
                         <a href="Home.aspx" class="home" >Home</a>
-                    </td>
+                  <%--  </td>
                     <td>
-                        <asp:Button ID="Button2" runat="server" Text="Proizvodi" style="float:left" OnClick="Button2_Click" />
-                        <asp:Button ID="Button3" runat="server" Text="Narudžbe" style="float:right" OnClick="Button3_Click" />
+                        --%>
                     </td>
                     <td style="width: 25%">
                         <asp:Button ID="Button1" class="logout" runat="server" Text="Logout" OnClick="Button1_Click" />
+                           <asp:Button ID="Button2" runat="server" class="proizvodi" Text="Proizvodi" OnClick="Button2_Click" />
+                        <asp:Button ID="Button3" runat="server" CssClass="narudzbe" Text="Narudžbe" OnClick="Button3_Click" />
                     </td>
                 </tr>
             </table>
         <asp:Panel ID="pnlProizvodi" runat="server" HorizontalAlign="Center">
-            <br />
+            <br style="background-color:#FFCF40;"/>
             <asp:Panel ID="Panel1" runat="server" HorizontalAlign="Center">
                 <asp:Label ID="lblError" runat="server" Visible="False"></asp:Label>
             </asp:Panel>
-            <hr />
+            <hr style="color:white"/>
 
             <table style="width: 100%; text-align: center">
                 <tr>
                     <td style="width: 50%">
-                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="398px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" Font-Names="Times New Roman" ForeColor="Black" GridLines="None" CssClass="dodajNovi" OnItemInserted="DetailsView1_ItemInserted">
-                <AlternatingRowStyle BackColor="#EAEAFF" Font-Size="Medium" Width="300px" />
-                <CommandRowStyle BackColor="#001A33" Font-Bold="True" ForeColor="#99CCFF" />
-                <EditRowStyle BackColor="#F7F6F3" Width="400px" />
-                <FieldHeaderStyle BackColor="#003366" Font-Bold="True" ForeColor="White" Width="100px" />
+                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" Height="50px" Width="398px" OnItemInserting="DetailsView1_ItemInserting" CellPadding="4" Font-Names="Times New Roman" ForeColor="#333333" GridLines="None" CssClass="dodajNovi" OnItemInserted="DetailsView1_ItemInserted">
+                <AlternatingRowStyle BackColor="White" Font-Size="Medium" Width="300px" />
+                            <CommandRowStyle BackColor="#E5BA2A" Font-Bold="True" ForeColor="White" />
+                <EditRowStyle Width="400px" />
+                <FieldHeaderStyle BackColor="#FFFF99" Font-Bold="True" Width="100px" />
                 <Fields>
                     <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" InsertVisible="False" ReadOnly="True" SortExpression="idProizvod" />
                     <asp:TemplateField HeaderText="Naziv" SortExpression="Naziv">
@@ -134,15 +135,19 @@
                     <asp:CommandField ShowInsertButton="True" />
                 </Fields>
 
-                <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                <HeaderStyle BackColor="#404040" BorderColor="#00EFFF" BorderStyle="Outset" Font-Names="Franklin Gothic Book" ForeColor="White" />
-                <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" Width="300px" />
+                <FooterStyle BackColor="#990000" ForeColor="White" Font-Bold="True" />
+                <HeaderStyle BackColor="#990000" BorderColor="#00EFFF" BorderStyle="Outset" Font-Names="Franklin Gothic Book" ForeColor="White" Font-Bold="True" />
+                <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                <RowStyle BackColor="#FFFBD6" ForeColor="#333333" Width="300px" />
 
             </asp:DetailsView>
                     </td>
                     <td style="width: 50%">
-                        <asp:DetailsView ID="DetailsView2" runat="server" Height="50px" Width="125px" CssClass="dodajNovi" AutoGenerateRows="False" DataKeyNames="MyID" DataSourceID="SqlDataSource2" OnItemInserting="DetailsView2_ItemInserting">
+                        <asp:DetailsView ID="DetailsView2" runat="server" Height="50px" Width="300px" CssClass="dodajNovi" AutoGenerateRows="False" DataKeyNames="MyID" DataSourceID="SqlDataSource2" OnItemInserting="DetailsView2_ItemInserting" CellPadding="4" ForeColor="#333333" GridLines="None">
+                            <AlternatingRowStyle BackColor="White" />
+                            <CommandRowStyle BackColor="#E5BA2A" Font-Bold="True" ForeColor="White" />
+                            <EditRowStyle Width="300px" />
+                            <FieldHeaderStyle BackColor="#FFFF99" Font-Bold="True" Width="150px" />
                             <Fields>
                                 <asp:BoundField DataField="MyID" HeaderText="MyID" InsertVisible="False" ReadOnly="True" SortExpression="MyID" />
                                 <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" ReadOnly="True" SortExpression="idProizvod" InsertVisible="False" />
@@ -158,6 +163,10 @@
                                 </asp:TemplateField>
                                 <asp:CommandField ShowInsertButton="True" />
                             </Fields>
+                            <FooterStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#FFCC66" ForeColor="#333333" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#FFFBD6" Width="300px" ForeColor="#333333" />
                         </asp:DetailsView>
                         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Proizvod] WHERE [MyID] = @MyID" InsertCommand="INSERT INTO [Proizvod] ([idProizvod], [NazFile]) VALUES (@idProizvod, @NazFile)" SelectCommand="SELECT * FROM [Proizvod] WHERE ([idProizvod] = @idProizvod)" UpdateCommand="UPDATE [Proizvod] SET [idProizvod] = @idProizvod, [NazFile] = @NazFile WHERE [MyID] = @MyID">
                             <DeleteParameters>
@@ -179,10 +188,10 @@
                     </td>
                 </tr>
             </table>
-            <hr />
+            <hr style="color:white"/>
             <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Center">
                 <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="idProizvod" DataSourceID="SqlDataSource1" OnRowDeleting="GridView1_RowDeleting" CellPadding="4" CellSpacing="3" ForeColor="#333333" GridLines="None" Width="100%" OnDataBound="GridView1_DataBound">
-                <AlternatingRowStyle BackColor="#ECECFF" ForeColor="#000048" />
+                <AlternatingRowStyle BackColor="#FDFAEE" ForeColor="#000048" />
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="idProizvod" HeaderText="idProizvod" InsertVisible="False" ReadOnly="True" SortExpression="idProizvod" />
@@ -260,7 +269,7 @@
                 <EditRowStyle BackColor="#999999" />
 
                 <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
-                <HeaderStyle BackColor="#002346" BorderStyle="Outset" Font-Bold="True" Font-Names="Franklin Gothic Demi Cond" ForeColor="White" />
+                <HeaderStyle BackColor="#E5BA2A" BorderStyle="Outset" Font-Bold="True" Font-Names="Franklin Gothic Demi Cond" ForeColor="White" />
                 <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
                 <RowStyle BackColor="#F4F4F4" ForeColor="Black" Font-Bold="False" />
                 <SelectedRowStyle BackColor="#E2DED6" BorderColor="#00EFFF" BorderStyle="Solid" Font-Bold="True" ForeColor="#333333" />
@@ -299,7 +308,7 @@
                 </UpdateParameters>
             </asp:SqlDataSource>
             </asp:Panel>
-            <hr />
+            <hr style="color:white"/>
             <asp:Panel ID="Panel3" runat="server" HorizontalAlign="Center">
                 <asp:GridView ID="GridView2" runat="server" AutoGenerateColumns="False" DataKeyNames="MyID" DataSourceID="SqlDataSource3" OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnRowDeleting="GridView2_RowDeleting">
                 <Columns>
@@ -318,14 +327,13 @@
                     </SelectParameters>
                 </asp:SqlDataSource>
             </asp:Panel>
-            <hr />
+            <hr style="color:white"/>
             <asp:Panel ID="Panel4" runat="server" HorizontalAlign="Center">
                 <asp:Image ID="Image1" runat="server" CssClass="img-responsive" Width="50%" Height="50%" />
             </asp:Panel>
         </asp:Panel>
         <asp:Panel ID="pnlNarudzbe" runat="server" HorizontalAlign="Center" Visible="False">
-            <asp:GridView ID="GridView3" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="idNarudzba" DataSourceID="SqlDataSource4" ForeColor="#333333" GridLines="None">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+            <asp:GridView ID="GridView3" runat="server" class="narudzbe-grid"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"  DataKeyNames="idNarudzba" DataSourceID="SqlDataSource4" ForeColor="Black" BorderStyle="None" CellPadding="4" CellSpacing="3" GridLines="None" Width="100%">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
                     <asp:BoundField DataField="idNarudzba" HeaderText="idNarudzba" InsertVisible="False" ReadOnly="True" SortExpression="idNarudzba" />
@@ -339,16 +347,15 @@
                     <asp:BoundField DataField="NacinPlacanja" HeaderText="NacinPlacanja" SortExpression="NacinPlacanja" />
                     <asp:BoundField DataField="Datum" HeaderText="Datum" SortExpression="Datum" />
                 </Columns>
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                <FooterStyle BackColor="#CCCCCC" />
+                <HeaderStyle BackColor="#E5BA2A" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                <RowStyle BackColor="White" />
+                <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                <SortedAscendingHeaderStyle BackColor="#808080" />
+                <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                <SortedDescendingHeaderStyle BackColor="#383838" />
             </asp:GridView>
             <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:MaritaMarketConnectionString %>" DeleteCommand="DELETE FROM [Narudzbe] WHERE [idNarudzba] = @idNarudzba" InsertCommand="INSERT INTO [Narudzbe] ([Ime], [Prezime], [Adresa], [Grad], [PoBroj], [Telefon], [Email], [NacinPlacanja], [Datum]) VALUES (@Ime, @Prezime, @Adresa, @Grad, @PoBroj, @Telefon, @Email, @NacinPlacanja, @Datum)" SelectCommand="SELECT * FROM [Narudzbe]" UpdateCommand="UPDATE [Narudzbe] SET [Ime] = @Ime, [Prezime] = @Prezime, [Adresa] = @Adresa, [Grad] = @Grad, [PoBroj] = @PoBroj, [Telefon] = @Telefon, [Email] = @Email, [NacinPlacanja] = @NacinPlacanja, [Datum] = @Datum WHERE [idNarudzba] = @idNarudzba">
                 <DeleteParameters>
