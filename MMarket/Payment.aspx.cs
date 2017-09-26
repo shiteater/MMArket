@@ -25,7 +25,12 @@ namespace MMarket
         {
             if (Session["naruceno"] != null && (bool)Session["naruceno"])
             {
-                Response.Redirect("Order-Received.aspx");
+                Response.Redirect("orderreceived.aspx");
+            }
+
+            if (Session["total"] == null || Session["shipping"] == null)
+            {
+                Response.Redirect("Cart.aspx");
             }
 
             if (Session["CartTable"] != null)

@@ -22,8 +22,10 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-           
+            if (Session["naruceno"] != null && (bool)Session["naruceno"])
+            {
+                Response.Redirect("orderreceived.aspx");
+            }
 
             if (Session["CartTable"] == null)
             {
@@ -239,9 +241,6 @@ namespace MMarket
           
 
             Response.Redirect("orderreceived.aspx", true);
-
         }
-
-        
     }
 }

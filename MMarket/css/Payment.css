@@ -1,5 +1,5 @@
 ﻿html, body, .wrapper {
-    background: white;
+    background: #f7f7f7;
     border-color: #F1C13C;
 }
 
@@ -7,7 +7,7 @@
     margin-top: -41px;
     display: inline-block;
     float: right;
-    font-size: 17px 
+    font-size: 16px
 }
 
 .step {
@@ -44,7 +44,7 @@
     }
 
 .step_complete {
-    background:white;
+    background: #764069
 }
 
     .step_complete a.check-bc, .step_complete a.check-bc:hover, .afix-1, .afix-1:hover {
@@ -52,13 +52,14 @@
     }
 
 .step_line.step_complete {
-    background: white;
+    background: 0;
     border-left: 16px solid #F1C13C
 }
 
 .step_thankyou {
     float: left;
-    background: white;
+    background: #764069;
+    border-color:#F1C13C;
     padding: 7px 13px;
     border-radius: 1px;
     text-align: center;
@@ -284,8 +285,7 @@ ol, ul {
 }
 
 hr {
-    MEDIA QUERIES **/
-@media only screen and (max-width: 989px)
+    MEDIA QUERIES **/ @media only screen and (max-width: 989px)
 }
 
 .panel-footer {
