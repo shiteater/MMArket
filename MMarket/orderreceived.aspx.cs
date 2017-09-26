@@ -19,11 +19,9 @@ namespace MMarket
     {
         string conString = ConfigurationManager.ConnectionStrings["MaritaMarketConnectionString"].ConnectionString;
         int idNarudzba = 0;
-
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["CartTable"] == null)
             {
                 Response.Redirect("Home.aspx");
@@ -149,8 +147,6 @@ namespace MMarket
 
                     myTable.Controls.Add(tbl);
                 }
-
-                Session["naruceno"] = true;
             }
             else
             {
@@ -190,7 +186,6 @@ namespace MMarket
 
                 Panel1.Controls.Add(DivContainer);
             }
-          
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -212,7 +207,6 @@ namespace MMarket
             htmlparser.Parse(sr);
             pdfDoc.Close();
             Response.Write(pdfDoc);
-
         }
     }
     
