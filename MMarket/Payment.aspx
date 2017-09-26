@@ -18,9 +18,9 @@
                 </div>
                 <div class="row">
                     <div style="display: table; margin: auto;">
-                        <span class="step step_complete"> <a href="Cart.aspx" class="check-bc">Košarica</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
+                        <span class="step step_complete"> <a href="Cart.aspx" class="check-bc" style="color:black;">Košarica</a> <span class="step_line step_complete"> </span> <span class="step_line backline"> </span> </span>
                         <span class="step step_complete" style="color: #F1C13C">Naplata<span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
-                        <span class="step_thankyou check-bc step_complete">Hvala</span>
+                        <span class="step_thankyou check-bc step_complete"  style="color:black;">Hvala</span>
                     </div>
                 </div>
                 <div class="row">
@@ -32,8 +32,8 @@
                 <form id="form1" class="form-horizontal" method="post" runat="server">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-push-6 col-sm-push-6">
                     <!--REVIEW ORDER-->
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
+                    <div class="panel panel-info" style="border-color: #EDC15E;">
+                        <div class="panel-heading" style="background-color: #633658; color:palegoldenrod; border-color:#EDC15E;">
                             Vaša narudžba
                         </div>
                         <div class="panel-body">
@@ -50,8 +50,8 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
                     <!--SHIPPING METHOD-->
-                    <div class="panel panel-info">
-                        <div class="panel-heading">Podaci za plaćanje</div>
+                    <div class="panel panel-info" border-color: #EDC15E;>
+                        <div class="panel-heading" style="background-color: #633658; color:palegoldenrod; border-color:#EDC15E;">Podaci za plaćanje</div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <div class="col-md-12">
@@ -108,10 +108,11 @@
                                
                         </div>
                     </div>
+                    
                     <!--SHIPPING METHOD END-->
                     <!--CREDIT CART PAYMENT-->
-                 <div class="panel panel-info">
-                        <div class="panel-heading"><span><i class="glyphicon glyphicon-lock"></i></span>Odabir plaćanja</div>
+                 <div class="panel panel-info" border-color: #EDC15E;>
+                        <div class="panel-heading" style="background-color: #633658; color:palegoldenrod; border-color:#EDC15E;"><span><i class="glyphicon glyphicon-lock"></i></span>Odabir plaćanja</div>
                         <div class="panel-body">
                       <div class="form-group"></div>
                                 <div class="col-md-12">
@@ -127,6 +128,7 @@
                                 
                                 <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Sljedeći korak" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/>
                                     </p>
+                            </div>
                             </div>
                         <%--  
                             <div class="form-group">

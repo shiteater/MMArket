@@ -77,6 +77,10 @@
         margin-left: 10px;
     }
 
+.check-bc {
+    color: #222;
+}
+
 .check-bc,
 .check-bc:hover {
     color: #222;
@@ -239,7 +243,8 @@ ol, ul {
 }
 
 .panel-footer {
-    background: #fff;
+    background-color: #633658;
+    
 }
 
 .btn {
@@ -255,7 +260,7 @@ ol, ul {
 }
 
 .panel-info {
-    border-color: #999;
+    border-color: #EDC15E;
 }
 
 .panel-heading {
@@ -265,15 +270,17 @@ ol, ul {
 
 .panel {
     border-radius: 1px;
+    background-color: #633658;
 }
 
 .panel-info > .panel-heading {
-    color: #eee;
-    border-color: #999;
+    color: white;
+    border-color: #EDC15E;
+    background-color: #633658;
 }
 
 .panel-info > .panel-heading {
-    background-image: linear-gradient(to bottom, #F1C13C 0px, #764069 100%);
+    background-color: #633658;
 }
 
 hr {
