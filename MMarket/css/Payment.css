@@ -425,3 +425,14 @@ hr {
         overflow-x: hidden;
     }
 }*/
+
+.zaprimljeno {
+    width: 100%;
+    display: inline-block;
+    background-color: #764069;
+    height: 67px;
+    color: white;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 1px;
+}
