@@ -55,9 +55,6 @@
         </div>
 <div id="myTable" runat="server"></div> 
             </asp:Panel>
-        <div class="commerce">
-            <p class="return-to-shop">&nbsp;</p>
-        </div>
     </form>
 </body>
 </html>

@@ -122,6 +122,7 @@
     <Content Include="Sirevi.aspx" />
     <Content Include="SlatkisiGrickalice.aspx" />
     <Content Include="SmrznutaHrana.aspx" />
+    <Content Include="testniOrderReceived.aspx" />
     <Content Include="zacini.aspx" />
     <Content Include="Zitarice.aspx" />
     <None Include="packages.config" />
@@ -290,6 +291,13 @@
     </Compile>
     <Compile Include="SmrznutaHrana.aspx.designer.cs">
       <DependentUpon>SmrznutaHrana.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testniOrderReceived.aspx.cs">
+      <DependentUpon>testniOrderReceived.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testniOrderReceived.aspx.designer.cs">
+      <DependentUpon>testniOrderReceived.aspx</DependentUpon>
     </Compile>
     <Compile Include="zacini.aspx.cs">
       <DependentUpon>zacini.aspx</DependentUpon>

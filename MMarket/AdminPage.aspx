@@ -394,7 +394,7 @@
             </asp:SqlDataSource>
         </asp:Panel>
         <asp:Panel ID="Panel5" runat="server" Visible="False" HorizontalAlign="Center">
-            <iframe id="pdfViewer" runat="server" style="width: 75%"></iframe>   
+            <iframe id="pdfViewer" runat="server"></iframe>   
         </asp:Panel>
       
     </form>

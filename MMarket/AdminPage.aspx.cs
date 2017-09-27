@@ -267,6 +267,8 @@ namespace MMarket
         {
             pdfViewer.Style.Add("width", PageSize.A4.Width + (PageSize.A4.Width * 0.1) + "px");
             pdfViewer.Style.Add("height", PageSize.A4.Height + (PageSize.A4.Width * 0.2) + "px");
+            pdfViewer.Style.Add("border-color", "#F1C13C");
+
             pdfViewer.Src = "/Narudzbe/Narudzba" + ((Button)sender).Text + ".pdf";
             Panel5.Visible = true;
         }
