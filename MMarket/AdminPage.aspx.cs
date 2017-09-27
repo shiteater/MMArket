@@ -1,5 +1,6 @@
 ﻿using ImageProcessor;
 using ImageProcessor.Imaging.Formats;
+using iTextSharp.text;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -245,17 +246,40 @@ namespace MMarket
         {
             pnlNarudzbe.Visible = false;
             pnlProizvodi.Visible = true;
+            Image1.Visible = true;
+            Panel5.Visible = false;
+            pdfViewer.Src = "";
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
             pnlProizvodi.Visible = false;
             pnlNarudzbe.Visible = true;
+            Image1.Visible = false;
         }
 
         protected void btnOsnSlika_Click(object sender, EventArgs e)
         {
             Image1.ImageUrl = "Images/" + ((Button)sender).Text;
+        }
+
+        protected void btnIDNarudzba_Click(object sender, EventArgs e)
+        {
+            pdfViewer.Style.Add("width", PageSize.A4.Width + (PageSize.A4.Width * 0.1) + "px");
+            pdfViewer.Style.Add("height", PageSize.A4.Height + (PageSize.A4.Width * 0.2) + "px");
+            pdfViewer.Src = "/Narudzbe/Narudzba" + ((Button)sender).Text + ".pdf";
+            Panel5.Visible = true;
+        }
+
+        protected void GridView3_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            pdfViewer.Src = "";
+            Panel5.Visible = false;
+            var filePath = Server.MapPath("~/Narudzbe/Narudzba" + ((Button)GridView3.Rows[e.RowIndex].Cells[1].FindControl("btnIDNarudzba")).Text) + ".pdf";
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
         }
     }
 }
