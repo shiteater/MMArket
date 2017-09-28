@@ -78,11 +78,13 @@ namespace MMarket
                     HtmlGenericControl tr = new HtmlGenericControl("tr");
                     tbody.Controls.Add(tr);
 
-                    HtmlGenericControl th = new HtmlGenericControl("th");
+                    HtmlGenericControl th = new HtmlGenericControl("td");
+                    th.Style.Add("font-weight", "bold");
                     th.InnerText = "Proizvod";
                     tr.Controls.Add(th);
 
-                    HtmlGenericControl th2 = new HtmlGenericControl("th");
+                    HtmlGenericControl th2 = new HtmlGenericControl("td");
+                    th2.Style.Add("font-weight", "bold");
                     th2.InnerText = "Ukupno";
                     tr.Controls.Add(th2);
 
@@ -153,6 +155,22 @@ namespace MMarket
                     tr6.Controls.Add(th6);
 
                     myTable.Controls.Add(tbl);
+                    
+                    SqlCommand podaciCom = new SqlCommand("SELECT [Ime], [Prezime], [Adresa], [Grad], [Telefon] FROM Narudzbe WHERE [idNarudzba] = @myID", con);
+                    podaciCom.Parameters.AddWithValue("@myID", idNarudzba);
+
+                    con.Open();
+
+                    SqlDataReader reader1 = podaciCom.ExecuteReader();
+
+                    if (reader1.Read())
+                    {
+                        naziv.InnerText = (string)reader1["Ime"] + " " + (string)reader1["Prezime"];
+                        adresa.InnerText = (string)reader1["Adresa"] + ", " + (string)reader1["Grad"];
+                        tel.InnerText = (string)reader1["Telefon"];
+                    }
+
+                    con.Close();
                 }
             }
             else
