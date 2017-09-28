@@ -16,17 +16,23 @@
 <body>
     <div class="row">
                     <div style="display: table; margin: auto;">
-                        <span class="step step_complete"> <a href="Home.aspx" class="check-bc">Početna</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
+                         <span class="step step_complete"> <a href="Home.aspx" class="check-bc" style="color:black">Početna</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
                         <span class="step step_complete" style="color: #F1C13C">Hvala</span>
                     </div>
                 </div>
     <form id="form1" runat="server">
             <asp:Panel ID="Panel1" runat="server">
             <div class="col-lg-12">
-                <div><br />
+                <div>
+                    <br />   
+        <div class="zaprimljeno">
            <h2>Hvala, Vaša narudžba je zaprimljena</h2> 
-           <div id="Narudzba" runat="server"></div>
-           <div id="myDatum" runat="server"></div>
+        </div>
+                <br />
+          <h2>Hvala, Vaša narudžba je zaprimljena</h2> 
+           <div id="Narudzba" runat="server" style="font-weight:bold;font-family:'Times New Roman', Times, serif;font-size:20px;"></div>
+           <div id="myDatum" runat="server" style="font-family:'Times New Roman', Times, serif;font-size:17px;"></div>
+                    <br />
            <div>Način plaćanja: <asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
 <asp:Label ID="Label2" runat="server" Text="Molimo uplatite direktno na naš račun u banci. Koristite indetifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu."></asp:Label>
 
@@ -61,7 +67,7 @@
 <div id="myTable" runat="server"></div> 
             </asp:Panel>
         <div class="commerce">
-            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Ispiši u pdf formatu i spremi" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/></p>
+            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Ispiši u pdf formatu i spremi" class="button glyphicon" style="color: white;background-color:#764069; border-color: #764069;font-weight:bold;" OnClick="Button1_Click"/></p>
         </div>
     </form>
 </body>

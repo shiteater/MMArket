@@ -25,7 +25,7 @@ namespace MMarket
         {
             if (Session["naruceno"] != null && (bool)Session["naruceno"])
             {
-                Response.Redirect("orderreceived.aspx");
+                Response.Redirect("testniOrderReceived.aspx");
             }
 
             if (Session["total"] == null || Session["shipping"] == null)
@@ -235,61 +235,7 @@ namespace MMarket
 
             con.Close();
 
-           
-
-            //int idNarudzba = 0;
-            //SqlCommand idCom = new SqlCommand("SELECT IDENT_CURRENT('Narudzbe') AS Current_Identity", con);
-
-            //con.Open();
-
-            //SqlDataReader reader = idCom.ExecuteReader();
-
-            //if (reader.Read())
-            //{
-            //    idNarudzba = int.Parse(reader["Current_Identity"].ToString());
-            //}
-
-            //con.Close();
-
-            //Response.ContentType = "application/pdf";
-            //Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
-            //Response.Cache.SetCacheability(HttpCacheability.NoCache);
-            //StringWriter sw = new StringWriter();
-            //HtmlTextWriter hw = new HtmlTextWriter(sw);
-            //Panel1.RenderControl(hw);
-            //StringReader sr = new StringReader(sw.ToString());
-            //Document pdfDoc = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
-            //HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
-            //PdfWriter.GetInstance(pdfDoc, Response.OutputStream);
-            //pdfDoc.Open();
-            //htmlparser.Parse(sr);
-            //pdfDoc.Close();
-            //Response.Write(pdfDoc);
-            //Response.End();
-
-
-            //// Specify the from and to email address
-            //MailMessage mailMessage = new MailMessage("kuhalica@gmail.com", "kuhalica@gmail.com");
-            //// Specify the email body
-            //mailMessage.Body = "pdf";
-            //// Specify the email Subject
-            ////mailMessage.Attachments.Add(;
-            //mailMessage.Subject = "Mail Od Korisnika";
-
-
-
-            //// Specify the SMTP server name and post number
-            //SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-            //// Specify your gmail address and password
-            //smtpClient.Credentials = new System.Net.NetworkCredential()
-            //{
-            //    UserName = "kuhalica@gmail.com",
-            //    Password = "jebemteuusta999"
-            //};
-            //// Gmail works on SSL, so set this property to true
-            //smtpClient.EnableSsl = true;
-            //// Finall send the email message using Send() method
-            //smtpClient.Send(mailMessage);
+            Session["naruceno"] = true;
 
             Response.Redirect("Order-Received.aspx");
         }

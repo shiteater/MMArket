@@ -333,10 +333,17 @@
             </asp:Panel>
         </asp:Panel>
         <asp:Panel ID="pnlNarudzbe" runat="server" HorizontalAlign="Center"  Visible="False">
-            <asp:GridView ID="GridView3" runat="server" class="narudzbe-grid"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"  DataKeyNames="idNarudzba" DataSourceID="SqlDataSource4" ForeColor="Black" BorderStyle="None" CellPadding="4" CellSpacing="3" GridLines="None" Width="100%">
+            <asp:GridView ID="GridView3" runat="server" class="narudzbe-grid"  AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False"  DataKeyNames="idNarudzba" DataSourceID="SqlDataSource4" ForeColor="Black" BorderStyle="None" CellPadding="4" CellSpacing="3" GridLines="None" Width="100%" OnRowDeleting="GridView3_RowDeleting">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                    <asp:BoundField DataField="idNarudzba" HeaderText="idNarudzba" InsertVisible="False" ReadOnly="True" SortExpression="idNarudzba" />
+                    <asp:TemplateField HeaderText="idNarudzba" InsertVisible="False" SortExpression="idNarudzba">
+                        <EditItemTemplate>
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("idNarudzba") %>'></asp:Label>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Button ID="btnIDNarudzba" runat="server" Text='<%# Bind("idNarudzba") %>' OnClick="btnIDNarudzba_Click" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
                     <asp:BoundField DataField="Ime" HeaderText="Ime" SortExpression="Ime" />
                     <asp:BoundField DataField="Prezime" HeaderText="Prezime" SortExpression="Prezime" />
                     <asp:BoundField DataField="Adresa" HeaderText="Adresa" SortExpression="Adresa" />
@@ -385,6 +392,9 @@
                     <asp:Parameter Name="idNarudzba" Type="Int32" />
                 </UpdateParameters>
             </asp:SqlDataSource>
+        </asp:Panel>
+        <asp:Panel ID="Panel5" runat="server" Visible="False" HorizontalAlign="Center">
+            <iframe id="pdfViewer" runat="server"></iframe>   
         </asp:Panel>
       
     </form>

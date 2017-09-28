@@ -22,9 +22,9 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["naruceno"] != null && (bool)Session["naruceno"])
+            if (Session["total"] == null || Session["shipping"] == null || Session["naruceno"] == null)
             {
-                Response.Redirect("orderreceived.aspx");
+                Response.Redirect("Cart.aspx");
             }
 
             if (Session["CartTable"] == null)
@@ -152,8 +152,6 @@ namespace MMarket
 
                     myTable.Controls.Add(tbl);
                 }
-
-                Session["naruceno"] = true;
             }
             else
             {
@@ -220,7 +218,7 @@ namespace MMarket
             // Specify the email Subject
             mailMessage.Subject = "Narudžba " + idNarudzba;
             mailMessage.Attachments.Add(new Attachment(path));
-            mailMessage.To.Add("ivaana.perko@gmail.com");
+            //mailMessage.To.Add("ivaana.perko@gmail.com");
             //var attachment = new Attachment(path);
             //mailMessage.Attachments.Add(attachment);
 
@@ -238,9 +236,8 @@ namespace MMarket
             smtpClient.EnableSsl = true;
             // Finall send the email message using Send() method
             smtpClient.Send(mailMessage);
-          
 
-            Response.Redirect("orderreceived.aspx", true);
+            Response.Redirect("testniOrderReceived.aspx", true);
         }
     }
 }
