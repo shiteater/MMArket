@@ -22,6 +22,9 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            DateTime thisDay = DateTime.Today;
+            myDatum.InnerText = thisDay.ToString("d");
+
             if (Session["total"] == null || Session["shipping"] == null || Session["naruceno"] == null)
             {
                 Response.Redirect("Cart.aspx");
@@ -50,8 +53,7 @@ namespace MMarket
             if (idNarudzba != 0)
             {
                 Narudzba.InnerText = "Broj narudžbe: " + idNarudzba;
-                DateTime thisDay = DateTime.Today;
-                myDatum.InnerText = thisDay.ToString("d");
+             
 
                 if (Session["Pouzece"] != null)
                 {
@@ -214,16 +216,28 @@ namespace MMarket
             // Specify the from and to email address
             MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "adel1othman@gmail.com");
             // Specify the email body
-            mailMessage.Body = "pdf";
+
+            Attachment inlineLogo = new Attachment(@"C:\Users\Shit Eater\documents\visual studio 2017\Projects\MMArket\MMarket\Images\icones\habibi_shop.png");
+            mailMessage.Attachments.Add(inlineLogo);
+            string contentID = "Image";
+            inlineLogo.ContentId = contentID;
+
+            mailMessage.Body =
+            "<img style='width: 120px;' src=\"cid:" + contentID+"\">"
+           + "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>"     
+           + "Poštovani, <br/>Vaša narudžba je zaprimljena <br/><br/>" +
+           "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>" +
+           "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Broj narudžbe:" + idNarudzba
+           + "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Datum: " + thisDay.ToString("d")
+           + "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Dostava na Vašu adresu unutar 3 radna dana"
+           + "<p style='font-size:16px!important;font-lightt:bold;color:#333333;'>Račun u prilogu maila,"+ " <br/><br/>"
+           + "<span>Hvala na Vašoj kupnji :)</span>";
+            mailMessage.IsBodyHtml = true;
             // Specify the email Subject
             mailMessage.Subject = "Narudžba " + idNarudzba;
             mailMessage.Attachments.Add(new Attachment(path));
-            //mailMessage.To.Add("ivaana.perko@gmail.com");
-            //var attachment = new Attachment(path);
-            //mailMessage.Attachments.Add(attachment);
-
-
-
+            
+            mailMessage.To.Add("ivaana.perko@gmail.com");
             // Specify the SMTP server name and post number
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
             // Specify your gmail address and password
