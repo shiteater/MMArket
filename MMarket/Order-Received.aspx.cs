@@ -217,7 +217,8 @@ namespace MMarket
             MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "adel1othman@gmail.com");
             // Specify the email body
 
-            Attachment inlineLogo = new Attachment(@"C:\Users\Shit Eater\documents\visual studio 2017\Projects\MMArket\MMarket\Images\icones\habibi_shop.png");
+            String path1 = Server.MapPath("~/Images/icones/habibi_shop.png");
+            Attachment inlineLogo = new Attachment(path1);
             mailMessage.Attachments.Add(inlineLogo);
             string contentID = "Image";
             inlineLogo.ContentId = contentID;

@@ -19,13 +19,11 @@ namespace MMarket
     {
         string conString = ConfigurationManager.ConnectionStrings["MaritaMarketConnectionString"].ConnectionString;
         int idNarudzba = 0;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["clicked"] != null || Session["naruceno"] == null)
+            if (Session["CartTable"] == null)
             {
-                Session.Clear();
-                Session.Abandon();
                 Response.Redirect("Home.aspx");
             }
 
@@ -188,14 +186,13 @@ namespace MMarket
 
                 Panel1.Controls.Add(DivContainer);
             }
-
-            Session.Clear();
-
-            Session.Add("naruceno", true);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Session.Clear();
+            Session.Abandon();
+
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=Narudzbe" + idNarudzba + ".pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
@@ -210,9 +207,7 @@ namespace MMarket
             htmlparser.Parse(sr);
             pdfDoc.Close();
             Response.Write(pdfDoc);
-
-            Session["clicked"] = 1;
         }
     }
-    
+
 }

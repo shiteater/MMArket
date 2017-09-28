@@ -11,7 +11,7 @@
 <body>
     <div class="row">
                     <div style="display: table; margin: auto;">
-                        <span class="step step_complete"> <a href="Home.aspx" class="check-bc">Početna</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
+                        <span class="step step_complete"> <a href="Home.aspx" class="check-bc">Početna</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
                         <span class="step step_complete" style="color: #F1C13C">Hvala</span>
                     </div>
                 </div>
