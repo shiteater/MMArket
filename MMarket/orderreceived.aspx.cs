@@ -22,8 +22,10 @@ namespace MMarket
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["CartTable"] == null)
+            if (Session["clicked"] != null || Session["naruceno"] == null)
             {
+                Session.Clear();
+                Session.Abandon();
                 Response.Redirect("Home.aspx");
             }
 
@@ -186,13 +188,14 @@ namespace MMarket
 
                 Panel1.Controls.Add(DivContainer);
             }
+
+            Session.Clear();
+
+            Session.Add("naruceno", true);
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Session.Clear();
-            Session.Abandon();
-
             Response.ContentType = "application/pdf";
             Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
@@ -207,6 +210,8 @@ namespace MMarket
             htmlparser.Parse(sr);
             pdfDoc.Close();
             Response.Write(pdfDoc);
+
+            Session["clicked"] = 1;
         }
     }
     

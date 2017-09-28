@@ -25,7 +25,7 @@ namespace MMarket
         {
             if (Session["naruceno"] != null && (bool)Session["naruceno"])
             {
-                Response.Redirect("testniOrderReceived.aspx");
+                Response.Redirect("orderreceived.aspx");
             }
 
             if (Session["total"] == null || Session["shipping"] == null)
@@ -85,9 +85,6 @@ namespace MMarket
 
                     HtmlGenericControl hr = new HtmlGenericControl("hr");
                     div5.Controls.Add(hr);
-
-
-
 
                     div1.Controls.Add(div2);
                     div1.Controls.Add(div3);

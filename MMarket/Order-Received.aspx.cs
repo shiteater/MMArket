@@ -237,7 +237,7 @@ namespace MMarket
             // Finall send the email message using Send() method
             smtpClient.Send(mailMessage);
 
-            Response.Redirect("testniOrderReceived.aspx", true);
+            Response.Redirect("orderreceived.aspx", true);
         }
     }
 }
