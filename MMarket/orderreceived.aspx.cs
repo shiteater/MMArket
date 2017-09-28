@@ -194,7 +194,7 @@ namespace MMarket
             Session.Abandon();
 
             Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=Narudzbe" + idNarudzba + ".pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw = new StringWriter();
             HtmlTextWriter hw = new HtmlTextWriter(sw);

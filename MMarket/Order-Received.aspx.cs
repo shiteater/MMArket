@@ -197,7 +197,7 @@ namespace MMarket
             String path = Server.MapPath("~/Narudzbe/Narudzba" + idNarudzba + ".pdf");
 
             Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "attachment;filename=Narudzba" + idNarudzba + ".pdf");
+            Response.AddHeader("content-disposition", "attachment;filename=Narudzbe" + idNarudzba + ".pdf");
             Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw2 = new StringWriter();
             HtmlTextWriter hw2 = new HtmlTextWriter(sw2);
