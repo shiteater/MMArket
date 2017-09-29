@@ -226,6 +226,13 @@ namespace MMarket
             pdfDoc.Close();
             Response.Write(pdfDoc);
         }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("home.aspx", true);
+        }
     }
 
 }
