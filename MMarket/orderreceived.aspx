@@ -23,10 +23,19 @@
     
     <form id="form1" runat="server">
         <div class="row">
-                    <div style="display: table; margin: auto;">
-                        <span class="step step_complete"> <a href="Home.aspx" class="check-bc">Početna</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
+            <div style="display: table; margin: auto;">
+                        <span class="step step_complete"> <a href="Home.aspx" runat="server" onserverclick="Home_Click" class="check-bc">Početna</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
                         <span class="step step_complete" style="color: #F1C13C">Hvala</span>
                     </div>
+            <br />
+            <asp:Panel ID="Panel7" runat="server" HorizontalAlign="Center">
+                <a href="Home.aspx" runat="server" onserverclick="Home_Click"><img src="Images/icones/habibi_shop.png" style="width: 30%" /></a>
+                <br />
+                <br />
+                <div class="commerce">
+            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="spremi u pdf formatu" class="button glyphicon" style="color: white;background-color:#764069; border-color: #764069;font-weight:bold;" OnClick="Button1_Click"/></p>
+        </div>
+            </asp:Panel>
                 </div>
             <asp:Panel ID="Panel1" runat="server">
             <div class="col-lg-12">
@@ -89,9 +98,6 @@
                     <div id="myTable" runat="server" style="margin-top: 1%"></div> 
                 </asp:Panel>
             </asp:Panel>
-        <div class="commerce">
-            <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Ispiši u pdf formatu i spremi" class="button glyphicon" style="color: white;background-color:#764069; border-color: #764069;font-weight:bold;" OnClick="Button1_Click"/></p>
-        </div>
     </form>
 </body>
 </html>

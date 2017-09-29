@@ -221,5 +221,12 @@ namespace MMarket
             Response.TransmitFile(Server.MapPath("~/Narudzbe/Narudzba" + idNarudzba + ".pdf"));
             Response.End();
         }
+
+        protected void Home_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Session.Abandon();
+            Response.Redirect("Home.aspx");
+        }
     }
 }

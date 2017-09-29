@@ -83,7 +83,6 @@
                     <div id="myTable" runat="server" style="margin-top: 1%"></div> 
                 </asp:Panel>
             </asp:Panel>
-        <img src="Images/icones/habibi_shop.png" style="width: 100%; height: 80%" />
     </form>
 </body>
 </html>
