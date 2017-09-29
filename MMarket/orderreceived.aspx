@@ -7,17 +7,6 @@
   <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/Payment.css" rel="stylesheet" />
     <title></title>
-
-
-<script type = "text/javascript" >
-
-    history.pushState(null, null, document.URL);
-    window.addEventListener('popstate', function () {
-        history.pushState(null, null, document.URL);
-    });
-
-</script>
-
     <style type="text/css">
         .auto-style1 {
             height: 37px;
@@ -29,8 +18,7 @@
     <form id="form1" runat="server">
         <div class="row">
                     <div style="display: table; margin: auto;">
-                        <%--<a href="Home.aspx" class="check-bc" style="color:black" runat="server">Početna</a> --%>
-                         <span class="step step_complete"> <asp:Button ID="Button2" runat="server" Text="Početna" class="check-bc" style="color:black" OnClick="Button2_Click" PostBackUrl="~/Home.aspx" OnClientClick="Button2_Click"/><span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
+                        <span class="step step_complete"> <a href="Home.aspx" class="check-bc">Početna</a> <span class="step_line "> </span> <span class="step_line step_complete"> </span> </span>
                         <span class="step step_complete" style="color: #F1C13C">Hvala</span>
                     </div>
                 </div>

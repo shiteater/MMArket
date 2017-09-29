@@ -13,6 +13,12 @@ namespace MMarket
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["naruceno"] != null)
+            {
+                Session.Clear();
+                Session.Abandon();
+            }
+
             if (Session["Admin"] != null)
             {
                 modal_trigger.Visible = false;

@@ -7,16 +7,11 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/Payment.css" rel="stylesheet" />
     <title></title>
-
-
-<script type = "text/javascript" >
-
-    history.pushState(null, null, document.URL);
-    window.addEventListener('popstate', function () {
-        history.pushState(null, null, document.URL);
-    });
-</script>
-
+    <style type="text/css">
+        .auto-style1 {
+            height: 37px;
+        }
+    </style>
     </head>
 <body>
     <div class="row">

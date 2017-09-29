@@ -22,18 +22,13 @@ namespace MMarket
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTime thisDay = DateTime.Today;
-            myDatum.InnerText = thisDay.ToString("d");
-
-            if (Session["total"] == null || Session["shipping"] == null || Session["naruceno"] == null)
+            if (Session["total"] == null || Session["shipping"] == null || Session["naruceno"] == null || Session["CartTable"] == null)
             {
                 Response.Redirect("Cart.aspx");
             }
 
-            if (Session["CartTable"] == null)
-            {
-                Response.Redirect("Home.aspx");
-            }
+            DateTime thisDay = DateTime.Today;
+            myDatum.InnerText = thisDay.ToString("d");
             
             SqlConnection con = new SqlConnection(conString);
 
