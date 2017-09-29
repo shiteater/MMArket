@@ -239,8 +239,8 @@ namespace MMarket
             inlineLogo.ContentId = contentID;
 
             mailMessage.Body =
-            //"<img style='width: 100%;' src=\"cid:" + contentID + "\">"
-            "<img src=\"cid:" + contentID + "\" style=\"width: 100%\" />"
+            //"<img style='width: 100%; height: 50%;' src=\"cid:" + contentID + "\">"
+            "<img src=\"cid:" + contentID + "\" style=\"width: 100%; height: 50%;\" />"
            + "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>"     
            + "Poštovani, <br/>Vaša narudžba je zaprimljena <br/><br/>" +
            "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>" +
