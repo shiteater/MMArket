@@ -7,6 +7,7 @@
     <link href="css/Payment.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <title></title>
+
 </head>
 <body>
 <%--    <form id="form1" runat="server">--%>
