@@ -79,8 +79,6 @@
     <Content Include="css\LoginStyle.css" />
     <Content Include="css\Payment.css" />
     <Content Include="Datulje.aspx" />
-    <Content Include="home2.aspx" />
-    <Content Include="Images\3d234fba-9a5e-42ce-8e84-5e5341f2c39c.jpeg" />
     <Content Include="Images\categories\datulje.jpg" />
     <Content Include="Images\categories\hookah.jpg" />
     <Content Include="Images\categories\kava.jpg" />
@@ -112,6 +110,8 @@
     <Content Include="Payment.aspx" />
     <Content Include="Pica.aspx" />
     <Content Include="ProductDetails.aspx" />
+    <Content Include="fonts\ARIALUNI.TTF" />
+    <Content Include="fonts\Roboto-Regular.ttf" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -191,13 +191,6 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="home2.aspx.cs">
-      <DependentUpon>home2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="home2.aspx.designer.cs">
-      <DependentUpon>home2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Kontakt.aspx.cs">
       <DependentUpon>Kontakt.aspx</DependentUpon>

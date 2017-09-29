@@ -1,4 +1,5 @@
 ﻿using iTextSharp.text;
+using iTextSharp.text.html;
 using iTextSharp.text.html.simpleparser;
 using iTextSharp.text.pdf;
 using System;
@@ -211,21 +212,13 @@ namespace MMarket
 
             String path = Server.MapPath("~/Narudzbe/Narudzba" + idNarudzba + ".pdf");
 
-            Response.ContentType = "application/pdf";
-            Response.AddHeader("content-disposition", "attachment;filename=Narudzbe" + idNarudzba + ".pdf");
-            Response.Cache.SetCacheability(HttpCacheability.NoCache);
             StringWriter sw2 = new StringWriter();
             HtmlTextWriter hw2 = new HtmlTextWriter(sw2);
             Panel1.RenderControl(hw2);
-            StringReader sr2 = new StringReader(sw2.ToString());
-            Document pdfDoc2 = new Document(PageSize.A4, 10f, 10f, 100f, 0f);
-            HTMLWorker htmlparser2 = new HTMLWorker(pdfDoc2);
+
+            byte[] bytes = RenderPDF(sw2.ToString());
             FileStream fs = new FileStream(path, FileMode.Create);
-            PdfWriter.GetInstance(pdfDoc2, fs);
-            pdfDoc2.Open();
-            htmlparser2.Parse(sr2);
-            pdfDoc2.Close();
-            Response.Write(pdfDoc2);
+            fs.Write(bytes, 0, bytes.Length);
             fs.Close();
 
             // Specify the from and to email address
@@ -269,6 +262,48 @@ namespace MMarket
             smtpClient.Send(mailMessage);
 
             Response.Redirect("orderreceived.aspx", true);
+        }
+
+        public byte[] RenderPDF(string htmlText/*, string pageTitle*/)
+        {
+            byte[] renderedBuffer;
+
+            using (var outputMemoryStream = new MemoryStream())
+            {
+                using (var pdfDocument = new Document(PageSize.A4, 10f, 10f, 100f, 0f))
+                {
+                    //string arialuniTff = Server.MapPath("~/fonts/ARIALUNI.TTF");
+                    //FontFactory.Register(arialuniTff);
+
+                    string Roboto = Server.MapPath("~/fonts/Roboto-Regular.ttf");
+                    FontFactory.Register(Roboto);
+
+                    PdfWriter pdfWriter = PdfWriter.GetInstance(pdfDocument, outputMemoryStream);
+
+                    pdfWriter.CloseStream = false;
+                    //pdfWriter.PageEvent = new PrintHeaderFooter { Title = pageTitle };
+                    pdfDocument.Open();
+
+                    using (var htmlViewReader = new StringReader(htmlText))
+                    {
+                        using (var htmlWorker = new HTMLWorker(pdfDocument))
+                        {
+                            var styleSheet = new StyleSheet();
+                            styleSheet.LoadTagStyle(HtmlTags.BODY, HtmlTags.FACE, "Roboto-Regular");//Arial Unicode MS
+                            styleSheet.LoadTagStyle(HtmlTags.BODY, HtmlTags.ENCODING, BaseFont.IDENTITY_H);
+                            htmlWorker.SetStyleSheet(styleSheet);
+
+                            htmlWorker.Parse(htmlViewReader);
+                        }
+                    }
+                }
+
+                renderedBuffer = new byte[outputMemoryStream.Position];
+                outputMemoryStream.Position = 0;
+                outputMemoryStream.Read(renderedBuffer, 0, renderedBuffer.Length);
+            }
+
+            return renderedBuffer;
         }
     }
 }
