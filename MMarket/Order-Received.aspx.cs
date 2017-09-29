@@ -24,6 +24,8 @@ namespace MMarket
         {
             if (Session["total"] == null || Session["shipping"] == null || Session["naruceno"] == null || Session["CartTable"] == null)
             {
+                Session.Clear();
+                Session.Abandon();
                 Response.Redirect("Cart.aspx");
             }
 
