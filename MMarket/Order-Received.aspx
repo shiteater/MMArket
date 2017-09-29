@@ -26,7 +26,7 @@
                 <div>
                     <asp:Panel ID="Panel5" runat="server" HorizontalAlign="Center">
                         <div class="zaprimljeno">
-           <h2>Hvala, Vaša narudžba je zaprimljena</h2> 
+           <h1>Hvala, Vaša narudžba je zaprimljena</h1> 
         </div>
                     </asp:Panel>
            
@@ -37,10 +37,11 @@
 
         </div>
             </div>
+                <br />
             <div id="div" runat="server" class="col-lg-12 col-md-6 col-sm-4 col-xs-12">
                                 
                 <asp:Panel ID="Panel4" runat="server" HorizontalAlign="Center">
-                    <h2 style="margin-top: 1%">Detalji o našoj banci</h2>
+                    <h1 style="margin-top: 1%">Detalji o našoj banci</h1>
                 </asp:Panel>
                 
                 <h2>Brothers HD d.o.o</h2>
@@ -60,7 +61,7 @@
                 </div>
                
             </div>
-       
+       <br />
         <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Center">
             <h1 id="DetaljiNarudbe" style="margin-bottom: 1%">Detalji Narudžbe</h1>
             </asp:Panel>
