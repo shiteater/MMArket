@@ -21,7 +21,15 @@ namespace MMarket
             // Specify the from and to email address
             MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "kuhalica@gmail.com");
             // Specify the email body
-            mailMessage.Body = "Ime i Prezime: " + TbxName.Text + " " + TbxLastName.Text + "\n" + "email: " + TbxMail.Text + "\n" + "Phone: " + TbxPhone.Text + "\n" + textarea1.Text;
+            if (!string.IsNullOrWhiteSpace(TbxPhone.Text))
+            {
+                mailMessage.Body = "Ime i Prezime: " + TbxName.Text + " " + TbxLastName.Text + "\n" + "email: " + TbxMail.Text + "\n" + "Phone: " + TbxPhone.Text + "\n" + textarea1.Text;
+            }
+            else
+            {
+                mailMessage.Body = "Ime i Prezime: " + TbxName.Text + " " + TbxLastName.Text + "\n" + "email: " + TbxMail.Text + "\n" + textarea1.Text;
+            }
+            
             // Specify the email Subject
             mailMessage.Subject = "Mail Od Korisnika";
 

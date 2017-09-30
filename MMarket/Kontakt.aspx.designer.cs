@@ -67,6 +67,15 @@ namespace MMarket {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvMail;
         
         /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// TbxPhone control.
         /// </summary>
         /// <remarks>
@@ -74,15 +83,6 @@ namespace MMarket {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TbxPhone;
-        
-        /// <summary>
-        /// RfvPhone control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvPhone;
         
         /// <summary>
         /// textarea1 control.

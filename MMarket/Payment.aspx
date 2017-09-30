@@ -85,12 +85,6 @@
                                 <div class="col-md-12">
                                     <input id="form_grad" runat="server" type="text" name="Grad" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite grad *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/></div>
                             </div>
-                           <%-- <div class="form-group">
-                                <div class="col-md-12"><strong>State:</strong></div>
-                                <div class="col-md-12">
-                                    <input type="text" name="state" class="form-control" value="" />
-                                </div>
-                            </div>--%>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Poštanski broj:</strong></div>
                                 <div class="col-md-12">

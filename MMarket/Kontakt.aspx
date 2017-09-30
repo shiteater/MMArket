@@ -37,16 +37,17 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_email">Email *</label><asp:TextBox ID="TbxMail" runat="server" class="form-control" placeholder="Molimo unesite svoj email *"></asp:TextBox>
+                                        <label for="form_email">Email *</label><asp:TextBox ID="TbxMail" runat="server" class="form-control" placeholder="Molimo unesite svoj email *" TextMode="Email"></asp:TextBox>
                                         <asp:RequiredFieldValidator ID="RfvMail" runat="server" ErrorMessage="Molimo unesite svoj email *" ControlToValidate="TbxMail" ValidationGroup="1"></asp:RequiredFieldValidator>
+                                        <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Unešeni Email je u krivom formatu" ControlToValidate="TbxMail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="1"></asp:RegularExpressionValidator>
                                         <%--<input id="form_email" type="email" name="email" class="form-control" placeholder="Please enter your email *" required="required" data-error="Valid email is required.">--%>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_phone">Telefon*</label><asp:TextBox ID="TbxPhone" runat="server" class="form-control" placeholder="Molimo unesite svoj broj telefona*"></asp:TextBox>
-                                        <asp:RequiredFieldValidator ID="RfvPhone" runat="server" ErrorMessage="Molimo unesite svoj broj telefona*" ControlToValidate="TbxPhone" ValidationGroup="1"></asp:RequiredFieldValidator>  
+                                        <label for="form_phone">Telefon</label><asp:TextBox ID="TbxPhone" runat="server" class="form-control" placeholder="Molimo unesite svoj broj telefona*"></asp:TextBox>
+                                        <%--<asp:RequiredFieldValidator ID="RfvPhone" runat="server" ErrorMessage="Molimo unesite svoj broj telefona*" ControlToValidate="TbxPhone" ValidationGroup="1"></asp:RequiredFieldValidator>--%>
                                         <%-- <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required oninvalid="setCustomValidity('Plz enter your correct phone number ')"
     onchange="try{setCustomValidity('')}catch(e){}">--%>
                                         
