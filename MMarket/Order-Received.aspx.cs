@@ -260,7 +260,7 @@ namespace MMarket
          + "<span>Hvala na Vašoj kupnji :)</span></div>"
           + "<div id='visible-phone'>"
          //+ "<center><img id='img1' src=\"cid:" + contentID + "\" style=\"width: 40%; height: 50%;\" /></center>"
-         + "<img id='img2' src=\"cid:" + contentID + "\" style=\"width: 100%; height: 50%;\" />"
+         + "<img id='img2' src=\"cid:" + contentID + "\" style=\"width: 100%\" />"
          + "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>"
          + "Poštovani, <br/>Vaša narudžba je zaprimljena <br/><br/>" +
          "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>" +
@@ -300,7 +300,7 @@ namespace MMarket
 
             using (var outputMemoryStream = new MemoryStream())
             {
-                using (var pdfDocument = new Document(PageSize.A4, 10f, 10f, 10f, 0f))
+                using (var pdfDocument = new Document(PageSize.A4, 10f, 10f, 10f, 10f))
                 {
                     //string arialuniTff = Server.MapPath("~/fonts/ARIALUNI.TTF");
                     //FontFactory.Register(arialuniTff);
