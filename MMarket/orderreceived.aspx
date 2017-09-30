@@ -37,15 +37,17 @@
         </div>
             </asp:Panel>
                 </div>
+        <div class="container wrapper">
             <asp:Panel ID="Panel1" runat="server">
             <div class="col-lg-12">
                 <div>
                     <asp:Panel ID="Panel5" runat="server" HorizontalAlign="Center">
                         <div class="zaprimljeno">
-           <h2>Hvala, Vaša narudžba je zaprimljena</h2> 
+           <h1>Hvala, Vaša narudžba je zaprimljena</h1> 
         </div>
                     </asp:Panel>
-           
+                    <br />
+                    <br />
            <div id="Narudzba" runat="server"></div>
            <div id="myDatum" runat="server"></div>
            <div style="font-weight: bold">Način plaćanja: <asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
@@ -56,7 +58,7 @@
             <div id="div" runat="server" class="col-lg-12 col-md-6 col-sm-4 col-xs-12">
                                 
                 <asp:Panel ID="Panel4" runat="server" HorizontalAlign="Center">
-                    <h2 style="margin-top: 1%">Detalji o našoj banci</h2>
+                    <h1 style="margin-top: 1%">Detalji o našoj banci</h1>
                 </asp:Panel>
                 
                 <h2>Brothers HD d.o.o</h2>
@@ -98,6 +100,7 @@
                     <div id="myTable" runat="server" style="margin-top: 1%"></div> 
                 </asp:Panel>
             </asp:Panel>
+        </div>
     </form>
 </body>
 </html>

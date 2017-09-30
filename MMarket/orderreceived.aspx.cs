@@ -47,8 +47,10 @@ namespace MMarket
             if (idNarudzba != 0)
             {
                 Narudzba.InnerText = "Broj narudžbe: " + idNarudzba;
+                Narudzba.Style.Add("font-weight", "bold");
                 DateTime thisDay = DateTime.Today;
                 myDatum.InnerText = thisDay.ToString("d");
+                myDatum.Style.Add("font-weight", "bold");
 
                 if (Session["Pouzece"] != null)
                 {
