@@ -99,6 +99,7 @@
     <Content Include="Images\icones\cart_purple.png" />
     <Content Include="Images\icones\cart_red.png" />
     <Content Include="Images\icones\habibi_shop.png" />
+    <Content Include="Images\icones\habibi_shop_pdf.png" />
     <Content Include="js\DetailsScript.js" />
     <Content Include="js\mod.3.2.0.bootstrap.min.js" />
     <Content Include="js\modal.js" />

@@ -8,6 +8,13 @@
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <title></title>
 
+    <style type="text/css">
+        .auto-style1 {
+            left: 0px;
+            top: 1px;
+        }
+    </style>
+
 </head>
 <body>
 <%--    <form id="form1" runat="server">--%>
@@ -69,38 +76,60 @@
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Ime:</strong>
                                     <input id="form_ime" runat="server" type="text" name="Ime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje ime *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/>
+                                    <%--<asp:TextBox ID="form_ime" runat="server" Class="form-control" placeholder="Molimo unesite svoje ime *" ValidationGroup="2"></asp:TextBox>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ErrorMessage="Ovo Polje je obavezno!" ValidationGroup="2" ControlToValidate="form_ime" Visible="False"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator7" runat="server" ErrorMessage="Samo slova do 30 karaktera" ControlToValidate="form_ime" ValidationGroup="2" ValidationExpression="[A-Za-zÀ-ž]{3,30}" Visible="False"></asp:RegularExpressionValidator>
                                 </div>
                                 <div class="span1"></div>
                                 <div class="col-md-6 col-xs-12">
                                     <strong>Prezime:</strong>
-                               <input id="form_prezime" runat="server" type="text" name="Prezime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje prezime *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/></div>
-                            </div>
+                                    <input id="form_prezime" runat="server" type="text" name="Prezime" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite svoje prezime *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/></div>
+                                    <%--<asp:TextBox ID="form_prezime" runat="server" Class="form-control" placeholder="Molimo unesite svoje prezime *" ValidationGroup="2"></asp:TextBox>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Ovo Polje je obavezno!" ValidationGroup="2" ControlToValidate="form_prezime" Visible="False"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ErrorMessage="Samo slova do 30 karaktera" ControlToValidate="form_prezime" ValidationGroup="2" ValidationExpression="[A-Za-zÀ-ž]{3,30}" Visible="False"></asp:RegularExpressionValidator>
+                            
+                                </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Adresa:</strong></div>
                                 <div class="col-md-12"> 
                               <input id="form_adresa" runat="server" type="text" name="Adresa" title="npr. ulica 20a, ulica20/a" class="form-control" placeholder="Molimo unesite svoju adresu *" pattern="[A-z0-9À-ž\s\/\-]{5,200}" required="required"/></div>
+                                    <%--<asp:TextBox ID="form_adresa" runat="server" Class="form-control" placeholder="Molimo unesite svoju adresu *" ValidationGroup="2"></asp:TextBox>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ovo Polje je obavezno!" ValidationGroup="2" ControlToValidate="form_adresa" Visible="False"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="npr. ulica 20a, ulica20/a" ControlToValidate="form_adresa" ValidationGroup="2" ValidationExpression="[A-z0-9À-ž\s\/\-]{5,200}" Visible="False"></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Grad:</strong></div>
                                 <div class="col-md-12">
                                     <input id="form_grad" runat="server" type="text" name="Grad" title="Samo slova do 30 karaktera" class="form-control" placeholder="Molimo unesite grad *" pattern="[A-Za-zÀ-ž]{3,30}" required="required"/></div>
+                                    <%--<asp:TextBox ID="form_grad" runat="server" Class="form-control" placeholder="Molimo unesite grad *" ValidationGroup="2"></asp:TextBox>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Ovo Polje je obavezno!" ValidationGroup="2" ControlToValidate="form_grad" Visible="False"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ErrorMessage="Samo slova do 30 karaktera" ControlToValidate="form_grad" ValidationGroup="2" ValidationExpression="[A-Za-zÀ-ž]{3,30}" Visible="False"></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Poštanski broj:</strong></div>
                                 <div class="col-md-12">
                                     <input id="form_postanskibroj" runat="server" type="text" name="Poštanski broj" title="Samo brojevi do 20 karaktera" class="form-control" placeholder="Molimo unesite poštanski broj *" pattern="[0-9]{3,20}" required="required"/></div>
+                                    <%--<asp:TextBox ID="form_postanskibroj" runat="server" Class="form-control" placeholder="Molimo unesite poštanski broj *" TextMode="Number" ValidationGroup="2"></asp:TextBox>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Ovo Polje je obavezno!" ValidationGroup="2" ControlToValidate="form_postanskibroj" Visible="False"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Samo brojevi do 20 karaktera" ControlToValidate="form_postanskibroj" ValidationGroup="2" ValidationExpression="[0-9]{3,20}" Visible="False"></asp:RegularExpressionValidator>
                             </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Telefon:</strong></div>
                                 <div class="col-md-12">
                                     <input id="form_telefon" runat="server" type="text" name="Telefon" title="npr. +385/991111111, 0991111111" class="form-control" placeholder="Molimo unesite broj telefona *" pattern="[0-9\s\/\+]{8,20}" required="required"/></div>
+                                    <%--<asp:TextBox ID="form_telefon" runat="server" Class="form-control" placeholder="Molimo unesite broj telefona *" TextMode="Phone" ValidationGroup="2"></asp:TextBox>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Ovo Polje je obavezno!" ValidationGroup="2" ControlToValidate="form_telefon" Visible="False"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="npr. +385/991111111, 0991111111" ControlToValidate="form_telefon" ValidationGroup="2" ValidationExpression="[0-9\s\/\+]{8,20}" Visible="False"></asp:RegularExpressionValidator>
                                 </div>
                             <div class="form-group">
                                 <div class="col-md-12"><strong>Email Adresa:</strong></div>
                                 <div class="col-md-12">
-                                    <input id="form_email" runat="server" type="text" name="Email" title="Uneseni email je u krivom formatu!" class="form-control" placeholder="Molimo unesite svoj Email *" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required="required"/></div>
+                                    <input id="form_email" runat="server" type="text" name="Email" title="Uneseni email je u krivom formatu!" class="form-control" placeholder="Molimo unesite svoj Email *" pattern="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" required="required"/>
+                                    <%--<asp:TextBox ID="form_email" runat="server" Class="form-control" placeholder="Molimo unesite svoj Email *" TextMode="Email" ValidationGroup="2"></asp:TextBox>--%>
+                                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Ovo Polje je obavezno!" ControlToValidate="form_email" ValidationGroup="2" Visible="False"></asp:RequiredFieldValidator>
+                                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Uneseni email je u krivom formatu!" ControlToValidate="form_email" ValidationGroup="2" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Visible="False"></asp:RegularExpressionValidator>
                                 </div>
-                               
+                                </div>
                         </div>
                     </div>
                     
@@ -111,18 +140,17 @@
                         <div class="panel-body">
                       <div class="form-group"></div>
                                 <div class="col-md-12">
-                               <asp:RadioButtonList id="RadioButtonList1" runat="server">
+                               <asp:RadioButtonList id="RadioButtonList1" runat="server" AutoPostBack="True" OnSelectedIndexChanged="RadioButtonList1_SelectedIndexChanged">
                                    <asp:ListItem>Plaćanje prilikom preuzimanja</asp:ListItem>
-                                 <asp:ListItem Selected="True">Direktna bankovna transakcija </asp:ListItem>
+                                 <asp:ListItem Selected="True">Direktna bankovna transakcija *</asp:ListItem>
                                  
                                </asp:RadioButtonList>
-                                    Molimo uplatite direktno na naš račun u banci. Koristite identifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu.
-                                 
+                                    <asp:Label ID="lblBanka" runat="server" Text="* Molimo uplatite direktno na naš račun u banci. Koristite identifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu."></asp:Label>
+
                                     </div>
                             <div class="commerce">
                                 
-                                <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Naručite" class="button glyphicon" style="color: #764069; border-color: #764069" OnClick="Button1_Click"/>
-                                    </p>
+                                <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="Naručite" ValidationGroup="2" class="button glyphicon" style="color: white;background-color:#764069; border-color: #764069;font-weight:bold;" OnClick="Button1_Click" /></p>
                             </div>
                             </div>
                         <%--  
@@ -207,6 +235,7 @@
                <%-- </div>--%>
                 
                 </div>
+                    </div>
             </form>
             <div class="row cart-footer">
         

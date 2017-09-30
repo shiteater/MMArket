@@ -148,6 +148,15 @@ namespace MMarket {
         protected global::System.Web.UI.HtmlControls.HtmlTableCell tel;
         
         /// <summary>
+        /// Panel7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel Panel7;
+        
+        /// <summary>
         /// Panel3 control.
         /// </summary>
         /// <remarks>
