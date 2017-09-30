@@ -50,6 +50,8 @@ namespace MMarket
 
             if (idNarudzba != 0)
             {
+                Session["idNarudzba"] = idNarudzba;
+
                 Narudzba.InnerText = "Broj narudžbe: " + idNarudzba;
              
 

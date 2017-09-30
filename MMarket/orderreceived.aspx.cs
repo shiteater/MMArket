@@ -31,21 +31,28 @@ namespace MMarket
 
             SqlConnection con = new SqlConnection(conString);
 
-            SqlCommand idCom = new SqlCommand("SELECT IDENT_CURRENT('Narudzbe') AS Current_Identity", con);
+            //SqlCommand idCom = new SqlCommand("SELECT IDENT_CURRENT('Narudzbe') AS Current_Identity", con);
 
-            con.Open();
+            //con.Open();
 
-            SqlDataReader reader = idCom.ExecuteReader();
+            //SqlDataReader reader = idCom.ExecuteReader();
 
-            if (reader.Read())
+            //if (reader.Read())
+            //{
+            //    idNarudzba = int.Parse(reader["Current_Identity"].ToString());
+            //}
+
+            //con.Close();
+
+            if (Session["idNarudzba"] != null || ViewState["idNarudzba"] != null)
             {
-                idNarudzba = int.Parse(reader["Current_Identity"].ToString());
-            }
+                if (Session["idNarudzba"] != null)
+                {
+                    ViewState["idNarudzba"] = (int)Session["idNarudzba"];
+                }
 
-            con.Close();
+                idNarudzba = (int)ViewState["idNarudzba"];
 
-            if (idNarudzba != 0)
-            {
                 Narudzba.InnerText = "Broj narudžbe: " + idNarudzba;
                 Narudzba.Style.Add("font-weight", "bold");
                 DateTime thisDay = DateTime.Today;
