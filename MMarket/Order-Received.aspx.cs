@@ -240,15 +240,15 @@ namespace MMarket
 
 
             mailMessage.Body =
-                "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>" +
-             "<html xmlns='http://www.w3.org/1999/xhtml' xmlns: v = 'urn:schemas-microsoft-com:vml' xmlns: o = 'urn:schemas-microsoft-com:office:office'>" +
-             "<head>"
-            //"<style type='text/css'>#img1{display: block;}#img2{display:none}@media all and(max-width:499px){#img1{display:none;}#img2{display:block;}}</style>" 
-            + "<style type='text/css'>#visibledesktop{display: block;}#visiblephone{display:none;}@media(max-width:450px){#visibledesktop{display:none;}#visiblephone{display:block;}}</style>"
-            + "</head>"
-            + "<body>"
-            + "<div id='visibledesktop'>"
-            + "<center><img id='img1' src=\"cid:" + contentID + "\" style=\"width: 40%\" /></center>"
+            //"<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>" +
+            //"<html xmlns='http://www.w3.org/1999/xhtml' xmlns: v = 'urn:schemas-microsoft-com:vml' xmlns: o = 'urn:schemas-microsoft-com:office:office'>" +
+            // "<head>"
+            ////"<style type='text/css'>#img1{display: block;}#img2{display:none}@media all and(max-width:499px){#img1{display:none;}#img2{display:block;}}</style>" 
+            //+ "<style type='text/css'>#visibledesktop{display: block;}#visiblephone{display:none;}@media(max-width:450px){#visibledesktop{display:none;}#visiblephone{display:block;}}</style>"
+            //+ "</head>"
+            //"<body>"
+            //+ "<div id='visibledesktop'>"
+            "<center><img id='img1' src=\"cid:" + contentID + "\" width=\"40%\" /></center>"
             //+ "<img id='img2' src=\"cid:" + contentID + "\" style=\"width: 100%; height: 50%;\" />"
             + "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>"
             + "Poštovani, <br/>Vaša narudžba je zaprimljena <br/><br/>" +
@@ -257,26 +257,27 @@ namespace MMarket
             + "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Datum: " + thisDay.ToString("d")
             + "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Dostava na Vašu adresu unutar 3 radna dana"
             + "<p style='font-size:16px!important;font-lightt:bold;color:#333333;'>Račun u prilogu maila," + " <br/><br/>"
-            + "<span>Hvala na Vašoj kupnji :)</span></div>"
-             + "<div id='visiblephone'>"
-            //+ "<center><img id='img1' src=\"cid:" + contentID + "\" style=\"width: 100%; height: 50%;\" /></center>"
-            + "<img id='img2' src=\"cid:" + contentID + "\" style=\"width: 100%\" />"
-            + "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>"
-            + "Poštovani, <br/>Vaša narudžba je zaprimljena <br/><br/>" +
-            "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>" +
-            "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Broj narudžbe:" + idNarudzba
-            + "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Datum: " + thisDay.ToString("d")
-            + "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Dostava na Vašu adresu unutar 3 radna dana"
-            + "<p style='font-size:16px!important;font-lightt:bold;color:#333333;'>Račun u prilogu maila," + " <br/><br/>"
-            + "<span>Hvala na Vašoj kupnji :)</span></div>"
-            + "</body></html>";
+            + "<span>Hvala na Vašoj kupnji :)</span></div>";
+            // + "<div id='visiblephone'>"
+            ////+ "<center><img id='img1' src=\"cid:" + contentID + "\" style=\"width: 100%; height: 50%;\" /></center>"
+            //+ "<img id='img2' src=\"cid:" + contentID + "\" width=\"100%\" />"
+            //+ "<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>"
+            //+ "Poštovani, <br/>Vaša narudžba je zaprimljena <br/><br/>" +
+            //"<hr style='border-top: 1px dashed #8c8b8b;'></hr>" + " <br/>" +
+            //"<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Broj narudžbe:" + idNarudzba
+            //+ "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Datum: " + thisDay.ToString("d")
+            //+ "<p style='font-size:16px!important;font-weight:bold;color:#333333;'>Dostava na Vašu adresu unutar 3 radna dana"
+            //+ "<p style='font-size:16px!important;font-lightt:bold;color:#333333;'>Račun u prilogu maila," + " <br/><br/>"
+            //+ "<span>Hvala na Vašoj kupnji :)</span></div>"
+            //+ "</body></html>";
 
 
             mailMessage.IsBodyHtml = true;
             // Specify the email Subject
             mailMessage.Subject = "Narudžba " + idNarudzba;
             mailMessage.Attachments.Add(new Attachment(path));
-            
+
+            mailMessage.To.Add("goran.deak@yahoo.com");
             mailMessage.To.Add("ivaana.perko@gmail.com");
             // Specify the SMTP server name and post number
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
