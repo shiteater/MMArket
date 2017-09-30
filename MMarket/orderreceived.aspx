@@ -7,17 +7,29 @@
   <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/Payment.css" rel="stylesheet" />
     <title></title>
-    <style type="text/css">
-        .auto-style1 {
-            height: 37px;
-        }
-    </style>
     <script type = "text/javascript" >
     history.pushState(null, null, document.URL);
     window.addEventListener('popstate', function () {
         history.pushState(null, null, document.URL);
     });
 </script>
+    <style type="text/css">
+        .auto-style4 {
+            width: 3%;
+            font-size:17px;
+        }
+        .auto-style5 {
+            width: 100%;
+            display: inline-block;
+            background-color: #764069;
+            height: 76px;
+            color: white;
+            text-align: center;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight: bold;
+            padding-top: -1px;
+        }
+    </style>
 </head>
 <body>
     
@@ -33,8 +45,11 @@
                 <br />
                 <br />
                 <div class="commerce">
+                    <br />
             <p class="return-to-shop"><asp:Button ID="Button1" runat="server" Text="spremi u pdf formatu" class="button glyphicon" style="color: white;background-color:#764069; border-color: #764069;font-weight:bold;" OnClick="Button1_Click"/></p>
         </div>
+                <br />
+                 <br />
             </asp:Panel>
                 </div>
         <div class="container wrapper">
@@ -42,29 +57,32 @@
             <div class="col-lg-12">
                 <div>
                     <asp:Panel ID="Panel5" runat="server" HorizontalAlign="Center">
-                        <div class="zaprimljeno">
+                        <div class="auto-style5">
            <h1>Hvala, Vaša narudžba je zaprimljena</h1> 
         </div>
                     </asp:Panel>
                     <br />
+                  
+           <div id="Narudzba" runat="server" style="font-size:20px;font-weight:bold;"></div>
                     <br />
-           <div id="Narudzba" runat="server"></div>
-           <div id="myDatum" runat="server"></div>
+           <div id="myDatum" runat="server" style="font-size:18px;"></div>
            <div style="font-weight: bold">Način plaćanja: <asp:Label ID="Label1" runat="server" Text=""></asp:Label></div>
 <asp:Label ID="Label2" runat="server" Text="Molimo uplatite direktno na naš račun u banci. Koristite indetifikacijski broj narudžbe kao poziv na broj. Vaša narudžba će biti isporučena kad sredstva budu vidljiva na našem računu."></asp:Label>
-
+<br />
         </div>
             </div>
+                <br />               
+                <br />
             <div id="div" runat="server" class="col-lg-12 col-md-6 col-sm-4 col-xs-12">
                                 
                 <asp:Panel ID="Panel4" runat="server" HorizontalAlign="Center">
-                    <h1 style="margin-top: 1%">Detalji o našoj banci</h1>
+                    <h1 style="margin-top: 1%;color:#764069;font-weight:bold;">Detalji o našoj banci</h1>
                 </asp:Panel>
                 
-                <h2>Brothers HD d.o.o</h2>
+                <h2 style="font-size:23px;font-weight:bold;">Brothers HD d.o.o</h2>
 
                <div style="margin-bottom: 1%">
-                   <h5 style="font-weight: bold">Banka:</h5> Zagrebačka banka d.o.o.
+                   <h5 style="font-weight: bold">Banka</h5> Zagrebačka banka d.o.o.
                    </div>
                 
                 <div style="margin-bottom: 1%">
@@ -78,24 +96,31 @@
                 </div>
                
             </div>
-       
+      <br />
+                  <br />
         <asp:Panel ID="Panel2" runat="server" HorizontalAlign="Center">
-            <h1 id="DetaljiNarudbe" style="margin-bottom: 1%">Detalji Narudžbe</h1>
+<br />
+            <h1 id="DetaljiNarudbe" style="margin-bottom: 1%;color:#764069; font-weight:bold;">Detalji Narudžbe</h1>
             </asp:Panel>
+                
         <asp:Panel ID="Panel6" runat="server" HorizontalAlign="Center">
-            <table style="margin-bottom: 1%; width: 100%;">
+            <table style="margin-bottom: 1%; width: 60%;">
     				<tr>
-							<td style="width:30%; font-weight: bold;">Naručitelj</td>
-							<td style="width:40%; font-weight: bold;">Adresa</td>
-							<td style="width:30%; font-weight: bold;">Telefon</td>
-						</tr>
-					<tr>
-							<td id="naziv" runat="server" style="width:20%"></td>
-							<td id="adresa" runat="server" style="width:30%"></td>
-							<td id="tel" runat="server" style="width:20%"></td>
-						</tr>
+							<td style="font-weight: bold;" class="auto-style4">Naručitelj:</td>
+                               <td id="naziv" runat="server" style="width:20%; float:left;font-size:17px;">&nbsp;</td>
+                    </tr>
+						<tr>
+                        <td style="font-weight: bold;" class="auto-style4">Adresa:</td>
+                        <td id="adresa" runat="server" style="width:20%;float:left;font-size:17px;"></td>
+                        </tr>
+                        <tr>
+							<td style="font-weight: bold;" class="auto-style4">Telefon:</td>
+                            <td id="tel" runat="server" style="width:20%;float:left;font-size:17px;"></td>
+                        </tr>
+				
                     </table>
         </asp:Panel>
+                <br />
                 <asp:Panel ID="Panel3" runat="server" HorizontalAlign="Center">
                     <div id="myTable" runat="server" style="margin-top: 1%"></div> 
                 </asp:Panel>
