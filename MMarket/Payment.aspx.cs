@@ -236,5 +236,17 @@ namespace MMarket
 
             Response.Redirect("Order-Received.aspx");
         }
+
+        protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (((RadioButtonList)sender).SelectedIndex == 0)
+            {
+                lblBanka.Visible = false;
+            }
+            else
+            {
+                lblBanka.Visible = true;
+            }
+        }
     }
 }

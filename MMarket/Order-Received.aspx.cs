@@ -69,7 +69,7 @@ namespace MMarket
 
                 if (Session["CartTable"] != null)
                 {
-                    string logoPath = Server.MapPath("~/Images/icones/habibi_shop.png");
+                    string logoPath = Server.MapPath("~/Images/icones/habibi_shop_pdf.png");
                     logo.Src = logoPath;
 
                     HtmlGenericControl tbl = new HtmlGenericControl("table");
@@ -112,7 +112,7 @@ namespace MMarket
                     tbody.Controls.Add(tr3);
 
                     HtmlGenericControl th3 = new HtmlGenericControl("th");
-                    th3.InnerText = "Ukupno Proizvodi";
+                    th3.InnerText = "Ukupna cijena proizvoda";
                     tr3.Controls.Add(th3);
 
                     HtmlGenericControl th4 = new HtmlGenericControl("th");
@@ -149,12 +149,14 @@ namespace MMarket
 
                     HtmlGenericControl th5 = new HtmlGenericControl("th");
                     th5.InnerText = "Ukupno";
+                    th5.Style.Add("font-weight", "bold");
                     tr6.Controls.Add(th5);
 
                     float sum = float.Parse(Session["total"].ToString()) + float.Parse(Session["shipping"].ToString());
 
                     HtmlGenericControl th6 = new HtmlGenericControl("th");
                     th6.InnerText = String.Format("{0:0.00}", sum) + "kn";
+                    th6.Style.Add("font-weight", "bold");
                     tr6.Controls.Add(th6);
 
                     myTable.Controls.Add(tbl);

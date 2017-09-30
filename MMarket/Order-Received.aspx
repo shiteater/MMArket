@@ -8,8 +8,13 @@
     <link href="css/Payment.css" rel="stylesheet" />
     <title></title>
     <style type="text/css">
-        .auto-style1 {
-            height: 37px;
+        .auto-style2 {
+            width: 30%;
+            height: 20px;
+        }
+        .auto-style3 {
+            width: 40%;
+            height: 20px;
         }
     </style>
     </head>
@@ -71,9 +76,9 @@
         <asp:Panel ID="Panel6" runat="server" HorizontalAlign="Center">
             <table style="margin-bottom: 1%; width: 100%;">
     				<tr>
-							<td style="width:30%; font-weight: bold;">Naručitelj</td>
-							<td style="width:40%; font-weight: bold;">Adresa</td>
-							<td style="width:30%; font-weight: bold;">Telefon</td>
+							<td style="font-weight: bold;" class="auto-style2">Naručitelj</td>
+							<td style="font-weight: bold;" class="auto-style3">Adresa</td>
+							<td style="font-weight: bold;" class="auto-style2">Telefon</td>
 						</tr>
 					<tr>
 							<td id="naziv" runat="server" style="width:20%"></td>
@@ -82,7 +87,9 @@
 						</tr>
                     </table>
         </asp:Panel>
-
+                <asp:Panel ID="Panel7" runat="server" HorizontalAlign="Center">
+                    **********************************************************
+                </asp:Panel>
                 <asp:Panel ID="Panel3" runat="server" HorizontalAlign="Center">
                     <div id="myTable" runat="server" style="margin-top: 1%"></div> 
                 </asp:Panel>

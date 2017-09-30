@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="form_phone">Telefon</label><asp:TextBox ID="TbxPhone" runat="server" class="form-control" placeholder="Molimo unesite svoj broj telefona*"></asp:TextBox>
+                                        <label for="form_phone">Telefon</label><asp:TextBox ID="TbxPhone" runat="server" class="form-control" placeholder="Molimo unesite svoj broj telefona"></asp:TextBox>
                                         <%--<asp:RequiredFieldValidator ID="RfvPhone" runat="server" ErrorMessage="Molimo unesite svoj broj telefona*" ControlToValidate="TbxPhone" ValidationGroup="1"></asp:RequiredFieldValidator>--%>
                                         <%-- <input id="form_phone" type="tel" name="phone"  class="form-control" placeholder="Please enter your phone*" required oninvalid="setCustomValidity('Plz enter your correct phone number ')"
     onchange="try{setCustomValidity('')}catch(e){}">--%>
