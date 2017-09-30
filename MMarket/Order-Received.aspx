@@ -22,6 +22,9 @@
                 </div>
     <form id="form1" runat="server">
             <asp:Panel ID="Panel1" runat="server">
+                <img runat="server" id="logo" width="120" />
+                <br />
+                <br />
             <div class="col-lg-12">
                 <div>
                     <asp:Panel ID="Panel5" runat="server" HorizontalAlign="Center">

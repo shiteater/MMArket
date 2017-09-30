@@ -67,6 +67,9 @@ namespace MMarket
 
                 if (Session["CartTable"] != null)
                 {
+                    string logoPath = Server.MapPath("~/Images/icones/habibi_shop.png");
+                    logo.Src = logoPath;
+
                     HtmlGenericControl tbl = new HtmlGenericControl("table");
                     tbl.Attributes["class"] = "table table-bordered";
 
@@ -270,7 +273,7 @@ namespace MMarket
 
             using (var outputMemoryStream = new MemoryStream())
             {
-                using (var pdfDocument = new Document(PageSize.A4, 10f, 10f, 100f, 0f))
+                using (var pdfDocument = new Document(PageSize.A4, 10f, 10f, 10f, 0f))
                 {
                     //string arialuniTff = Server.MapPath("~/fonts/ARIALUNI.TTF");
                     //FontFactory.Register(arialuniTff);
