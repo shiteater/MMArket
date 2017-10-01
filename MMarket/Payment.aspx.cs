@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
-using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
-using System.Net.Mail;
-using iTextSharp.text;
-using iTextSharp.text.html.simpleparser;
-using iTextSharp.text.pdf;
-using System.IO;
 
 namespace MMarket
 {
@@ -195,46 +186,70 @@ namespace MMarket
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string value = RadioButtonList1.SelectedItem.Value.ToString();
-
-            if (value == "Plaćanje prilikom preuzimanja")
+            if (!string.IsNullOrWhiteSpace(form_ime.Value) && !string.IsNullOrWhiteSpace(form_prezime.Value) && !string.IsNullOrWhiteSpace(form_adresa.Value)
+                && !string.IsNullOrWhiteSpace(form_grad.Value) && !string.IsNullOrWhiteSpace(form_postanskibroj.Value) && !string.IsNullOrWhiteSpace(form_telefon.Value)
+                && !string.IsNullOrWhiteSpace(form_email.Value))
             {
-                Session["Pouzece"] = 1;
+                int posBr;
+                Regex regImePrez = new Regex("[A-Za-zÀ-ž]{3,30}");
+                Regex regAdresa = new Regex("[A-z0-9À-ž/s///-]{5,200}");
+                Regex regPhone = new Regex("[0-9/s///+]{8,20}");
+                Regex regMail = new Regex("/w+([-+.']/w+)*@/w+([-.]/w+)*/./w+([-.]/w+)*");
+                
+                if (regImePrez.IsMatch(form_ime.Value) && regImePrez.IsMatch(form_prezime.Value) && regImePrez.IsMatch(form_grad.Value)
+                    && regAdresa.IsMatch(form_adresa.Value) && int.TryParse(form_postanskibroj.Value, out posBr) && form_postanskibroj.Value.Length > 3
+                    && regPhone.IsMatch(form_telefon.Value) && regMail.IsMatch(form_email.Value))
+                {
+                    string value = RadioButtonList1.SelectedItem.Value.ToString();
+
+                    if (value == "Plaćanje prilikom preuzimanja")
+                    {
+                        Session["Pouzece"] = 1;
+                    }
+                    else
+                    {
+                        Session["Banka"] = 1;
+                    }
+
+                    SqlConnection con = new SqlConnection(conString);
+
+                    SqlCommand insertCmd = new SqlCommand("insert into Narudzbe values(@Ime, @Prezime, @Adresa, @Grad, @PosBroj, @Telefon, @Email, @Nacin, @Datum)", con);
+                    insertCmd.Parameters.AddWithValue("@Ime", form_ime.Value);
+                    insertCmd.Parameters.AddWithValue("@Prezime", form_prezime.Value);
+                    insertCmd.Parameters.AddWithValue("@Adresa", form_adresa.Value);
+                    insertCmd.Parameters.AddWithValue("@Grad", form_grad.Value);
+                    insertCmd.Parameters.AddWithValue("@PosBroj", form_postanskibroj.Value);
+                    insertCmd.Parameters.AddWithValue("@Telefon", form_telefon.Value);
+                    insertCmd.Parameters.AddWithValue("@Email", form_email.Value);
+                    if (Session["Pouzece"] != null)
+                    {
+                        insertCmd.Parameters.AddWithValue("@Nacin", "Pouzece");
+                    }
+                    else
+                    {
+                        insertCmd.Parameters.AddWithValue("@Nacin", "Banka");
+                    }
+                    insertCmd.Parameters.AddWithValue("@Datum", DateTime.Today);
+
+                    con.Open();
+
+                    int rowsAffected = insertCmd.ExecuteNonQuery();
+
+                    con.Close();
+
+                    Session["naruceno"] = true;
+
+                    Response.Redirect("Order-Received.aspx");
+                }
+                else
+                {
+
+                }
             }
             else
             {
-                Session["Banka"] = 1;
+
             }
-
-            SqlConnection con = new SqlConnection(conString);
-
-            SqlCommand insertCmd = new SqlCommand("insert into Narudzbe values(@Ime, @Prezime, @Adresa, @Grad, @PosBroj, @Telefon, @Email, @Nacin, @Datum)", con);
-            insertCmd.Parameters.AddWithValue("@Ime", form_ime.Value);
-            insertCmd.Parameters.AddWithValue("@Prezime", form_prezime.Value);
-            insertCmd.Parameters.AddWithValue("@Adresa", form_adresa.Value);
-            insertCmd.Parameters.AddWithValue("@Grad", form_grad.Value);
-            insertCmd.Parameters.AddWithValue("@PosBroj", form_postanskibroj.Value);
-            insertCmd.Parameters.AddWithValue("@Telefon", form_telefon.Value);
-            insertCmd.Parameters.AddWithValue("@Email", form_email.Value);
-            if (Session["Pouzece"] != null)
-            {
-                insertCmd.Parameters.AddWithValue("@Nacin", "Pouzece");
-            }
-            else
-            {
-                insertCmd.Parameters.AddWithValue("@Nacin", "Banka");
-            }
-            insertCmd.Parameters.AddWithValue("@Datum", DateTime.Today);
-
-            con.Open();
-
-            int rowsAffected = insertCmd.ExecuteNonQuery();
-
-            con.Close();
-
-            Session["naruceno"] = true;
-
-            Response.Redirect("Order-Received.aspx");
         }
 
         protected void RadioButtonList1_SelectedIndexChanged(object sender, EventArgs e)
