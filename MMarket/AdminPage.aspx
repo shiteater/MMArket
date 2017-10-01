@@ -13,9 +13,6 @@
                 <tr>
                     <td style="width: 25%">
                         <a href="Home.aspx" class="home" >Home</a>
-                  <%--  </td>
-                    <td>
-                        --%>
                     </td>
                     <td style="width: 25%">
                         <asp:Button ID="Button1" class="logout" runat="server" Text="Logout" OnClick="Button1_Click" />
