@@ -109,6 +109,7 @@
                                 </div>
                         </div>
                     </div>
+                        </div>
                     
                     <!--SHIPPING METHOD END-->
                     <!--CREDIT CART PAYMENT-->
