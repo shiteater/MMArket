@@ -192,10 +192,10 @@ namespace MMarket
             {
                 int posBr;
                 Regex regImePrez = new Regex("[A-Za-zÀ-ž]{3,30}");
-                Regex regAdresa = new Regex("[A-z0-9À-ž/s///-]{5,200}");
-                Regex regPhone = new Regex("[0-9/s///+]{8,20}");
-                Regex regMail = new Regex("/w+([-+.']/w+)*@/w+([-.]/w+)*/./w+([-.]/w+)*");
-                
+                Regex regAdresa = new Regex("[A-z0-9À-ž\\s\\/\\-]{5,200}");
+                Regex regPhone = new Regex("[0-9\\s\\/\\+]{8,20}");
+                Regex regMail = new Regex("\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*");
+
                 if (regImePrez.IsMatch(form_ime.Value) && regImePrez.IsMatch(form_prezime.Value) && regImePrez.IsMatch(form_grad.Value)
                     && regAdresa.IsMatch(form_adresa.Value) && int.TryParse(form_postanskibroj.Value, out posBr) && form_postanskibroj.Value.Length > 3
                     && regPhone.IsMatch(form_telefon.Value) && regMail.IsMatch(form_email.Value))
