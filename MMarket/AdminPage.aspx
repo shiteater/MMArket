@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Admin Page</title>
     <link href="css/AdminStyle.css" rel="stylesheet" />
 </head>
 <body>
@@ -13,9 +13,6 @@
                 <tr>
                     <td style="width: 25%">
                         <a href="Home.aspx" class="home" >Home</a>
-                  <%--  </td>
-                    <td>
-                        --%>
                     </td>
                     <td style="width: 25%">
                         <asp:Button ID="Button1" class="logout" runat="server" Text="Logout" OnClick="Button1_Click" />

@@ -6,7 +6,7 @@
 <head runat="server">
   <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="css/Payment.css" rel="stylesheet" />
-    <title></title>
+    <title>Narudžba</title>
     <script type = "text/javascript" >
     history.pushState(null, null, document.URL);
     window.addEventListener('popstate', function () {
