@@ -107,15 +107,15 @@
             <table style="margin-bottom: 1%; width: 60%;">
     				<tr>
 							<td style="font-weight: bold;" class="auto-style4">Naručitelj:</td>
-                               <td id="naziv" runat="server" style="width:20%; float:left;font-size:17px;">&nbsp;</td>
+                               <td id="naziv" runat="server" style="width:30%; float:left;font-size:17px;">&nbsp;</td>
                     </tr>
 						<tr>
                         <td style="font-weight: bold;" class="auto-style4">Adresa:</td>
-                        <td id="adresa" runat="server" style="width:20%;float:left;font-size:17px;"></td>
+                        <td id="adresa" runat="server" style="width:30%;float:left;font-size:17px;">&nbsp;</td>
                         </tr>
                         <tr>
 							<td style="font-weight: bold;" class="auto-style4">Telefon:</td>
-                            <td id="tel" runat="server" style="width:20%;float:left;font-size:17px;"></td>
+                            <td id="tel" runat="server" style="width:30%;float:left;font-size:17px;"></td>
                         </tr>
 				
                     </table>
