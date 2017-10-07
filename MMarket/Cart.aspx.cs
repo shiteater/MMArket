@@ -171,8 +171,8 @@ namespace MMarket
                     btnInc.ID = "btnInc_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
                     btnInc.Attributes["class"] = "button glyphicon glyphicon-arrow-up";
                     btnInc.Attributes.Add("runat", "server");
-                    //btnInc.Style.Add("color", "#F1C13C");
-                    //btnInc.Style.Add("border-color", "#F1C13C");
+                    btnInc.Style.Add("color", "#F1C13C");
+                    btnInc.Style.Add("border-color", "#F1C13C");
                     btnInc.CausesValidation = false;
                     btnInc.ServerClick += CountityInc_Click;
 
