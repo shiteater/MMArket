@@ -113,6 +113,7 @@
     <Content Include="ProductDetails.aspx" />
     <Content Include="fonts\ARIALUNI.TTF" />
     <Content Include="fonts\Roboto-Regular.ttf" />
+    <Content Include="Narudzbe\Narudzba1.pdf" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
@@ -300,9 +301,7 @@
       <DependentUpon>Zitarice.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Narudzbe\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
