@@ -229,7 +229,7 @@ namespace MMarket
             fs.Close();
 
             // Specify the from and to email address
-            MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "adel1othman@gmail.com");
+            MailMessage mailMessage = new MailMessage("orders@habibi-orient.com", "adel1othman@gmail.com");
             // Specify the email body
 
             String path1 = Server.MapPath("~/Images/icones/habibi_shop.png");
@@ -280,15 +280,15 @@ namespace MMarket
             mailMessage.To.Add("goran.deak@yahoo.com");
             mailMessage.To.Add("ivaana.perko@gmail.com");
             // Specify the SMTP server name and post number
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient smtpClient = new SmtpClient("mail.habibi-orient.com", 8889);
             // Specify your gmail address and password
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "timraketa666@gmail.com",
-                Password = "vabafet666"
+                UserName = "orders@habibi-orient.com",
+                Password = "Habibi123!"
             };
             // Gmail works on SSL, so set this property to true
-            smtpClient.EnableSsl = true;
+            //smtpClient.EnableSsl = true;
             // Finall send the email message using Send() method
             smtpClient.Send(mailMessage);
 
