@@ -50,7 +50,7 @@
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-md-pull-6 col-sm-pull-6">
                     <!--SHIPPING METHOD-->
-                    <div class="panel panel-info" border-color: #EDC15E;>
+                    <div class="panel panel-info" style="border-color: #EDC15E;">
                         <div class="panel-heading" style="background-color: #633658; color:palegoldenrod; border-color:#EDC15E;">Podaci za plaćanje</div>
                         <div class="panel-body">
                             <div class="form-group">
@@ -113,7 +113,7 @@
                     
                     <!--SHIPPING METHOD END-->
                     <!--CREDIT CART PAYMENT-->
-                 <div class="panel panel-info" border-color: #EDC15E;>
+                 <div class="panel panel-info" style="border-color: #EDC15E;">
                         <div class="panel-heading" style="background-color: #633658; color:palegoldenrod; border-color:#EDC15E;"><span><i class="glyphicon glyphicon-lock"></i></span>Odabir plaćanja</div>
                         <div class="panel-body">
                       <div class="form-group"></div>
