@@ -1,5 +1,4 @@
-﻿
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.master.cs" Inherits="MMarket.MyMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyMaster.master.cs" Inherits="MMarket.MyMaster" %>
 
 <!DOCTYPE html>
 
@@ -169,7 +168,7 @@
                                 <div class="footer-contact-icon">
                                     <i class="fa fa-envelope-o"></i>
                                 </div>
-                                <div class="footer-contact-text"><a href="mailto:info@al-basha.eu">info@habibi-orient.com</a></div>
+                                <div class="footer-contact-text"><a href="mailto:info@habibi-orient.com">info@habibi-orient.com</a></div>
                             </div>
                         </div>
                     </div>
@@ -181,7 +180,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div id="social-icons"><a href="https://www.facebook.com/orijentalne.delicija/"><i class="fa fa-facebook"></i></a><a href="#twitter"><i class="fa fa-twitter"></i></a><a href="#linkedin"><i class="fa fa-linkedin"></i></a><a href="#instagram"><i class="fa fa-instagram"></i></a><a href="#google+"><i class="fa fa-google-plus"></i></a></div>
-                            <div class="copyright text-center">&copy; BestSiteEver <%: DateTime.Now.Year %>. All Rights Reserved.</div>
+                            <div class="copyright text-center">&copy; Xecute <%: DateTime.Now.Year %>. All Rights Reserved.</div>
                         </div>
                     </div>
                 </div>
