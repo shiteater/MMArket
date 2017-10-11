@@ -181,7 +181,7 @@
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <div id="social-icons"><a href="https://www.facebook.com/orijentalne.delicija/"><i class="fa fa-facebook"></i></a><a href="#twitter"><i class="fa fa-twitter"></i></a><a href="#linkedin"><i class="fa fa-linkedin"></i></a><a href="#instagram"><i class="fa fa-instagram"></i></a><a href="#google+"><i class="fa fa-google-plus"></i></a></div>
-                            <div class="copyright text-center">&copy; Smislit ćemo nešto <%: DateTime.Now.Year %>. All Rights Reserved.</div>
+                            <div class="copyright text-center">&copy; BestSiteEver <%: DateTime.Now.Year %>. All Rights Reserved.</div>
                         </div>
                     </div>
                 </div>
