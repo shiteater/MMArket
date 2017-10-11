@@ -228,8 +228,17 @@ namespace MMarket
             fs.Write(bytes, 0, bytes.Length);
             fs.Close();
 
+            SqlConnection con2 = new SqlConnection(conString);
+            con2.Open();
+            SqlCommand email = new SqlCommand("SELECT [Email] FROM Narudzbe WHERE [idNarudzba] = @myID2", con2);
+            email.Parameters.AddWithValue("@myID2", idNarudzba);
+
+            string email2 = Convert.ToString(email.ExecuteScalar());
+
+            con2.Close();
+
             // Specify the from and to email address
-            MailMessage mailMessage = new MailMessage("orders@habibi-orient.com", "adel1othman@gmail.com");
+            MailMessage mailMessage = new MailMessage("orders@habibi-orient.com", email2);
             // Specify the email body
 
             String path1 = Server.MapPath("~/Images/icones/habibi_shop.png");
@@ -277,8 +286,7 @@ namespace MMarket
             mailMessage.Subject = "Narudžba " + idNarudzba;
             mailMessage.Attachments.Add(new Attachment(path));
 
-            mailMessage.To.Add("goran.deak@yahoo.com");
-            mailMessage.To.Add("ivaana.perko@gmail.com");
+            mailMessage.To.Add("orders@habibi-orient.com");
             // Specify the SMTP server name and post number
             SmtpClient smtpClient = new SmtpClient("mail.habibi-orient.com", 8889);
             // Specify your gmail address and password
