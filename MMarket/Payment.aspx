@@ -10,7 +10,7 @@
 </head>
 <body>
 <%--    <form id="form1" runat="server">--%>
-        <div class="container wrapper">
+        <div class="container">
             <div class="row cart-head">
                 <div class="container">
                 <div class="row">
@@ -219,7 +219,7 @@
         
             </div>
             </div>
-    </div>
+            </div>
    <%-- </form>--%>
 </body>
 </html>
