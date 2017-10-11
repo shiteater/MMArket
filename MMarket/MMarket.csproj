@@ -79,6 +79,7 @@
     <Content Include="css\LoginStyle.css" />
     <Content Include="css\Payment.css" />
     <Content Include="Datulje.aspx" />
+    <Content Include="Images\130fe1f9-6519-43c9-ac19-46f7770f63cf.jpeg" />
     <Content Include="Images\categories\datulje.jpg" />
     <Content Include="Images\categories\hookah.jpg" />
     <Content Include="Images\categories\kava.jpg" />

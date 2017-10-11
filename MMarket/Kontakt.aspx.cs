@@ -19,7 +19,7 @@ namespace MMarket
         protected void Button1_Click1(object sender, EventArgs e)
         {
             // Specify the from and to email address
-            MailMessage mailMessage = new MailMessage("timraketa666@gmail.com", "kuhalica@gmail.com");
+            MailMessage mailMessage = new MailMessage("info@habibi-orient.com", "info@habibi-orient.com");
             // Specify the email body
             if (!string.IsNullOrWhiteSpace(TbxPhone.Text))
             {
@@ -31,20 +31,22 @@ namespace MMarket
             }
             
             // Specify the email Subject
-            mailMessage.Subject = "Mail Od Korisnika";
-
+            mailMessage.Subject = "Upit Od Korisnika";
+            
             // Specify the SMTP server name and post number
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient smtpClient = new SmtpClient("mail.habibi-orient.com", 8889);
             // Specify your gmail address and password
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "timraketa666@gmail.com",
-                Password = "vabafet666"
+                UserName = "info@habibi-orient.com",
+                Password = "Habibi123!"
             };
             // Gmail works on SSL, so set this property to true
-            smtpClient.EnableSsl = true;
+            //smtpClient.EnableSsl = true;
             // Finall send the email message using Send() method
             smtpClient.Send(mailMessage);
+            Response.Write("<script>alert('Uspješno ste poslali poruku');window.location='Kontakt.aspx'</script>");
+           
         }
     }
 }

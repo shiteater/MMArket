@@ -101,7 +101,7 @@
                             <i class="fa fa-envelope"></i>   Email
                         </div>
                         <div class="col-sm-8">
-                             <a href="mailto:info@al-pasha.eu">info@al-pasha.eu</a> <br> 
+                             <a href="mailto:info@al-pasha.eu">info@h<span class="text-primary">abibi-orient.com</span></a><br> 
                         </div>
                     </div>
                </div>
