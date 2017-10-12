@@ -11,7 +11,6 @@
                         <span class="step_thankyou check-bc step_complete">Hvala</span>
                     </div>
                 </div>
-
     <br />
     </asp:Panel>
     <asp:Panel ID="Panel1" runat="server"></asp:Panel>

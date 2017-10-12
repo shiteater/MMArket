@@ -39,7 +39,7 @@ namespace MMarket
                 DivContainer.TagName = "div";
                 
                 table.ID = "cart";
-                table.Attributes["class"] = "table table-hover table-condensed";
+                table.Attributes["class"] = "table table-condensed table-responsive";
 
                 HtmlTableRow trThead = new HtmlTableRow();
 
@@ -82,7 +82,7 @@ namespace MMarket
                     divTd.Attributes["class"] = "row";
 
                     HtmlGenericControl divTd1 = new HtmlGenericControl("div");
-                    divTd1.Attributes["class"] = "col-lg-4 col-sm-2";
+                    divTd1.Attributes["class"] = "col-lg-6 col-md-6 col-sm-6 col-xs-6";
 
                     HtmlImage img = new HtmlImage();
                     img.Attributes["class"] = "img-responsive";
@@ -91,7 +91,7 @@ namespace MMarket
                     divTd1.Controls.Add(img);
 
                     HtmlGenericControl divTd2 = new HtmlGenericControl("div");
-                    divTd2.Attributes["class"] = "col-sm-8";
+                    divTd2.Attributes["class"] = "col-lg-6 col-md-6 col-sm-6 col-xs-6";
 
                     HtmlGenericControl h4 = new HtmlGenericControl("h4");
                     h4.Attributes["class"] = "nomargin";

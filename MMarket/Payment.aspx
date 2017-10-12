@@ -4,15 +4,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/Payment.css" rel="stylesheet" />
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <title>Plaćanje</title>
 </head>
 <body>
 <%--    <form id="form1" runat="server">--%>
-        <div class="container">
+        <div class="container wrapper">
             <div class="row cart-head">
                 <div class="container">
                 <div class="row">
