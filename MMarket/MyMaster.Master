@@ -6,6 +6,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Dođite i okusite delicije Bliskog Istoka!
+Slastice,začini,čajevi,žitarice i mnoge druge ukusne namirnice porijeklom iz Turkse,Sirije, Libanona i jos vise.">
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <script src="Scripts/jquery-3.2.1.slim.min.js"></script>
     <script src="Scripts/bootstrap.min.js"></script>
