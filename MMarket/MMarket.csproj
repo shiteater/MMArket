@@ -70,7 +70,6 @@
   <ItemGroup>
     <Content Include="AdminPage.aspx" />
     <Content Include="CajeviKave.aspx" />
-    <Content Include="Cart.aspx" />
     <Content Include="css\AdminStyle.css" />
     <Content Include="css\BadgeStyle.css" />
     <Content Include="css\CartStyle.css" />
@@ -125,6 +124,7 @@
     <Content Include="Sirevi.aspx" />
     <Content Include="SlatkisiGrickalice.aspx" />
     <Content Include="SmrznutaHrana.aspx" />
+    <Content Include="Cart.aspx" />
     <Content Include="zacini.aspx" />
     <Content Include="Zitarice.aspx" />
     <None Include="packages.config" />
@@ -173,13 +173,6 @@
     </Compile>
     <Compile Include="CajeviKave.aspx.designer.cs">
       <DependentUpon>CajeviKave.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cart.aspx.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cart.aspx.designer.cs">
-      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Datulje.aspx.cs">
       <DependentUpon>Datulje.aspx</DependentUpon>
@@ -286,6 +279,13 @@
     </Compile>
     <Compile Include="SmrznutaHrana.aspx.designer.cs">
       <DependentUpon>SmrznutaHrana.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cart.aspx.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cart.aspx.designer.cs">
+      <DependentUpon>Cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="zacini.aspx.cs">
       <DependentUpon>zacini.aspx</DependentUpon>

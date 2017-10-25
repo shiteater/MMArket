@@ -10,7 +10,7 @@ using System.Web.UI.WebControls;
 
 namespace MMarket
 {
-    public partial class Cart : System.Web.UI.Page
+    public partial class TestCart : System.Web.UI.Page
     {
         HtmlTable table = new HtmlTable();
         Label total1 = new Label();
@@ -34,43 +34,6 @@ namespace MMarket
             {
                 Panel2.Visible = true;
 
-                HtmlGenericControl DivContainer = new HtmlGenericControl();
-                DivContainer.Attributes["class"] = "container";
-                DivContainer.TagName = "div";
-                
-                table.ID = "cart";
-                table.Attributes["class"] = "table table-condensed table-responsive";
-
-                HtmlTableRow trThead = new HtmlTableRow();
-
-                HtmlTableCell th1 = new HtmlTableCell("th");
-                th1.Style.Add("width", "50%");
-                th1.InnerText = "Proizvod";
-
-                HtmlTableCell th2 = new HtmlTableCell("th");
-                th2.Style.Add("width", "10%");
-                th2.InnerText = "Cijena";
-
-                HtmlTableCell th3 = new HtmlTableCell("th");
-                th3.Style.Add("width", "8%");
-                th3.InnerText = "Količina";
-
-                HtmlTableCell th4 = new HtmlTableCell("th");
-                th4.Style.Add("width", "22%");
-                th4.Attributes["class"] = "text-center";
-                th4.InnerText = "Subtotal";
-
-                HtmlTableCell th5 = new HtmlTableCell("th");
-                th5.Style.Add("width", "10%");
-
-                trThead.Cells.Add(th1);
-                trThead.Cells.Add(th2);
-                trThead.Cells.Add(th3);
-                trThead.Cells.Add(th4);
-                trThead.Cells.Add(th5);
-
-                table.Rows.Add(trThead);
-                
                 foreach (DataRow item in ((DataTable)Session["CartTable"]).Rows)
                 {
                     HtmlTableRow trTbody = new HtmlTableRow();
@@ -82,7 +45,7 @@ namespace MMarket
                     divTd.Attributes["class"] = "row";
 
                     HtmlGenericControl divTd1 = new HtmlGenericControl("div");
-                    divTd1.Attributes["class"] = "col-lg-6 col-md-6 col-sm-6 col-xs-6";
+                    divTd1.Attributes["class"] = "col-lg-6 col-md-6 hidden-sm hidden-xs";
 
                     HtmlImage img = new HtmlImage();
                     img.Attributes["class"] = "img-responsive";
@@ -91,7 +54,7 @@ namespace MMarket
                     divTd1.Controls.Add(img);
 
                     HtmlGenericControl divTd2 = new HtmlGenericControl("div");
-                    divTd2.Attributes["class"] = "col-lg-6 col-md-6 col-sm-6 col-xs-6";
+                    divTd2.Attributes["class"] = "col-lg-6 col-md-6";
 
                     HtmlGenericControl h4 = new HtmlGenericControl("h4");
                     h4.Attributes["class"] = "nomargin";
@@ -109,13 +72,11 @@ namespace MMarket
                     divTd.Controls.Add(divTd2);
 
                     tdTbody1.Controls.Add(divTd);
-                    tdTbody1.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody2 = new HtmlTableCell("td");
                     //tdTbody2.ID = "price_" + item.ItemArray[0];
                     tdTbody2.Attributes["data-th"] = "Cijena";
                     //tdTbody2.InnerText = item.ItemArray[3].ToString();
-                    tdTbody2.Style.Add("vertical-align", "middle");
                     Label lblPrice = new Label();
                     lblPrice.ID = "price_" + ((DataTable)Session["CartTable"]).Rows.IndexOf(item);
                     lblPrice.Text = item.ItemArray[3].ToString();
@@ -131,10 +92,12 @@ namespace MMarket
                     //inputNumber.Value = "1";
 
                     HtmlTable myTable1 = new HtmlTable();
+                    myTable1.Attributes["class"] = "col-sm-12 col-xs-12";
                     HtmlTableRow myRow1 = new HtmlTableRow();
                     HtmlTableCell myCell1 = new HtmlTableCell();
                     HtmlTableCell myCell2 = new HtmlTableCell();
                     HtmlTable myTable2 = new HtmlTable();
+                    myTable2.Attributes["class"] = "col-sm-12 col-xs-12";
                     HtmlTableRow myRow2 = new HtmlTableRow();
                     HtmlTableRow myRow3 = new HtmlTableRow();
                     HtmlTableCell myCell3 = new HtmlTableCell();
@@ -153,6 +116,7 @@ namespace MMarket
                     tbxCountity.Text = item.ItemArray[6].ToString();
                     tbxCountity.BorderStyle = BorderStyle.Groove;
                     tbxCountity.BorderColor = System.Drawing.ColorTranslator.FromHtml("#F1C13C");
+                    tbxCountity.ForeColor = System.Drawing.Color.Black;
                     tbxCountity.Width = 50;
                     tbxCountity.Style.Add("text-align", "center");
                     tbxCountity.Style.Add("margin-right", "5px");
@@ -202,7 +166,6 @@ namespace MMarket
                     myCell4.Controls.Add(myCom2);
 
                     tdTbody3.Controls.Add(myTable1);
-                    tdTbody3.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody4 = new HtmlTableCell("td");
                     //tdTbody4.ID = "subTotalNum_" + item.ItemArray[0];
@@ -216,7 +179,6 @@ namespace MMarket
                     tdTbody4.Controls.Add(lblPriceSub);
 
                     //tdTbody4.InnerText = item.ItemArray[3].ToString();
-                    tdTbody4.Style.Add("vertical-align", "middle");
 
                     HtmlTableCell tdTbody5 = new HtmlTableCell("td");
                     tdTbody5.Attributes["data-th"] = "";
@@ -239,10 +201,8 @@ namespace MMarket
 
                     para111.Controls.Add(btnTbody);
                     commerce11.Controls.Add(para111);
-                    commerce11.Style.Add("float", "right");
 
                     tdTbody5.Controls.Add(commerce11);
-                    tdTbody5.Style.Add("vertical-align", "middle");
 
                     trTbody.Cells.Add(tdTbody1);
                     trTbody.Cells.Add(tdTbody2);
@@ -250,34 +210,25 @@ namespace MMarket
                     trTbody.Cells.Add(tdTbody4);
                     trTbody.Cells.Add(tdTbody5);
 
-                    table.Rows.Add(trTbody);
+                    trProducts.Controls.Add(trTbody);
                 }
-
-                HtmlTableRow rowCon = new HtmlTableRow();
-
-                HtmlTableCell cellCon = new HtmlTableCell("td");
-
-                HtmlTableRow trTfoot1 = new HtmlTableRow();
-                trTfoot1.Attributes["class"] = "visible-xs";
-
-                HtmlTableCell tdFoot = new HtmlTableCell("td");
-                tdFoot.Attributes["class"] = "text-center";
 
                 HtmlTable subTableFoot = new HtmlTable();
 
                 HtmlTableRow tr1 = new HtmlTableRow();
-                
+
                 HtmlTableCell tdFoot1 = new HtmlTableCell("td");
                 lblDelivery.ID = "delivery";
                 lblDelivery.Font.Bold = true;
                 lblDelivery.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
                 tdFoot1.Controls.Add(lblDelivery);
                 tr1.Cells.Add(tdFoot1);
+                tr1.Attributes["class"] = "col-xs-12 col-sm-12 text-center";
 
                 HtmlTableRow tr2 = new HtmlTableRow();
 
                 HtmlTableCell tdFoot2 = new HtmlTableCell("td");
-                
+
                 total.ID = "totalPrice";
                 total.Font.Bold = true;
                 total.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
@@ -285,13 +236,12 @@ namespace MMarket
                 tdFoot2.Controls.Add(total);
 
                 tr2.Cells.Add(tdFoot2);
+                tr2.Attributes["class"] = "col-xs-12 col-sm-12 text-center";
 
                 subTableFoot.Rows.Add(tr1);
                 subTableFoot.Rows.Add(tr2);
 
-                tdFoot.Controls.Add(subTableFoot);
-
-                trTfoot1.Cells.Add(tdFoot);
+                tdHidden.Controls.Add(subTableFoot);
 
                 HtmlTableRow trTfoot2 = new HtmlTableRow();
 
@@ -325,7 +275,6 @@ namespace MMarket
 
                 para1.Controls.Add(anchor);
                 commerce.Controls.Add(para1);
-                commerce.Style.Add("float", "left");
 
                 secTd1.Controls.Add(commerce);
 
@@ -350,7 +299,7 @@ namespace MMarket
                 HtmlTableRow tr21 = new HtmlTableRow();
 
                 HtmlTableCell tdFoot21 = new HtmlTableCell("td");
-                
+
                 total1.ID = "totalPrice1";
                 total1.Font.Bold = true;
                 total1.ForeColor = System.Drawing.ColorTranslator.FromHtml("#764069");
@@ -396,25 +345,13 @@ namespace MMarket
 
                 para11.Controls.Add(anchor1);
                 commerce1.Controls.Add(para11);
-                commerce1.Style.Add("float", "right");
 
                 secTd4.Controls.Add(commerce1);
 
-                trTfoot2.Cells.Add(secTd1);
-                trTfoot2.Cells.Add(secTd2);
-                trTfoot2.Cells.Add(secTd3);
-                trTfoot2.Cells.Add(secTd4);
-
-                cellCon.Controls.Add(trTfoot1);
-                cellCon.Controls.Add(trTfoot2);
-
-                rowCon.Cells.Add(cellCon);
-
-                table.Rows.Add(rowCon);
-
-                DivContainer.Controls.Add(table);
-
-                Panel2.Controls.Add(DivContainer);
+                trFooter.Cells.Add(secTd1);
+                trFooter.Cells.Add(secTd2);
+                trFooter.Cells.Add(secTd3);
+                trFooter.Cells.Add(secTd4);
 
                 if (!IsPostBack)
                 {
@@ -422,25 +359,25 @@ namespace MMarket
                     DeliveryCalculator();
                 }
 
-            //    string myScript = "\n<script type=\"text/javascript\" language=\"Javascript\" id=\"EventScriptBlock\">\n";
-            //    myScript += "$('#ContentPlaceHolder2_myInput').on('change', function (e) {" +
-            //    "if ($(this).data(\"lastval\") != $(this).val()) {" +
-            //        "if ($(this).val() < 1 || !$.isNumeric($(this).val())) {" +
-            //            "$(this).val(1);" +
-            //        "}" +
-            //        "$(this).data(\"lastval\", $(this).val());" +
+                //    string myScript = "\n<script type=\"text/javascript\" language=\"Javascript\" id=\"EventScriptBlock\">\n";
+                //    myScript += "$('#ContentPlaceHolder2_myInput').on('change', function (e) {" +
+                //    "if ($(this).data(\"lastval\") != $(this).val()) {" +
+                //        "if ($(this).val() < 1 || !$.isNumeric($(this).val())) {" +
+                //            "$(this).val(1);" +
+                //        "}" +
+                //        "$(this).data(\"lastval\", $(this).val());" +
 
-            //        "$('#ContentPlaceHolder2_subTotalNum').val($(this).val() * $('#ContentPlaceHolder2_price').text());" +
-            //        "$('#ContentPlaceHolder2_subTotalNum').text($('#ContentPlaceHolder2_subTotalNum').val() + ' kn');" +
+                //        "$('#ContentPlaceHolder2_subTotalNum').val($(this).val() * $('#ContentPlaceHolder2_price').text());" +
+                //        "$('#ContentPlaceHolder2_subTotalNum').text($('#ContentPlaceHolder2_subTotalNum').val() + ' kn');" +
 
-            //    //"$('#total').text(+$('#subTotalNum').val()); "+
-            //    //"$('#total1').text(+$('#subTotalNum').val()); "+
-            //    //"$('#total').val(+$('#subTotalNum').val()); "+
-            //    //"$('#total1').val(+$('#subTotalNum').val()); "+
-            //    "};" +
-            //"});";
-            //    myScript += "\n\n </script>";
-            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "myKey", myScript, false);
+                //    //"$('#total').text(+$('#subTotalNum').val()); "+
+                //    //"$('#total1').text(+$('#subTotalNum').val()); "+
+                //    //"$('#total').val(+$('#subTotalNum').val()); "+
+                //    //"$('#total1').val(+$('#subTotalNum').val()); "+
+                //    "};" +
+                //"});";
+                //    myScript += "\n\n </script>";
+                //    Page.ClientScript.RegisterStartupScript(this.GetType(), "myKey", myScript, false);
             }
             else
             {
@@ -502,16 +439,16 @@ namespace MMarket
             int row = int.Parse(resultString);
 
             int testBroj;
-            if (!int.TryParse(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text, out testBroj)
-                || string.IsNullOrWhiteSpace(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text)
+            if (!int.TryParse(((TextBox)sender).Text, out testBroj)
+                || string.IsNullOrWhiteSpace(((TextBox)((HtmlTable)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text)
                 || testBroj < 1)
             {
-                ((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = ((DataTable)Session["CartTable"]).Rows[row].ItemArray[6].ToString();
-                ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[6].ToString()) * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+                ((TextBox)sender).Text = ((DataTable)Session["CartTable"]).Rows[row].ItemArray[6].ToString();
+                ((Label)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[3].Controls[0]).Text = (float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[6].ToString()) * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
             }
             else
             {
-                ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (testBroj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+                ((Label)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[3].Controls[0]).Text = (testBroj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
                 ((DataTable)Session["CartTable"]).Rows[row].SetField(6, ((TextBox)sender).Text);
             }
 
@@ -523,11 +460,11 @@ namespace MMarket
         {
             string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
             int row = int.Parse(resultString);
-            int broj = int.Parse(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text);
+            int broj = int.Parse(((TextBox)((HtmlTable)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text);
             ++broj;
-            ((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = broj.ToString();
+            ((TextBox)((HtmlTable)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = broj.ToString();
             ((DataTable)Session["CartTable"]).Rows[row].SetField(6, broj.ToString());
-            ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (broj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+            ((Label)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[3].Controls[0]).Text = (broj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
 
             TotalCalculator();
             DeliveryCalculator();
@@ -537,15 +474,15 @@ namespace MMarket
         {
             string resultString = Regex.Match(((HtmlButton)sender).ID, @"\d+").Value;
             int row = int.Parse(resultString);
-            int broj = int.Parse(((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text);
+            int broj = int.Parse(((TextBox)((HtmlTable)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text);
             --broj;
             if (broj < 1)
             {
                 broj = 1;
             }
-            ((TextBox)((HtmlTable)table.Rows[row + 1].Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = broj.ToString();
+            ((TextBox)((HtmlTable)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[2].Controls[0]).Rows[0].Cells[0].Controls[0]).Text = broj.ToString();
             ((DataTable)Session["CartTable"]).Rows[row].SetField(6, broj.ToString());
-            ((Label)table.Rows[row + 1].Cells[3].Controls[0]).Text = (broj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
+            ((Label)((HtmlTableRow)(HtmlControl)trProducts.Controls[row + 1]).Cells[3].Controls[0]).Text = (broj * float.Parse(((DataTable)Session["CartTable"]).Rows[row].ItemArray[3].ToString())).ToString();
 
             TotalCalculator();
             DeliveryCalculator();
